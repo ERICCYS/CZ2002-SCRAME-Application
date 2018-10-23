@@ -6,7 +6,7 @@ public class Mark {
     private String studentID;
     private String courseID;
     private double examMark;
-    private HashMap<String, Double> courseWorkMarks;
+    private HashMap<String,                          Double> courseWorkMarks;
     private double totalMark;
 
     public Mark(String studentID, String courseID, double examMark, HashMap<String, Double> courseWorkMarks, double totalMark) {
