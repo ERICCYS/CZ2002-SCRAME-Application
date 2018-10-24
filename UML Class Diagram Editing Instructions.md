@@ -1,7 +1,6 @@
 # UML Diagram Editing Instructions
 
-#### 24/10/2018
-
+### TO DO
 Regarding today's meeting, the following things needs to be changed
 
 - Student (Entity) (Fine for now)
@@ -44,7 +43,7 @@ Regarding today's meeting, the following things needs to be changed
   Combine the Mgrs to the classes, using dependency relationship. (Can refer to the lecture notes)
 
 
-###### `Note`: Since the conflict of UML Diagram file (.vpp) cannot be resolve, I recommend that we don't do the changes together at the same time, this will be messy. Thus, we should do it separately at separate time. After the previous person pushed, then the next person pull and continue working
+##### `Note`: Since the conflict of UML Diagram file (.vpp) cannot be resolve, I recommend that we don't do the changes together at the same time, this will be messy. Thus, we should do it separately at separate time. After the previous person pushed, then the next person pull and continue working
 
 | Changes                | Allocation  | Date     |
 | :--------------------: | :---------: | :------: |
@@ -52,3 +51,5 @@ Regarding today's meeting, the following things needs to be changed
 | Course                 |             | Friday   |
 | Marks                  |             | Saturday |
 | Mgrs and Other changes |             | Sunday   |
+
+### How To?
