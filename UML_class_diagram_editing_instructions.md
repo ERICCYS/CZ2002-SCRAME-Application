@@ -36,6 +36,7 @@ Regarding today's meeting, the following things needs to be changed
 
   - Addition
     - courseWorkMarks: <Component, double>
+    - (We need to identify which main-component should be calculated into the final marks, by looking at how may sub-components it has)
 
   - totalMark (Doesn't need to be changed)
 
