@@ -53,3 +53,56 @@ Regarding today's meeting, the following things needs to be changed
 | Mgrs and Other changes |             | Sunday   |
 
 ### How To?
+
+#### Step 0: Find your work:
+
+Inside the table in this .md file (above...) put you name under the Allocation column.
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/add_your_allocation.png )
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/allocate_your_work.png)
+
+#### Step 1: Pull the repo first
+
+Before you change everything, make sure the code/file on your local side is the latest. Thus, you need to pull the changes.
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/before_changing_everything.png)
+
+#### Step 2: Find the UML Diagram file and Make your changes
+
+Follow the instruction to find the project and make your changes
+
+- Find the project
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/find_UML_diagrams.png)
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/open_UML_diagrams.png)
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/note_on_UML_diagrams.png)
+
+- Change of UML Diagrams (Your turn!)
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/change_UML_diagrams.png)
+
+- After doing some changes you will find some new file in the project folder
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/after_change_UML_diagrams.png)
+
+- Make sure everything is fine, then you can push, cool!
+
+#### Step 3: Commit and Push your changes
+
+- Go to GitKraken, (I really recommend you have this tool), stage changes first
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/stage_files.png)
+
+- Commit them, with appropriate commit message
+- Good commit message would be "Add XXX(feature)", "Update XXX", "Edit XXX" ect.
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/commit_changes.png)
+
+- `DON'T FORGET TO PUSH`
+
+![alt text](https://github.com/MAXI0008/CZ2002-SCRAME-Application/raw/master/images/push_changes.png)
+
+#### Nice Work dude! You have made a great contribution to our SCRAME!
