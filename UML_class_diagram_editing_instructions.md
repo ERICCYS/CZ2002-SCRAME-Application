@@ -19,7 +19,7 @@ Regarding today's meeting, the following things needs to be changed
 - `CourseComponent` (Interface) (This is a new stuff need to be added)
   - (This is an interface for the purpose of conveniently store the marks for each course component)
   - (Two Classes will implement this Interface)
-
+ ##### 'Note' from Kev: renamed attributes, starts with lowercase, of Course to be more consistent. 
 
 - СourseRegistration (Entity)
   - Changes
