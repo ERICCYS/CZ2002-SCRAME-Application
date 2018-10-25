@@ -46,7 +46,7 @@ Regarding today's meeting, the following things needs to be changed
 
 ##### `Note`: Since the conflict of UML Diagram file (.vpp) cannot be resolve, I recommend that we don't do the changes together at the same time, this will be messy. Thus, we should do it separately at separate time. After the previous person pushed, then the next person pull and continue working
 
-| Changes                | Allocation  | Date     |
+| Changes                | Allocation  | Date     | 
 | :--------------------: | :---------: | :------: |
 | CourseComponent        | Eric        | Thursday |
 | Course                 |             | Friday   |
