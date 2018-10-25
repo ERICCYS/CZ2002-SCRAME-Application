@@ -50,8 +50,8 @@ Regarding today's meeting, the following things needs to be changed
 | :--------------------: | :---------: | :------: |
 | CourseComponent        | Eric        | Thursday |
 | Course                 |             | Friday   |
-| Marks                  |             | Saturday |
-| Mgrs and Other changes |             | Sunday   |
+| Marks                  | Ian         | Saturday |
+| Mgrs and Other changes | Kenneth     | Sunday   |
 
 ### How To?
 
