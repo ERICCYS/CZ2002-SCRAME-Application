@@ -16,10 +16,11 @@ Regarding today's meeting, the following things needs to be changed
   - Addition
     - totalVacancies: int (Or totalSeats: int)
   - The rest doesn't need to be changed
-- `CourseComponent` (Interface) (This is a new stuff need to be added)
-  - (This is an interface for the purpose of conveniently store the marks for each course component)
-  - (Two Classes will implement this Interface)
- ##### 'Note' from Kev: renamed attributes, starts with lowercase, of Course to be more consistent. 
+- `CourseComponent` (`Abstract Class`) (This is a new stuff need to be added)
+  - Update from Eric: This is the prof's suggestion, reason is that the main & sub component has common attributes, and can put it inside an abstract class.
+  - (This is an `abstract class` for the purpose of conveniently store the marks for each course component)
+  - (Two Classes will `inherit from` this `abstract class`)
+ ##### 'Note' from Kev: renamed attributes, starts with lowercase, of Course to be more consistent.
 
 - СourseRegistration (Entity)
   - Changes
@@ -50,7 +51,7 @@ Regarding today's meeting, the following things needs to be changed
 | Changes                | Allocation  | Date     | Status   |
 | :--------------------: | :---------: | :------: | :------: |
 | CourseComponent        | Eric        | Thursday | Done     |
-| Course                 |      Kevin       | Friday   |  Done    |
+| Course                 | Kevin       | Friday   | Done     |
 | Marks                  | Ian         | Saturday |      |
 | Mgrs and Other changes | Kenneth     | Sunday   |      |
 
