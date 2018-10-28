@@ -53,7 +53,7 @@ Regarding today's meeting, the following things needs to be changed
 | CourseComponent        | Eric        | Thursday | Done     |
 | Course                 | Kevin       | Friday   | Done     |
 | Marks                  | Ian         | Saturday | Done     |
-| Mgrs and Other changes | Kenneth     | Sunday   |      |
+| Mgrs and Other changes | Kenneth     | Sunday   | Done     |
 
 ### How To?
 
