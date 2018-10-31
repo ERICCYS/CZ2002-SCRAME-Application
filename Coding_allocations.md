@@ -13,7 +13,6 @@
 | FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |      | |
 | Add Student                                 | Mengyan     |           |          |                    |
 | Add Course                                  | Mengyan     | Initialize all the weightage to 0 |      | |
-| Register Student For A Course               | Mengyan     |           |          |                    |
 | Check Available Slots                       | Mengyan     |           |          |                    |
 | Print Student List                          |             | Print the student list in a group |      | |
 | Enter course assessment components weightage|             |           |          |                    |
@@ -21,6 +20,14 @@
 | Enter exam mark                             |             | Similar to "Enter coursework mark" |      | |
 | Print course statistics                     |             |           |          |                    |
 | Print student transcript                    |             |           |          |                    |
+
+
+Guys, pls provide some notes here that you think is useful for teammates.
+
+#### Note:
+- `Use keyword static if this function needs to be called outside using Class_Name.Method_Name` e.g. Most methods inside Mgr classes need to be declared as `static`.
+
+
 
 
 #### Happy Coding! Cheers!
