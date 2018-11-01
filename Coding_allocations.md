@@ -14,8 +14,8 @@
 | Add Student                                 | Mengyan     |           |          |                    |
 | Add Course                                  | Mengyan     | Initialize all the weightage to 0 |      | |
 | Check Available Slots                       | Mengyan     |           |          |                    |
-| Print Student List                          |             | Print the student list in a group |      | |
-| Enter course assessment components weightage|             |           |          |                    |
+| Print Student List                          | Kevin            | Print the student list in a group |      | |
+| Enter course assessment components weightage| Kevin            |           |          |                    |
 | Enter coursework mark                       |             | inclusive of its components |      | |
 | Enter exam mark                             |             | Similar to "Enter coursework mark" |      | |
 | Print course statistics                     |             |           |          |                    |
