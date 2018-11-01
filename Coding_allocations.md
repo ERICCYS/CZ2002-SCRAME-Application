@@ -26,7 +26,7 @@ Guys, pls provide some notes here that you think is useful for teammates.
 
 #### Note:
 - `Use keyword static if this function needs to be called outside using Class_Name.Method_Name` e.g. Most methods inside Mgr classes need to be declared as `static`.
-
+- For CSV file reader and write, there is a sample project "FileIOTest" please feel free to take it as reference. Any better idea is welcomed.
 
 
 
