@@ -18,8 +18,8 @@
 | Enter course assessment components weightage| Kevin            |           |          |                    |
 | Enter coursework mark                       |             | inclusive of its components |      | |
 | Enter exam mark                             |             | Similar to "Enter coursework mark" |      | |
-| Print course statistics                     |             |           |          |                    |
-| Print student transcript                    |             |           |          |                    |
+| Print course statistics                     | Kenneth     |           |          |                    |
+| Print student transcript                    | Kenneth     |           |          |                    |
 
 
 Guys, pls provide some notes here that you think is useful for teammates.
