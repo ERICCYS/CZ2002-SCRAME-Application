@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class Main {
     public static ArrayList<Student> students = new ArrayList<Student>(0);
+
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         String fileName = "data/Students.csv";
 
         System.out.println("Read CSV file:");
@@ -15,7 +16,7 @@ public class Main {
             System.out.println(student.toString());
         }
 
-        String anotherFileName  = "data/Students_Copy.csv";
+        String anotherFileName = "data/Students_Copy.csv";
         CSVFileWriter.writeCSVFile(anotherFileName, students);
 //
 //        students = CSVFileReader.readCSVFile(anotherFileName);
@@ -24,4 +25,5 @@ public class Main {
 //            System.out.println(student.toString());
 //        }
     }
+
 }

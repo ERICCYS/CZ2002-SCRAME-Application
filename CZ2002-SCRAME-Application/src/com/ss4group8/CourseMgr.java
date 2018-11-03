@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CourseMgr {
-    private Scanner scanner = new Scanner(System.in);
-    public Course addCourse() {
-        String courseID;
-        System.out.println("Enter the course id: ");
-        courseID = scanner.nextLine();
+    private static Scanner scanner = new Scanner(System.in);
+    public static Course addCourse(String courseID) {
+        String courseName;
         int noOfLectureGroups;
+        System.out.println("Enter course Name: ");
+        courseName = scanner.nextLine();
         System.out.println("Enter the number of lecture groups:");
         noOfLectureGroups = scanner.nextInt();
         scanner.nextLine();
@@ -32,7 +32,17 @@ public class CourseMgr {
         }
         // Here is the simplest version, haven't consider the other attributes yet.
         Course course = new Course(courseID, lectureGroups);
+        //add course into file
+        FILEIOMgr.writeCourseIntoFile(course);
         return course;
     }
 
+    public static void checkAvailableSlots(Course course){
+        //printout the result directly
+        int vacancy = 0;
+        for(LectureGroup lecGroup:course.getLectureGroups()){
+            vacancy += lecGroup.getCapacity();
+        }
+        System.out.println("This course " + course.getLectureGroups() + " still has " + vacancy + "available slots.");
+    }
 }

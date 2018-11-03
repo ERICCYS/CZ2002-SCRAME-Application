@@ -52,7 +52,7 @@ public class CSVFileReader {
             }
             catch (IOException e) {
                 System.out.println("Error while closing fileReader!");
-                e.printStackTrace();;
+                e.printStackTrace();
             }
         }
 

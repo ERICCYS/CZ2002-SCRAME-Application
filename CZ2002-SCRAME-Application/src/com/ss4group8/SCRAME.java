@@ -1,5 +1,7 @@
 package com.ss4group8;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,9 +16,11 @@ public class SCRAME {
 
     public static void main(String[] args) {
 
-//        Functions to be implmented to get the data
-//        students = FILEIOMgr.loadStudents();
-//        courses = FILEIOMgr.loadCourses();
+        FILEIOMgr.initializeStudentFile();
+        FILEIOMgr.initializeCourseFile();
+
+        students = FILEIOMgr.loadStudents();
+        courses = FILEIOMgr.loadCourses();
 //        courseRegistrations = FILEIOMgr.loadCourseRegistrations();
 //        marks = FILEIOMgr.loadMarks();
 
@@ -124,27 +128,40 @@ public class SCRAME {
     public static void addStudent() {
         String studentName;
         String studentID;
+        int sameStudentID = 0;
         System.out.println("addStudent is called");
         System.out.println("Enter student Name: ");
         studentName = scanner.nextLine();
-        System.out.println("Give this student an ID");
-        studentID = scanner.nextLine();
-        // Exception handling
-
-        StudentMgr.addStudent();
+        do{System.out.println("Give this student an ID");
+            studentID = scanner.nextLine();
+        for(Student student:students){
+            sameStudentID = 0;
+            if(student.getStudentID().equals(studentID)){
+                System.out.println("This student ID is already used. Please enter a new one.");
+                sameStudentID = 1;
+                break;
+            }
+        }}while(sameStudentID == 1);
+        Student newStudent = new Student(studentID, studentName);
+        students.add(StudentMgr.addStudent(newStudent));
     }
 
     public static void addCourse() {
-        System.out.println("addCourse is called");
-        String courseName;
         String courseID;
-        System.out.println("addStudent is called");
-        System.out.println("Enter course Name: ");
-        courseName = scanner.nextLine();
-        System.out.println("Give this course an ID");
+        int sameCourseID = 0;
+        System.out.println("addCourse is called");
+        do{System.out.println("Give this course an ID");
         courseID = scanner.nextLine();
-        // Exception handling
-
+        for(Course course:courses){
+            sameCourseID = 0;
+            if(course.getCourseID().equals(courseID)){
+                System.out.println("This course ID is already used. Please enter a new one.");
+                sameCourseID = 1;
+                break;
+            }
+        }
+            }while(sameCourseID == 1);
+        courses.add(CourseMgr.addCourse(courseID));
     }
 
     public static void registerCourse() {
@@ -163,10 +180,23 @@ public class SCRAME {
     public static void checkAvailableSlots() {
         System.out.println("checkAvailableSlots is called");
         String courseID;
-        System.out.println("Enter course ID");
-        courseID = scanner.nextLine();
-        // Exception handling
-        // Get the course and student. Call the function inside the Course Mgr
+        int exist;
+        do{
+            exist = 0;
+            System.out.println("Enter course ID");
+            courseID = scanner.nextLine();
+            for(Course course:courses){
+                if(course.getCourseID().equals(courseID)){
+                    exist = 1;
+                }
+            }
+            if(exist == 1){
+                CourseMgr.checkAvailableSlots(courseID);
+                break;
+            }
+            else{
+                System.out.println("This course does not exist. Please check again.");
+        }}while(true);
     }
 
     public static void printStudents() {
