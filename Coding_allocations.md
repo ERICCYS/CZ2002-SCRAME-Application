@@ -11,13 +11,13 @@
 | :-----------------------------------------: | :---------: | :------:  | :------: |:----------------:  |
 | SCRAME (Main)                               | Eric        | No need to create detailed functions inside | Half Done | Waiting for other functions |
 | FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Doing | |
-| Add Student                                 | Mengyan     |           |          |                    |
-| Add Course                                  | Mengyan     | Initialize all the weightage to 0 |      | |
-| Check Available Slots                       | Mengyan     |           |          |                    |
+| Add Student                                 | Mengyan     |           |   Done       |                    |
+| Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | |
+| Check Available Slots                       | Mengyan     |           |    Done     |                    |
 | Print Student List                          | Kevin            | Print the student list in a group |      | |
 | Enter course assessment components weightage| Kevin            |           |          |                    |
-| Enter coursework mark                       |             | inclusive of its components |      | |
-| Enter exam mark                             |             | Similar to "Enter coursework mark" |      | |
+| Enter coursework mark                       | Ian           | inclusive of its components |      | |
+| Enter exam mark                             | Ian       | Similar to "Enter coursework mark" |      | |
 | Print course statistics                     | Kenneth     |           |          |                    |
 | Print student transcript                    | Kenneth     |           |          |                    |
 
