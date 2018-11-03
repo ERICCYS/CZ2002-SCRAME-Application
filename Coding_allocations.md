@@ -11,8 +11,8 @@
 | :-----------------------------------------: | :---------: | :------:  | :------: |:----------------:  |
 | SCRAME (Main)                               | Eric        | No need to create detailed functions inside | Half Done | Waiting for other functions |
 | FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Doing | |
-| Add Student                                 | Mengyan     |           |          |                    |
-| Add Course                                  | Mengyan     | Initialize all the weightage to 0 |      | |
+| Add Student                                 | Mengyan     |           |   Done       |                    |
+| Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Half done    | |
 | Check Available Slots                       | Mengyan     |           |          |                    |
 | Print Student List                          | Kevin            | Print the student list in a group |      | |
 | Enter course assessment components weightage| Kevin            |           |          |                    |
