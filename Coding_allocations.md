@@ -10,7 +10,7 @@
 | Class/Function                              | Allocation  | Note      | Status   | Additional Comments|
 | :-----------------------------------------: | :---------: | :------:  | :------: |:----------------:  |
 | SCRAME (Main)                               | Eric        | No need to create detailed functions inside | Half Done | Waiting for other functions |
-| FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Doing | |
+| FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Half Done |Students and courses part alr done|
 | Add Student                                 | Mengyan     |           |   Done       |                    |
 | Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | |
 | Check Available Slots                       | Mengyan     |           |    Done     |                    |
