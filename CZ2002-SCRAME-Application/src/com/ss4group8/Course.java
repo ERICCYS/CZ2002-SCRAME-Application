@@ -14,9 +14,11 @@ public class Course {
     private ArrayList<LabGroup> labGroups;
     private HashMap<String, Double> CourseWorks;
 
-    public Course(String courseID, String courseName, ArrayList<LectureGroup> lectureGroups) {
+    public Course(String courseID, String courseName, Professor profInCharge, int totalSeats, ArrayList<LectureGroup> lectureGroups) {
         this.CourseID = courseID;
         this.courseName = courseName;
+        this.profInCharge = profInCharge;
+        this.totalSeats = this.vacancies = totalSeats;
         this.lectureGroups = lectureGroups;
     }
 
@@ -39,6 +41,20 @@ public class Course {
     public ArrayList<TutorialGroup> getTutorialGroups() { return this.tutorialGroups; }
 
     public ArrayList<LabGroup> getLabGroups() { return this.labGroups; }
+
+    public HashMap<String, Double> getCourseWorks(){ return this.CourseWorks; }
+
+    public void setTutorialGroups(ArrayList<TutorialGroup> tutorialGroups){
+        this.tutorialGroups  = tutorialGroups;
+    }
+
+    public void setLabGroups(ArrayList<LabGroup> labGroups){
+        this.labGroups = labGroups;
+    }
+
+    public void setCourseWorks(HashMap<String,Double> courseWorks){
+        this.CourseWorks = courseWorks;
+    }
 
     public void printLectureGroup() {
         for (int i = 0; i < lectureGroups.size(); i++) {
