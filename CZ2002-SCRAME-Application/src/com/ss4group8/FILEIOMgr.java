@@ -4,12 +4,12 @@ import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
 
-public class FILEIOMgr {
+public class FILEMgr {
     //loadCourses
     //loadCourseRegistrations
     //loadMarks
     private static final String COMMA_DELIMITER=",";
-    private static final String NEW_LINE_SEPARATER="\n";
+    private static final String NEW_LINE_SEPARATOR="\n";
 
     private static final String studentFileName = "data/studentFile.csv";
     private static final String courseFileName = "data/courseFile.csv";
@@ -50,7 +50,7 @@ public class FILEIOMgr {
             fileWriter.append(student.getStudentID());
             fileWriter.append(COMMA_DELIMITER);
             fileWriter.append(student.getStudentName());
-            fileWriter.append(NEW_LINE_SEPARATER);
+            fileWriter.append(NEW_LINE_SEPARATOR);
         }catch(Exception e){
             System.out.println("Error in adding a student to the file.");
             e.printStackTrace();
@@ -70,8 +70,8 @@ public class FILEIOMgr {
     public static ArrayList loadStudents(){
         BufferedReader fileReader = null;
         try{
-            List students = new ArrayList();
-            String line = "";
+            ArrayList<Student> students = new ArrayList<Student>(0);
+            String line;
             fileReader = new BufferedReader(new FileReader(studentFileName));
             fileReader.readLine();//read the header to skip it
             while((line = fileReader.readLine())!=null){

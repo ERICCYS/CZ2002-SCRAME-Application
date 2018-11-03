@@ -16,11 +16,11 @@ public class SCRAME {
 
     public static void main(String[] args) {
 
-        FILEIOMgr.initializeStudentFile();
-        FILEIOMgr.initializeCourseFile();
+        FILEMgr.initializeStudentFile();
+        FILEMgr.initializeCourseFile();
 
-        students = FILEIOMgr.loadStudents();
-        courses = FILEIOMgr.loadCourses();
+        students = FILEMgr.loadStudents();
+        courses = FILEMgr.loadCourses();
 //        courseRegistrations = FILEIOMgr.loadCourseRegistrations();
 //        marks = FILEIOMgr.loadMarks();
 
@@ -180,6 +180,7 @@ public class SCRAME {
     public static void checkAvailableSlots() {
         System.out.println("checkAvailableSlots is called");
         String courseID;
+        int index = 0;
         int exist;
         do{
             exist = 0;
@@ -188,10 +189,11 @@ public class SCRAME {
             for(Course course:courses){
                 if(course.getCourseID().equals(courseID)){
                     exist = 1;
+                    index++;
                 }
             }
             if(exist == 1){
-                CourseMgr.checkAvailableSlots(courseID);
+                CourseMgr.checkAvailableSlots(courses.get(index));
                 break;
             }
             else{

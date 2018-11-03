@@ -31,9 +31,9 @@ public class CourseMgr {
             lectureGroups.add(lectureGroup);
         }
         // Here is the simplest version, haven't consider the other attributes yet.
-        Course course = new Course(courseID, lectureGroups);
+        Course course = new Course(courseID, courseName, lectureGroups);
         //add course into file
-        FILEIOMgr.writeCourseIntoFile(course);
+        FILEMgr.writeCourseIntoFile(course);
         return course;
     }
 
