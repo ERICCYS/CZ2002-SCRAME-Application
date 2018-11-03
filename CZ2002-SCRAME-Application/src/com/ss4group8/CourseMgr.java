@@ -39,10 +39,6 @@ public class CourseMgr {
 
     public static void checkAvailableSlots(Course course){
         //printout the result directly
-        int vacancy = 0;
-        for(LectureGroup lecGroup:course.getLectureGroups()){
-            vacancy += lecGroup.getCapacity();
-        }
-        System.out.println("This course " + course.getLectureGroups() + " still has " + vacancy + "available slots.");
+        System.out.println("This course " + course.getLectureGroups() + " still has " + course.getVacancies() + "available slots.");
     }
 }

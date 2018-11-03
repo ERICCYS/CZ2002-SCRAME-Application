@@ -66,7 +66,7 @@ public class FILEMgr {
 
 
     //load all the existing students from the csv file
-    public static ArrayList loadStudents(){
+    public static ArrayList<Student> loadStudents(){
         BufferedReader fileReader = null;
         ArrayList<Student> students = new ArrayList<Student>(0);
         try{
@@ -101,7 +101,7 @@ public class FILEMgr {
     public static void writeCourseIntoFile(Course course){
     }
 
-    public static ArrayList loadCourses(){
+    public static ArrayList<Course> loadCourses(){
         ArrayList<Course> courses = new ArrayList<Course>(0);
         return courses;
     }
