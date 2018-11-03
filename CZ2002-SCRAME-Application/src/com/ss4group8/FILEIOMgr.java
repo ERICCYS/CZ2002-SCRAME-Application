@@ -69,8 +69,8 @@ public class FILEMgr {
     //load all the existing students from the csv file
     public static ArrayList loadStudents(){
         BufferedReader fileReader = null;
+        ArrayList<Student> students = new ArrayList<Student>(0);
         try{
-            ArrayList<Student> students = new ArrayList<Student>(0);
             String line;
             fileReader = new BufferedReader(new FileReader(studentFileName));
             fileReader.readLine();//read the header to skip it
@@ -92,6 +92,7 @@ public class FILEMgr {
                 e.printStackTrace();
             }
         }
+        return students;
     }
 
 
@@ -99,10 +100,11 @@ public class FILEMgr {
 
     }
     public static void writeCourseIntoFile(Course course){
-
     }
 
     public static ArrayList loadCourses(){
+        ArrayList<Course> courses = new ArrayList<Course>(0);
+        return courses;
     }
 
 }

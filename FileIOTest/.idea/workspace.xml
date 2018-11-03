@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a36e29f7-3111-49ae-8b55-4aeb0e11e445" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/data/courseFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/data/studentFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/.idea/ss4group8.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/FILEIOMgr.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/CourseMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/CourseMgr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/SCRAME.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/SCRAME.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/StudentMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/StudentMgr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eric/CSVFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eric/CSVFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/eric/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/eric/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/FILEIOMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CZ2002-SCRAME-Application/src/com/ss4group8/FILEIOMgr.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,20 +16,22 @@
     <session id="-759296545">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="1" />
+          <entry key="java" value="1" />
           <entry key="studentFile" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="JAVA" value="1" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -64,7 +49,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/Students_Copy.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -91,8 +76,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/eric/CSVFileReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="663">
+              <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/eric/CSVFileWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -223,17 +220,18 @@
       <updated>1541043599495</updated>
       <workItem from="1541192908631" duration="11000" />
       <workItem from="1541192936077" duration="3603000" />
+      <workItem from="1541270240168" duration="127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3614000" />
+    <option name="totallyTimeSpent" value="3741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13003664" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17032968" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -270,12 +268,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/studentFile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/studentFile" />
+    <entry file="file://$PROJECT_DIR$/data/studentFile.csv" />
     <entry file="file://$PROJECT_DIR$/data/Students.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -283,23 +277,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eric/CSVFileWriter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/eric/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="420">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eric/CSVFileReader.java">
+    <entry file="file://$PROJECT_DIR$/data/Students_Copy.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -316,17 +304,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/eric/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/eric/CSVFileReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="663">
+          <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/Students_Copy.csv">
+    <entry file="file://$PROJECT_DIR$/src/com/eric/CSVFileWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="495">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
