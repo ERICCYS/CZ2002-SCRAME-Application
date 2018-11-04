@@ -13,6 +13,7 @@
 | FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Half Done |Students and courses part almost done|
 | Add Student                                 | Mengyan     |           |   Done       |                    |
 | Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | |
+| Register Student for a Course               | Eric        | |     | |
 | Check Available Slots                       | Mengyan     |           |    Done     |                    |
 | Print Student List                          | Kevin            | Print the student list in a group |    Doing  | |
 | Enter course assessment components weightage| Kevin            |           |          |                    |
