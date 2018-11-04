@@ -19,7 +19,7 @@
 | Enter coursework mark                       | Ian           | inclusive of its components |      | |
 | Enter exam mark                             | Ian       | Similar to "Enter coursework mark" |      | |
 | Print course statistics                     | Kenneth     |           |          |                    |
-| Print student transcript                    | Kenneth     |           |          |                    |
+| Print student transcript                    | Kenneth     |           |   Doing  |                    |
 
 
 Guys, pls provide some notes here that you think is useful for teammates.
