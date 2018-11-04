@@ -143,9 +143,12 @@ public class FILEMgr {
             fileWriter.append(COMMA_DELIMITER);
             ArrayList<LectureGroup> lectureGroups = course.getLectureGroups();
             if(lectureGroups.size() != 0){
+                int index = 0;
                 for(LectureGroup lectureGroup:lectureGroups){
                     fileWriter.append(lectureGroup.getGroupName());
-                    fileWriter.append(LINE_DELIMITER);
+                    index++;
+                    if(index != lectureGroups.size()){
+                    fileWriter.append(LINE_DELIMITER);}
                 }
             }
             else{
@@ -154,9 +157,12 @@ public class FILEMgr {
             fileWriter.append(COMMA_DELIMITER);
             ArrayList<TutorialGroup> tutorialGroups = course.getTutorialGroups();
             if(tutorialGroups.size() != 0){
+                int index = 0;
                 for(TutorialGroup tutorialGroup:tutorialGroups){
                     fileWriter.append(tutorialGroup.getGroupName());
-                    fileWriter.append(LINE_DELIMITER);
+                    index ++;
+                    if (index != tutorialGroups.size()){
+                    fileWriter.append(LINE_DELIMITER);}
                 }
             }
             else{
@@ -165,9 +171,12 @@ public class FILEMgr {
             fileWriter.append(COMMA_DELIMITER);
             ArrayList<LabGroup> labGroups = course.getLabGroups();
             if(labGroups.size() != 0){
+                int index = 0;
                 for(LabGroup labGroup:labGroups){
                     fileWriter.append(labGroup.getGroupName());
-                    fileWriter.append(LINE_DELIMITER);
+                    index ++;
+                    if(index != labGroups.size()){
+                    fileWriter.append(LINE_DELIMITER);}
                 }
             }
             else{
@@ -176,6 +185,7 @@ public class FILEMgr {
             fileWriter.append(COMMA_DELIMITER);
             HashMap<String, Double> courseworks = course.getCourseWorks();
             if(!courseworks.isEmpty()){
+                int index = 0;
                 for (HashMap.Entry<String,Double> entry:courseworks.entrySet())
                 {
                     String key = entry.getKey();
@@ -183,8 +193,9 @@ public class FILEMgr {
                     fileWriter.append(key);
                     fileWriter.append(EQUAL_SIGN);
                     fileWriter.append(String.valueOf(value));
-                    fileWriter.append(LINE_DELIMITER);
-                    //delete additional delimiter in csv file
+                    index ++;
+                    if(index != courseworks.size()){
+                    fileWriter.append(LINE_DELIMITER);}
                 }
             }else{
                 fileWriter.append("NULL");

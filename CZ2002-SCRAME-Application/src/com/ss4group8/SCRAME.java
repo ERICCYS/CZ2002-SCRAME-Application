@@ -16,9 +16,6 @@ public class SCRAME {
 
     public static void main(String[] args) {
 
-        FILEMgr.initializeStudentFile();
-        FILEMgr.initializeCourseFile();
-
         students = FILEMgr.loadStudents();
         courses = FILEMgr.loadCourses();
 //        courseRegistrations = FILEIOMgr.loadCourseRegistrations();
