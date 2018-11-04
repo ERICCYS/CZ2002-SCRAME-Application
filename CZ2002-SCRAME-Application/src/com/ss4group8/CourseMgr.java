@@ -8,6 +8,11 @@ public class CourseMgr {
     public static Course addCourse(String courseID) {
         String courseName;
         int noOfLectureGroups;
+        int totalSeats = 0;
+        String profID;
+        int groupNameExists,profExists;
+        int profInChargeIndex = 0;
+        ArrayList<Professor> professors = FILEMgr.loadProfessors();
         System.out.println("Enter course Name: ");
         courseName = scanner.nextLine();
         System.out.println("Enter the number of lecture groups:");
@@ -21,17 +26,47 @@ public class CourseMgr {
         // The above two exceptions, we will create separate Exception classes to deal with them
         for (int i = 0; i < noOfLectureGroups; i++) {
             System.out.println("Give a name to a group, the group will be named as: " + courseID + "GROUP_NAME.");
-            System.out.println("Enter a group Name: ");
-            groupName = scanner.nextLine();
-            // Exception handling, what is this group name already exist for this course?!
+            do {
+                groupNameExists = 0;
+                System.out.println("Enter a group Name: ");
+                groupName = scanner.nextLine();
+                if(lectureGroups.size() == 0){
+                    break;
+                }
+                for(LectureGroup lectureGroup:lectureGroups){
+                    if(lectureGroup.getGroupName().equals(groupName)){
+                        groupNameExists=1;
+                        break;
+                    }
+                }
+            } while(groupNameExists==1);
             System.out.println("Enter group capacity");
             groupCapacity = scanner.nextInt();
+            totalSeats += groupCapacity;
             scanner.nextLine();
             LectureGroup lectureGroup =  new LectureGroup(groupName, groupCapacity);
             lectureGroups.add(lectureGroup);
         }
-        // Here is the simplest version, haven't consider the other attributes yet.
-        Course course = new Course(courseID, courseName, lectureGroups);
+        do{
+            profExists = 0;
+            System.out.println("Enter the ID for the professor in charge please:");
+            profID = scanner.nextLine();
+            for(Professor prof:professors) {
+                if(prof.getProfID().equals(profID)) {
+                    profExists = 1;
+                    // profInChargeIndex++;
+                    // When the profID doesn't equals to this, profInChargeIndex++;
+                    break;
+                }
+                else {
+                    profInChargeIndex++;
+                }
+            }
+            if(profExists == 0) {
+                System.out.println("This professor does not exist. Please re-enter.");
+            }
+        } while(profExists==0);
+        Course course = new Course(courseID, courseName, professors.get(profInChargeIndex), totalSeats, lectureGroups);
         //add course into file
         FILEMgr.writeCourseIntoFile(course);
         return course;

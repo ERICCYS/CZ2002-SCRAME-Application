@@ -13,13 +13,19 @@
 | FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Half Done |Students and courses part almost done|
 | Add Student                                 | Mengyan     |           |   Done       |                    |
 | Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | |
+| Register Student for a Course               | Eric        |           |  Doing   | |
 | Check Available Slots                       | Mengyan     |           |    Done     |                    |
+<<<<<<< HEAD
 | Print Student List                          | Kevin            |can choose to print by lec,tut or lab  | Done     |Waiting for CourseRegistration load funciton |
 | Enter course assessment components weightage| Kevin            |           |       Doing   |                    |
+=======
+| Print Student List                          | Kevin            | Print the student list in a group |    Doing  | |
+| Enter course assessment components weightage| Kevin            |           |          |                    |
+>>>>>>> master
 | Enter coursework mark                       | Ian           | inclusive of its components |      | |
 | Enter exam mark                             | Ian       | Similar to "Enter coursework mark" |      | |
 | Print course statistics                     | Kenneth     |           |          |                    |
-| Print student transcript                    | Kenneth     |           |          |                    |
+| Print student transcript                    | Kenneth     |           |   Doing  |                    |
 
 
 Guys, pls provide some notes here that you think is useful for teammates.

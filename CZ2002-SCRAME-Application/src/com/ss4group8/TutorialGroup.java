@@ -7,7 +7,7 @@ public class TutorialGroup {
     private ArrayList<Student> enrolledStudents;
     private int availableVacancies;
 
-    public String getGrouplName() { return this.grouplName; }
+    public String getGroupName() { return this.grouplName; }
 
     public ArrayList getEnrolledStudents() { return this.enrolledStudents; }
 
