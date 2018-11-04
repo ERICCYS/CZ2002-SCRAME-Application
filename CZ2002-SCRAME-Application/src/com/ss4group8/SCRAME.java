@@ -125,53 +125,86 @@ public class SCRAME {
     public static void addStudent() {
         String studentName;
         String studentID;
+        // Can make the sameStudentID as boolean, set to false.
         int sameStudentID = 0;
         System.out.println("addStudent is called");
         System.out.println("Enter student Name: ");
         studentName = scanner.nextLine();
-        do{System.out.println("Give this student an ID");
+        do{
+            System.out.println("Give this student an ID");
             studentID = scanner.nextLine();
-        for(Student student:students){
-            sameStudentID = 0;
-            if(student.getStudentID().equals(studentID)){
-                System.out.println("This student ID is already used. Please enter a new one.");
-                sameStudentID = 1;
-                break;
+            for(Student student:students) {
+                sameStudentID = 0;
+                if(student.getStudentID().equals(studentID)) {
+                    System.out.println("This student ID is already used. Please enter a new one.");
+                    sameStudentID = 1;
+                    break;
+                }
             }
-        }}while(sameStudentID == 1);
+        } while(sameStudentID == 1);
         Student newStudent = new Student(studentID, studentName);
         students.add(StudentMgr.addStudent(newStudent));
     }
 
     public static void addCourse() {
         String courseID;
+        // Can make the sameCourseID as boolean, set to false.
         int sameCourseID = 0;
         System.out.println("addCourse is called");
-        do{System.out.println("Give this course an ID");
-        courseID = scanner.nextLine();
-        for(Course course:courses){
-            sameCourseID = 0;
-            if(course.getCourseID().equals(courseID)){
-                System.out.println("This course ID is already used. Please enter a new one.");
-                sameCourseID = 1;
-                break;
+        do {
+            System.out.println("Give this course an ID");
+            courseID = scanner.nextLine();
+            for(Course course:courses){
+                sameCourseID = 0;
+                if(course.getCourseID().equals(courseID)) {
+                    System.out.println("This course ID is already used. Please enter a new one.");
+                    sameCourseID = 1;
+                    break;
+                }
             }
-        }
-            }while(sameCourseID == 1);
+        } while(sameCourseID == 1);
         courses.add(CourseMgr.addCourse(courseID));
     }
 
     public static void registerCourse() {
         System.out.println("registerCourse is called");
         String studentID;
+        Student currentStudent = null;
+        boolean validStudentID = false;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
+        for (Student student:students) {
+            if (student.getStudentID().equals(studentID)) {
+                validStudentID = true;
+                currentStudent = student;
+                break;
+            }
+        }
+        if (!validStudentID) {
+            System.out.println("Invalid Student ID...");
+            return ;
+        }
         // Exception handling
         String courseID;
-        System.out.println("Enter course ID");
+        Course currentCourse = null;
+        boolean validCourseID = false;
+        System.out.println("Enter Course ID:");
         courseID = scanner.nextLine();
+        for (Course course:courses) {
+            if (course.getCourseID().equals(courseID)) {
+                validCourseID = true;
+                currentCourse = course;
+                break;
+            }
+        }
+        if (!validCourseID) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the course registration");
+            return ;
+        }
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
+        CourseRegistration courseRegistration = CourseRegistrationMgr.registerCourse(currentStudent, currentCourse);
     }
 
     public static void checkAvailableSlots() {

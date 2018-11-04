@@ -26,7 +26,8 @@ public class CourseMgr {
         // The above two exceptions, we will create separate Exception classes to deal with them
         for (int i = 0; i < noOfLectureGroups; i++) {
             System.out.println("Give a name to a group, the group will be named as: " + courseID + "GROUP_NAME.");
-            do {groupNameExists = 0;
+            do {
+                groupNameExists = 0;
                 System.out.println("Enter a group Name: ");
                 groupName = scanner.nextLine();
                 if(lectureGroups.size() == 0){
@@ -38,7 +39,7 @@ public class CourseMgr {
                         break;
                     }
                 }
-            }while(groupNameExists==1);
+            } while(groupNameExists==1);
             System.out.println("Enter group capacity");
             groupCapacity = scanner.nextInt();
             totalSeats += groupCapacity;
@@ -46,18 +47,25 @@ public class CourseMgr {
             LectureGroup lectureGroup =  new LectureGroup(groupName, groupCapacity);
             lectureGroups.add(lectureGroup);
         }
-        do{profExists = 0;
-        System.out.println("Enter the ID for the professor in charge please:");
-        profID = scanner.nextLine();
-        for(Professor prof:professors){
-            if(prof.getProfID() == profID){
-                profExists = 1;
-                profInChargeIndex ++;
-                break;
+        do{
+            profExists = 0;
+            System.out.println("Enter the ID for the professor in charge please:");
+            profID = scanner.nextLine();
+            for(Professor prof:professors) {
+                if(prof.getProfID().equals(profID)) {
+                    profExists = 1;
+                    // profInChargeIndex++;
+                    // When the profID doesn't equals to this, profInChargeIndex++;
+                    break;
+                }
+                else {
+                    profInChargeIndex++;
+                }
             }
-        }
-        if(profExists==0){ System.out.println("This professor does not exist. Please re-enter.");}
-        }while(profExists==0);
+            if(profExists == 0) {
+                System.out.println("This professor does not exist. Please re-enter.");
+            }
+        } while(profExists==0);
         Course course = new Course(courseID, courseName, professors.get(profInChargeIndex), totalSeats, lectureGroups);
         //add course into file
         FILEMgr.writeCourseIntoFile(course);
