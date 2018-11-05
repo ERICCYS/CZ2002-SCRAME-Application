@@ -18,13 +18,13 @@ public class FILEMgr {
     private static final String studentFileName = "data/studentFile.csv";
     private static final String courseFileName = "data/courseFile.csv";
     private static final String professorFileName = "data/professorFile.csv";
-    private static final String studentListFileName = "data/studentListFile.csv";
+    private static final String studentListFileName = "data/studentList.csv";
     private static final String markFileName = "data/markFile.csv";
 
     private static final String student_HEADER="studentID,studentName";
     private static final String course_HEADER="courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
     private static final String professor_HEADER="professorID,professorName";
-    private static final String studentList_HEADER="courseID,";
+    private static final String studentList_HEADER="courseID,studentID";
     private static final String mark_HEADER="studentID,courseID,examMark,courseWorkMarks,totalMark";
 
     private static final int studentIdIndex = 0;
@@ -252,8 +252,8 @@ public class FILEMgr {
                     int totalSeats = Integer.parseInt(tokens[totalSeatsIndex]);
 
                     String lectureGroupsString = tokens[lectureGroupsIndex];
-                    String[] eachLectureGroupsString = lectureGroupsString.split(LINE_DELIMITER);
                     ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>(0);
+                    String[] eachLectureGroupsString = lectureGroupsString.split(LINE_DELIMITER);
                     for(int i = 0; i < eachLectureGroupsString.length; i++){
                         String[] thisLectureGroup = eachLectureGroupsString[i].split(EQUAL_SIGN);
                         lectureGroups.add(new LectureGroup(thisLectureGroup[0],Integer.parseInt(thisLectureGroup[1])));
@@ -262,29 +262,29 @@ public class FILEMgr {
                     Course course = new Course(courseID,courseName,professors.get(thisProfessor),totalSeats,lectureGroups);
 
                     String tutorialGroupsString = tokens[tutorialGroupIndex];
+                    ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
                     if(!tutorialGroupsString.equals("NULL")){
                     String[] eachTutorialGroupsString = tutorialGroupsString.split(LINE_DELIMITER);
-                    ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
                     for(int i = 0; i < eachLectureGroupsString.length; i++){
                         String[] thisTutorialGroup = eachTutorialGroupsString[i].split(EQUAL_SIGN);
                         tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0],Integer.parseInt(thisTutorialGroup[1])));
-                    }
-                    course.setTutorialGroups(tutorialGroups);}
+                    }}
+                    course.setTutorialGroups(tutorialGroups);
 
                     String labGroupsString = tokens[labGroupIndex];
+                    ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
                     if(!labGroupsString.equals("NULL")){
                     String[] eachLabGroupString = labGroupsString.split(LINE_DELIMITER);
-                    ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
                     for(int i = 0; i < eachLabGroupString.length; i++){
                         String[] thisLabGroup = eachLabGroupString[i].split(EQUAL_SIGN);
                         labGroups.add(new LabGroup(thisLabGroup[0],Integer.parseInt(thisLabGroup[1])));
-                    }
-                    course.setLabGroups(labGroups);}
+                    }}
+                    course.setLabGroups(labGroups);
 
                     String mainComponentsString = tokens[mainComponentsIndex];
+                    ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
                     if(!mainComponentsString.equals("NULL")){
                     String[] eachMainComponentsString = mainComponentsString.split(LINE_DELIMITER);
-                    ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
                     for(int i = 0; i < eachMainComponentsString.length; i++){
                         String[] thisMainComponent = eachMainComponentsString[i].split(EQUAL_SIGN);
                         String[] subComponentsString = thisMainComponent[2].split(SLASH);
@@ -294,8 +294,8 @@ public class FILEMgr {
                             subComponents.add(new SubComponent(thisSubComponent[0],thisSubComponent[1]));
                         }
                         mainComponents.add(new MainComponent(thisMainComponent[0],thisMainComponent[1],subComponents));
-                    }
-                    course.setMainComponents(mainComponents);}
+                    }}
+                    course.setMainComponents(mainComponents);
                     course.setVacancies(vacancies);
                     courses.add(course);
                 }
@@ -372,15 +372,46 @@ public class FILEMgr {
     }
 
     //student list for lec/tut/lab/the whole course
-    public static void updateStudentList(Course course, Student student){
+    public static void updateStudentListCourse(Course course, Student student){
 
     }
 
-    public static ArrayList<Student> loadStudentList(Course course){
+    public static ArrayList<Student> loadStudentListCourse(Course course){
         ArrayList<Student> students = new ArrayList<Student>(0);
 
         return students;
     }
+
+    public static void updateStudentListLec(LectureGroup lectureGroup, Student student){
+
+    }
+
+    public static ArrayList<Student> loadStudentListLec(LectureGroup lectureGroup){
+        ArrayList<Student> students = new ArrayList<Student>(0);
+
+        return students;
+    }
+
+    public static void updateStudentListTut(TutorialGroup tutorialGroup, Student student){
+
+    }
+
+    public static ArrayList<Student> loadStudentListTut(TutorialGroup tutorialGroup){
+        ArrayList<Student> students = new ArrayList<Student>(0);
+
+        return students;
+    }
+
+    public static void updateStudentListLab(LabGroup labGroup, Student student){
+
+    }
+
+    public static ArrayList<Student> loadStudentListLab(LabGroup labGroup){
+        ArrayList<Student> students = new ArrayList<Student>(0);
+
+        return students;
+    }
+
 
     //marks
     //might need to change if components contains main components
