@@ -1,7 +1,5 @@
 package com.ss4group8;
 
-import sun.applet.Main;
-
 import java.io.*;
 import java.util.*;
 
@@ -15,11 +13,6 @@ public class FILEMgr {
 
     private static final String studentFileName = "data/studentFile.csv";
     private static final String courseFileName = "data/courseFile.csv";
-    private static final String professorFileName = "data/professorFile.csv";
-
-    public static final String student_HEADER="studentID,studentName";
-    public static final String course_HEADER="courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
-    public static final String professor_HEADER="professorID,professorName";
 
     private static final int studentIdIndex = 0;
     private static final int studentNameIndex = 1;
@@ -34,21 +27,35 @@ public class FILEMgr {
     private static final int labGroupIndex = 7;
     private static final int courseWorkIndex = 8;
 
-    private static final int professorIdIndex = 0;
-    private static final int professorNameIndex = 1;
+    //initialize the header into csv file for better understanding
+    public static void initializeStudentFile(){
+        String student_HEADER="studentID,studentName";
 
-
-    //when a new student is added, add him to the csv file
-    public static void writeStudentsIntoFile(Student student){
-        File file;
         FileWriter fileWriter = null;
         try{
-            file = new File(studentFileName);
-            //initialize file header if have not done so
             fileWriter = new FileWriter(studentFileName);
-            if(file.length()== 0){
-                fileWriter.append(student_HEADER);
+            fileWriter.append(student_HEADER);
+            fileWriter.append("\n");
+        }catch(Exception e){
+            System.out.println("Error in CSV fileWriter!");
+            e.printStackTrace();
+        }finally{
+            try{
+                fileWriter.flush();
+                fileWriter.close();
+            }catch(IOException e){
+                System.out.println("Error occurs when flushing or closing studentFile.");
+                e.printStackTrace();
             }
+        }
+    }
+
+
+    //when a new student is add, add him to the csv file
+    public static void writeStudentsIntoFile(Student student){
+        FileWriter fileWriter = null;
+        try{
+            fileWriter = new FileWriter(studentFileName);
             fileWriter.append(student.getStudentID());
             fileWriter.append(COMMA_DELIMITER);
             fileWriter.append(student.getStudentName());
@@ -98,18 +105,32 @@ public class FILEMgr {
     }
 
 
+    public static void initializeCourseFile(){
+        String course_HEADER="courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,CourseWork";
 
-    public static void writeCourseIntoFile(Course course) {
-        File file;
         FileWriter fileWriter = null;
         try{
             fileWriter = new FileWriter(courseFileName);
-            //initialize file header if have not done so
-            file = new File(courseFileName);
-            if(file.length() == 0){
-                fileWriter.append(course_HEADER);
+            fileWriter.append(course_HEADER);
+            fileWriter.append("\n");
+        }catch(Exception e){
+            System.out.println("Error in CSV fileWriter!");
+            e.printStackTrace();
+        }finally{
+            try{
+                fileWriter.flush();
+                fileWriter.close();
+            }catch(IOException e){
+                System.out.println("Error occurs when flushing or closing courseFile.");
+                e.printStackTrace();
             }
+        }
+    }
 
+    public static void writeCourseIntoFile(Course course) {
+        FileWriter fileWriter = null;
+        try{
+            fileWriter = new FileWriter(courseFileName);
             fileWriter.append(course.getCourseID());
             fileWriter.append(COMMA_DELIMITER);
             fileWriter.append(course.getCourseName());
@@ -162,23 +183,26 @@ public class FILEMgr {
                 fileWriter.append("NULL");
             }
             fileWriter.append(COMMA_DELIMITER);
-            ArrayList<MainComponent> mainComponents = course.getMainComponents();
-            if(mainComponents.size() != 0){
+            HashMap<String, Double> courseworks = course.getCourseWorks();
+            if(!courseworks.isEmpty()){
                 int index = 0;
-                for (MainComponent mainComponent:mainComponents)
+                for (HashMap.Entry<String,Double> entry:courseworks.entrySet())
                 {
-                    fileWriter.append(mainComponent.getComponentName());
+                    String key = entry.getKey();
+                    Double value = entry.getValue();
+                    fileWriter.append(key);
+                    fileWriter.append(EQUAL_SIGN);
+                    fileWriter.append(String.valueOf(value));
                     index ++;
-                    if(index != mainComponents.size()){
-                        fileWriter.append(LINE_DELIMITER);
-                    }
+                    if(index != courseworks.size()){
+                    fileWriter.append(LINE_DELIMITER);}
                 }
             }else{
                 fileWriter.append("NULL");
             }
             fileWriter.append(NEW_LINE_SEPARATOR);
         }catch(Exception e){
-            System.out.println("Error in adding a course to the file.");
+            System.out.println("Error in adding a student to the file.");
             e.printStackTrace();
         }finally{
             try{
@@ -237,71 +261,10 @@ public class FILEMgr {
         return courses;
     }
 
-    //profs
-    public static void writeProfIntoFile(Professor professor){
-        File file;
-        FileWriter fileWriter = null;
-        try{
-            file = new File(professorFileName);
-            //initialize file header if have not done so
-            fileWriter = new FileWriter(professorFileName);
-            if(file.length()== 0){
-                fileWriter.append(professor_HEADER);
-            }
-            fileWriter.append(professor.getProfID());
-            fileWriter.append(COMMA_DELIMITER);
-            fileWriter.append(professor.getProfName());
-            fileWriter.append(NEW_LINE_SEPARATOR);
-        }catch(Exception e){
-            System.out.println("Error in adding a professor to the file.");
-            e.printStackTrace();
-        }finally{
-            try{
-                fileWriter.flush();
-                fileWriter.close();
-            }catch(IOException e){
-                System.out.println("Error occurs when flushing or closing the file.");
-                e.printStackTrace();
-            }
-        }
-    }
-
     public static ArrayList<Professor> loadProfessors(){
-        BufferedReader fileReader = null;
+        //have not implemented yet
         ArrayList<Professor> professors = new ArrayList<Professor>(0);
-        try{
-            String line;
-            fileReader = new BufferedReader(new FileReader(professorFileName));
-            fileReader.readLine();//read the header to skip it
-            while((line = fileReader.readLine())!=null){
-                String[] tokens = line.split(COMMA_DELIMITER);
-                if(tokens.length>0){
-                    Professor professor = new Professor(tokens[professorIdIndex], tokens[professorNameIndex]);
-                    professors.add(professor);
-                }
-            }
-        }catch(Exception e){
-            System.out.println("Error occurs when loading professors.");
-            e.printStackTrace();
-        }finally{
-            try{
-                fileReader.close();
-            }catch(IOException e){
-                System.out.println("Error occurs when closing the fileReader.");
-                e.printStackTrace();
-            }
-        }
         return professors;
     }
 
-    //student list for lec/tut/lab/the whole course
-//    public static void updateStudentList
-
-    public static ArrayList<Student> loadStudentList(Course course){
-        ArrayList<Student> students = new ArrayList<Student>(0);
-
-        return students;
-    }
-
-    //marks
 }
