@@ -46,6 +46,8 @@ public class Course {
 
     public ArrayList<MainComponent> getMainComponents() { return this.mainComponents; }
 
+    public void setVacancies(int vacancies) { this.vacancies = vacancies; }
+
     public void setTutorialGroups(ArrayList<TutorialGroup> tutorialGroups){
         this.tutorialGroups  = tutorialGroups;
     }
