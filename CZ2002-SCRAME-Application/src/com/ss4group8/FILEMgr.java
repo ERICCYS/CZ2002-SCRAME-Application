@@ -6,8 +6,7 @@ import java.io.*;
 import java.util.*;
 
 public class FILEMgr {
-    //loadCourseRegistrations
-    //loadMarks
+
     private static final String COMMA_DELIMITER=",";
     private static final String NEW_LINE_SEPARATOR="\n";
     private static final String LINE_DELIMITER="|";
@@ -16,10 +15,14 @@ public class FILEMgr {
     private static final String studentFileName = "data/studentFile.csv";
     private static final String courseFileName = "data/courseFile.csv";
     private static final String professorFileName = "data/professorFile.csv";
+    private static final String studentListFileName = "data/studentListFile.csv";
+    private static final String markFileName = "data/markFile.csv";
 
-    public static final String student_HEADER="studentID,studentName";
-    public static final String course_HEADER="courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
-    public static final String professor_HEADER="professorID,professorName";
+    private static final String student_HEADER="studentID,studentName";
+    private static final String course_HEADER="courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
+    private static final String professor_HEADER="professorID,professorName";
+    private static final String studentList_HEADER="courseID,";
+    private static final String mark_HEADER="studentID,courseID,examMark,courseWorkMarks,totalMark";
 
     private static final int studentIdIndex = 0;
     private static final int studentNameIndex = 1;
@@ -37,6 +40,11 @@ public class FILEMgr {
     private static final int professorIdIndex = 0;
     private static final int professorNameIndex = 1;
 
+    private static final int studentIdIndexInMarks = 0;
+    private static final int courseIdIndexInMarks = 1;
+    private static final int examMarkIndex = 2;
+    private static final int courseWorkMarksIndex = 3;
+    private static final int totalMarkIndex = 4;
 
     //when a new student is added, add him to the csv file
     public static void writeStudentsIntoFile(Student student){
@@ -98,7 +106,6 @@ public class FILEMgr {
     }
 
 
-
     public static void writeCourseIntoFile(Course course) {
         File file;
         FileWriter fileWriter = null;
@@ -127,7 +134,7 @@ public class FILEMgr {
                     fileWriter.append(lectureGroup.getGroupName());
                     index++;
                     if(index != lectureGroups.size()){
-                    fileWriter.append(LINE_DELIMITER);}
+                        fileWriter.append(LINE_DELIMITER);}
                 }
             }
             else{
@@ -141,7 +148,7 @@ public class FILEMgr {
                     fileWriter.append(tutorialGroup.getGroupName());
                     index ++;
                     if (index != tutorialGroups.size()){
-                    fileWriter.append(LINE_DELIMITER);}
+                        fileWriter.append(LINE_DELIMITER);}
                 }
             }
             else{
@@ -155,7 +162,7 @@ public class FILEMgr {
                     fileWriter.append(labGroup.getGroupName());
                     index ++;
                     if(index != labGroups.size()){
-                    fileWriter.append(LINE_DELIMITER);}
+                        fileWriter.append(LINE_DELIMITER);}
                 }
             }
             else{
@@ -220,7 +227,7 @@ public class FILEMgr {
                     //new course
                     //getTutorialGroups and set
                     //getLabGroups and set
-                    //getCoursework and set
+                    //getMainComponent and set
                 }
             }
         }catch(Exception e){
@@ -295,7 +302,9 @@ public class FILEMgr {
     }
 
     //student list for lec/tut/lab/the whole course
-//    public static void updateStudentList
+    public static void updateStudentList(Course course, Student student){
+
+    }
 
     public static ArrayList<Student> loadStudentList(Course course){
         ArrayList<Student> students = new ArrayList<Student>(0);
@@ -304,4 +313,118 @@ public class FILEMgr {
     }
 
     //marks
+    public static void updateStudentMarks(Mark mark){
+        File file;
+        FileWriter fileWriter = null;
+        try{
+            file = new File(markFileName);
+            //initialize file header if have not done so
+            fileWriter = new FileWriter(markFileName);
+            if(file.length()== 0){
+                fileWriter.append(mark_HEADER);
+            }
+            fileWriter.append(mark.getStudent().getStudentID());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(mark.getCourse().getCourseID());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(mark.getExamMark()));
+            fileWriter.append(COMMA_DELIMITER);
+            HashMap<CourseworkComponent, Double> courseworkMarks = mark.getCourseWorkMarks();
+            if(!courseworkMarks.isEmpty()){
+                int index = 0;
+                for (HashMap.Entry<CourseworkComponent,Double> entry:courseworkMarks.entrySet())
+                {
+                    CourseworkComponent key = entry.getKey();
+                    Double value = entry.getValue();
+                    fileWriter.append(key.getComponentName());
+                    fileWriter.append(EQUAL_SIGN);
+                    fileWriter.append(key.getComponentWeight());
+                    fileWriter.append(EQUAL_SIGN);
+                    fileWriter.append(String.valueOf(value));
+                    index ++;
+                    if(index != courseworkMarks.size()){
+                        fileWriter.append(LINE_DELIMITER);
+                    }
+                }
+            }else{
+                fileWriter.append("NULL");
+            }
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(mark.getTotalMark()));
+            fileWriter.append(NEW_LINE_SEPARATOR);
+        }catch(Exception e){
+            System.out.println("Error in adding a mark to the file.");
+            e.printStackTrace();
+        }finally{
+            try{
+                fileWriter.flush();
+                fileWriter.close();
+            }catch(IOException e){
+                System.out.println("Error occurs in flushing or closing the file.");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static ArrayList<Mark> loadStudentMarks(){
+        BufferedReader fileReader = null;
+        ArrayList<Mark> marks = new ArrayList<Mark>(0);
+        try{
+            String line;
+            int thisStudentIndex = 0;
+            int thisCourseIndex = 0;
+            HashMap<CourseworkComponent,Double> courseWorkMarks = new HashMap<CourseworkComponent, Double>();
+            String[] thisCourseWorkMark;
+            fileReader = new BufferedReader(new FileReader(markFileName));
+            fileReader.readLine();//read the header to skip it
+            while((line = fileReader.readLine())!=null){
+                String[] tokens = line.split(COMMA_DELIMITER);
+                if(tokens.length>0){
+                    String studentID = tokens[studentIdIndexInMarks];
+                    ArrayList<Student> students = loadStudents();
+                    for(Student student:students){
+                        int index = 0;
+                        if(student.getStudentID().equals(studentID)){
+                            thisStudentIndex = index;
+                            break;
+                        }else{
+                            index ++;
+                        }
+                    }
+                    String courseID = tokens[courseIdIndexInMarks];
+                    ArrayList<Course> courses = loadCourses();
+                    for(Course course:courses){
+                        int index = 0;
+                        if(course.getCourseID().equals(courseID)){
+                            thisCourseIndex = index;
+                            break;
+                        }else{
+                            index ++;
+                        }
+                    }
+                    Double examMark = Double.parseDouble(tokens[examMarkIndex]);
+                    String courseWorkMarksString = tokens[courseWorkMarksIndex];
+                    String[] eachCourseWorkMark = courseWorkMarksString.split(LINE_DELIMITER);
+                    for(int i  = 0; i < eachCourseWorkMark.length; i++){
+                        thisCourseWorkMark = eachCourseWorkMark[i].split(EQUAL_SIGN);
+                        courseWorkMarks.put(new SubComponent(thisCourseWorkMark[0],thisCourseWorkMark[1]),Double.parseDouble(thisCourseWorkMark[2]));
+                    }
+                    Double totalMark = Double.parseDouble(tokens[totalMarkIndex]);
+                    Mark mark = new Mark(students.get(thisStudentIndex),courses.get(thisCourseIndex),examMark,courseWorkMarks,totalMark);
+                    marks.add(mark);
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Error occurs when loading student marks.");
+            e.printStackTrace();
+        }finally{
+            try{
+                fileReader.close();
+            }catch(IOException e){
+                System.out.println("Error occurs when closing the fileReader.");
+                e.printStackTrace();
+            }
+        }
+        return marks;
+    }
 }

@@ -9,13 +9,13 @@ public class Mark {
     private HashMap<CourseworkComponent,Double> courseWorkMarks;
     private double totalMark;
 
-//    public Mark(Student student, Course course, double examMark, HashMap<CourseworkComponent, Double> courseWorkMarks, double totalMark) {
-//        this.student = student;
-//        this.course = course;
-//        this.examMark = examMark;
-//        this.courseWorkMarks = courseWorkMarks;
-//        this.totalMark = totalMark;
-//    }
+    public Mark(Student student, Course course, double examMark, HashMap<CourseworkComponent, Double> courseWorkMarks, double totalMark) {
+        this.student = student;
+        this.course = course;
+        this.examMark = examMark;
+        this.courseWorkMarks = courseWorkMarks;
+        this.totalMark = totalMark;
+    }
 
     public Student getStudent() {
         return student;
