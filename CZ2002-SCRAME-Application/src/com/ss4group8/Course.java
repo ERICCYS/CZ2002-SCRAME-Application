@@ -12,7 +12,8 @@ public class Course {
     private ArrayList<LectureGroup> lectureGroups;
     private ArrayList<TutorialGroup> tutorialGroups;
     private ArrayList<LabGroup> labGroups;
-    private HashMap<String, Double> CourseWorks;
+//    private HashMap<String, Double> CourseWorks;
+    private ArrayList<MainComponent> mainComponents;
 
     public Course(String courseID, String courseName, Professor profInCharge, int totalSeats, ArrayList<LectureGroup> lectureGroups) {
         this.CourseID = courseID;
@@ -42,7 +43,9 @@ public class Course {
 
     public ArrayList<LabGroup> getLabGroups() { return this.labGroups; }
 
-    public HashMap<String, Double> getCourseWorks(){ return this.CourseWorks; }
+//    public HashMap<String, Double> getCourseWorks(){
+//        return this.CourseWorks;
+//    }
 
     public void setTutorialGroups(ArrayList<TutorialGroup> tutorialGroups){
         this.tutorialGroups  = tutorialGroups;
@@ -52,13 +55,13 @@ public class Course {
         this.labGroups = labGroups;
     }
 
-    public void setCourseWorks(HashMap<String,Double> courseWorks){
-        this.CourseWorks = courseWorks;
-    }
+//    public void setCourseWorks(HashMap<String,Double> courseWorks){
+//        this.CourseWorks = courseWorks;
+//    }
 
     public void printLectureGroup() {
         for (int i = 0; i < lectureGroups.size(); i++) {
-            System.out.println(lectureGroups.get(i).getGroupName() + " still has "+ lectureGroups.get(i).getCapacity()
+            System.out.println(lectureGroups.get(i).getGroupName() + " still has "+ lectureGroups.get(i).getAvailableVacancies()
                     + " vacancies");
         }
     }
