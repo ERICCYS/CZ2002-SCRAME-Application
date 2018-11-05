@@ -18,13 +18,13 @@ public class FILEMgr {
     private static final String studentFileName = "data/studentFile.csv";
     private static final String courseFileName = "data/courseFile.csv";
     private static final String professorFileName = "data/professorFile.csv";
-    private static final String studentListFileName = "data/studentList.csv";
+    private static final String courseRegistrationFileName = "data/courseRegistrationFile.csv";
     private static final String markFileName = "data/markFile.csv";
 
     private static final String student_HEADER="studentID,studentName";
     private static final String course_HEADER="courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
     private static final String professor_HEADER="professorID,professorName";
-    private static final String studentList_HEADER="courseID,studentID";
+    private static final String courseRegistration_HEADER="studentID,courseID,lectureGroup,tutorialGroup,labGroup";
     private static final String mark_HEADER="studentID,courseID,examMark,courseWorkMarks,totalMark";
 
     private static final int studentIdIndex = 0;
@@ -42,6 +42,13 @@ public class FILEMgr {
 
     private static final int professorIdIndex = 0;
     private static final int professorNameIndex = 1;
+
+    private static final int studentIdInRegistrationIndex = 0;
+    private static final int courseIdInRegistrationIndex = 1;
+    private static final int lectureGroupInRegistrationIndex = 2;
+    private static final int tutorialGroupInRegistrationIndex = 3;
+    private static final int labGroupInRegistrationIndex = 4;
+
 
     private static final int studentIdIndexInMarks = 0;
     private static final int courseIdIndexInMarks = 1;
@@ -233,8 +240,6 @@ public class FILEMgr {
             while((line = fileReader.readLine())!=null){
                 String[] tokens = line.split(COMMA_DELIMITER);
                 if(tokens.length>0){
-//                    Student student = new Student(tokens[studentIdIndex], tokens[studentNameIndex]);
-//                    students.add(student);
                     String courseID = tokens[courseIdIndex];
                     String courseName = tokens[courseNameIndex];
                     String profInCharge = tokens[profInChargeIndex];
@@ -372,44 +377,89 @@ public class FILEMgr {
     }
 
     //student list for lec/tut/lab/the whole course
-    public static void updateStudentListCourse(Course course, Student student){
-
+    public static void writeCourseRegistrationIntoFile(CourseRegistration courseRegistration){
+        File file;
+        FileWriter fileWriter = null;
+        try{
+            file = new File(courseRegistrationFileName);
+            //initialize file header if have not done so
+            fileWriter = new FileWriter(courseRegistrationFileName);
+            if(file.length()== 0){
+                fileWriter.append(courseRegistration_HEADER);
+            }
+            fileWriter.append(courseRegistration.getStudent().getStudentID());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(courseRegistration.getCourse().getCourseID());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(courseRegistration.getLectureGroup());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(courseRegistration.getTutorialGroup());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(courseRegistration.getLabGroup());
+            fileWriter.append(NEW_LINE_SEPARATOR);
+        }catch(Exception e){
+            System.out.println("Error in adding a course registration to the file.");
+            e.printStackTrace();
+        }finally{
+            try{
+                fileWriter.flush();
+                fileWriter.close();
+            }catch(IOException e){
+                System.out.println("Error occurs when flushing or closing the file.");
+                e.printStackTrace();
+            }
+        }
     }
 
-    public static ArrayList<Student> loadStudentListCourse(Course course){
-        ArrayList<Student> students = new ArrayList<Student>(0);
-
-        return students;
-    }
-
-    public static void updateStudentListLec(LectureGroup lectureGroup, Student student){
-
-    }
-
-    public static ArrayList<Student> loadStudentListLec(LectureGroup lectureGroup){
-        ArrayList<Student> students = new ArrayList<Student>(0);
-
-        return students;
-    }
-
-    public static void updateStudentListTut(TutorialGroup tutorialGroup, Student student){
-
-    }
-
-    public static ArrayList<Student> loadStudentListTut(TutorialGroup tutorialGroup){
-        ArrayList<Student> students = new ArrayList<Student>(0);
-
-        return students;
-    }
-
-    public static void updateStudentListLab(LabGroup labGroup, Student student){
-
-    }
-
-    public static ArrayList<Student> loadStudentListLab(LabGroup labGroup){
-        ArrayList<Student> students = new ArrayList<Student>(0);
-
-        return students;
+    public static ArrayList<CourseRegistration> loadCourseRegistration(){
+        BufferedReader fileReader = null;
+        ArrayList<CourseRegistration> courseRegistrations = new ArrayList<CourseRegistration>(0);
+        try{
+            String line;
+            int thisStudent = 0;
+            int thisCourse = 0;
+            fileReader = new BufferedReader(new FileReader(courseRegistrationFileName));
+            fileReader.readLine();//read the header to skip it
+            while((line = fileReader.readLine())!=null){
+                String[] tokens = line.split(COMMA_DELIMITER);
+                if(tokens.length>0){
+                    String studentID = tokens[studentIdInRegistrationIndex];
+                    ArrayList<Student> students = loadStudents();
+                    for(Student student:students){
+                        int index = 0;
+                        if(student.getStudentID().equals(studentID)){
+                            thisStudent = index;
+                            break;
+                        }else{
+                            index ++;
+                        }
+                    }
+                    String courseID = tokens[courseIdInRegistrationIndex];
+                    ArrayList<Course> courses= loadCourses();
+                    for(Course course:courses){
+                        int index = 0;
+                        if(course.getCourseID().equals(courseID)){
+                            thisCourse = index;
+                            break;
+                        }else{
+                            index ++;
+                        }
+                    }
+                    courseRegistrations.add(new CourseRegistration(students.get(thisStudent),courses.get(thisCourse),tokens[lectureGroupInRegistrationIndex],tokens[tutorialGroupInRegistrationIndex],tokens[labGroupInRegistrationIndex]));
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Error occurs when loading course registrations.");
+            e.printStackTrace();
+        }finally{
+            try{
+                fileReader.close();
+            }catch(IOException e){
+                System.out.println("Error occurs when closing the fileReader.");
+                e.printStackTrace();
+            }
+        }
+        return courseRegistrations;
     }
 
 
