@@ -282,6 +282,7 @@ public class FILEMgr {
                     course.setLabGroups(labGroups);}
 
                     String mainComponentsString = tokens[mainComponentsIndex];
+                    if(!mainComponentsString.equals("NULL")){
                     String[] eachMainComponentsString = mainComponentsString.split(LINE_DELIMITER);
                     ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
                     for(int i = 0; i < eachMainComponentsString.length; i++){
@@ -294,6 +295,7 @@ public class FILEMgr {
                         }
                         mainComponents.add(new MainComponent(thisMainComponent[0],thisMainComponent[1],subComponents));
                     }
+                    course.setMainComponents(mainComponents);}
                     course.setVacancies(vacancies);
                     courses.add(course);
                 }
