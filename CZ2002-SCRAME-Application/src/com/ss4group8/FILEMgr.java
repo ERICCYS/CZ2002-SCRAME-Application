@@ -127,7 +127,7 @@ public class FILEMgr {
         }
     }
 
-    public static void writeCourseIntoFile(Course course){
+    public static void writeCourseIntoFile(Course course) {
         FileWriter fileWriter = null;
         try{
             fileWriter = new FileWriter(courseFileName);
