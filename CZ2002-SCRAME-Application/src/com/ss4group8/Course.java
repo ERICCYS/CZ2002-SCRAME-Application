@@ -1,5 +1,7 @@
 package com.ss4group8;
 
+import sun.applet.Main;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,7 +14,6 @@ public class Course {
     private ArrayList<LectureGroup> lectureGroups;
     private ArrayList<TutorialGroup> tutorialGroups;
     private ArrayList<LabGroup> labGroups;
-//    private HashMap<String, Double> CourseWorks;
     private ArrayList<MainComponent> mainComponents;
 
     public Course(String courseID, String courseName, Professor profInCharge, int totalSeats, ArrayList<LectureGroup> lectureGroups) {
@@ -43,9 +44,7 @@ public class Course {
 
     public ArrayList<LabGroup> getLabGroups() { return this.labGroups; }
 
-//    public HashMap<String, Double> getCourseWorks(){
-//        return this.CourseWorks;
-//    }
+    public ArrayList<MainComponent> getMainComponents() { return this.mainComponents; }
 
     public void setTutorialGroups(ArrayList<TutorialGroup> tutorialGroups){
         this.tutorialGroups  = tutorialGroups;
@@ -55,9 +54,7 @@ public class Course {
         this.labGroups = labGroups;
     }
 
-//    public void setCourseWorks(HashMap<String,Double> courseWorks){
-//        this.CourseWorks = courseWorks;
-//    }
+    public void setMainComponents(ArrayList<MainComponent> mainComponents) { this.mainComponents = mainComponents; }
 
     public void printLectureGroup() {
         for (int i = 0; i < lectureGroups.size(); i++) {
