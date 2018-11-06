@@ -17,8 +17,8 @@
 | Check Available Slots                       | Mengyan     |           |    Done     |                    |
 | Print Student List                          | Kevin            |can choose to print by lec,tut or lab  | Done     |  |
 | Enter course assessment components weightage| Kevin            |           |       Done   |                    |
-| Enter coursework mark                       | Eric           | inclusive of its components |      | |
-| Enter exam mark                             | Eric       | Similar to "Enter coursework mark" |      | |
+| Enter coursework mark                       | Eric           | inclusive of its components |   Done   | |
+| Enter exam mark                             | Eric       | Similar to "Enter coursework mark" |   Done   | |
 | Print course statistics                     | Kenneth     |           |          |                    |
 | Print student transcript                    | Kenneth     |           |   Doing  |                    |
 
