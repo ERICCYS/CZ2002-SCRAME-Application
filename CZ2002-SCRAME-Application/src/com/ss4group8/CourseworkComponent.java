@@ -2,9 +2,9 @@ package com.ss4group8;
 
 public abstract class CourseworkComponent {
     private String componentName;
-    private String componentWeight;
+    private int componentWeight;
 
-    public CourseworkComponent(String componentName, String componentWeight) {
+    public CourseworkComponent(String componentName, int componentWeight) {
         this.componentName = componentName;
         this.componentWeight = componentWeight;
     }
@@ -13,7 +13,7 @@ public abstract class CourseworkComponent {
         return componentName;
     }
 
-    public String getComponentWeight() {
+    public int getComponentWeight() {
         return componentWeight;
     }
 

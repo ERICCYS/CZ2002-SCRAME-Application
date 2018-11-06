@@ -1,7 +1,7 @@
 package com.ss4group8;
 
 public class SubComponent extends CourseworkComponent {
-    public SubComponent(String componentName, String componentWeight) {
+    public SubComponent(String componentName, int componentWeight) {
         super(componentName, componentWeight);
     }
 

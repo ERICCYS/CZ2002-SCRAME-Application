@@ -76,4 +76,80 @@ public class CourseMgr {
         //printout the result directly
         System.out.println("This course " + course.getLectureGroups() + " still has " + course.getVacancies() + "available slots.");
     }
+
+    public static void setWeightage(Course course){
+        // ASSUME when course is created, no components are added yet
+        // ASSUME once components are created and set, cannot be changed.
+        int totalWeightage = 100;
+        ArrayList<SubComponent> subComponents = null;
+        ArrayList<MainComponent> mainComponents = null;
+        //Check if mainComponent is empty
+        if ( course.getMainComponents().size() == 0){ // empty course
+            System.out.println("Currently course "+course.getCourseID() + " "+ course.getCourseName()+ " has "+course.getMainComponents().size() + "component(s).");
+            System.out.print("Enter number of MAIN component(s) to add : ");
+            int numberOfMain = scanner.nextInt();
+            System.out.println();
+            boolean flagMain = true; // true means first entry
+            do {
+                for (int i = 0; i < numberOfMain; i++) {
+                    System.out.println("Total weightage left to assign : " + totalWeightage);
+                    System.out.print("Enter main component " + i + " name : ");
+                    String name = scanner.next();
+                    System.out.println();
+                    System.out.print("Enter main component " + i + " weightage : ");
+                    int weight = scanner.nextInt();
+                    System.out.println();
+                    System.out.print("Enter number of sub component under main component " + i + " :");
+                    int noOfSub = scanner.nextInt();
+                    System.out.println();
+                    boolean flagSub = true;
+                    do {
+
+                        int sub_totWeight = 100;
+                        for (int j = 0; j < noOfSub; j++) {
+                            System.out.println("Total weightage left to assign to sub component : " + sub_totWeight);
+                            System.out.print("Enter sub component " + j + " name : ");
+                            String sub_name = scanner.next();
+                            System.out.println();
+                            System.out.print("Enter sub component " + j + " weightage : ");
+                            int sub_weight = scanner.nextInt();
+                            System.out.println();
+
+                            //Create Subcomponent
+
+                            SubComponent sub = new SubComponent(sub_name, sub_weight);
+                            subComponents.add(sub);
+                            sub_totWeight -= sub_weight;
+                        }
+                        if (sub_totWeight != 0) {
+
+                            System.out.println("ERROR! sub component weightage does not tally to 100");
+                            System.out.println("You have to reassign!");
+                            subComponents.clear();
+                        }
+                        else {flagSub = false;}  //exit if weight is fully allocated
+                    } while (flagSub == true);
+                    //Create main component
+                    MainComponent main = new MainComponent(name,weight,subComponents);
+                    mainComponents.add(main);
+                    totalWeightage -= weight;
+                }
+                if (totalWeightage != 0) { // weightage assign is not tallied
+                    System.out.println("Weightage assigned does not tally to 100!");
+                    System.out.println("You have to reassign!");
+                    mainComponents.clear();
+                }
+                else{flagMain = false;}
+            }while (flagMain == true);
+
+            //set maincomponent to course
+            course.setMainComponents(mainComponents);
+
+        }
+        else{
+            System.out.println("Main component is not empty!");
+        }
+    }
+
+
 }
