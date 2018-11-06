@@ -5,6 +5,7 @@ import org.omg.PortableInterceptor.INACTIVE;
 
 import java.io.*;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class FILEMgr {
 
@@ -269,7 +270,7 @@ public class FILEMgr {
 
                     String lectureGroupsString = tokens[lectureGroupsIndex];
                     ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>(0);
-                    String[] eachLectureGroupsString = lectureGroupsString.split(LINE_DELIMITER);
+                    String[] eachLectureGroupsString = lectureGroupsString.split(Pattern.quote(LINE_DELIMITER));
 
                     for (int i = 0; i < eachLectureGroupsString.length; i++) {
                         String[] thisLectureGroup = eachLectureGroupsString[i].split(EQUAL_SIGN);
@@ -282,7 +283,7 @@ public class FILEMgr {
                     ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
 
                     if (!tutorialGroupsString.equals("NULL")) {
-                        String[] eachTutorialGroupsString = tutorialGroupsString.split(LINE_DELIMITER);
+                        String[] eachTutorialGroupsString = tutorialGroupsString.split(Pattern.quote(LINE_DELIMITER));
                         for (int i = 0; i < eachLectureGroupsString.length; i++) {
                             String[] thisTutorialGroup = eachTutorialGroupsString[i].split(EQUAL_SIGN);
                             tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0], Integer.parseInt(thisTutorialGroup[1])));
@@ -293,7 +294,7 @@ public class FILEMgr {
                     String labGroupsString = tokens[labGroupIndex];
                     ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
                     if (!labGroupsString.equals("NULL")) {
-                        String[] eachLabGroupString = labGroupsString.split(LINE_DELIMITER);
+                        String[] eachLabGroupString = labGroupsString.split(Pattern.quote(LINE_DELIMITER));
                         for (int i = 0; i < eachLabGroupString.length; i++) {
                             String[] thisLabGroup = eachLabGroupString[i].split(EQUAL_SIGN);
                             labGroups.add(new LabGroup(thisLabGroup[0], Integer.parseInt(thisLabGroup[1])));
@@ -304,15 +305,19 @@ public class FILEMgr {
                     String mainComponentsString = tokens[mainComponentsIndex];
                     ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
                     if (!mainComponentsString.equals("NULL")) {
-                        String[] eachMainComponentsString = mainComponentsString.split(LINE_DELIMITER);
+                        String[] eachMainComponentsString = mainComponentsString.split(Pattern.quote(LINE_DELIMITER));
                         for (int i = 0; i < eachMainComponentsString.length; i++) {
                             String[] thisMainComponent = eachMainComponentsString[i].split(EQUAL_SIGN);
-                            String[] subComponentsString = thisMainComponent[2].split(SLASH);
                             ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
-                            for (int j = 0; j < subComponentsString.length; i++) {
-                                String[] thisSubComponent = subComponentsString[i].split(HYPHEN);
-                                subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
+                            if (thisMainComponent.length > 2) {
+                                String[] subComponentsString = thisMainComponent[2].split(SLASH);
+                                for (int j = 0; j < subComponentsString.length; j++) {
+                                    String[] thisSubComponent = subComponentsString[j].split(HYPHEN);
+                                    subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
+                                }
                             }
+
+
                             mainComponents.add(new MainComponent(thisMainComponent[0], Integer.parseInt(thisMainComponent[1]), subComponents));
                         }
                     }
@@ -322,7 +327,7 @@ public class FILEMgr {
                 }
             }
         } catch (Exception e) {
-            System.out.println("Error happens when loading students.");
+            System.out.println("Error happens when loading courses.");
             e.printStackTrace();
         } finally {
             try {
@@ -374,8 +379,8 @@ public class FILEMgr {
             fileReader.readLine();//read the header to skip it
             while ((line = fileReader.readLine()) != null) {
                 String[] tokens = line.split(COMMA_DELIMITER);
-                System.out.println(tokens[professorIdIndex]);
-                System.out.println(tokens[professorNameIndex]);
+//                System.out.println(tokens[professorIdIndex]);
+//                System.out.println(tokens[professorNameIndex]);
                 if (tokens.length > 0) {
                     Professor professor = new Professor(tokens[professorIdIndex], tokens[professorNameIndex]);
                     professors.add(professor);
@@ -596,7 +601,7 @@ public class FILEMgr {
                     }
 //                    Double examMark = Double.parseDouble(tokens[examMarkIndex]);
                     String courseWorkMarksString = tokens[courseWorkMarksIndex];
-                    String[] eachCourseWorkMark = courseWorkMarksString.split(LINE_DELIMITER);
+                    String[] eachCourseWorkMark = courseWorkMarksString.split(Pattern.quote(LINE_DELIMITER));
                     for (int i = 0; i < eachCourseWorkMark.length; i++) {
                         thisCourseWorkMark = eachCourseWorkMark[i].split(EQUAL_SIGN);
                         if (thisCourseWorkMark.length == subComponentLength) {

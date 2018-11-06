@@ -18,8 +18,8 @@ public class SCRAME {
 
         students = FILEMgr.loadStudents();
         courses = FILEMgr.loadCourses();
-//        courseRegistrations = FILEIOMgr.loadCourseRegistrations();
-//        marks = FILEIOMgr.loadMarks();
+        courseRegistrations = FILEMgr.loadCourseRegistration();
+//        marks = FILEMgr.loadMarks();
 
         printWelcome();
         printOptions();
@@ -206,7 +206,7 @@ public class SCRAME {
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
         courseRegistrations.add(CourseRegistrationMgr.registerCourse(currentStudent, currentCourse));
-//        marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
+        marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
     }
 
     public static void checkAvailableSlots() {

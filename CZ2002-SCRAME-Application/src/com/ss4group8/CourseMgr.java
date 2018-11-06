@@ -1,6 +1,5 @@
 package com.ss4group8;
 
-import sun.rmi.rmic.Main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -95,7 +94,7 @@ public class CourseMgr {
                     }
                 }
             } while (groupNameExists == 1);
-            System.out.println("Enter this lecture group's capacity");
+            System.out.println("Enter this tutorial group's capacity");
             tutorialGroupCapacity = scanner.nextInt();
 //            totalSeats += tutorialGroupCapacity;
             scanner.nextLine();

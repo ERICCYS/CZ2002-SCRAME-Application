@@ -92,8 +92,10 @@ public class CourseRegistrationMgr {
             }
         }
 
+        CourseRegistration courseRegistration = new CourseRegistration(student, course, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
+        FILEMgr.writeCourseRegistrationIntoFile(courseRegistration);
 
-        return new CourseRegistration(student, course, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
+        return courseRegistration;
     }
 
     public static void printStudents(Course course){
