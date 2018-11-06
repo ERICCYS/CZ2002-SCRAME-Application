@@ -1,1 +1,2 @@
-CZ2002,OODP,1,10,10,LEC1,
+courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
+CZ2002,OODP,1,30,30,LEC1=10|LEC2=20,

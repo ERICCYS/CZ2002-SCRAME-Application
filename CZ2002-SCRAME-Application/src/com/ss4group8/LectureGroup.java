@@ -17,7 +17,7 @@ public class LectureGroup {
         return availableVacancies;
     }
 
-    public void enrolledIn () {
+    public void enrolledIn() {
         this.availableVacancies -= 1;
     }
 }

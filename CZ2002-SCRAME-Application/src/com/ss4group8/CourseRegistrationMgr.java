@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 public class CourseRegistrationMgr {
     private static Scanner scanner = new Scanner(System.in);
+
     public static CourseRegistration registerCourse(Student student, Course course) {
         System.out.println("Student " + student.getStudentName() + " with ID: " + student.getStudentID() +
-         " wants to register " + course.getCourseID() + " " + course.getCourseName());
+                " wants to register " + course.getCourseID() + " " + course.getCourseName());
 
         ArrayList<String> lectureGroupNames = new ArrayList<String>(0);
         ArrayList<String> tutorialGroupNames = new ArrayList<String>(0);
@@ -31,7 +32,7 @@ public class CourseRegistrationMgr {
                 selectedLectureGroupName = scanner.nextLine();
             }
 
-            for (LectureGroup lectureGroup:course.getLectureGroups()) {
+            for (LectureGroup lectureGroup : course.getLectureGroups()) {
                 if (lectureGroup.getGroupName().equals(selectedLectureGroupName)) {
                     lectureGroup.enrolledIn();
                     break;
@@ -55,7 +56,7 @@ public class CourseRegistrationMgr {
             }
 
 
-            for (TutorialGroup tutorialGroup:course.getTutorialGroups()) {
+            for (TutorialGroup tutorialGroup : course.getTutorialGroups()) {
                 if (tutorialGroup.getGroupName().equals(selectedTutorialGroupName)) {
                     tutorialGroup.enrolledIn();
                     break;
@@ -73,12 +74,12 @@ public class CourseRegistrationMgr {
             System.out.println("Choose a lab Group to enroll in: ");
             selectedLabGroupName = scanner.nextLine();
 
-            while (! labGroupNames.contains(selectedLabGroupName)) {
+            while (!labGroupNames.contains(selectedLabGroupName)) {
                 System.out.println("Invalid lab group, enter again: ");
                 selectedLabGroupName = scanner.nextLine();
             }
 
-            for (LabGroup labGroup:course.getLabGroups()) {
+            for (LabGroup labGroup : course.getLabGroups()) {
                 if (labGroup.getGroupName().equals(selectedLabGroupName)) {
                     labGroup.enrolledIn();
                     break;

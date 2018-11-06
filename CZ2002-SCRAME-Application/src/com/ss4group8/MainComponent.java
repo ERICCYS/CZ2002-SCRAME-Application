@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class MainComponent extends CourseworkComponent {
     private ArrayList<SubComponent> subComponents;
 
-    public MainComponent(String componentName, String componentWeight, ArrayList<SubComponent> subComponents) {
+    public MainComponent(String componentName, int componentWeight, ArrayList<SubComponent> subComponents) {
         super(componentName, componentWeight);
         this.subComponents = subComponents;
     }
