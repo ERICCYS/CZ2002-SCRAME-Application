@@ -15,10 +15,10 @@
 | Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | |
 | Register Student for a Course               | Eric        |           |  Done   | |
 | Check Available Slots                       | Mengyan     |           |    Done     |                    |
-| Print Student List                          | Kevin            |can choose to print by lec,tut or lab  | Done     |Waiting for CourseRegistration load funciton |
-| Enter course assessment components weightage| Kevin            |           |       Doing   |                    |
-| Enter coursework mark                       | Eric           | inclusive of its components | Doing     | |
-| Enter exam mark                             | Eric       | Similar to "Enter coursework mark" | Doing     | |
+| Print Student List                          | Kevin            |can choose to print by lec,tut or lab  | Done     |  |
+| Enter course assessment components weightage| Kevin            |           |       Done   |                    |
+| Enter coursework mark                       | Eric           | inclusive of its components |      | |
+| Enter exam mark                             | Eric       | Similar to "Enter coursework mark" |      | |
 | Print course statistics                     | Kenneth     |           |          |                    |
 | Print student transcript                    | Kenneth     |           |   Doing  |                    |
 
