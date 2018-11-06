@@ -56,6 +56,8 @@ public class FILEMgr {
     private static final int courseWorkMarksIndex = 3;
     private static final int totalMarkIndex = 4;
 
+    private static final int subComponentLength = 3;
+
     //when a new student is added, add him to the csv file
     public static void writeStudentsIntoFile(Student student){
         File file;
@@ -488,11 +490,31 @@ public class FILEMgr {
                 {
                     CourseworkComponent key = entry.getKey();
                     Double value = entry.getValue();
-                    fileWriter.append(key.getComponentName());
-                    fileWriter.append(EQUAL_SIGN);
-                    fileWriter.append(key.getComponentWeight());
-                    fileWriter.append(EQUAL_SIGN);
-                    fileWriter.append(String.valueOf(value));
+                    if(key instanceof SubComponent){
+                        fileWriter.append(key.getComponentName());
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(key.getComponentWeight());
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(value));}
+                        else{
+                            fileWriter.append(key.getComponentName());
+                            fileWriter.append(EQUAL_SIGN);
+                            fileWriter.append(key.getComponentWeight());
+                            fileWriter.append(EQUAL_SIGN);
+                            fileWriter.append(String.valueOf(value));
+                            fileWriter.append(EQUAL_SIGN);
+                            ArrayList<SubComponent> subComponents = ((MainComponent)key).getSubComponents();
+                            int subComponent_index = 0;
+                            for(SubComponent subComponent:subComponents){
+                                fileWriter.append(subComponent.getComponentName());
+                                fileWriter.append(SLASH);
+                                fileWriter.append(subComponent.getComponentWeight());
+                                subComponent_index++;
+                                if(subComponent_index != subComponents.size()){
+                                    fileWriter.append(EQUAL_SIGN);
+                                }
+                            }
+                    }
                     index ++;
                     if(index != courseworkMarks.size()){
                         fileWriter.append(LINE_DELIMITER);
@@ -559,8 +581,16 @@ public class FILEMgr {
                     String[] eachCourseWorkMark = courseWorkMarksString.split(LINE_DELIMITER);
                     for(int i  = 0; i < eachCourseWorkMark.length; i++){
                         thisCourseWorkMark = eachCourseWorkMark[i].split(EQUAL_SIGN);
+                        if(thisCourseWorkMark.length == subComponentLength){
                         courseWorkMarks.put(new SubComponent(thisCourseWorkMark[0],thisCourseWorkMark[1]),Double.parseDouble(thisCourseWorkMark[2]));
-                    }
+                    }else{
+                            ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
+                            for(int j = 3; j < thisCourseWorkMark.length; j++){
+                                String[] thisSubComponent = thisCourseWorkMark[j].split(SLASH);
+                                subComponents.add(new SubComponent(thisSubComponent[0],thisSubComponent[1]));
+                            }
+                            courseWorkMarks.put(new MainComponent(thisCourseWorkMark[0],thisCourseWorkMark[1],subComponents),Double.parseDouble(thisCourseWorkMark[2]));
+                    }}
                     Double totalMark = Double.parseDouble(tokens[totalMarkIndex]);
                     Mark mark = new Mark(students.get(thisStudentIndex),courses.get(thisCourseIndex),examMark,courseWorkMarks,totalMark);
                     marks.add(mark);
