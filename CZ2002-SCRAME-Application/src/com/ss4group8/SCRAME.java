@@ -76,6 +76,7 @@ public class SCRAME {
 
         } while (choice != 11);
     }
+
     public static void printWelcome() {
         System.out.printf("\n");
         System.out.println("#######   #######   #######       #       ##       ##   #######");
@@ -130,18 +131,18 @@ public class SCRAME {
         System.out.println("addStudent is called");
         System.out.println("Enter student Name: ");
         studentName = scanner.nextLine();
-        do{
+        do {
             System.out.println("Give this student an ID");
             studentID = scanner.nextLine();
-            for(Student student:students) {
+            for (Student student : students) {
                 sameStudentID = 0;
-                if(student.getStudentID().equals(studentID)) {
+                if (student.getStudentID().equals(studentID)) {
                     System.out.println("This student ID is already used. Please enter a new one.");
                     sameStudentID = 1;
                     break;
                 }
             }
-        } while(sameStudentID == 1);
+        } while (sameStudentID == 1);
         Student newStudent = new Student(studentID, studentName);
         students.add(StudentMgr.addStudent(newStudent));
     }
@@ -154,15 +155,15 @@ public class SCRAME {
         do {
             System.out.println("Give this course an ID");
             courseID = scanner.nextLine();
-            for(Course course:courses){
+            for (Course course : courses) {
                 sameCourseID = 0;
-                if(course.getCourseID().equals(courseID)) {
+                if (course.getCourseID().equals(courseID)) {
                     System.out.println("This course ID is already used. Please enter a new one.");
                     sameCourseID = 1;
                     break;
                 }
             }
-        } while(sameCourseID == 1);
+        } while (sameCourseID == 1);
         courses.add(CourseMgr.addCourse(courseID));
     }
 
@@ -173,7 +174,7 @@ public class SCRAME {
         boolean validStudentID = false;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
-        for (Student student:students) {
+        for (Student student : students) {
             if (student.getStudentID().equals(studentID)) {
                 validStudentID = true;
                 currentStudent = student;
@@ -182,7 +183,7 @@ public class SCRAME {
         }
         if (!validStudentID) {
             System.out.println("Invalid Student ID...");
-            return ;
+            return;
         }
         // Exception handling
         String courseID;
@@ -190,7 +191,7 @@ public class SCRAME {
         boolean validCourseID = false;
         System.out.println("Enter Course ID:");
         courseID = scanner.nextLine();
-        for (Course course:courses) {
+        for (Course course : courses) {
             if (course.getCourseID().equals(courseID)) {
                 validCourseID = true;
                 currentCourse = course;
@@ -200,11 +201,12 @@ public class SCRAME {
         if (!validCourseID) {
             System.out.println("Invalid Course ID...");
             System.out.println("Exiting the course registration");
-            return ;
+            return;
         }
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
-        CourseRegistration courseRegistration = CourseRegistrationMgr.registerCourse(currentStudent, currentCourse);
+        courseRegistrations.add(CourseRegistrationMgr.registerCourse(currentStudent, currentCourse));
+//        marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
     }
 
     public static void checkAvailableSlots() {
@@ -212,23 +214,23 @@ public class SCRAME {
         String courseID;
         int index = 0;
         int exist;
-        do{
+        do {
             exist = 0;
             System.out.println("Enter course ID");
             courseID = scanner.nextLine();
-            for(Course course:courses){
-                if(course.getCourseID().equals(courseID)){
+            for (Course course : courses) {
+                if (course.getCourseID().equals(courseID)) {
                     exist = 1;
                     index++;
                 }
             }
-            if(exist == 1){
+            if (exist == 1) {
                 CourseMgr.checkAvailableSlots(courses.get(index));
                 break;
-            }
-            else{
+            } else {
                 System.out.println("This course does not exist. Please check again.");
-        }}while(true);
+            }
+        } while (true);
     }
 
     public static void printStudents() {

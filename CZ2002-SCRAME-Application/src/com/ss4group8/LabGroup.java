@@ -11,11 +11,15 @@ public class LabGroup {
         this.availableVacancies = availableVacancies;
     }
 
-    public String getGroupName() { return this.groupName; }
+    public String getGroupName() {
+        return this.groupName;
+    }
 
-    public int getAvailableVacancies() { return this.availableVacancies; }
+    public int getAvailableVacancies() {
+        return this.availableVacancies;
+    }
 
-    public void enrolledIn () {
+    public void enrolledIn() {
         this.availableVacancies -= 1;
     }
 }

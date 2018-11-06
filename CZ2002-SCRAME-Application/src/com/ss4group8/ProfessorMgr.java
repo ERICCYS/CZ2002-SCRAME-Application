@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ProfessorMgr {
     private Scanner scanner = new Scanner(System.in);
+
     public Professor addProfessor() {
         System.out.println("Enter the professor's name: ");
         String profName = scanner.nextLine();

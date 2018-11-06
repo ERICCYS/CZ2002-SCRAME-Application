@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class MarkMgr {
     private Scanner scanner = new Scanner(System.in);
 
-//    public Mark initializeMark(Student student, Course course) {
-//        HashMap<String, Double> courseWorkMark = new HashMap<String, Double>();
-
+//    public static Mark initializeMark(Student student, Course course) {
+//
 //        return new Mark();
-
+//
 //    }
 }
