@@ -586,6 +586,7 @@ public class FILEMgr {
                     }else{
                             ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
                             for(int j = 3; j < thisCourseWorkMark.length; j++){
+                                if(thisCourseWorkMark[3].equals("")){ break; }
                                 String[] thisSubComponent = thisCourseWorkMark[j].split(SLASH);
                                 subComponents.add(new SubComponent(thisSubComponent[0],thisSubComponent[1]));
                             }
