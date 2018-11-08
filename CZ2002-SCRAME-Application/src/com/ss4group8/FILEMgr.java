@@ -1,8 +1,5 @@
 package com.ss4group8;
 
-
-import org.omg.PortableInterceptor.INACTIVE;
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -53,7 +50,6 @@ public class FILEMgr {
 
     private static final int studentIdIndexInMarks = 0;
     private static final int courseIdIndexInMarks = 1;
-    //    private static final int examMarkIndex = 2;
     private static final int courseWorkMarksIndex = 2;
     private static final int totalMarkIndex = 3;
 
@@ -66,7 +62,7 @@ public class FILEMgr {
         try {
             file = new File(studentFileName);
             //initialize file header if have not done so
-            fileWriter = new FileWriter(studentFileName);
+            fileWriter = new FileWriter(studentFileName, true);
             if (file.length() == 0) {
                 fileWriter.append(student_HEADER);
                 fileWriter.append(NEW_LINE_SEPARATOR);
@@ -124,7 +120,7 @@ public class FILEMgr {
         File file;
         FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter(courseFileName);
+            fileWriter = new FileWriter(courseFileName, true);
             //initialize file header if have not done so
             file = new File(courseFileName);
             if (file.length() == 0) {
@@ -347,7 +343,7 @@ public class FILEMgr {
         try {
             file = new File(professorFileName);
             //initialize file header if have not done so
-            fileWriter = new FileWriter(professorFileName);
+            fileWriter = new FileWriter(professorFileName, true);
             if (file.length() == 0) {
                 fileWriter.append(professor_HEADER);
                 fileWriter.append(NEW_LINE_SEPARATOR);
@@ -407,7 +403,7 @@ public class FILEMgr {
         try {
             file = new File(courseRegistrationFileName);
             //initialize file header if have not done so
-            fileWriter = new FileWriter(courseRegistrationFileName);
+            fileWriter = new FileWriter(courseRegistrationFileName, true);
             if (file.length() == 0) {
                 fileWriter.append(courseRegistration_HEADER);
                 fileWriter.append(NEW_LINE_SEPARATOR);
@@ -496,7 +492,7 @@ public class FILEMgr {
         try {
             file = new File(markFileName);
             //initialize file header if have not done so
-            fileWriter = new FileWriter(markFileName);
+            fileWriter = new FileWriter(markFileName, true);
             if (file.length() == 0) {
                 fileWriter.append(mark_HEADER);
                 fileWriter.append(NEW_LINE_SEPARATOR);
