@@ -285,7 +285,23 @@ public class CourseMgr {
 
     public static void checkAvailableSlots(Course course) {
         //printout the result directly
-        System.out.println("This course " + course.getLectureGroups() + " still has " + course.getVacancies() + "available slots.");
+        System.out.println("This course " + course.getCourseID() + " " + course.getCourseName() + " still has " + course.getVacancies() + " available slots.");
+        System.out.println("------------------------------------------------------------------------------");
+        for (LectureGroup lectureGroup : course.getLectureGroups()) {
+            System.out.println("Lecture group " + lectureGroup.getGroupName() + " still has " + lectureGroup.getAvailableVacancies() + " available slots");
+        }
+        if (course.getTutorialGroups() != null) {
+            System.out.println("------------------------------------------------------------------------------");
+            for (TutorialGroup tutorialGroup : course.getTutorialGroups()) {
+                System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " still has " + tutorialGroup.getAvailableVacancies() + " available slots");
+            }
+        }
+        if (course.getLabGroups() != null) {
+            System.out.println("------------------------------------------------------------------------------");
+            for (LabGroup labGroup : course.getLabGroups()) {
+                System.out.println("Tutorial group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
+            }
+        }
     }
 
     public static void setWeightage(Course course){
