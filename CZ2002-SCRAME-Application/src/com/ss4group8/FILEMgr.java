@@ -243,19 +243,112 @@ public class FILEMgr {
 
     }
 
-    public static void backUpCourse(ArrayList<Course> courses){
-//        BufferedReader fileReader = null;
-//        FileWriter fileWriter = null;
+    public static ArrayList<Course> loadCourses() {
+        ArrayList<Course> courses = new ArrayList<Course>(0);
+        BufferedReader fileReader = null;
+        try {
+            String line;
+            int thisProfessor = 0;
+            fileReader = new BufferedReader(new FileReader(courseFileName));
+            fileReader.readLine();//read the header to skip it
+            while ((line = fileReader.readLine()) != null) {
+                String[] tokens = line.split(COMMA_DELIMITER);
+                if (tokens.length > 0) {
+                    String courseID = tokens[courseIdIndex];
+                    String courseName = tokens[courseNameIndex];
+                    String profInCharge = tokens[profInChargeIndex];
+                    ArrayList<Professor> professors = loadProfessors();
+                    for (Professor professor : professors) {
+                        int index = 0;
+                        if (professor.getProfID().equals(profInCharge)) {
+                            thisProfessor = index;
+                            break;
+                        } else {
+                            index++;
+                        }
+                    }
+                    int vacancies = Integer.parseInt(tokens[vacanciesIndex]);
+                    int totalSeats = Integer.parseInt(tokens[totalSeatsIndex]);
 
-//        File file;
+                    String lectureGroupsString = tokens[lectureGroupsIndex];
+                    ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>(0);
+                    String[] eachLectureGroupsString = lectureGroupsString.split(Pattern.quote(LINE_DELIMITER));
+
+                    for (int i = 0; i < eachLectureGroupsString.length; i++) {
+                        String[] thisLectureGroup = eachLectureGroupsString[i].split(EQUAL_SIGN);
+                        lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1])));
+                    }
+
+                    Course course = new Course(courseID, courseName, professors.get(thisProfessor), totalSeats, totalSeats, lectureGroups);
+
+                    String tutorialGroupsString = tokens[tutorialGroupIndex];
+                    ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
+
+                    if (!tutorialGroupsString.equals("NULL")) {
+                        String[] eachTutorialGroupsString = tutorialGroupsString.split(Pattern.quote(LINE_DELIMITER));
+                        for (int i = 0; i < eachTutorialGroupsString.length; i++) {
+//                            System.out.println(eachTutorialGroupsString[i]);
+                            String[] thisTutorialGroup = eachTutorialGroupsString[i].split(EQUAL_SIGN);
+                            tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0], Integer.parseInt(thisTutorialGroup[1])));
+//                            System.out.println("Added tut group with: name " + thisTutorialGroup[0] + " with " + thisTutorialGroup[1] + " slots");
+                        }
+                    }
+                    course.setTutorialGroups(tutorialGroups);
+
+                    String labGroupsString = tokens[labGroupIndex];
+                    ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
+                    if (!labGroupsString.equals("NULL")) {
+                        String[] eachLabGroupString = labGroupsString.split(Pattern.quote(LINE_DELIMITER));
+                        for (int i = 0; i < eachLabGroupString.length; i++) {
+                            String[] thisLabGroup = eachLabGroupString[i].split(EQUAL_SIGN);
+                            labGroups.add(new LabGroup(thisLabGroup[0], Integer.parseInt(thisLabGroup[1])));
+                        }
+                    }
+                    course.setLabGroups(labGroups);
+
+                    String mainComponentsString = tokens[mainComponentsIndex];
+                    ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
+                    if (!mainComponentsString.equals("NULL")) {
+                        String[] eachMainComponentsString = mainComponentsString.split(Pattern.quote(LINE_DELIMITER));
+                        for (int i = 0; i < eachMainComponentsString.length; i++) {
+                            String[] thisMainComponent = eachMainComponentsString[i].split(EQUAL_SIGN);
+                            ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
+                            if (thisMainComponent.length > 2) {
+                                String[] subComponentsString = thisMainComponent[2].split(SLASH);
+                                for (int j = 0; j < subComponentsString.length; j++) {
+                                    String[] thisSubComponent = subComponentsString[j].split(HYPHEN);
+                                    subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
+                                }
+                            }
+
+
+                            mainComponents.add(new MainComponent(thisMainComponent[0], Integer.parseInt(thisMainComponent[1]), subComponents));
+                        }
+                    }
+                    course.setMainComponents(mainComponents);
+                    course.setVacancies(vacancies);
+                    courses.add(course);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error happens when loading courses.");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileReader.close();
+            } catch (IOException e) {
+                System.out.println("Error happens when closing the fileReader.");
+                e.printStackTrace();
+            }
+        }
+        return courses;
+    }
+
+    public static void backUpCourse(ArrayList<Course> courses){
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(courseFileName);
-            //initialize file header if have not done so
-//            file = new File(courseFileName);
-//            if (file.length() == 0) {
-//
-//            }
+
 
             fileWriter.append(course_HEADER);
             fileWriter.append(NEW_LINE_SEPARATOR);
@@ -374,142 +467,6 @@ public class FILEMgr {
                 e.printStackTrace();
             }
         }
-
-
-//        try{
-//            String AllLine ="";
-//            String line;
-//            fileReader = new BufferedReader(new FileReader(courseFileName));
-//            AllLine = AllLine + fileReader.readLine() + NEW_LINE_SEPARATOR;
-//            while((line = fileReader.readLine())!= null){
-//                String[] tokens = line.split(COMMA_DELIMITER);
-//                if(tokens.length > 0){
-//                    if(course.getCourseID().equals(tokens[courseIdIndex])){
-//                        tokens[vacanciesIndex] = String.valueOf(course.getVacancies());
-//                        line = "";
-//                        for(int i = 0; i < tokens.length; i++){
-//                            line += tokens[i];
-//                            if(i != (tokens.length-1)){
-//                                line += COMMA_DELIMITER;
-//                            }
-//                        }
-//                    }
-//                    AllLine = AllLine + line + NEW_LINE_SEPARATOR;
-//                }
-//            }
-//            fileWriter=new FileWriter(courseFileName);
-//            fileWriter.write(AllLine);
-//        }catch (Exception e) {
-//            System.out.println("Error happens when updating courses.");
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                fileReader.close();
-//                fileWriter.close();
-//            } catch (IOException e) {
-//                System.out.println("Error happens when closing the fileReader or fileWriter.");
-//                e.printStackTrace();
-//            }
-//        }
-    }
-
-    public static ArrayList<Course> loadCourses() {
-        ArrayList<Course> courses = new ArrayList<Course>(0);
-        BufferedReader fileReader = null;
-        try {
-            String line;
-            int thisProfessor = 0;
-            fileReader = new BufferedReader(new FileReader(courseFileName));
-            fileReader.readLine();//read the header to skip it
-            while ((line = fileReader.readLine()) != null) {
-                String[] tokens = line.split(COMMA_DELIMITER);
-                if (tokens.length > 0) {
-                    String courseID = tokens[courseIdIndex];
-                    String courseName = tokens[courseNameIndex];
-                    String profInCharge = tokens[profInChargeIndex];
-                    ArrayList<Professor> professors = loadProfessors();
-                    for (Professor professor : professors) {
-                        int index = 0;
-                        if (professor.getProfID().equals(profInCharge)) {
-                            thisProfessor = index;
-                            break;
-                        } else {
-                            index++;
-                        }
-                    }
-                    int vacancies = Integer.parseInt(tokens[vacanciesIndex]);
-                    int totalSeats = Integer.parseInt(tokens[totalSeatsIndex]);
-
-                    String lectureGroupsString = tokens[lectureGroupsIndex];
-                    ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>(0);
-                    String[] eachLectureGroupsString = lectureGroupsString.split(Pattern.quote(LINE_DELIMITER));
-
-                    for (int i = 0; i < eachLectureGroupsString.length; i++) {
-                        String[] thisLectureGroup = eachLectureGroupsString[i].split(EQUAL_SIGN);
-                        lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1])));
-                    }
-
-                    Course course = new Course(courseID, courseName, professors.get(thisProfessor), totalSeats, totalSeats, lectureGroups);
-
-                    String tutorialGroupsString = tokens[tutorialGroupIndex];
-                    ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
-
-                    if (!tutorialGroupsString.equals("NULL")) {
-                        String[] eachTutorialGroupsString = tutorialGroupsString.split(Pattern.quote(LINE_DELIMITER));
-                        for (int i = 0; i < eachLectureGroupsString.length; i++) {
-                            String[] thisTutorialGroup = eachTutorialGroupsString[i].split(EQUAL_SIGN);
-                            tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0], Integer.parseInt(thisTutorialGroup[1])));
-                        }
-                    }
-                    course.setTutorialGroups(tutorialGroups);
-
-                    String labGroupsString = tokens[labGroupIndex];
-                    ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
-                    if (!labGroupsString.equals("NULL")) {
-                        String[] eachLabGroupString = labGroupsString.split(Pattern.quote(LINE_DELIMITER));
-                        for (int i = 0; i < eachLabGroupString.length; i++) {
-                            String[] thisLabGroup = eachLabGroupString[i].split(EQUAL_SIGN);
-                            labGroups.add(new LabGroup(thisLabGroup[0], Integer.parseInt(thisLabGroup[1])));
-                        }
-                    }
-                    course.setLabGroups(labGroups);
-
-                    String mainComponentsString = tokens[mainComponentsIndex];
-                    ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
-                    if (!mainComponentsString.equals("NULL")) {
-                        String[] eachMainComponentsString = mainComponentsString.split(Pattern.quote(LINE_DELIMITER));
-                        for (int i = 0; i < eachMainComponentsString.length; i++) {
-                            String[] thisMainComponent = eachMainComponentsString[i].split(EQUAL_SIGN);
-                            ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
-                            if (thisMainComponent.length > 2) {
-                                String[] subComponentsString = thisMainComponent[2].split(SLASH);
-                                for (int j = 0; j < subComponentsString.length; j++) {
-                                    String[] thisSubComponent = subComponentsString[j].split(HYPHEN);
-                                    subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
-                                }
-                            }
-
-
-                            mainComponents.add(new MainComponent(thisMainComponent[0], Integer.parseInt(thisMainComponent[1]), subComponents));
-                        }
-                    }
-                    course.setMainComponents(mainComponents);
-                    course.setVacancies(vacancies);
-                    courses.add(course);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Error happens when loading courses.");
-            e.printStackTrace();
-        } finally {
-            try {
-                fileReader.close();
-            } catch (IOException e) {
-                System.out.println("Error happens when closing the fileReader.");
-                e.printStackTrace();
-            }
-        }
-        return courses;
     }
 
     //profs
@@ -771,7 +728,7 @@ public class FILEMgr {
                             index++;
                         }
                     }
-//                    Double examMark = Double.parseDouble(tokens[examMarkIndex]);
+
                     String courseWorkMarksString = tokens[courseWorkMarksIndex];
                     String[] eachCourseWorkMark = courseWorkMarksString.split(Pattern.quote(LINE_DELIMITER));
                     for (int i = 0; i < eachCourseWorkMark.length; i++) {
@@ -807,5 +764,77 @@ public class FILEMgr {
             }
         }
         return marks;
+    }
+
+    public static void backUpMarks(ArrayList<Mark> marks){
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(markFileName);
+
+            fileWriter.append(mark_HEADER);
+            fileWriter.append(NEW_LINE_SEPARATOR);
+
+            for (Mark mark : marks) {
+                fileWriter.append(mark.getStudent().getStudentID());
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(mark.getCourse().getCourseID());
+                fileWriter.append(COMMA_DELIMITER);
+
+                HashMap<CourseworkComponent, Double> courseworkMarks = mark.getCourseWorkMarks();
+                if (!courseworkMarks.isEmpty()) {
+                    int index = 0;
+                    for (HashMap.Entry<CourseworkComponent, Double> entry : courseworkMarks.entrySet()) {
+                        CourseworkComponent key = entry.getKey();
+                        Double value = entry.getValue();
+                        if (key instanceof SubComponent) {
+                            fileWriter.append(key.getComponentName());
+                            fileWriter.append(EQUAL_SIGN);
+                            fileWriter.append(String.valueOf(key.getComponentWeight()));
+                            fileWriter.append(EQUAL_SIGN);
+                            fileWriter.append(String.valueOf(value));
+                        } else {
+                            fileWriter.append(key.getComponentName());
+                            fileWriter.append(EQUAL_SIGN);
+                            fileWriter.append(String.valueOf(key.getComponentWeight()));
+                            fileWriter.append(EQUAL_SIGN);
+                            fileWriter.append(String.valueOf(value));
+                            fileWriter.append(EQUAL_SIGN);
+                            ArrayList<SubComponent> subComponents = ((MainComponent) key).getSubComponents();
+                            int subComponent_index = 0;
+                            for (SubComponent subComponent : subComponents) {
+                                fileWriter.append(subComponent.getComponentName());
+                                fileWriter.append(SLASH);
+                                fileWriter.append(String.valueOf(subComponent.getComponentWeight()));
+                                subComponent_index++;
+                                if (subComponent_index != subComponents.size()) {
+                                    fileWriter.append(EQUAL_SIGN);
+                                }
+                            }
+                        }
+                        index++;
+                        if (index != courseworkMarks.size()) {
+                            fileWriter.append(LINE_DELIMITER);
+                        }
+                    }
+                } else {
+                    fileWriter.append("NULL");
+                }
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(mark.getTotalMark()));
+                fileWriter.append(NEW_LINE_SEPARATOR);
+            }
+        } catch (Exception e) {
+            System.out.println("Error in adding a mark to the file.");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error occurs in flushing or closing the file.");
+                e.printStackTrace();
+            }
+        }
     }
 }
