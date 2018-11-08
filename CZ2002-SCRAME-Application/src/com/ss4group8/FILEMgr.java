@@ -248,8 +248,7 @@ public class FILEMgr {
             String AllLine ="";
             String line;
             fileReader = new BufferedReader(new FileReader(courseFileName));
-            AllLine += fileReader.readLine();
-            AllLine += "\n";
+            AllLine = AllLine + fileReader.readLine() + NEW_LINE_SEPARATOR;
             while((line = fileReader.readLine())!= null){
                 String[] tokens = line.split(COMMA_DELIMITER);
                 if(tokens.length > 0){
@@ -263,7 +262,7 @@ public class FILEMgr {
                             }
                         }
                     }
-                    AllLine += line;
+                    AllLine = AllLine + line + NEW_LINE_SEPARATOR;
                 }
             }
             fileWriter=new FileWriter(courseFileName);
