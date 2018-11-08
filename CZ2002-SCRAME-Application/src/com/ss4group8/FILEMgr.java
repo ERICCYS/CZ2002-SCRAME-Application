@@ -241,6 +241,47 @@ public class FILEMgr {
 
     }
 
+    public static void updateCourse(Course course){
+        BufferedReader fileReader = null;
+        FileWriter fileWriter = null;
+        try{
+            String AllLine ="";
+            String line;
+            fileReader = new BufferedReader(new FileReader(courseFileName));
+            AllLine += fileReader.readLine();
+            AllLine += "\n";
+            while((line = fileReader.readLine())!= null){
+                String[] tokens = line.split(COMMA_DELIMITER);
+                if(tokens.length > 0){
+                    if(course.getCourseID().equals(tokens[courseIdIndex])){
+                        tokens[vacanciesIndex] = String.valueOf(course.getVacancies());
+                        line = "";
+                        for(int i = 0; i < tokens.length; i++){
+                            line += tokens[i];
+                            if(i != (tokens.length-1)){
+                                line += COMMA_DELIMITER;
+                            }
+                        }
+                    }
+                    AllLine += line;
+                }
+            }
+            fileWriter=new FileWriter(courseFileName);
+            fileWriter.write(AllLine);
+        }catch (Exception e) {
+            System.out.println("Error happens when updating courses.");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileReader.close();
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error happens when closing the fileReader or fileWriter.");
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static ArrayList<Course> loadCourses() {
         ArrayList<Course> courses = new ArrayList<Course>(0);
         BufferedReader fileReader = null;
