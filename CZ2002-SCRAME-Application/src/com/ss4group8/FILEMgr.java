@@ -94,13 +94,19 @@ public class FILEMgr {
             String line;
             fileReader = new BufferedReader(new FileReader(studentFileName));
             fileReader.readLine();//read the header to skip it
+            int recentStudentID = 0;
             while ((line = fileReader.readLine()) != null) {
                 String[] tokens = line.split(COMMA_DELIMITER);
                 if (tokens.length > 0) {
+                    recentStudentID = Math.max(recentStudentID, Integer.parseInt(tokens[studentIdIndex].substring(1,8)));
                     Student student = new Student(tokens[studentIdIndex], tokens[studentNameIndex]);
                     students.add(student);
                 }
             }
+            // Set the recent student ID, let the newly added student have the ID onwards.
+            // If there is no student in DB, set recentStudentID to 1800000 (2018 into Uni)
+
+            Student.setIdNumber(recentStudentID > 0 ? recentStudentID : 1800000);
         } catch (Exception e) {
             System.out.println("Error occurs when loading students.");
             e.printStackTrace();
@@ -237,44 +243,174 @@ public class FILEMgr {
 
     }
 
-    public static void updateCourse(Course course){
-        BufferedReader fileReader = null;
+    public static void backUpCourse(ArrayList<Course> courses){
+//        BufferedReader fileReader = null;
+//        FileWriter fileWriter = null;
+
+//        File file;
         FileWriter fileWriter = null;
-        try{
-            String AllLine ="";
-            String line;
-            fileReader = new BufferedReader(new FileReader(courseFileName));
-            AllLine = AllLine + fileReader.readLine() + NEW_LINE_SEPARATOR;
-            while((line = fileReader.readLine())!= null){
-                String[] tokens = line.split(COMMA_DELIMITER);
-                if(tokens.length > 0){
-                    if(course.getCourseID().equals(tokens[courseIdIndex])){
-                        tokens[vacanciesIndex] = String.valueOf(course.getVacancies());
-                        line = "";
-                        for(int i = 0; i < tokens.length; i++){
-                            line += tokens[i];
-                            if(i != (tokens.length-1)){
-                                line += COMMA_DELIMITER;
-                            }
+        try {
+            fileWriter = new FileWriter(courseFileName);
+            //initialize file header if have not done so
+//            file = new File(courseFileName);
+//            if (file.length() == 0) {
+//
+//            }
+
+            fileWriter.append(course_HEADER);
+            fileWriter.append(NEW_LINE_SEPARATOR);
+
+            for (Course course:courses) {
+                fileWriter.append(course.getCourseID());
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(course.getCourseName());
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(course.getProfInCharge().getProfID());
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(String.valueOf(course.getVacancies()));
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(String.valueOf(course.getTotalSeats()));
+                fileWriter.append(COMMA_DELIMITER);
+
+                ArrayList<LectureGroup> lectureGroups = course.getLectureGroups();
+
+                if (lectureGroups.size() != 0) {
+                    int index = 0;
+                    for (LectureGroup lectureGroup : lectureGroups) {
+                        fileWriter.append(lectureGroup.getGroupName());
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(lectureGroup.getAvailableVacancies()));
+                        index++;
+                        if (index != lectureGroups.size()) {
+                            fileWriter.append(LINE_DELIMITER);
                         }
                     }
-                    AllLine = AllLine + line + NEW_LINE_SEPARATOR;
+                } else {
+                    fileWriter.append("NULL");
                 }
+
+                fileWriter.append(COMMA_DELIMITER);
+
+                ArrayList<TutorialGroup> tutorialGroups = course.getTutorialGroups();
+                if (tutorialGroups.size() != 0) {
+                    int index = 0;
+                    for (TutorialGroup tutorialGroup : tutorialGroups) {
+                        fileWriter.append(tutorialGroup.getGroupName());
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(tutorialGroup.getAvailableVacancies()));
+                        index++;
+                        if (index != tutorialGroups.size()) {
+                            fileWriter.append(LINE_DELIMITER);
+                        }
+                    }
+                } else {
+                    fileWriter.append("NULL");
+                }
+                fileWriter.append(COMMA_DELIMITER);
+
+                ArrayList<LabGroup> labGroups = course.getLabGroups();
+                if (labGroups.size() != 0) {
+                    int index = 0;
+                    for (LabGroup labGroup : labGroups) {
+                        fileWriter.append(labGroup.getGroupName());
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(labGroup.getAvailableVacancies()));
+                        index++;
+                        if (index != labGroups.size()) {
+                            fileWriter.append(LINE_DELIMITER);
+                        }
+                    }
+                } else {
+                    fileWriter.append("NULL");
+                }
+
+                fileWriter.append(COMMA_DELIMITER);
+
+                ArrayList<MainComponent> mainComponents = course.getMainComponents();
+                if (mainComponents.size() != 0) {
+                    int index = 0;
+                    for (MainComponent mainComponent : mainComponents) {
+                        fileWriter.append(mainComponent.getComponentName());
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(mainComponent.getComponentWeight()));
+                        fileWriter.append(EQUAL_SIGN);
+                        ArrayList<SubComponent> subComponents = mainComponent.getSubComponents();
+                        int inner_index = 0;
+                        for (SubComponent subComponent : subComponents) {
+                            fileWriter.append(subComponent.getComponentName());
+                            fileWriter.append(HYPHEN);
+                            fileWriter.append(String.valueOf(subComponent.getComponentWeight()));
+                            inner_index++;
+                            if (inner_index != subComponents.size()) {
+                                fileWriter.append(SLASH);
+                            }
+                        }
+                        index++;
+                        if (index != mainComponents.size()) {
+                            fileWriter.append(LINE_DELIMITER);
+                        }
+                    }
+                } else {
+                    fileWriter.append("NULL");
+                }
+
+                fileWriter.append(NEW_LINE_SEPARATOR);
+
             }
-            fileWriter=new FileWriter(courseFileName);
-            fileWriter.write(AllLine);
-        }catch (Exception e) {
-            System.out.println("Error happens when updating courses.");
+
+        } catch (Exception e) {
+            System.out.println("Error in backing up courses.");
             e.printStackTrace();
         } finally {
             try {
-                fileReader.close();
+                fileWriter.flush();
                 fileWriter.close();
             } catch (IOException e) {
-                System.out.println("Error happens when closing the fileReader or fileWriter.");
+                System.out.println("Error occurs when flushing or closing the file.");
                 e.printStackTrace();
             }
         }
+
+
+//        try{
+//            String AllLine ="";
+//            String line;
+//            fileReader = new BufferedReader(new FileReader(courseFileName));
+//            AllLine = AllLine + fileReader.readLine() + NEW_LINE_SEPARATOR;
+//            while((line = fileReader.readLine())!= null){
+//                String[] tokens = line.split(COMMA_DELIMITER);
+//                if(tokens.length > 0){
+//                    if(course.getCourseID().equals(tokens[courseIdIndex])){
+//                        tokens[vacanciesIndex] = String.valueOf(course.getVacancies());
+//                        line = "";
+//                        for(int i = 0; i < tokens.length; i++){
+//                            line += tokens[i];
+//                            if(i != (tokens.length-1)){
+//                                line += COMMA_DELIMITER;
+//                            }
+//                        }
+//                    }
+//                    AllLine = AllLine + line + NEW_LINE_SEPARATOR;
+//                }
+//            }
+//            fileWriter=new FileWriter(courseFileName);
+//            fileWriter.write(AllLine);
+//        }catch (Exception e) {
+//            System.out.println("Error happens when updating courses.");
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                fileReader.close();
+//                fileWriter.close();
+//            } catch (IOException e) {
+//                System.out.println("Error happens when closing the fileReader or fileWriter.");
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     public static ArrayList<Course> loadCourses() {

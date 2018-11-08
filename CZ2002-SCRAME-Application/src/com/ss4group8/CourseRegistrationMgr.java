@@ -15,6 +15,7 @@ public class CourseRegistrationMgr {
         System.out.println("Student " + student.getStudentName() + " with ID: " + student.getStudentID() +
                 " wants to register " + course.getCourseID() + " " + course.getCourseName());
 
+
         ArrayList<String> lectureGroupNames = new ArrayList<String>(0);
         ArrayList<String> tutorialGroupNames = new ArrayList<String>(0);
         ArrayList<String> labGroupNames = new ArrayList<String>(0);
@@ -91,7 +92,7 @@ public class CourseRegistrationMgr {
                 }
             }
         }
-
+        course.enrolledIn();
         CourseRegistration courseRegistration = new CourseRegistration(student, course, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
         FILEMgr.writeCourseRegistrationIntoFile(courseRegistration);
 
@@ -108,7 +109,7 @@ public class CourseRegistrationMgr {
         int opt = scanner.nextInt();
 
         // READ courseRegistrationFILE
-        // return ARRAYLIST of Object(student,course,lecture,tut,lab)
+        // return ArrayList of Object(student,course,lecture,tut,lab)
         ArrayList<CourseRegistration> stuArray = FILEMgr.loadCourseRegistration();
         // assume lecture,tut,lab groups are int
 

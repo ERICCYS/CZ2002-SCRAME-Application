@@ -49,9 +49,7 @@ public class Course {
         return this.profInCharge;
     }
 
-    public int getVacancies() {
-        return this.vacancies;
-    }
+    public int getVacancies() { return this.vacancies; }
 
     public int getTotalSeats() {
         return this.totalSeats;
@@ -76,6 +74,8 @@ public class Course {
     public void setVacancies(int vacancies) {
         this.vacancies = vacancies;
     }
+
+    public void enrolledIn() { this.vacancies = vacancies - 1; }
 
     public void setTutorialGroups(ArrayList<TutorialGroup> tutorialGroups) {
         this.tutorialGroups = tutorialGroups;

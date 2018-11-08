@@ -1,2 +1,2 @@
 courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
-CZ2002,OODP,1,20,20,LEC1=10|LEC2=10,TUT1=10|TUT2=20,LAB1=20,Exam=60=|Labs=10=Lab1-20/Lab2-20/Lab3-20/Lab4-20/Lab5-20|Assignment=30=
+CZ2002,OODP,1,18,20,LEC1=8|LEC2=10,TUT1=4|TUT2=4,LAB1=18,Final=60=|Lab works=10=lab1-20/lab2-20/lab3-20/lab4-20/lab5-20|Assigment=30=

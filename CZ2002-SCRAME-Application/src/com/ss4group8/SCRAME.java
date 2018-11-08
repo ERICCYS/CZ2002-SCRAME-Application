@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class SCRAME {
     public static Scanner scanner = new Scanner(System.in);
-
     public static ArrayList<Student> students = new ArrayList<Student>(0);
     public static ArrayList<Course> courses = new ArrayList<Course>(0);
     public static ArrayList<CourseRegistration> courseRegistrations = new ArrayList<CourseRegistration>(0);
@@ -67,7 +66,7 @@ public class SCRAME {
                     printStudentTranscript();
                     break;
                 case 11:
-                    printBye();
+                    exitApplication();
                     break;
 
             }
@@ -89,8 +88,10 @@ public class SCRAME {
         System.out.printf("\n");
     }
 
-    public static void printBye() {
-        System.out.printf("\n");
+    public static void exitApplication() {
+
+        System.out.printf("Backing up data before exiting...\n");
+        FILEMgr.backUpCourse(courses);
         System.out.println("********* Bye! Thank you for using SCRAME! *********");
         System.out.printf("\n");
         System.out.println("                 ######    #      #   #######                   ");
