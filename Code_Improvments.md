@@ -6,9 +6,9 @@
 | :---------------------------: | :---------: | :------: |:------: | :------: |
 | Design a method to make groups vacancies added up to course vacancies | CourseMgr |  | | |
 | Dont let user type in group name he/she wants to enroll | CourseRegistrationMgr |  | | |
-| Validation of CourseID/StudentID and etc should be done in their own classes?! instead of in SCRAME| SCRAME |  | | This is so that we can stay consistent with our design principle |
-| |  |  | | |
-| |  |  | | |
+| Validation of CourseID/StudentID and etc should be done in their own classes?! instead of in SCRAME| SCRAME |  | Can discuss on meeting | This is so that we can stay consistent with our design principle |
+| Validation of the input choice for the main menu | SCRAME |  | | |
+| Prevent student add to a group that have no vacancies| CourseRegistrationMgr |  | | |
 | |  |  | | |
 | |  |  | | |
 | |  |  | | |
