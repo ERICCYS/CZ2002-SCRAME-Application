@@ -1,7 +1,9 @@
 package com.ss4group8;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class SCRAME {
     public static Scanner scanner = new Scanner(System.in);
@@ -23,6 +25,7 @@ public class SCRAME {
 
         int choice;
         do {
+            // Find a way to handle the input mismatch exceptions.
             System.out.println("Enter your choice, let me help you:");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -92,6 +95,7 @@ public class SCRAME {
 
         System.out.printf("Backing up data before exiting...\n");
         FILEMgr.backUpCourse(courses);
+        FILEMgr.backUpMarks(marks);
         System.out.println("********* Bye! Thank you for using SCRAME! *********");
         System.out.printf("\n");
         System.out.println("                 ######    #      #   #######                   ");
@@ -220,8 +224,9 @@ public class SCRAME {
             for (Course course : courses) {
                 if (course.getCourseID().equals(courseID)) {
                     exist = 1;
-                    index++;
+                    break;
                 }
+                index++;
             }
             if (exist == 1) {
                 CourseMgr.checkAvailableSlots(courses.get(index));
@@ -235,8 +240,26 @@ public class SCRAME {
     public static void printStudents() {
         System.out.println("printStudent is called");
         String courseID;
+        Course currentCourse = null;
+        boolean validCourseID = false;
+
         System.out.println("Enter course ID");
         courseID = scanner.nextLine();
+
+        for (Course course : courses) {
+            if (course.getCourseID().equals(courseID)) {
+                validCourseID = true;
+                currentCourse = course;
+                break;
+            }
+        }
+        if (!validCourseID) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the course registration");
+            return;
+        }
+
+        CourseRegistrationMgr.printStudents(currentCourse);
         // Exception handling
         // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
     }
