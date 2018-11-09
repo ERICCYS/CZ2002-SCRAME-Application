@@ -61,18 +61,19 @@ public class CourseMgr {
                 }
             } while (groupNameExists == 1);
 
+
             do{
             System.out.println("Enter this lecture group's  capacity");
             lectureGroupCapacity = scanner.nextInt();
 //            totalSeats += lectureGroupCapacity;
             scanner.nextLine();
             seatsLeft -= lectureGroupCapacity;
-            if(seatsLeft >=0){
+            if((seatsLeft > 0 && i != (noOfLectureGroups - 1)) || (seatsLeft == 0 && i == noOfLectureGroups - 1)){
             LectureGroup lectureGroup = new LectureGroup(lectureGroupName, lectureGroupCapacity);
             lectureGroups.add(lectureGroup);
             break; }
             else{
-                System.out.println("Sorry, the total capacity you allocated for all the lecture groups exceeds the total seats for this course.");
+                System.out.println("Sorry, the total capacity you allocated for all the lecture groups exceeds or does not add up to the total seats for this course.");
                 System.out.println("Please re-enter the capacity for the last lecture group "+ lectureGroupName +" you have entered.");
                 seatsLeft += lectureGroupCapacity;
                 continue;
@@ -114,12 +115,12 @@ public class CourseMgr {
 //            totalSeats += tutorialGroupCapacity;
                 scanner.nextLine();
                 seatsLeft -= tutorialGroupCapacity;
-                if(seatsLeft >=0){
+                if((seatsLeft > 0 && i != (noOfTutorialGroups - 1)) || (seatsLeft == 0 && i == noOfTutorialGroups - 1)){
                     TutorialGroup tutorialGroup = new TutorialGroup(tutorialGroupName, tutorialGroupCapacity);
                     tutorialGroups.add(tutorialGroup);
                     break; }
                 else{
-                    System.out.println("Sorry, the total capacity you allocated for all the tutorial groups exceeds the total seats for this course.");
+                    System.out.println("Sorry, the total capacity you allocated for all the tutorial groups exceeds or does not add up to the total seats for this course.");
                     System.out.println("Please re-enter the capacity for the last tutorial group "+ tutorialGroupName +" you have entered.");
                     seatsLeft += tutorialGroupCapacity;
                     continue;
@@ -161,12 +162,12 @@ public class CourseMgr {
 //            totalSeats += labGroupCapacity;
                 scanner.nextLine();
                 seatsLeft -= labGroupCapacity;
-                if(seatsLeft >=0){
+                if((seatsLeft > 0 && i != (noOfLabGroups - 1)) || (seatsLeft == 0 && i == noOfLabGroups - 1)){
                     LabGroup labGroup = new LabGroup(labGroupName, labGroupCapacity);
                     labGroups.add(labGroup);
                     break; }
                 else{
-                    System.out.println("Sorry, the total capacity you allocated for all the lab groups exceeds the total seats for this course.");
+                    System.out.println("Sorry, the total capacity you allocated for all the lab groups exceeds or does not add up to the total seats for this course.");
                     System.out.println("Please re-enter the capacity for the last lab group "+ labGroupName +" you have entered.");
                     seatsLeft += labGroupCapacity;
                     continue;
