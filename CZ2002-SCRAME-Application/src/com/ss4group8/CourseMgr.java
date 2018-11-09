@@ -154,12 +154,6 @@ public class CourseMgr {
                     }
                 }
             } while (groupNameExists == 1);
-            System.out.println("Enter this lab group's capacity");
-            labGroupCapacity = scanner.nextInt();
-            scanner.nextLine();
-//            totalSeats += labGroupCapacity;
-            LabGroup labGroup = new LabGroup(labGroupName, labGroupCapacity);
-            labGroups.add(labGroup);
 
             do{
                 System.out.println("Enter this lab group's capacity");
