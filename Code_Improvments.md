@@ -9,7 +9,7 @@
 | Validation of CourseID/StudentID and etc should be done in their own classes?! instead of in SCRAME| SCRAME |  | Can discuss on meeting | This is so that we can stay consistent with our design principle |
 | Validation of the input choice for the main menu | SCRAME |  | | |
 | Prevent student add to a group that have no vacancies| CourseRegistrationMgr |  | | |
-| |  |  | | |
+| Enter course work marks | MarkMgr, SCRAME |  | | |
 | |  |  | | |
 | |  |  | | |
 | |  |  | | |
