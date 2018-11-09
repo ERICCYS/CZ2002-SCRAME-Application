@@ -1,2 +1,3 @@
 studentID,courseID,courseWorkMarks,totalMark
-U1800001L,CZ2002,Assignment=30=0.0=|Lab works=10=0.0=lab1/20/0.0=lab2/20/0.0=lab3/20/0.0=lab4/20/0.0=lab5/20/0.0|Exam=60=0.0=|,0.0
+U1800001L,CZ2007,Quiz=20=0.0=quiz1/50/0.0=quiz2/50/0.0|Lab Assignment=30=0.0=ass1/25/0.0=ass2/25/0.0=ass3/50/0.0|Exam=50=0.0=|,0.0
+U1800001L,CZ2002,Exam=60=0.0=|Assignment=30=0.0=|Lab works=10=0.0=lab1/20/0.0=lab2/20/0.0=lab3/20/0.0=lab4/20/0.0=lab5/20/0.0|,0.0

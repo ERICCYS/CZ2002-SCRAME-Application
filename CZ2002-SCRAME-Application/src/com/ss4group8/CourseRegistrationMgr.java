@@ -37,7 +37,7 @@ public class CourseRegistrationMgr {
                     continue;
                 }
                 index++;
-                System.out.println(index + ": " + lectureGroup.getGroupName());
+                System.out.println(index + ": " + lectureGroup.getGroupName() + " (" + lectureGroup.getAvailableVacancies() + " vacancies)");
                 LecGroupAssign.put(lectureGroup.getGroupName(), index);
             }
             selectedLectureGroupNum = scanner.nextInt();
