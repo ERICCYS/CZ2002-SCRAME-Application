@@ -37,10 +37,10 @@ public class SCRAME {
                     printOptions();
                     break;
                 case 1:
-                    addStudent();
+                    StudentMgr.addStudent();
                     break;
                 case 2:
-                    addCourse();
+                    CourseMgr.addCourse();
                     break;
                 case 3:
                     registerCourse();
@@ -124,46 +124,8 @@ public class SCRAME {
         System.out.println("\n");
     }
 
-    public static void addStudent() {
-        String studentName;
-//        String studentID;
-//        // Can make the sameStudentID as boolean, set to false.
-//        int sameStudentID = 0;
-        System.out.println("addStudent is called");
-        System.out.println("Enter student Name: ");
-        studentName = scanner.nextLine();
 
-        Student currentStudent = StudentMgr.addStudent(studentName);
-        students.add(currentStudent);
-        System.out.println("Student named: " + studentName + " is added, with ID: " + currentStudent.getStudentID());
 
-        System.out.println("Student list: ");
-        System.out.println("Student ID | Student Name");
-        for (Student student : students) {
-            System.out.println(" " + student.getStudentID() + " | " + student.getStudentName());
-        }
-    }
-
-    public static void addCourse() {
-        String courseID;
-        // Can make the sameCourseID as boolean, set to false.
-        int sameCourseID = 0;
-        System.out.println("addCourse is called");
-        do {
-            System.out.println("Give this course a course code");
-            courseID = scanner.nextLine();
-            for (Course course : courses) {
-                sameCourseID = 0;
-                if (course.getCourseID().equals(courseID)) {
-                    System.out.println("This course ID is already used. Please enter a new one.");
-                    sameCourseID = 1;
-                    break;
-                }
-            }
-        } while (sameCourseID == 1);
-        courses.add(CourseMgr.addCourse(courseID));
-        System.out.println("Course " + courseID + " is added");
-    }
 
     public static void registerCourse() {
         System.out.println("registerCourse is called");

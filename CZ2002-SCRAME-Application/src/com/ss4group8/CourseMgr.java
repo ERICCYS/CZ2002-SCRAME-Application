@@ -7,11 +7,28 @@ import java.util.Scanner;
 public class CourseMgr {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static Course addCourse(String courseID) {
+    public static void addCourse() {
+        String courseID;
         String courseName;
         String profID;
         int groupNameExists, profExists, componentExist;
         int seatsLeft;
+        // Can make the sameCourseID as boolean, set to false.
+        int sameCourseID = 0;
+        System.out.println("addCourse is called");
+        do {
+            System.out.println("Give this course a course code");
+            courseID = scanner.nextLine();
+            for (Course course : SCRAME.courses) {
+                sameCourseID = 0;
+                if (course.getCourseID().equals(courseID)) {
+                    System.out.println("This course ID is already used. Please enter a new one.");
+                    sameCourseID = 1;
+                    break;
+                }
+            }
+        } while (sameCourseID == 1);
+
 
         int profInChargeIndex = 0;
         ArrayList<Professor> professors = FILEMgr.loadProfessors();
@@ -29,10 +46,17 @@ public class CourseMgr {
 
 
         int noOfLectureGroups;
-        System.out.println("Enter the number of lecture groups:");
-        // lecture group number cannot be 0
+        do{System.out.println("Enter the number of lecture groups:");
+        // lecture group number cannot be 0 and also cannot be larger than totalSeats
         noOfLectureGroups = scanner.nextInt();
         scanner.nextLine();
+        if(noOfLectureGroups > 0 && noOfLectureGroups <= totalSeats){
+            break;
+        }
+        System.out.println("Invalid input.");
+        System.out.println("Number of lecture group must be postive but less than total seats in this course.");
+        System.out.println("Please re-enter");
+        }while(true);
 
 
         ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>();
@@ -64,9 +88,15 @@ public class CourseMgr {
 
             do{
             System.out.println("Enter this lecture group's  capacity");
-            lectureGroupCapacity = scanner.nextInt();
+            do{
+                lectureGroupCapacity = scanner.nextInt();
 //            totalSeats += lectureGroupCapacity;
-            scanner.nextLine();
+                scanner.nextLine();
+                if(lectureGroupCapacity > 0){
+                    break;
+                }
+                System.out.println("Capacity must be positive. Please re-enter.");
+            }while(true);
             seatsLeft -= lectureGroupCapacity;
             if((seatsLeft > 0 && i != (noOfLectureGroups - 1)) || (seatsLeft == 0 && i == noOfLectureGroups - 1)){
             LectureGroup lectureGroup = new LectureGroup(lectureGroupName, lectureGroupCapacity);
@@ -81,9 +111,17 @@ public class CourseMgr {
         }
 
         int noOfTutorialGroups;
-        System.out.println("Enter the number of tutorial groups:");
+        seatsLeft = totalSeats;
+        do{System.out.println("Enter the number of tutorial groups:");
         noOfTutorialGroups = scanner.nextInt();
         scanner.nextLine();
+        if(noOfTutorialGroups >= 0 && noOfTutorialGroups <= totalSeats){
+            break;
+        }
+        System.out.println("Invalid input.");
+        System.out.println("Number of tutorial group must be non-negative but less than total seats in this course.");
+        System.out.println("Please re-enter");
+    }while(true);
         ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>();
         String tutorialGroupName;
         // GroupName cannot have duplicate inside one course.
@@ -128,6 +166,7 @@ public class CourseMgr {
         }
 
         int noOfLabGroups;
+        seatsLeft = totalSeats;
         System.out.println("Enter the number of lab groups:");
         noOfLabGroups = scanner.nextInt();
         scanner.nextLine();
@@ -316,7 +355,8 @@ public class CourseMgr {
         Course course = new Course(courseID, courseName, professors.get(profInChargeIndex), totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, mainComponents);
         //add course into file
         FILEMgr.writeCourseIntoFile(course);
-        return course;
+        SCRAME.courses.add(course);
+        System.out.println("Course " + courseID + " is added");
     }
 
     public static void checkAvailableSlots(Course course) {
