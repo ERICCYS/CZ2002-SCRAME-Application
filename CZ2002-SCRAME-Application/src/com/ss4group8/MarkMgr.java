@@ -1,11 +1,9 @@
 package com.ss4group8;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class MarkMgr {
-    private Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static Mark initializeMark(Student student, Course course) {
         HashMap<CourseworkComponent, Double> courseWorkMarks = new HashMap<CourseworkComponent, Double>();
@@ -24,4 +22,15 @@ public class MarkMgr {
         FILEMgr.updateStudentMarks(mark);
         return mark;
     }
+
+    public static void setExamMark(Mark mark) {
+        double examMark;
+        System.out.println("Enter the exam mark:");
+        examMark = scanner.nextInt();
+        mark.setMainCourseWorkMarks("Final", examMark);
+    }
+
+    public static void set
+
+
 }

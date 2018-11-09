@@ -1,9 +1,7 @@
 package com.ss4group8;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class SCRAME {
     public static Scanner scanner = new Scanner(System.in);
@@ -128,9 +126,9 @@ public class SCRAME {
 
     public static void addStudent() {
         String studentName;
-        String studentID;
-        // Can make the sameStudentID as boolean, set to false.
-        int sameStudentID = 0;
+//        String studentID;
+//        // Can make the sameStudentID as boolean, set to false.
+//        int sameStudentID = 0;
         System.out.println("addStudent is called");
         System.out.println("Enter student Name: ");
         studentName = scanner.nextLine();
@@ -255,7 +253,7 @@ public class SCRAME {
         }
         if (!validCourseID) {
             System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
+            System.out.println("Exiting the print student");
             return;
         }
 
@@ -277,12 +275,44 @@ public class SCRAME {
     public static void enterCourseWorkMark() {
         System.out.println("enterCourseWorkMark is called");
         String studentID;
+        boolean validStudentID = false;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
-        // Exception handling
+        for (Student student : students) {
+            if (student.getStudentID().equals(studentID)) {
+                validStudentID = true;
+                break;
+            }
+        }
+        if (!validStudentID) {
+            System.out.println("Invalid Student ID...");
+            System.out.println("Exiting the mark management");
+            return;
+        }
         String courseID;
+        boolean validCourseID = false;
         System.out.println("Enter course ID");
         courseID = scanner.nextLine();
+        for (Course course : courses) {
+            if (course.getCourseID().equals(courseID)) {
+                validCourseID = true;
+                break;
+            }
+        }
+        if (!validCourseID) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the mark management");
+            return;
+        }
+
+        for(Mark mark : marks) {
+            if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
+                MarkMgr.setExamMark(mark);
+                return;
+            }
+        }
+
+        System.out.println("This student haven't registered " + courseID);
         // Exception handling
         // Get the course and student. Call the function inside MarkMgr
     }
@@ -290,12 +320,45 @@ public class SCRAME {
     public static void enterExamMark() {
         System.out.println("enterExamMark is called");
         String studentID;
+        Student currentStudent = null;
+        boolean validStudentID = false;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
-        // Exception handling
+        for (Student student : students) {
+            if (student.getStudentID().equals(studentID)) {
+                validStudentID = true;
+                break;
+            }
+        }
+        if (!validStudentID) {
+            System.out.println("Invalid Student ID...");
+            System.out.println("Exiting the mark management");
+            return;
+        }
         String courseID;
+        boolean validCourseID = false;
         System.out.println("Enter course ID");
         courseID = scanner.nextLine();
+        for (Course course : courses) {
+            if (course.getCourseID().equals(courseID)) {
+                validCourseID = true;
+                break;
+            }
+        }
+        if (!validCourseID) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the mark management");
+            return;
+        }
+
+        for(Mark mark : marks) {
+            if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
+                MarkMgr.setExamMark(mark);
+                return;
+            }
+        }
+
+        System.out.println("This student haven't registered " + courseID);
         // Exception handling
         // Get the course and student. Call the function inside MarkMgr
     }
