@@ -10,7 +10,7 @@
 | Validation of the input choice for the main menu | SCRAME | Mengyan |Doing | |
 | Prevent student add to a group that have no vacancies| CourseRegistrationMgr |Mengyan  |Done | |
 | Enter course work marks | MarkMgr, SCRAME |  | | |
-| |  |  | | |
+|User can choose to add a student by manually enter the studentID or auto-generate | CourseMgr |  | | |
 | |  |  | | |
 | |  |  | | |
 | |  |  | | |
