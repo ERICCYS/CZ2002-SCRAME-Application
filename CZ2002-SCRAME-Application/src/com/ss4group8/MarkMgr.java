@@ -30,7 +30,12 @@ public class MarkMgr {
         mark.setMainCourseWorkMarks("Final", examMark);
     }
 
-    public static void set(){}
+    public static void setCourseWorkMark(Mark mark) {
+        double courseWorkMark;
+        // Print the choice.
+        // As the user to enter the name
+        // take in the the courseWorkName and mark, and whether it is a main component.
+    }
 
 
 }

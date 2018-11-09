@@ -1,9 +1,7 @@
 package com.ss4group8;
 
-import sun.applet.Main;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Course {
     private String courseID;
