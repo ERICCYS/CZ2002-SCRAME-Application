@@ -30,7 +30,7 @@ public class MarkMgr {
         mark.setMainCourseWorkMarks("Final", examMark);
     }
 
-    public static void set
+    public static void set(){}
 
 
 }
