@@ -1,8 +1,6 @@
 package com.ss4group8;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class Mark {
     private Student student;
@@ -34,7 +32,7 @@ public class Mark {
     }
 
     public void setMainCourseWorkMarks(String courseWorkName, double result) {
-        for (Map.Entry<CourseworkComponent, Double> entry : courseWorkMarks.entrySet()) {
+        for (HashMap.Entry<CourseworkComponent, Double> entry : courseWorkMarks.entrySet()) {
             CourseworkComponent courseworkComponent = entry.getKey();
 //            Double previousResult = entry.getValue();
 

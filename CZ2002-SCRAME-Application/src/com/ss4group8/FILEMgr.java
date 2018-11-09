@@ -1,5 +1,7 @@
 package com.ss4group8;
 
+
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -23,7 +25,7 @@ public class FILEMgr {
     private static final String course_HEADER = "courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
     private static final String professor_HEADER = "professorID,professorName";
     private static final String courseRegistration_HEADER = "studentID,courseID,lectureGroup,tutorialGroup,labGroup";
-    private static final String mark_HEADER = "studentID,courseID,examMark,courseWorkMarks,totalMark";
+    private static final String mark_HEADER = "studentID,courseID,courseWorkMarks,totalMark";
 
     private static final int studentIdIndex = 0;
     private static final int studentNameIndex = 1;
@@ -634,21 +636,20 @@ public class FILEMgr {
             fileWriter.append(COMMA_DELIMITER);
             fileWriter.append(mark.getCourse().getCourseID());
             fileWriter.append(COMMA_DELIMITER);
-//            fileWriter.append(String.valueOf(mark.getExamMark()));
-//            fileWriter.append(COMMA_DELIMITER);
             HashMap<CourseworkComponent, Double> courseworkMarks = mark.getCourseWorkMarks();
             if (!courseworkMarks.isEmpty()) {
                 int index = 0;
                 for (HashMap.Entry<CourseworkComponent, Double> entry : courseworkMarks.entrySet()) {
                     CourseworkComponent key = entry.getKey();
                     Double value = entry.getValue();
-                    if (key instanceof SubComponent) {
-                        fileWriter.append(key.getComponentName());
-                        fileWriter.append(EQUAL_SIGN);
-                        fileWriter.append(String.valueOf(key.getComponentWeight()));
-                        fileWriter.append(EQUAL_SIGN);
-                        fileWriter.append(String.valueOf(value));
-                    } else {
+//                    if (key instanceof SubComponent) {
+//                        fileWriter.append(key.getComponentName());
+//                        fileWriter.append(EQUAL_SIGN);
+//                        fileWriter.append(String.valueOf(key.getComponentWeight()));
+//                        fileWriter.append(EQUAL_SIGN);
+//                        fileWriter.append(String.valueOf(value));
+//                    }
+                    if (key instanceof MainComponent) {
                         fileWriter.append(key.getComponentName());
                         fileWriter.append(EQUAL_SIGN);
                         fileWriter.append(String.valueOf(key.getComponentWeight()));
@@ -661,6 +662,8 @@ public class FILEMgr {
                             fileWriter.append(subComponent.getComponentName());
                             fileWriter.append(SLASH);
                             fileWriter.append(String.valueOf(subComponent.getComponentWeight()));
+                            fileWriter.append(SLASH);
+                            fileWriter.append(String.valueOf(0.0));
                             subComponent_index++;
                             if (subComponent_index != subComponents.size()) {
                                 fileWriter.append(EQUAL_SIGN);
@@ -668,7 +671,7 @@ public class FILEMgr {
                         }
                     }
                     index++;
-                    if (index != courseworkMarks.size()) {
+                    if (index != courseworkMarks.size() && (key instanceof MainComponent)) {
                         fileWriter.append(LINE_DELIMITER);
                     }
                 }
@@ -731,21 +734,46 @@ public class FILEMgr {
 
                     String courseWorkMarksString = tokens[courseWorkMarksIndex];
                     String[] eachCourseWorkMark = courseWorkMarksString.split(Pattern.quote(LINE_DELIMITER));
+                    // Get all the main components
+
                     for (int i = 0; i < eachCourseWorkMark.length; i++) {
                         thisCourseWorkMark = eachCourseWorkMark[i].split(EQUAL_SIGN);
-                        if (thisCourseWorkMark.length == subComponentLength) {
-                            courseWorkMarks.put(new SubComponent(thisCourseWorkMark[0], Integer.parseInt(thisCourseWorkMark[1])), Double.parseDouble(thisCourseWorkMark[2]));
-                        } else {
-                            ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
-                            for (int j = 3; j < thisCourseWorkMark.length; j++) {
-                                if (thisCourseWorkMark[3].equals("")) {
-                                    break;
-                                }
-                                String[] thisSubComponent = thisCourseWorkMark[j].split(SLASH);
-                                subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
+                        ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
+                        HashMap<SubComponent, Double> subComponentMarks = new HashMap<SubComponent, Double>();
+                        for (int j = 3; j < thisCourseWorkMark.length; j++)  {
+                            if (thisCourseWorkMark[3].equals("")) {
+                                break;
                             }
-                            courseWorkMarks.put(new MainComponent(thisCourseWorkMark[0], Integer.parseInt(thisCourseWorkMark[1]), subComponents), Double.parseDouble(thisCourseWorkMark[2]));
+                            String[] thisSubComponent = thisCourseWorkMark[j].split(SLASH);
+                            System.out.println(thisCourseWorkMark[j]);
+                            System.out.println(thisSubComponent[0]);
+                            System.out.println(thisSubComponent[1]);
+                            System.out.println(thisSubComponent[2]);
+                            subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
+                            subComponentMarks.put(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])), Double.parseDouble(thisSubComponent[2]));
                         }
+                        // Put main component
+                        courseWorkMarks.put(new MainComponent(thisCourseWorkMark[0], Integer.parseInt(thisCourseWorkMark[1]), subComponents), Double.parseDouble(thisCourseWorkMark[2]));
+                        // Put sub component
+                        for (HashMap.Entry<SubComponent, Double> entry : subComponentMarks.entrySet()) {
+                            SubComponent subComponent =  entry.getKey();
+                            Double subComponentResult = entry.getValue();
+                            courseWorkMarks.put(subComponent, subComponentResult);
+                        }
+
+//                        if (thisCourseWorkMark.length == subComponentLength) {
+//                            courseWorkMarks.put(new SubComponent(thisCourseWorkMark[0], Integer.parseInt(thisCourseWorkMark[1])), Double.parseDouble(thisCourseWorkMark[2]));
+//                        } else {
+//                            ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
+//                            for (int j = 3; j < thisCourseWorkMark.length; j++) {
+//                                if (thisCourseWorkMark[3].equals("")) {
+//                                    break;
+//                                }
+//                                String[] thisSubComponent = thisCourseWorkMark[j].split(SLASH);
+//                                subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
+//                            }
+//                            courseWorkMarks.put(new MainComponent(thisCourseWorkMark[0], Integer.parseInt(thisCourseWorkMark[1]), subComponents), Double.parseDouble(thisCourseWorkMark[2]));
+//                        }
                     }
                     Double totalMark = Double.parseDouble(tokens[totalMarkIndex]);
                     Mark mark = new Mark(students.get(thisStudentIndex), courses.get(thisCourseIndex), courseWorkMarks, totalMark);
@@ -775,6 +803,14 @@ public class FILEMgr {
             fileWriter.append(NEW_LINE_SEPARATOR);
 
             for (Mark mark : marks) {
+
+//                Print out to debug
+                System.out.println("Student ID: " + mark.getStudent().getStudentID() + " Student name: " + mark.getStudent().getStudentName());
+                System.out.println("Course ID: " + mark.getCourse().getCourseID() + " Course name: " + mark.getCourse().getCourseName());
+//                for (CourseworkComponent courseworkComponent: mark.get)
+//                System.out.println("Course Components: " + );
+
+
                 fileWriter.append(mark.getStudent().getStudentID());
                 fileWriter.append(COMMA_DELIMITER);
 
@@ -787,13 +823,14 @@ public class FILEMgr {
                     for (HashMap.Entry<CourseworkComponent, Double> entry : courseworkMarks.entrySet()) {
                         CourseworkComponent key = entry.getKey();
                         Double value = entry.getValue();
-                        if (key instanceof SubComponent) {
-                            fileWriter.append(key.getComponentName());
-                            fileWriter.append(EQUAL_SIGN);
-                            fileWriter.append(String.valueOf(key.getComponentWeight()));
-                            fileWriter.append(EQUAL_SIGN);
-                            fileWriter.append(String.valueOf(value));
-                        } else {
+//                    if (key instanceof SubComponent) {
+//                        fileWriter.append(key.getComponentName());
+//                        fileWriter.append(EQUAL_SIGN);
+//                        fileWriter.append(String.valueOf(key.getComponentWeight()));
+//                        fileWriter.append(EQUAL_SIGN);
+//                        fileWriter.append(String.valueOf(value));
+//                    }
+                        if (key instanceof MainComponent) {
                             fileWriter.append(key.getComponentName());
                             fileWriter.append(EQUAL_SIGN);
                             fileWriter.append(String.valueOf(key.getComponentWeight()));
@@ -806,6 +843,8 @@ public class FILEMgr {
                                 fileWriter.append(subComponent.getComponentName());
                                 fileWriter.append(SLASH);
                                 fileWriter.append(String.valueOf(subComponent.getComponentWeight()));
+                                fileWriter.append(SLASH);
+                                fileWriter.append(String.valueOf(0.0));
                                 subComponent_index++;
                                 if (subComponent_index != subComponents.size()) {
                                     fileWriter.append(EQUAL_SIGN);
@@ -813,11 +852,49 @@ public class FILEMgr {
                             }
                         }
                         index++;
-                        if (index != courseworkMarks.size()) {
+                        if (index != courseworkMarks.size() && (key instanceof MainComponent)) {
                             fileWriter.append(LINE_DELIMITER);
                         }
                     }
-                } else {
+                }
+
+//                if (!courseworkMarks.isEmpty()) {
+//                    int index = 0;
+//                    for (HashMap.Entry<CourseworkComponent, Double> entry : courseworkMarks.entrySet()) {
+//                        CourseworkComponent key = entry.getKey();
+//                        Double value = entry.getValue();
+//                        if (key instanceof SubComponent) {
+//                            fileWriter.append(key.getComponentName());
+//                            fileWriter.append(EQUAL_SIGN);
+//                            fileWriter.append(String.valueOf(key.getComponentWeight()));
+//                            fileWriter.append(EQUAL_SIGN);
+//                            fileWriter.append(String.valueOf(value));
+//                        } else {
+//                            fileWriter.append(key.getComponentName());
+//                            fileWriter.append(EQUAL_SIGN);
+//                            fileWriter.append(String.valueOf(key.getComponentWeight()));
+//                            fileWriter.append(EQUAL_SIGN);
+//                            fileWriter.append(String.valueOf(value));
+//                            fileWriter.append(EQUAL_SIGN);
+//                            ArrayList<SubComponent> subComponents = ((MainComponent) key).getSubComponents();
+//                            int subComponent_index = 0;
+//                            for (SubComponent subComponent : subComponents) {
+//                                fileWriter.append(subComponent.getComponentName());
+//                                fileWriter.append(SLASH);
+//                                fileWriter.append(String.valueOf(subComponent.getComponentWeight()));
+//                                subComponent_index++;
+//                                if (subComponent_index != subComponents.size()) {
+//                                    fileWriter.append(EQUAL_SIGN);
+//                                }
+//                            }
+//                        }
+//                        index++;
+//                        if (index != courseworkMarks.size()) {
+//                            fileWriter.append(LINE_DELIMITER);
+//                        }
+//                    }
+//                }
+                else {
                     fileWriter.append("NULL");
                 }
                 fileWriter.append(COMMA_DELIMITER);
