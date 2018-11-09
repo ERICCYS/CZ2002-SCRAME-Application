@@ -1,3 +1,3 @@
 courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
 CZ2002,OODP,1,17,20,LEC1=9|LEC2=8,TUT1=9|TUT2=8,LAB1=17,Exam=60=|Lab works=10=lab1-20/lab2-20/lab3-20/lab4-20/lab5-20|Assignment=30=
-CZ2007,DB,1,20,30,LEC1=11|LEC2=9,TUT1=8|TUT2=7|TUT3=2|TUT4=3,LAB1=10|LAB2=10|LAB3=0,Exam=50=|Lab Assignment=30=ass1-25/ass2-25/ass3-50|Quiz=20=quiz1-50/quiz2-50
+CZ2007,DB,1,19,30,LEC1=10|LEC2=9,TUT1=8|TUT2=7|TUT3=2|TUT4=2,LAB1=10|LAB2=9|LAB3=0,Exam=50=|Lab Assignment=30=ass1-25/ass2-25/ass3-50|Quiz=20=quiz1-50/quiz2-50
