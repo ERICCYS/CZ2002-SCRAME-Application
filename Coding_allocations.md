@@ -7,20 +7,20 @@
 #### In ensure enough time for reviewing, the code should be better done before `6 Nov 2018 (Wk12 Tue)`
 #### We may have a group meeting on `5 Nov 2018 (Wk12 Mon)` if there are questions to be clarified
 
-| Class/Function                              | Allocation  | Note      | Status   | Additional Comments|
-| :-----------------------------------------: | :---------: | :------:  | :------: |:----------------:  |
-| SCRAME (Main)                               | Eric        | No need to create detailed functions inside | Half Done | Waiting for other functions |
-| FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Done ||
-| Add Student                                 | Mengyan     |           |   Done       |                    |
-| Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | |
-| Register Student for a Course               | Eric        |           |  Done   | |
-| Check Available Slots                       | Mengyan     |           |    Done     |                    |
-| Print Student List                          | Kevin            |can choose to print by lec,tut or lab  | Done     |  |
-| Enter course assessment components weightage| Kevin            |           |       Done   |                    |
-| Enter coursework mark                       | Eric           | inclusive of its components |   Done   | |
-| Enter exam mark                             | Eric       | Similar to "Enter coursework mark" |   Doing   | |
-| Print course statistics                     | Kenneth     |           |          |                    |
-| Print student transcript                    | Kenneth     |           |   Doing  |                    |
+| Class/Function                              | Allocation  | Note      | Status   | Additional Comments| Testing Result |
+| :-----------------------------------------: | :---------: | :------:  | :------: |:----------------:  |:----------------:  |
+| SCRAME (Main)                               | Eric        | No need to create detailed functions inside | Doing | Waiting for other functions | --- |
+| FileIO Mgr                                  | Mengyan     | We'd better use csv file as DB, if cannot make it, discuss in the group |Done | | Accepted |
+| Add Student                                 | Mengyan     |           |   Done   |                    | Accepted |
+| Add Course                                  | Mengyan     | Initialize all the weightage to 0 |  Done    | | Accepted |
+| Register Student for a Course               | Eric        |           |  Done    | | Accepted |
+| Check Available Slots                       | Mengyan     |           |    Done  | | Accepted |
+| Print Student List                          | Kevin       |can choose to print by lec,tut or lab  | Done     |  | Accepted |
+| Enter course assessment components weightage| Kevin       |           |       Done   |                    | |
+| Enter coursework mark                       | Eric        | inclusive of its components |   Done   | | |
+| Enter exam mark                             | Eric        | Similar to "Enter coursework mark" |   Doing   | | |
+| Print course statistics                     | Eric        |           |   Doing  |                    | |
+| Print student transcript                    | Eric        |           |   Doing  |                    | |
 
 
 Guys, pls provide some notes here that you think is useful for teammates.
