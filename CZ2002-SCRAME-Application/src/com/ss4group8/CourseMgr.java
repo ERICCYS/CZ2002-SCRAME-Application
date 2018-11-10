@@ -11,27 +11,26 @@ public class CourseMgr {
         String courseID;
         String courseName;
         String profID;
-        int groupNameExists, profExists, componentExist;
+        boolean groupNameExists, profExists, componentExist;
         int seatsLeft;
         // Can make the sameCourseID as boolean, set to false.
-        int sameCourseID = 0;
+        boolean sameCourseID = false;
         System.out.println("addCourse is called");
         do {
             System.out.println("Give this course a course code");
             courseID = scanner.nextLine();
             for (Course course : SCRAME.courses) {
-                sameCourseID = 0;
+                sameCourseID = false;
                 if (course.getCourseID().equals(courseID)) {
                     System.out.println("This course ID is already used. Please enter a new one.");
-                    sameCourseID = 1;
+                    sameCourseID = true;
                     break;
                 }
             }
-        } while (sameCourseID == 1);
+        } while (sameCourseID);
 
 
-        int profInChargeIndex = 0;
-        ArrayList<Professor> professors = FILEMgr.loadProfessors();
+
         System.out.println("Enter course Name: ");
         courseName = scanner.nextLine();
 
@@ -46,17 +45,18 @@ public class CourseMgr {
 
 
         int noOfLectureGroups;
-        do{System.out.println("Enter the number of lecture groups:");
-        // lecture group number cannot be 0 and also cannot be larger than totalSeats
-        noOfLectureGroups = scanner.nextInt();
-        scanner.nextLine();
-        if(noOfLectureGroups > 0 && noOfLectureGroups <= totalSeats){
-            break;
-        }
-        System.out.println("Invalid input.");
-        System.out.println("Number of lecture group must be postive but less than total seats in this course.");
-        System.out.println("Please re-enter");
-        }while(true);
+        do {
+            System.out.println("Enter the number of lecture groups:");
+            // lecture group number cannot be 0 and also cannot be larger than totalSeats
+            noOfLectureGroups = scanner.nextInt();
+            scanner.nextLine();
+            if (noOfLectureGroups > 0 && noOfLectureGroups <= totalSeats) {
+                break;
+            }
+            System.out.println("Invalid input.");
+            System.out.println("Number of lecture group must be postive but less than total seats in this course.");
+            System.out.println("Please re-enter");
+        } while (true);
 
 
         ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>();
@@ -70,7 +70,7 @@ public class CourseMgr {
 //            System.out.println("Give a name to a group, the group will be named as: " + courseID + "GROUP_NAME.");
             System.out.println("Give a name to the lecture group");
             do {
-                groupNameExists = 0;
+                groupNameExists = false;
                 System.out.println("Enter a group Name: ");
                 lectureGroupName = scanner.nextLine();
                 if (lectureGroups.size() == 0) {
@@ -78,50 +78,52 @@ public class CourseMgr {
                 }
                 for (LectureGroup lectureGroup : lectureGroups) {
                     if (lectureGroup.getGroupName().equals(lectureGroupName)) {
-                        groupNameExists = 1;
+                        groupNameExists = true;
                         System.out.println("This lecture group already exist.");
                         break;
                     }
                 }
-            } while (groupNameExists == 1);
+            } while (groupNameExists);
 
 
-            do{
-            System.out.println("Enter this lecture group's  capacity");
-            do{
-                lectureGroupCapacity = scanner.nextInt();
+            do {
+                System.out.println("Enter this lecture group's  capacity");
+                do {
+                    lectureGroupCapacity = scanner.nextInt();
 //            totalSeats += lectureGroupCapacity;
-                scanner.nextLine();
-                if(lectureGroupCapacity > 0){
+                    scanner.nextLine();
+                    if (lectureGroupCapacity > 0) {
+                        break;
+                    }
+                    System.out.println("Capacity must be positive. Please re-enter.");
+                } while (true);
+                seatsLeft -= lectureGroupCapacity;
+                if ((seatsLeft > 0 && i != (noOfLectureGroups - 1)) || (seatsLeft == 0 && i == noOfLectureGroups - 1)) {
+                    LectureGroup lectureGroup = new LectureGroup(lectureGroupName, lectureGroupCapacity);
+                    lectureGroups.add(lectureGroup);
                     break;
+                } else {
+                    System.out.println("Sorry, the total capacity you allocated for all the lecture groups exceeds or does not add up to the total seats for this course.");
+                    System.out.println("Please re-enter the capacity for the last lecture group " + lectureGroupName + " you have entered.");
+                    seatsLeft += lectureGroupCapacity;
+                    continue;
                 }
-                System.out.println("Capacity must be positive. Please re-enter.");
-            }while(true);
-            seatsLeft -= lectureGroupCapacity;
-            if((seatsLeft > 0 && i != (noOfLectureGroups - 1)) || (seatsLeft == 0 && i == noOfLectureGroups - 1)){
-            LectureGroup lectureGroup = new LectureGroup(lectureGroupName, lectureGroupCapacity);
-            lectureGroups.add(lectureGroup);
-            break; }
-            else{
-                System.out.println("Sorry, the total capacity you allocated for all the lecture groups exceeds or does not add up to the total seats for this course.");
-                System.out.println("Please re-enter the capacity for the last lecture group "+ lectureGroupName +" you have entered.");
-                seatsLeft += lectureGroupCapacity;
-                continue;
-            }}while(true);
+            } while (true);
         }
 
         int noOfTutorialGroups;
         seatsLeft = totalSeats;
-        do{System.out.println("Enter the number of tutorial groups:");
-        noOfTutorialGroups = scanner.nextInt();
-        scanner.nextLine();
-        if(noOfTutorialGroups >= 0 && noOfTutorialGroups <= totalSeats){
-            break;
-        }
-        System.out.println("Invalid input.");
-        System.out.println("Number of tutorial group must be non-negative but less than total seats in this course.");
-        System.out.println("Please re-enter");
-    }while(true);
+        do {
+            System.out.println("Enter the number of tutorial groups:");
+            noOfTutorialGroups = scanner.nextInt();
+            scanner.nextLine();
+            if (noOfTutorialGroups >= 0 && noOfTutorialGroups <= totalSeats) {
+                break;
+            }
+            System.out.println("Invalid input.");
+            System.out.println("Number of tutorial group must be non-negative but less than total seats in this course.");
+            System.out.println("Please re-enter");
+        } while (true);
         ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>();
         String tutorialGroupName;
         // GroupName cannot have duplicate inside one course.
@@ -132,7 +134,7 @@ public class CourseMgr {
 //            System.out.println("Give a name to a group, the group will be named as: " + courseID + "GROUP_NAME.");
             System.out.println("Give a name to the tutorial group");
             do {
-                groupNameExists = 0;
+                groupNameExists = false;
                 System.out.println("Enter a group Name: ");
                 tutorialGroupName = scanner.nextLine();
                 if (tutorialGroups.size() == 0) {
@@ -140,29 +142,30 @@ public class CourseMgr {
                 }
                 for (TutorialGroup tutorialGroup : tutorialGroups) {
                     if (tutorialGroup.getGroupName().equals(tutorialGroupName)) {
-                        groupNameExists = 1;
+                        groupNameExists = true;
                         System.out.println("This tutorial group already exist.");
                         break;
                     }
                 }
-            } while (groupNameExists == 1);
+            } while (groupNameExists);
 
-            do{
+            do {
                 System.out.println("Enter this tutorial group's capacity");
                 tutorialGroupCapacity = scanner.nextInt();
 //            totalSeats += tutorialGroupCapacity;
                 scanner.nextLine();
                 seatsLeft -= tutorialGroupCapacity;
-                if((seatsLeft > 0 && i != (noOfTutorialGroups - 1)) || (seatsLeft == 0 && i == noOfTutorialGroups - 1)){
+                if ((seatsLeft > 0 && i != (noOfTutorialGroups - 1)) || (seatsLeft == 0 && i == noOfTutorialGroups - 1)) {
                     TutorialGroup tutorialGroup = new TutorialGroup(tutorialGroupName, tutorialGroupCapacity);
                     tutorialGroups.add(tutorialGroup);
-                    break; }
-                else{
+                    break;
+                } else {
                     System.out.println("Sorry, the total capacity you allocated for all the tutorial groups exceeds or does not add up to the total seats for this course.");
-                    System.out.println("Please re-enter the capacity for the last tutorial group "+ tutorialGroupName +" you have entered.");
+                    System.out.println("Please re-enter the capacity for the last tutorial group " + tutorialGroupName + " you have entered.");
                     seatsLeft += tutorialGroupCapacity;
                     continue;
-                }}while(true);
+                }
+            } while (true);
         }
 
         int noOfLabGroups;
@@ -180,7 +183,7 @@ public class CourseMgr {
 //            System.out.println("Give a name to a group, the group will be named as: " + courseID + "GROUP_NAME.");
             System.out.println("Give a name to this lab group");
             do {
-                groupNameExists = 0;
+                groupNameExists = false;
                 System.out.println("Enter a group Name: ");
                 labGroupName = scanner.nextLine();
                 if (labGroups.size() == 0) {
@@ -188,50 +191,50 @@ public class CourseMgr {
                 }
                 for (LabGroup labGroup : labGroups) {
                     if (labGroup.getGroupName().equals(labGroupName)) {
-                        groupNameExists = 1;
+                        groupNameExists = true;
                         System.out.println("This lab group already exist.");
                         break;
                     }
                 }
-            } while (groupNameExists == 1);
+            } while (groupNameExists);
 
-            do{
+            do {
                 System.out.println("Enter this lab group's capacity");
                 labGroupCapacity = scanner.nextInt();
 //            totalSeats += labGroupCapacity;
                 scanner.nextLine();
                 seatsLeft -= labGroupCapacity;
-                if((seatsLeft > 0 && i != (noOfLabGroups - 1)) || (seatsLeft == 0 && i == noOfLabGroups - 1)){
+                if ((seatsLeft > 0 && i != (noOfLabGroups - 1)) || (seatsLeft == 0 && i == noOfLabGroups - 1)) {
                     LabGroup labGroup = new LabGroup(labGroupName, labGroupCapacity);
                     labGroups.add(labGroup);
-                    break; }
-                else{
+                    break;
+                } else {
                     System.out.println("Sorry, the total capacity you allocated for all the lab groups exceeds or does not add up to the total seats for this course.");
-                    System.out.println("Please re-enter the capacity for the last lab group "+ labGroupName +" you have entered.");
+                    System.out.println("Please re-enter the capacity for the last lab group " + labGroupName + " you have entered.");
                     seatsLeft += labGroupCapacity;
                     continue;
-                }}while(true);
+                }
+            } while (true);
         }
 
+        Professor profInCharge = null;
+        ArrayList<Professor> professors = FILEMgr.loadProfessors();
 
         do {
-            profExists = 0;
+            profExists = false;
             System.out.println("Enter the ID for the professor in charge please:");
             profID = scanner.nextLine();
             for (Professor prof : professors) {
                 if (prof.getProfID().equals(profID)) {
-                    profExists = 1;
-                    // profInChargeIndex++;
-                    // When the profID doesn't equals to this, profInChargeIndex++;
+                    profExists = true;
+                    profInCharge = prof;
                     break;
-                } else {
-                    profInChargeIndex++;
                 }
             }
-            if (profExists == 0) {
+            if (!profExists) {
                 System.out.println("This professor does not exist. Please re-enter.");
             }
-        } while (profExists == 0);
+        } while (profExists);
 
 
         int noOfCourseworkComponents;
@@ -247,7 +250,7 @@ public class CourseMgr {
         for (int i = 0; i < noOfCourseworkComponents; i++) {
             System.out.println("Give this component a name");
             do {
-                componentExist = 0;
+                componentExist = false;
                 System.out.println("Enter a component Name: ");
                 mainComponentName = scanner.nextLine();
                 if (mainComponents.size() == 0) {
@@ -255,12 +258,12 @@ public class CourseMgr {
                 }
                 for (MainComponent mainComponent : mainComponents) {
                     if (mainComponent.getComponentName().equals(mainComponentName)) {
-                        componentExist = 1;
+                        componentExist = true;
                         System.out.println("This main component already exist.");
                         break;
                     }
                 }
-            } while (componentExist == 1);
+            } while (componentExist);
 
 
             if (i != noOfCourseworkComponents - 1) {
@@ -302,7 +305,7 @@ public class CourseMgr {
                 for (int j = 0; j < noOfSubComponent; j++) {
                     System.out.println("Give this sub-component a name");
                     do {
-                        componentExist = 0;
+                        componentExist = false;
                         System.out.println("Enter a sub-component Name: ");
                         subComponentName = scanner.nextLine();
                         if (subComponents.size() == 0) {
@@ -310,12 +313,12 @@ public class CourseMgr {
                         }
                         for (SubComponent subComponent : subComponents) {
                             if (subComponent.getComponentName().equals(subComponentName)) {
-                                componentExist = 1;
+                                componentExist = true;
                                 System.out.println("This sub component already exist.");
                                 break;
                             }
                         }
-                    } while (componentExist == 1);
+                    } while (componentExist);
 
 
                     if (j != noOfSubComponent - 1) {
@@ -352,7 +355,7 @@ public class CourseMgr {
             mainComponents.add(new MainComponent(mainComponentName, mainComponentWeight, subComponents));
         }
 
-        Course course = new Course(courseID, courseName, professors.get(profInChargeIndex), totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, mainComponents);
+        Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, mainComponents);
         //add course into file
         FILEMgr.writeCourseIntoFile(course);
         SCRAME.courses.add(course);
@@ -404,7 +407,7 @@ public class CourseMgr {
 
     }
 
-    public static void enterCourseWorkComponentWeightage(){
+    public static void enterCourseWorkComponentWeightage() {
         // ASSUME when course is created, no components are added yet
         // ASSUME once components are created and set, cannot be changed.
         Course currentCourse = null;
@@ -413,8 +416,8 @@ public class CourseMgr {
         String courseID;
         System.out.println("Enter course ID");
         courseID = scanner.nextLine();
-        for(Course course:SCRAME.courses){
-            if(course.getCourseID().equals(courseID)){
+        for (Course course : SCRAME.courses) {
+            if (course.getCourseID().equals(courseID)) {
                 currentCourse = course;
             }
         }
@@ -425,8 +428,8 @@ public class CourseMgr {
         ArrayList<SubComponent> subComponents = null;
         ArrayList<MainComponent> mainComponents = null;
         //Check if mainComponent is empty
-        if (currentCourse.getMainComponents().size() == 0){ // empty course
-            System.out.println("Currently course " + currentCourse.getCourseID() + " "+ currentCourse.getCourseName()+ " has "+ currentCourse.getMainComponents().size() + "component(s).");
+        if (currentCourse.getMainComponents().size() == 0) { // empty course
+            System.out.println("Currently course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " has " + currentCourse.getMainComponents().size() + "component(s).");
             System.out.print("Enter number of MAIN component(s) to add : ");
             int numberOfMain = scanner.nextInt();
             System.out.println();
@@ -467,11 +470,12 @@ public class CourseMgr {
                             System.out.println("ERROR! sub component weightage does not tally to 100");
                             System.out.println("You have to reassign!");
                             subComponents.clear();
-                        }
-                        else {flagSub = false;}  //exit if weight is fully allocated
-                    } while (flagSub == true);
+                        } else {
+                            flagSub = false;
+                        }  //exit if weight is fully allocated
+                    } while (flagSub);
                     //Create main component
-                    MainComponent main = new MainComponent(name,weight,subComponents);
+                    MainComponent main = new MainComponent(name, weight, subComponents);
                     mainComponents.add(main);
                     totalWeightage -= weight;
                 }
@@ -479,15 +483,15 @@ public class CourseMgr {
                     System.out.println("Weightage assigned does not tally to 100!");
                     System.out.println("You have to reassign!");
                     mainComponents.clear();
+                } else {
+                    flagMain = false;
                 }
-                else{flagMain = false;}
-            }while (flagMain == true);
+            } while (flagMain);
 
             //set maincomponent to course
             currentCourse.setMainComponents(mainComponents);
 
-        }
-        else{
+        } else {
             System.out.println("Main component is not empty!");
         }
     }
