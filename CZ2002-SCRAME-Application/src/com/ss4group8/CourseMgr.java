@@ -366,22 +366,22 @@ public class CourseMgr {
         //printout the result directly
         System.out.println("checkAvailableSlots is called");
         String courseID;
-        Course thisCourse;
-        int index = 0;
-        int exist;
+        Course thisCourse = null;
+
+        boolean exist;
         do {
-            exist = 0;
+            exist = false;
             System.out.println("Enter course ID");
             courseID = scanner.nextLine();
             for (Course course : SCRAME.courses) {
                 if (course.getCourseID().equals(courseID)) {
-                    exist = 1;
+                    exist = true;
+                    thisCourse = course;
                     break;
                 }
-                index++;
             }
-            if (exist == 1) {
-                thisCourse = SCRAME.courses.get(index);
+            if (exist) {
+//                thisCourse = SCRAME.courses.get(index);
                 System.out.println("This course " + thisCourse.getCourseID() + " " + thisCourse.getCourseName() + " still has " + thisCourse.getVacancies() + " available slots.");
                 System.out.println("------------------------------------------------------------------------------");
                 for (LectureGroup lectureGroup : thisCourse.getLectureGroups()) {
