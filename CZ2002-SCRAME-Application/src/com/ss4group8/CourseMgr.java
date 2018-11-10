@@ -425,8 +425,8 @@ public class CourseMgr {
         ArrayList<SubComponent> subComponents = null;
         ArrayList<MainComponent> mainComponents = null;
         //Check if mainComponent is empty
-        if ( course.getMainComponents().size() == 0){ // empty course
-            System.out.println("Currently course "+course.getCourseID() + " "+ course.getCourseName()+ " has "+course.getMainComponents().size() + "component(s).");
+        if (currentCourse.getMainComponents().size() == 0){ // empty course
+            System.out.println("Currently course " + currentCourse.getCourseID() + " "+ currentCourse.getCourseName()+ " has "+ currentCourse.getMainComponents().size() + "component(s).");
             System.out.print("Enter number of MAIN component(s) to add : ");
             int numberOfMain = scanner.nextInt();
             System.out.println();
