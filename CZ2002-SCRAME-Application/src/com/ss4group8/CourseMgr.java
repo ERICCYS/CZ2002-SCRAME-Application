@@ -366,13 +366,14 @@ public class CourseMgr {
         //printout the result directly
         System.out.println("checkAvailableSlots is called");
         String courseID;
-        Course thisCourse = null;
-
-        boolean exist;
+        Course thisCourse;
+        int exist;
+        int index;
         do {
             exist = false;
             System.out.println("Enter course ID");
             courseID = scanner.nextLine();
+            index = 0;
             for (Course course : SCRAME.courses) {
                 if (course.getCourseID().equals(courseID)) {
                     exist = true;
