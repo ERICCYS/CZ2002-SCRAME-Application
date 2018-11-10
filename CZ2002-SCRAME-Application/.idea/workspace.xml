@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" afterDir="false" />
-    </list>
+    <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
