@@ -23,22 +23,21 @@ public class SCRAME {
         int choice;
         do {
             printOptions();
-            // Find a way to handle the input mismatch exceptions.
-            if(scanner.hasNextInt()){
-            choice = scanner.nextInt();
-            }else{
-                do{
-                System.out.println("Sorry. Your input should be an integer.");
+            do {
                 System.out.println("Enter your choice, let me help you:");
-                }while(!scanner.hasNextInt());
-            }
-            choice = scanner.nextInt();
-            scanner.nextLine();
-            while (choice < 0 || choice > 11) {
-                System.out.println("Please enter 0 ~ 11 for your choice:");
+                while (!scanner.hasNextInt()) {
+                    String input = scanner.next();
+                    System.out.println("Sorry. " + input + " is not an integer.");
+                    System.out.println("Enter your choice, let me help you:");
+                }
                 choice = scanner.nextInt();
-                scanner.nextLine();
-            }
+                if (choice < 0 || choice > 11) {
+                    System.out.println("Please enter 0 ~ 11 for your choice:");
+                    continue;
+                }
+                break;
+            } while (true);
+
             switch (choice) {
                 case 0:
                     printOptions();
@@ -62,16 +61,16 @@ public class SCRAME {
                     CourseMgr.enterCourseWorkComponentWeightage();
                     break;
                 case 7:
-                    MarkMgr.enterCourseWorkMark();
+                    MarkMgr.setCourseWorkMark(false);
                     break;
                 case 8:
-                    enterExamMark();
+                    MarkMgr.setCourseWorkMark(true);
                     break;
                 case 9:
-                    printCourseStatistics();
+//                    printCourseStatistics();
                     break;
                 case 10:
-                    printStudentTranscript();
+                    MarkMgr.printStudentTranscript();
                     break;
                 case 11:
                     exitApplication();
@@ -129,100 +128,5 @@ public class SCRAME {
         System.out.println("10. Print student transcript");
         System.out.println("11. Quit SCRAME System");
         System.out.println("\n");
-    }
-
-
-
-    public static void enterExamMark() {
-        System.out.println("enterExamMark is called");
-
-        String studentID;
-        Student currentStudent = null;
-        System.out.println("Enter Student ID:");
-        studentID = scanner.nextLine();
-        currentStudent = validateStudent(studentID);
-        if (currentStudent == null) {
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
-            return ;
-        }
-
-//        String studentID;
-//        boolean validStudentID = false;
-//        System.out.println("Enter Student ID:");
-//        studentID = scanner.nextLine();
-//        for (Student student : students) {
-//            if (student.getStudentID().equals(studentID)) {
-//                validStudentID = true;
-//                break;
-//            }
-//        }
-//        if (!validStudentID) {
-//            System.out.println("Invalid Student ID...");
-//            System.out.println("Exiting the mark management");
-//            return;
-//        }
-
-        String courseID;
-        Course currentCourse = null;
-        System.out.println("Enter Course ID:");
-        courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-
-        for(Mark mark : marks) {
-            if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
-                MarkMgr.setExamMark(mark);
-                return;
-            }
-        }
-
-        System.out.println("This student haven't registered " + courseID);
-        // Exception handling
-        // Get the course and student. Call the function inside MarkMgr
-    }
-
-    public static void printCourseStatistics() {
-        System.out.println("printCourseStatistics is called");
-        String courseID;
-        Course currentCourse = null;
-        System.out.println("Enter Course ID:");
-        courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-
-
-
-    }
-
-    public static void printStudentTranscript() {
-        System.out.println("printStudentTranscript is called");
-        String studentID;
-        Student currentStudent = null;
-        System.out.println("Enter Student ID:");
-        studentID = scanner.nextLine();
-        currentStudent = validateStudent(studentID);
-        if (currentStudent == null) {
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
-            return ;
-        }
-
-        ArrayList<Mark> thisStudentMark = new ArrayList<Mark>(0);
-        for(Mark mark : marks) {
-            if (mark.getStudent().getStudentID().equals(studentID)) {
-                thisStudentMark.add(mark);
-            }
-        }
-
-        MarkMgr.printStudentTranscript(thisStudentMark);
     }
 }
