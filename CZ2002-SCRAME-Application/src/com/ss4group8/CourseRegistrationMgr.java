@@ -73,6 +73,18 @@ public class CourseRegistrationMgr {
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
 
+        for (CourseRegistration courseRegistration : SCRAME.courseRegistrations) {
+            if (courseRegistration.getStudent().getStudentID().equals(studentID) && courseRegistration.getCourse().getCourseID().equals(courseID)) {
+                System.out.println("Sorry, this student has already registered this course...");
+                return;
+            }
+        }
+
+        if (currentCourse.getMainComponents().size() == 0) {
+            System.out.println("Professor " + currentCourse.getProfInCharge().getProfName() + " is preparing the assessment. Please try to register other courses.");
+            return;
+        }
+
         System.out.println("Student " + currentStudent.getStudentName() + " with ID: " + currentStudent.getStudentID() +
                 " wants to register " + currentCourse.getCourseID() + " " + currentCourse.getCourseName());
 
