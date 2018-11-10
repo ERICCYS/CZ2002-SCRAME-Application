@@ -281,7 +281,6 @@ public class FILEMgr {
 
                     for (int i = 0; i < eachLectureGroupsString.length; i++) {
                         String[] thisLectureGroup = eachLectureGroupsString[i].split(EQUAL_SIGN);
-                        System.out.println(eachLectureGroupsString[i]);
                         lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1]), Integer.parseInt(thisLectureGroup[2])));
                     }
 
@@ -293,10 +292,8 @@ public class FILEMgr {
                     if (!tutorialGroupsString.equals("NULL")) {
                         String[] eachTutorialGroupsString = tutorialGroupsString.split(Pattern.quote(LINE_DELIMITER));
                         for (int i = 0; i < eachTutorialGroupsString.length; i++) {
-//                            System.out.println(eachTutorialGroupsString[i]);
                             String[] thisTutorialGroup = eachTutorialGroupsString[i].split(EQUAL_SIGN);
                             tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0], Integer.parseInt(thisTutorialGroup[1]), Integer.parseInt(thisTutorialGroup[2])));
-//                            System.out.println("Added tut group with: name " + thisTutorialGroup[0] + " with " + thisTutorialGroup[1] + " slots");
                         }
                     }
                     course.setTutorialGroups(tutorialGroups);
