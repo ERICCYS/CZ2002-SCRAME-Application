@@ -9,7 +9,7 @@
 | Validation of CourseID/StudentID and etc should be done in their own classes?! instead of in SCRAME| SCRAME | Mengyan | Done | This is so that we can stay consistent with our design principle |
 | Validation of the input choice for the main menu | SCRAME | Mengyan |Done | |
 | Prevent student add to a group that have no vacancies| CourseRegistrationMgr |Mengyan  |Done | |
-| Enter course work marks | MarkMgr, SCRAME |  | | |
+| Enter course work marks（0-100）| MarkMgr, SCRAME | Mengyan | Doing| |
 |User can choose to add a student by manually enter the studentID or auto-generate | CourseMgr |Mengyan  | Doing| |
 | |  |  | | |
 | |  |  | | |
