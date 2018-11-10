@@ -359,36 +359,74 @@ public class CourseMgr {
         System.out.println("Course " + courseID + " is added");
     }
 
-    public static void checkAvailableSlots(Course course) {
+    public static void checkAvailableSlots() {
         //printout the result directly
-        System.out.println("This course " + course.getCourseID() + " " + course.getCourseName() + " still has " + course.getVacancies() + " available slots.");
-        System.out.println("------------------------------------------------------------------------------");
-        for (LectureGroup lectureGroup : course.getLectureGroups()) {
-            System.out.println("Lecture group " + lectureGroup.getGroupName() + " still has " + lectureGroup.getAvailableVacancies() + " available slots");
-        }
-        if (course.getTutorialGroups() != null) {
-            System.out.println("------------------------------------------------------------------------------");
-            for (TutorialGroup tutorialGroup : course.getTutorialGroups()) {
-                System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " still has " + tutorialGroup.getAvailableVacancies() + " available slots");
+        System.out.println("checkAvailableSlots is called");
+        String courseID;
+        Course thisCourse;
+        int index = 0;
+        int exist;
+        do {
+            exist = 0;
+            System.out.println("Enter course ID");
+            courseID = scanner.nextLine();
+            for (Course course : SCRAME.courses) {
+                if (course.getCourseID().equals(courseID)) {
+                    exist = 1;
+                    break;
+                }
+                index++;
             }
-        }
-        if (course.getLabGroups() != null) {
-            System.out.println("------------------------------------------------------------------------------");
-            for (LabGroup labGroup : course.getLabGroups()) {
-                System.out.println("Tutorial group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
+            if (exist == 1) {
+                thisCourse = SCRAME.courses.get(index);
+                System.out.println("This course " + thisCourse.getCourseID() + " " + thisCourse.getCourseName() + " still has " + thisCourse.getVacancies() + " available slots.");
+                System.out.println("------------------------------------------------------------------------------");
+                for (LectureGroup lectureGroup : thisCourse.getLectureGroups()) {
+                    System.out.println("Lecture group " + lectureGroup.getGroupName() + " still has " + lectureGroup.getAvailableVacancies() + " available slots");
+                }
+                if (thisCourse.getTutorialGroups() != null) {
+                    System.out.println("------------------------------------------------------------------------------");
+                    for (TutorialGroup tutorialGroup : thisCourse.getTutorialGroups()) {
+                        System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " still has " + tutorialGroup.getAvailableVacancies() + " available slots");
+                    }
+                }
+                if (thisCourse.getLabGroups() != null) {
+                    System.out.println("------------------------------------------------------------------------------");
+                    for (LabGroup labGroup : thisCourse.getLabGroups()) {
+                        System.out.println("Tutorial group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
+                    }
+                }
+                break;
+            } else {
+                System.out.println("This course does not exist. Please check again.");
             }
-        }
+        } while (true);
+
     }
 
-    public static void setWeightage(Course course){
+    public static void enterCourseWorkComponentWeightage(){
         // ASSUME when course is created, no components are added yet
         // ASSUME once components are created and set, cannot be changed.
+        Course currentCourse = null;
+        System.out.println("enterCourseWorkComponentWeightage is called");
+        System.out.println("printStudent is called");
+        String courseID;
+        System.out.println("Enter course ID");
+        courseID = scanner.nextLine();
+        for(Course course:SCRAME.courses){
+            if(course.getCourseID().equals(courseID)){
+                currentCourse = course;
+            }
+        }
+        // Exception handling
+        // get the course and call the function inside the CourseMgr
+
         int totalWeightage = 100;
         ArrayList<SubComponent> subComponents = null;
         ArrayList<MainComponent> mainComponents = null;
         //Check if mainComponent is empty
-        if ( course.getMainComponents().size() == 0){ // empty course
-            System.out.println("Currently course "+course.getCourseID() + " "+ course.getCourseName()+ " has "+course.getMainComponents().size() + "component(s).");
+        if ( currentCourse.getMainComponents().size() == 0){ // empty course
+            System.out.println("Currently course "+currentCourse.getCourseID() + " "+ currentCourse.getCourseName()+ " has "+ currentCourse.getMainComponents().size() + "component(s).");
             System.out.print("Enter number of MAIN component(s) to add : ");
             int numberOfMain = scanner.nextInt();
             System.out.println();
@@ -446,7 +484,7 @@ public class CourseMgr {
             }while (flagMain == true);
 
             //set maincomponent to course
-            course.setMainComponents(mainComponents);
+            currentCourse.setMainComponents(mainComponents);
 
         }
         else{
