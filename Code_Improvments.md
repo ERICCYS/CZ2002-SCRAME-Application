@@ -13,4 +13,4 @@
 | User can choose to add a student by manually enter the studentID or auto-generate | CourseMgr | Mengyan  | Done | |
 | Same student cannot register with the same course twice | StudentMgr | Eric |Doing | |
 | Check all integer input | all | Mengyan |Doing | |
-| |  |  | | |
+|Add more student instance variables | SCRAME, FileMgr,Student,StudentMgr  |Mengyan  |Doing | |
