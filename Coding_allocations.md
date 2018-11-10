@@ -19,8 +19,8 @@
 | Enter course assessment components weightage| Kevin       |           |       Done   |                    | |
 | Enter coursework mark                       | Eric        | inclusive of its components |   Done   | | Accepted |
 | Enter exam mark                             | Eric        | Similar to "Enter coursework mark" |   Done   | | Accepted |
-| Print course statistics                     | Eric        |           |   Doing  |                    | |
-| Print student transcript                    | Eric        |           |   Doing  |                    | Accepted |
+| Print course statistics                     | Eric        |           |   Done  |                    | Accepted |
+| Print student transcript                    | Eric        |           |   Done  |                    | Accepted |
 
 
 Guys, pls provide some notes here that you think is useful for teammates.
