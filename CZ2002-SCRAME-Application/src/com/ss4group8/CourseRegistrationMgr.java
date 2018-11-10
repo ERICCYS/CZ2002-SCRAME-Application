@@ -270,8 +270,6 @@ public class CourseRegistrationMgr {
         int opt = scanner.nextInt();
         scanner.nextLine();
 
-        // assume lecture,tut,lab groups are int
-
         if (opt == 1) { // print by LECTURE
             String newLec = "";
             Collections.sort(stuArray, LecComparator);   // Sort by Lecture group
@@ -310,7 +308,7 @@ public class CourseRegistrationMgr {
                 System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
             }
         }
-
+        System.out.println("------------------------------------------------------");
         // Exception handling
         // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
 
