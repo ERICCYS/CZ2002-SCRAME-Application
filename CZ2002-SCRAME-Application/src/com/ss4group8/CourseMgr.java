@@ -396,7 +396,7 @@ public class CourseMgr {
                 if (thisCourse.getLabGroups() != null) {
                     System.out.println("------------------------------------------------------------------------------");
                     for (LabGroup labGroup : thisCourse.getLabGroups()) {
-                        System.out.println("Tutorial group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
+                        System.out.println("Lab group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
                     }
                 }
                 break;
