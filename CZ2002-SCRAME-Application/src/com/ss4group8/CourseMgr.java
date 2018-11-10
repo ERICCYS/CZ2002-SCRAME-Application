@@ -90,7 +90,6 @@ public class CourseMgr {
                 System.out.println("Enter this lecture group's  capacity");
                 do {
                     lectureGroupCapacity = scanner.nextInt();
-//            totalSeats += lectureGroupCapacity;
                     scanner.nextLine();
                     if (lectureGroupCapacity > 0) {
                         break;
@@ -99,7 +98,8 @@ public class CourseMgr {
                 } while (true);
                 seatsLeft -= lectureGroupCapacity;
                 if ((seatsLeft > 0 && i != (noOfLectureGroups - 1)) || (seatsLeft == 0 && i == noOfLectureGroups - 1)) {
-                    LectureGroup lectureGroup = new LectureGroup(lectureGroupName, lectureGroupCapacity);
+                    LectureGroup lectureGroup = new LectureGroup(lectureGroupName, lectureGroupCapacity, lectureGroupCapacity);
+
                     lectureGroups.add(lectureGroup);
                     break;
                 } else {
@@ -156,7 +156,7 @@ public class CourseMgr {
                 scanner.nextLine();
                 seatsLeft -= tutorialGroupCapacity;
                 if ((seatsLeft > 0 && i != (noOfTutorialGroups - 1)) || (seatsLeft == 0 && i == noOfTutorialGroups - 1)) {
-                    TutorialGroup tutorialGroup = new TutorialGroup(tutorialGroupName, tutorialGroupCapacity);
+                    TutorialGroup tutorialGroup = new TutorialGroup(tutorialGroupName, tutorialGroupCapacity, tutorialGroupCapacity);
                     tutorialGroups.add(tutorialGroup);
                     break;
                 } else {
@@ -205,7 +205,7 @@ public class CourseMgr {
                 scanner.nextLine();
                 seatsLeft -= labGroupCapacity;
                 if ((seatsLeft > 0 && i != (noOfLabGroups - 1)) || (seatsLeft == 0 && i == noOfLabGroups - 1)) {
-                    LabGroup labGroup = new LabGroup(labGroupName, labGroupCapacity);
+                    LabGroup labGroup = new LabGroup(labGroupName, labGroupCapacity, labGroupCapacity);
                     labGroups.add(labGroup);
                     break;
                 } else {
@@ -405,21 +405,21 @@ public class CourseMgr {
                 }
             }
             if (exist) {
-                System.out.println("This course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " still has " + currentCourse.getVacancies() + " available slots.");
+                System.out.println(currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " (Available/Total): " + currentCourse.getVacancies() + "/" + currentCourse.getTotalSeats());
                 System.out.println("------------------------------------------------------------------------------");
                 for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
-                    System.out.println("Lecture group " + lectureGroup.getGroupName() + " still has " + lectureGroup.getAvailableVacancies() + " available slots");
+                    System.out.println("Lecture group " + lectureGroup.getGroupName() + " (Available/Total): " + lectureGroup.getAvailableVacancies() + "/" + lectureGroup.getTotalSeats());
                 }
                 if (currentCourse.getTutorialGroups() != null) {
                     System.out.println("------------------------------------------------------------------------------");
                     for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
-                        System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " still has " + tutorialGroup.getAvailableVacancies() + " available slots");
+                        System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " (Available/Total):  " + tutorialGroup.getAvailableVacancies() + "/" + tutorialGroup.getTotalSeats());
                     }
                 }
                 if (currentCourse.getLabGroups() != null) {
                     System.out.println("------------------------------------------------------------------------------");
                     for (LabGroup labGroup : currentCourse.getLabGroups()) {
-                        System.out.println("Lab group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
+                        System.out.println("Lab group " + labGroup.getGroupName() + " (Available/Total): " + labGroup.getAvailableVacancies() + "/" + labGroup.getTotalSeats());
                     }
                 }
                 break;
@@ -435,14 +435,20 @@ public class CourseMgr {
         // ASSUME once components are created and set, cannot be changed.
         Course currentCourse = null;
         System.out.println("enterCourseWorkComponentWeightage is called");
-        System.out.println("printStudent is called");
         String courseID;
         System.out.println("Enter course ID");
         courseID = scanner.nextLine();
         for (Course course : SCRAME.courses) {
             if (course.getCourseID().equals(courseID)) {
                 currentCourse = course;
+                break;
             }
+        }
+
+        if (currentCourse == null) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the set course work components");
+            return;
         }
         // Exception handling
         // get the course and call the function inside the CourseMgr
