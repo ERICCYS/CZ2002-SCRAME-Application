@@ -832,7 +832,18 @@ public class FILEMgr {
                                 fileWriter.append(SLASH);
                                 fileWriter.append(String.valueOf(subComponent.getComponentWeight()));
                                 fileWriter.append(SLASH);
-                                fileWriter.append(String.valueOf(0.0));
+                                String subComponentName = subComponent.getComponentName();
+                                double subComponentMark = 0d;
+                                for (HashMap.Entry<CourseworkComponent, Double> subEntry : mark.getCourseWorkMarks().entrySet()) {
+                                    CourseworkComponent subKey = subEntry.getKey();
+                                    Double subValue = subEntry.getValue();
+                                    if (subKey instanceof SubComponent && subKey.getComponentName().equals(subComponentName)) {
+//                                        System.out.println("The sub component: " + subKey.getComponentName() + " get " + String.valueOf(subValue));
+                                        subComponentMark = subValue;
+                                        break;
+                                    }
+                                }
+                                fileWriter.append(String.valueOf(subComponentMark));
                                 subComponent_index++;
                                 if (subComponent_index != subComponents.size()) {
                                     fileWriter.append(EQUAL_SIGN);

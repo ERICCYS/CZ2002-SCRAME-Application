@@ -27,7 +27,7 @@ public class MarkMgr {
         double examMark;
         System.out.println("Enter the exam mark:");
         examMark = scanner.nextInt();
-        mark.setMainCourseWorkMarks("Final", examMark);
+        mark.setMainCourseWorkMarks("Exam", examMark);
     }
 
     public static void setCourseWorkMark(Mark mark) {
@@ -37,5 +37,50 @@ public class MarkMgr {
         // take in the the courseWorkName and mark, and whether it is a main component.
     }
 
+    public static void  printStudentTranscript(ArrayList<Mark> thisStudentMark) {
+        if (thisStudentMark.size() == 0) {
+            System.out.println("------ No transcript ready for this student yet ------");
+        }
+        System.out.println("--------------- Official Transcript ----------------");
+        System.out.print("Student Name: " + thisStudentMark.get(0).getStudent().getStudentName());
+        System.out.println("\tStudent ID: " + thisStudentMark.get(0).getStudent().getStudentID());
 
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+
+        for (Mark mark : thisStudentMark) {
+            System.out.print("Course ID: " + mark.getCourse().getCourseID());
+            System.out.println("\tCourse Name: " + mark.getCourse().getCourseName());
+
+            for (HashMap.Entry<CourseworkComponent, Double> entry : mark.getCourseWorkMarks().entrySet()) {
+                CourseworkComponent assessment = entry.getKey();
+                Double result = entry.getValue();
+                if(assessment instanceof MainComponent) {
+                    System.out.println("Main Assessment: " + assessment.getComponentName() + " ----- (" + assessment.getComponentWeight() + "%)");
+                    int mainAssessmentWeight = assessment.getComponentWeight();
+                    ArrayList<SubComponent> subAssessments = ((MainComponent) assessment).getSubComponents();
+                    for (SubComponent subAssessment : subAssessments) {
+                        System.out.print("Sub Assessment: " + subAssessment.getComponentName() + " -- (" + subAssessment.getComponentWeight() + "% * " + mainAssessmentWeight + "%) --- ");
+                        String subAssessmentName = subAssessment.getComponentName();
+                        for (HashMap.Entry<CourseworkComponent, Double> subEntry : mark.getCourseWorkMarks().entrySet()) {
+                            CourseworkComponent subKey = subEntry.getKey();
+                            Double subValue = subEntry.getValue();
+                            if (subKey instanceof SubComponent && subKey.getComponentName().equals(subAssessmentName)) {
+                                System.out.println("Mark: " + String.valueOf(subValue));
+                                break;
+                            }
+                        }
+                    }
+                    System.out.println("Main Assessment Total: " + result);
+                    System.out.println();
+                }
+            }
+
+            System.out.println("Course Total: " + mark.getTotalMark());
+            System.out.println();
+            System.out.println();
+        }
+    }
 }

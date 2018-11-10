@@ -18,7 +18,7 @@
 | Print Student List                          | Kevin       |can choose to print by lec,tut or lab  | Done     |  | Accepted |
 | Enter course assessment components weightage| Kevin       |           |       Done   |                    | |
 | Enter coursework mark                       | Eric        | inclusive of its components |   Done   | | |
-| Enter exam mark                             | Eric        | Similar to "Enter coursework mark" |   Doing   | | |
+| Enter exam mark                             | Eric        | Similar to "Enter coursework mark" |   Done   | | Accepted |
 | Print course statistics                     | Eric        |           |   Doing  |                    | |
 | Print student transcript                    | Eric        |           |   Doing  |                    | |
 
