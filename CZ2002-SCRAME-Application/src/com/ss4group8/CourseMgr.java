@@ -390,7 +390,7 @@ public class CourseMgr {
         //printout the result directly
         System.out.println("checkAvailableSlots is called");
         String courseID;
-        Course thisCourse = null;
+        Course currentCourse = null;
 
         boolean exist;
         do {
@@ -400,26 +400,25 @@ public class CourseMgr {
             for (Course course : SCRAME.courses) {
                 if (course.getCourseID().equals(courseID)) {
                     exist = true;
-                    thisCourse = course;
+                    currentCourse = course;
                     break;
                 }
             }
             if (exist) {
-//                thisCourse = SCRAME.courses.get(index);
-                System.out.println("This course " + thisCourse.getCourseID() + " " + thisCourse.getCourseName() + " still has " + thisCourse.getVacancies() + " available slots.");
+                System.out.println("This course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " still has " + currentCourse.getVacancies() + " available slots.");
                 System.out.println("------------------------------------------------------------------------------");
-                for (LectureGroup lectureGroup : thisCourse.getLectureGroups()) {
+                for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
                     System.out.println("Lecture group " + lectureGroup.getGroupName() + " still has " + lectureGroup.getAvailableVacancies() + " available slots");
                 }
-                if (thisCourse.getTutorialGroups() != null) {
+                if (currentCourse.getTutorialGroups() != null) {
                     System.out.println("------------------------------------------------------------------------------");
-                    for (TutorialGroup tutorialGroup : thisCourse.getTutorialGroups()) {
+                    for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
                         System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " still has " + tutorialGroup.getAvailableVacancies() + " available slots");
                     }
                 }
-                if (thisCourse.getLabGroups() != null) {
+                if (currentCourse.getLabGroups() != null) {
                     System.out.println("------------------------------------------------------------------------------");
-                    for (LabGroup labGroup : thisCourse.getLabGroups()) {
+                    for (LabGroup labGroup : currentCourse.getLabGroups()) {
                         System.out.println("Lab group " + labGroup.getGroupName() + " still has " + labGroup.getAvailableVacancies() + " available slots");
                     }
                 }
@@ -449,10 +448,11 @@ public class CourseMgr {
         // get the course and call the function inside the CourseMgr
 
         int totalWeightage = 100;
-        ArrayList<SubComponent> subComponents = null;
-        ArrayList<MainComponent> mainComponents = null;
+        ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
+        ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
         //Check if mainComponent is empty
-        if (currentCourse.getMainComponents().size() == 0) { // empty course
+        if (currentCourse.getMainComponents().size() == 0) {
+            // empty course
             System.out.println("Currently course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " has " + currentCourse.getMainComponents().size() + "component(s).");
             System.out.print("Enter number of MAIN component(s) to add : ");
             int numberOfMain = scanner.nextInt();
@@ -490,7 +490,6 @@ public class CourseMgr {
                             sub_totWeight -= sub_weight;
                         }
                         if (sub_totWeight != 0) {
-
                             System.out.println("ERROR! sub component weightage does not tally to 100");
                             System.out.println("You have to reassign!");
                             subComponents.clear();
@@ -519,6 +518,4 @@ public class CourseMgr {
             System.out.println("Main component is not empty!");
         }
     }
-
-
 }
