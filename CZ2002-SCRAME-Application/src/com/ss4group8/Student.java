@@ -31,6 +31,8 @@ public class Student {
         Student.idNumber = idNumber;
     }
 
+    public void setStudentID(String studentID) { this.studentID = studentID; }
+
 
     private String generateStudentID() {
         int rand = (int)(Math.random() * ((76 - 65) + 1)) + 65;
