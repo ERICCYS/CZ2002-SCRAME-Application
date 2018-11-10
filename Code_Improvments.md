@@ -14,3 +14,4 @@
 | Same student cannot register with the same course twice | StudentMgr | Eric |Doing | |
 | Check all integer input | all | Mengyan |Doing | |
 |Add more student instance variables | SCRAME, FileMgr,Student,StudentMgr  |Mengyan  |Doing | |
+|Add more prof instance variables|SCRAME, ProfMgr, FileMgr|Mengyan|Doing||
