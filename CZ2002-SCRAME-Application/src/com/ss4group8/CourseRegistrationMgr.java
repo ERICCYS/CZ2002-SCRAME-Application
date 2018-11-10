@@ -12,6 +12,15 @@ import static com.ss4group8.CourseRegistration.TutComparator;
 public class CourseRegistrationMgr {
     private static Scanner scanner = new Scanner(System.in);
 
+    public static Course validateCourse(String courseID) {
+        for (Course course : SCRAME.courses) {
+            if (course.getCourseID().equals(courseID)) {
+                return course;
+            }
+        }
+        return null;
+    }
+
     public static void registerCourse() {
         System.out.println("registerCourse is called");
         HashMap<String, Integer> LecGroupAssign = new HashMap<String, Integer>(0);
@@ -116,7 +125,7 @@ public class CourseRegistrationMgr {
                         continue;
                     }
                     index++;
-                    System.out.println(index + ": " + tutorialGroup.getGroupName()+ " (" + tutorialGroup.getAvailableVacancies() + " vacancies)" );
+                    System.out.println(index + ": " + tutorialGroup.getGroupName() + " (" + tutorialGroup.getAvailableVacancies() + " vacancies)");
                     TutGroupAssign.put(tutorialGroup.getGroupName(), index);
                 }
                 selectedTutorialGroupNum = scanner.nextInt();
@@ -156,7 +165,7 @@ public class CourseRegistrationMgr {
                         continue;
                     }
                     index++;
-                    System.out.println(index + ": " + labGroup.getGroupName()+ " (" + labGroup.getAvailableVacancies() + " vacancies)");
+                    System.out.println(index + ": " + labGroup.getGroupName() + " (" + labGroup.getAvailableVacancies() + " vacancies)");
                     LabGroupAssign.put(labGroup.getGroupName(), index);
                 }
                 selectedLabGroupNum = scanner.nextInt();
@@ -195,52 +204,50 @@ public class CourseRegistrationMgr {
 
         System.out.println("Course registration for student: " + currentStudent.getStudentName() + " is successful");
 
+    }
 
+    public static void printStudents() {
+//        Scanner scanner = new Scanner(System.in);
+        System.out.println("printStudent is called");
+        String courseID;
+        Course currentCourse = null;
+        boolean validCourseID = false;
 
+        System.out.println("Enter course ID");
+        courseID = scanner.nextLine();
+
+        for (Course course : SCRAME.courses) {
+            if (course.getCourseID().equals(courseID)) {
+                validCourseID = true;
+                currentCourse = course;
+                break;
+            }
+        }
+        if (!validCourseID) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the print student");
+            return;
         }
 
-        public static void printStudents (){
-//        Scanner scanner = new Scanner(System.in);
-            System.out.println("printStudent is called");
-            String courseID;
-            Course currentCourse = null;
-            boolean validCourseID = false;
 
-            System.out.println("Enter course ID");
-            courseID = scanner.nextLine();
-
-            for (Course course : SCRAME.courses) {
-                if (course.getCourseID().equals(courseID)) {
-                    validCourseID = true;
-                    currentCourse = course;
-                    break;
-                }
-            }
-            if (!validCourseID) {
-                System.out.println("Invalid Course ID...");
-                System.out.println("Exiting the print student");
-                return;
-            }
-
-
-            System.out.println("Print student by: ");
-            System.out.println("(1) Lecture group");
-            System.out.println("(2) Tutorial group");
-            System.out.println("(3) Lab group");
-            // READ courseRegistrationFILE
-            // return ArrayList of Object(student,course,lecture,tut,lab)
-            ArrayList<CourseRegistration> allStuArray = FILEMgr.loadCourseRegistration();
+        System.out.println("Print student by: ");
+        System.out.println("(1) Lecture group");
+        System.out.println("(2) Tutorial group");
+        System.out.println("(3) Lab group");
+        // READ courseRegistrationFILE
+        // return ArrayList of Object(student,course,lecture,tut,lab)
+        ArrayList<CourseRegistration> allStuArray = FILEMgr.loadCourseRegistration();
 
 //            for(CourseRegistration courseRegistration : allStuArray) {
 //                System.out.println(courseRegistration.getCourse().getCourseID() + " " + courseRegistration.getStudent().getStudentID());
 //            }
 
-            ArrayList<CourseRegistration> stuArray = new ArrayList<CourseRegistration>(0);
-            for (CourseRegistration courseRegistration : allStuArray) {
-                if (courseRegistration.getCourse().getCourseID().equals(currentCourse.getCourseID())) {
-                    stuArray.add(courseRegistration);
-                }
+        ArrayList<CourseRegistration> stuArray = new ArrayList<CourseRegistration>(0);
+        for (CourseRegistration courseRegistration : allStuArray) {
+            if (courseRegistration.getCourse().getCourseID().equals(currentCourse.getCourseID())) {
+                stuArray.add(courseRegistration);
             }
+        }
 
 //            System.out.println("About course " + course.getCourseID());
 //            for(CourseRegistration courseRegistration : stuArray) {
@@ -248,54 +255,57 @@ public class CourseRegistrationMgr {
 //            }
 
 
-            int opt = scanner.nextInt();
-            scanner.nextLine();
+        int opt = scanner.nextInt();
+        scanner.nextLine();
 
-            // assume lecture,tut,lab groups are int
+        // assume lecture,tut,lab groups are int
 
-            if (opt == 1) { // print by LECTURE
-                String newLec = "";
-                Collections.sort(stuArray, LecComparator);   // Sort by Lecture group
+        if (opt == 1) { // print by LECTURE
+            String newLec = "";
+            Collections.sort(stuArray, LecComparator);   // Sort by Lecture group
 //                System.out.println(stuArray.size());
-                for (int i = 0; i < stuArray.size(); i++) {  // loop through all of CourseRegistration Obj
-                    if (!newLec.equals(stuArray.get(i).getLectureGroup())) {  // if new lecture group print out group name
-                        newLec = stuArray.get(i).getLectureGroup();
-                        System.out.println("------------------------------------------------------");
-                        System.out.println("Lecture group : " + newLec);
-                    }
-                    System.out.print("Student Name: " + stuArray.get(i).getStudent().getStudentName());
-                    System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
+            for (int i = 0; i < stuArray.size(); i++) {  // loop through all of CourseRegistration Obj
+                if (!newLec.equals(stuArray.get(i).getLectureGroup())) {  // if new lecture group print out group name
+                    newLec = stuArray.get(i).getLectureGroup();
+                    System.out.println("------------------------------------------------------");
+                    System.out.println("Lecture group : " + newLec);
                 }
-            } else if (opt == 2) { // print by TUTORIAL
-                String newTut = "";
-                Collections.sort(stuArray, TutComparator);
-                for (int i = 0; i < stuArray.size(); i++) {
-                    if (!newTut.equals(stuArray.get(i).getTutorialGroup())) {
-                        newTut = stuArray.get(i).getTutorialGroup();
-                        System.out.println("------------------------------------------------------");
-                        System.out.println("Tutorial group : " + newTut);
-                    }
-                    System.out.print("Student Name: " + stuArray.get(i).getStudent().getStudentName());
-                    System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
-                }
-            } else if (opt == 3) { // print by LAB
-                String newLab = "";
-                Collections.sort(stuArray, LabComparator);
-                for (int i = 0; i < stuArray.size(); i++) {
-                    if (!newLab.equals(stuArray.get(i).getLabGroup())) {
-                        newLab = stuArray.get(i).getLabGroup();
-                        System.out.println("------------------------------------------------------");
-                        System.out.println("Lab group : " + newLab);
-                    }
-                    System.out.print("Student Name: " + stuArray.get(i).getStudent().getStudentName());
-                    System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
-                }
+                System.out.print("Student Name: " + stuArray.get(i).getStudent().getStudentName());
+                System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
             }
-
-            // Exception handling
-            // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
-
-
-
+        } else if (opt == 2) { // print by TUTORIAL
+            String newTut = "";
+            Collections.sort(stuArray, TutComparator);
+            for (int i = 0; i < stuArray.size(); i++) {
+                if (!newTut.equals(stuArray.get(i).getTutorialGroup())) {
+                    newTut = stuArray.get(i).getTutorialGroup();
+                    System.out.println("------------------------------------------------------");
+                    System.out.println("Tutorial group : " + newTut);
+                }
+                System.out.print("Student Name: " + stuArray.get(i).getStudent().getStudentName());
+                System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
+            }
+        } else if (opt == 3) { // print by LAB
+            String newLab = "";
+            Collections.sort(stuArray, LabComparator);
+            for (int i = 0; i < stuArray.size(); i++) {
+                if (!newLab.equals(stuArray.get(i).getLabGroup())) {
+                    newLab = stuArray.get(i).getLabGroup();
+                    System.out.println("------------------------------------------------------");
+                    System.out.println("Lab group : " + newLab);
+                }
+                System.out.print("Student Name: " + stuArray.get(i).getStudent().getStudentName());
+                System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
+            }
         }
+
+        // Exception handling
+        // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
+
     }
+
+
+
+
+
+}

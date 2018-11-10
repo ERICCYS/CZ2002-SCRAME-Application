@@ -67,7 +67,7 @@ public class SCRAME {
                     MarkMgr.setCourseWorkMark(true);
                     break;
                 case 9:
-//                    printCourseStatistics();
+                    MarkMgr.printCourseStatistics();
                     break;
                 case 10:
                     MarkMgr.printStudentTranscript();

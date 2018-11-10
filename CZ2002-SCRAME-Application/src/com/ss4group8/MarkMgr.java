@@ -160,6 +160,7 @@ public class MarkMgr {
         // take in the the courseWorkName and mark, and whether it is a main component.
     }
 
+
     public static void printCourseStatistics() {
         System.out.println("printCourseStatistics is called");
         String courseID;
@@ -172,7 +173,118 @@ public class MarkMgr {
             System.out.println("Exiting the course registration");
             return;
         }
-        System.out.println("No available now");
+
+        ArrayList<Mark> thisCourseMark = new ArrayList<Mark>(0);
+        for(Mark mark : SCRAME.marks) {
+            if (mark.getCourse().getCourseID().equals(courseID)) {
+                thisCourseMark.add(mark);
+            }
+        }
+
+        System.out.println("*************** Course Statistic ***************");
+        System.out.println("Course ID: " + currentCourse.getCourseID() + "\tCourse Name: " + currentCourse.getCourseName());
+        System.out.println();
+        System.out.print("Total Slots: " + currentCourse.getTotalSeats());
+        int enrolledNumber = (currentCourse.getTotalSeats() - currentCourse.getVacancies());
+        System.out.println("\tEnrolled Student: " + enrolledNumber);
+        System.out.printf("Enrollment Rate: %4.2f %%\n", ((double)enrolledNumber / (double)currentCourse.getTotalSeats() * 100d));
+        System.out.println();
+
+
+        int examWeight = 0;
+        boolean hasExam = false;
+        double averageMark = 0;
+        // Find marks for every assessment components
+        for (CourseworkComponent courseworkComponent : currentCourse.getMainComponents()) {
+            String thisComponentName = courseworkComponent.getComponentName();
+
+            if (thisComponentName.equals("Exam")) {
+                examWeight = courseworkComponent.getComponentWeight();
+//                Leave the exam report to the last
+                hasExam = true;
+            }
+
+            else {
+                averageMark = 0;
+                System.out.print("Main Component: " + courseworkComponent.getComponentName());
+                System.out.print("\tWeight: " + courseworkComponent.getComponentWeight() + "%");
+                for (Mark mark : thisCourseMark) {
+                    HashMap<CourseworkComponent, Double> thisComponentMarks = mark.getCourseWorkMarks();
+                    for (HashMap.Entry<CourseworkComponent, Double> entry : thisComponentMarks.entrySet()) {
+                        CourseworkComponent key = entry.getKey();
+                        double value = entry.getValue();
+                        if (key.getComponentName().equals(thisComponentName)) {
+                            averageMark += value;
+                            break;
+                        }
+                    }
+                }
+                averageMark = averageMark / thisCourseMark.size();
+                System.out.println("\t Average: " + averageMark);
+
+                ArrayList<SubComponent> thisSubComponents = ((MainComponent)courseworkComponent).getSubComponents();
+                if (thisSubComponents.size() == 0) { continue; }
+                for (SubComponent subComponent : thisSubComponents) {
+                    averageMark = 0;
+                    System.out.print("Sub Component: " + subComponent.getComponentName());
+                    System.out.print("\tWeight: " + subComponent.getComponentWeight() + "% (in main component)");
+                    String thisSubComponentName = subComponent.getComponentName();
+                    for (Mark mark : thisCourseMark) {
+                        HashMap<CourseworkComponent, Double> thisComponentMarks = mark.getCourseWorkMarks();
+                        for (HashMap.Entry<CourseworkComponent, Double> entry : thisComponentMarks.entrySet()) {
+                            CourseworkComponent key = entry.getKey();
+                            double value = entry.getValue();
+                            if (key.getComponentName().equals(thisSubComponentName)) {
+                                averageMark += value;
+                                break;
+                            }
+                        }
+                    }
+                    averageMark = averageMark / thisCourseMark.size();
+                    System.out.println("\t Average: " + averageMark);
+                }
+                System.out.println();
+            }
+
+        }
+
+        if (hasExam) {
+            averageMark = 0;
+            System.out.print("Final Exam");
+            System.out.print("\tWeight: " + examWeight + "%");
+            for (Mark mark : thisCourseMark) {
+                HashMap<CourseworkComponent, Double> thisComponentMarks = mark.getCourseWorkMarks();
+                for (HashMap.Entry<CourseworkComponent, Double> entry : thisComponentMarks.entrySet()) {
+                    CourseworkComponent key = entry.getKey();
+                    double value = entry.getValue();
+                    if (key.getComponentName().equals("Exam")) {
+                        averageMark += value;
+                        break;
+                    }
+                }
+            }
+            averageMark = averageMark / thisCourseMark.size();
+            System.out.println("\t Average: " + averageMark);
+        } else {
+            System.out.println("This course does not have final exam.");
+        }
+
+
+        System.out.println();
+
+        System.out.print("Overall Performance: ");
+        averageMark = 0;
+        for (Mark mark : thisCourseMark) {
+            averageMark += mark.getTotalMark();
+        }
+        averageMark = averageMark / thisCourseMark.size();
+        System.out.printf("%4.2f \n", averageMark);
+
+        System.out.println();
+        System.out.println("***********************************************");
+        System.out.println();
+
+
     }
 
 
