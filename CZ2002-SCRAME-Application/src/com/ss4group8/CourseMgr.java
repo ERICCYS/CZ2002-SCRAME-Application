@@ -234,8 +234,30 @@ public class CourseMgr {
             if (!profExists) {
                 System.out.println("This professor does not exist. Please re-enter.");
             }
-        } while (profExists);
+        } while (!profExists);
 
+        System.out.println("Create some course component now?");
+        System.out.println("1. Yes");
+        System.out.println("2. Not yet");
+        int addCourseComponentChoice;
+        addCourseComponentChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        while (addCourseComponentChoice > 2 || addCourseComponentChoice < 0) {
+            System.out.println("Invalid choice, please choose again.");
+            System.out.println("1. Yes");
+            System.out.println("2. Not yet");
+            addCourseComponentChoice = scanner.nextInt();
+            scanner.nextLine();
+        }
+        if (addCourseComponentChoice == 2) {
+            Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups);
+            //add course into file
+            FILEMgr.writeCourseIntoFile(course);
+            SCRAME.courses.add(course);
+            System.out.println("Course " + courseID + " is added, but assessment components are not initialized.");
+            return;
+        }
 
         int noOfCourseworkComponents;
         System.out.println("Enter the number of main assessment component of this course (e.g. Exam, Coursework etc.): ");
@@ -246,6 +268,8 @@ public class CourseMgr {
         String mainComponentName;
         int mainComponentWeight;
         int weightRemaining = 100;
+
+
 
         for (int i = 0; i < noOfCourseworkComponents; i++) {
             System.out.println("Give this component a name");

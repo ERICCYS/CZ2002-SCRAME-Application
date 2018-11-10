@@ -10,9 +10,9 @@ public class Course {
     private int vacancies;
     private int totalSeats;
     private ArrayList<LectureGroup> lectureGroups;
-    private ArrayList<TutorialGroup> tutorialGroups;
-    private ArrayList<LabGroup> labGroups;
-    private ArrayList<MainComponent> mainComponents;
+    private ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
+    private ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
+    private ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
 
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, ArrayList<MainComponent> mainComponents) {
         this.courseID = courseID;
@@ -33,6 +33,17 @@ public class Course {
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
         this.lectureGroups = lectureGroups;
+    }
+
+    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups) {
+        this.courseID = courseID;
+        this.courseName = courseName;
+        this.profInCharge = profInCharge;
+        this.vacancies = vacancies;
+        this.totalSeats = totalSeats;
+        this.lectureGroups = lectureGroups;
+        this.tutorialGroups = tutorialGroups;
+        this.labGroups = labGroups;
     }
 
     public String getCourseID() {
