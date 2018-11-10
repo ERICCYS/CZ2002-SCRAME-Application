@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/courseFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseFile.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ss4group8/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/Course.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/data/courseFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/courseRegistrationFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseRegistrationFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/markFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/markFile.csv" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,33 +36,34 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="8" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="1" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="8" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="csv" value="6" />
-          <entry key="java" value="673" />
+          <entry key="java" value="689" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSV" value="6" />
-          <entry key="JAVA" value="673" />
+          <entry key="JAVA" value="689" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< Updated upstream
       <file leaf-file-name="SCRAME.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,6 +147,13 @@
                 <element signature="e#769#770#0" expanded="true" />
                 <element signature="e#801#802#0" expanded="true" />
               </folding>
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -154,6 +168,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java" />
         <option value="$PROJECT_DIR$/data/studentFile.csv" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/data/courseFile.csv" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
         <option value="$PROJECT_DIR$/data/markFile.csv" />
@@ -166,6 +181,9 @@
         <option value="$PROJECT_DIR$/src/com/ss4group8/Mark.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
+=======
+        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -271,12 +289,12 @@
       <updated>1541841513572</updated>
       <workItem from="1541841518036" duration="107000" />
       <workItem from="1541841659587" duration="1764000" />
-      <workItem from="1541847318162" duration="3324000" />
+      <workItem from="1541847318162" duration="4392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5195000" />
+    <option name="totallyTimeSpent" value="6263000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,6 +306,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
@@ -309,6 +328,21 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
+=======
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25579977" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32959184" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="right" id="Palette" order="3" />
@@ -337,6 +371,19 @@
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32959184" />
+<<<<<<< Updated upstream
+=======
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32857144" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+>>>>>>> Stashed changes
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info id="Favorites" order="6" side_tool="true" />
     </layout>
@@ -378,6 +425,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2820">
@@ -385,6 +433,19 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
@@ -397,20 +458,6 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6705" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-655">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
@@ -427,6 +474,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/data/studentFile.csv" />
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -484,6 +532,11 @@
         </state>
       </provider>
     </entry>
+=======
+    <entry file="file://$PROJECT_DIR$/data/professorFile.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+>>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -509,12 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-891">
           <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#769#770#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -525,6 +572,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-158">
@@ -586,6 +634,53 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="54" column="52" lean-forward="true" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="129" column="26" lean-forward="true" selection-start-line="129" selection-start-column="26" selection-end-line="129" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4556">
+          <caret line="307" selection-start-line="307" selection-end-line="307" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="236" column="30" lean-forward="true" selection-start-line="236" selection-start-column="30" selection-end-line="236" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
