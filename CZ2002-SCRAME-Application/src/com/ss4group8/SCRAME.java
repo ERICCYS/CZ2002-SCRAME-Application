@@ -19,12 +19,19 @@ public class SCRAME {
         marks = FILEMgr.loadStudentMarks();
 
         printWelcome();
-        printOptions();
 
         int choice;
         do {
+            printOptions();
             // Find a way to handle the input mismatch exceptions.
-            System.out.println("Enter your choice, let me help you:");
+            if(scanner.hasNextInt()){
+            choice = scanner.nextInt();
+            }else{
+                do{
+                System.out.println("Sorry. Your input should be an integer.");
+                System.out.println("Enter your choice, let me help you:");
+                }while(!scanner.hasNextInt());
+            }
             choice = scanner.nextInt();
             scanner.nextLine();
             while (choice < 0 || choice > 11) {
@@ -43,19 +50,19 @@ public class SCRAME {
                     CourseMgr.addCourse();
                     break;
                 case 3:
-                    registerCourse();
+                    CourseRegistrationMgr.registerCourse();
                     break;
                 case 4:
-                    checkAvailableSlots();
+                    CourseMgr.checkAvailableSlots();
                     break;
                 case 5:
-                    printStudents();
+                    CourseRegistrationMgr.printStudents();
                     break;
                 case 6:
-                    enterCourseWorkComponentWeightage();
+                    CourseMgr.enterCourseWorkComponentWeightage();
                     break;
                 case 7:
-                    enterCourseWorkMark();
+                    MarkMgr.enterCourseWorkMark();
                     break;
                 case 8:
                     enterExamMark();
@@ -126,234 +133,6 @@ public class SCRAME {
 
 
 
-    public static Student validateStudent(String studentID){
-        for (Student student : students) {
-            if (student.getStudentID().equals(studentID)) {
-                return student;
-            }
-        }
-        return null;
-    }
-
-    public static Course validateCourse(String courseID) {
-        for (Course course : courses) {
-            if (course.getCourseID().equals(courseID)) {
-                return course;
-            }
-        }
-        return null;
-    }
-
-    public static void registerCourse() {
-        System.out.println("registerCourse is called");
-        String studentID;
-        Student currentStudent = null;
-//        boolean validStudentID = false;
-        System.out.println("Enter Student ID:");
-        studentID = scanner.nextLine();
-        currentStudent = validateStudent(studentID);
-        if (currentStudent == null) {
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
-            return ;
-        }
-//        for (Student student : students) {
-//            if (student.getStudentID().equals(studentID)) {
-//                validStudentID = true;
-//                currentStudent = student;
-//                break;
-//            }
-//        }
-//        if (!validStudentID) {
-//            System.out.println("Invalid Student ID...");
-//            System.out.println("Exiting the course registration");
-//            return;
-//        }
-        // Exception handling
-        String courseID;
-        Course currentCourse = null;
-//        boolean validCourseID = false;
-        System.out.println("Enter Course ID:");
-        courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-//        for (Course course : courses) {
-//            if (course.getCourseID().equals(courseID)) {
-//                validCourseID = true;
-//                currentCourse = course;
-//                break;
-//            }
-//        }
-//        if (!validCourseID) {
-//            System.out.println("Invalid Course ID...");
-//            System.out.println("Exiting the course registration");
-//            return;
-//        }
-        // Exception handling
-        // Get the course and student. Call the function inside CourseRegistration Mgr
-        courseRegistrations.add(CourseRegistrationMgr.registerCourse(currentStudent, currentCourse));
-        marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
-
-        System.out.println("Course registration for student: " + currentStudent.getStudentName() + " is successful");
-    }
-
-    public static void checkAvailableSlots() {
-        System.out.println("checkAvailableSlots is called");
-        String courseID;
-        int index = 0;
-        int exist;
-        do {
-            exist = 0;
-            System.out.println("Enter course ID");
-            courseID = scanner.nextLine();
-            for (Course course : courses) {
-                if (course.getCourseID().equals(courseID)) {
-                    exist = 1;
-                    break;
-                }
-                index++;
-            }
-            if (exist == 1) {
-                CourseMgr.checkAvailableSlots(courses.get(index));
-                break;
-            } else {
-                System.out.println("This course does not exist. Please check again.");
-            }
-        } while (true);
-    }
-
-    public static void printStudents() {
-        System.out.println("printStudent is called");
-        String courseID;
-        Course currentCourse = null;
-        System.out.println("Enter Course ID:");
-        courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-
-
-
-//        boolean validCourseID = false;
-//
-//        System.out.println("Enter course ID");
-//        courseID = scanner.nextLine();
-//
-//        for (Course course : courses) {
-//            if (course.getCourseID().equals(courseID)) {
-//                validCourseID = true;
-//                currentCourse = course;
-//                break;
-//            }
-//        }
-//        if (!validCourseID) {
-//            System.out.println("Invalid Course ID...");
-//            System.out.println("Exiting the print student");
-//            return;
-//        }
-
-        CourseRegistrationMgr.printStudents(currentCourse);
-        // Exception handling
-        // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
-    }
-
-    public static void enterCourseWorkComponentWeightage() {
-        System.out.println("enterCourseWorkComponentWeightage is called");
-        String courseID;
-        Course currentCourse = null;
-        System.out.println("Enter Course ID:");
-        courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-        CourseMgr.setWeightage(currentCourse);
-        // Exception handling
-        // get the course and call the function inside the CourseMgr
-    }
-
-    public static void enterCourseWorkMark() {
-        System.out.println("enterCourseWorkMark is called");
-
-
-        String studentID;
-        Student currentStudent = null;
-//        boolean validStudentID = false;
-        System.out.println("Enter Student ID:");
-        studentID = scanner.nextLine();
-        currentStudent = validateStudent(studentID);
-        if (currentStudent == null) {
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
-            return ;
-        }
-
-
-//        String studentID;
-//        boolean validStudentID = false;
-//        System.out.println("Enter Student ID:");
-//        studentID = scanner.nextLine();
-//        for (Student student : students) {
-//            if (student.getStudentID().equals(studentID)) {
-//                validStudentID = true;
-//                break;
-//            }
-//        }
-//        if (!validStudentID) {
-//            System.out.println("Invalid Student ID...");
-//            System.out.println("Exiting the mark management");
-//            return;
-//        }
-
-        String courseID;
-        Course currentCourse = null;
-        System.out.println("Enter Course ID:");
-        courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-
-
-//        String courseID;
-//        boolean validCourseID = false;
-//        System.out.println("Enter course ID");
-//        courseID = scanner.nextLine();
-//        for (Course course : courses) {
-//            if (course.getCourseID().equals(courseID)) {
-//                validCourseID = true;
-//                break;
-//            }
-//        }
-//        if (!validCourseID) {
-//            System.out.println("Invalid Course ID...");
-//            System.out.println("Exiting the mark management");
-//            return;
-//        }
-
-        for(Mark mark : marks) {
-            if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
-                MarkMgr.setExamMark(mark);
-                return;
-            }
-        }
-
-        System.out.println("This student haven't registered " + courseID);
-        // Exception handling
-        // Get the course and student. Call the function inside MarkMgr
-    }
-
     public static void enterExamMark() {
         System.out.println("enterExamMark is called");
 
@@ -394,22 +173,6 @@ public class SCRAME {
             System.out.println("Exiting the course registration");
             return;
         }
-
-//        String courseID;
-//        boolean validCourseID = false;
-//        System.out.println("Enter course ID");
-//        courseID = scanner.nextLine();
-//        for (Course course : courses) {
-//            if (course.getCourseID().equals(courseID)) {
-//                validCourseID = true;
-//                break;
-//            }
-//        }
-//        if (!validCourseID) {
-//            System.out.println("Invalid Course ID...");
-//            System.out.println("Exiting the mark management");
-//            return;
-//        }
 
         for(Mark mark : marks) {
             if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {

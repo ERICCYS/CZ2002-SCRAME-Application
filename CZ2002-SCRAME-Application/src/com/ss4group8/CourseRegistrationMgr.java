@@ -12,10 +12,8 @@ import static com.ss4group8.CourseRegistration.TutComparator;
 public class CourseRegistrationMgr {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static CourseRegistration registerCourse(Student student, Course course) {
-        System.out.println("Student " + student.getStudentName() + " with ID: " + student.getStudentID() +
-                " wants to register " + course.getCourseID() + " " + course.getCourseName());
-
+    public static void registerCourse() {
+        System.out.println("registerCourse is called");
         HashMap<String, Integer> LecGroupAssign = new HashMap<String, Integer>(0);
         HashMap<String, Integer> TutGroupAssign = new HashMap<String, Integer>(0);
         HashMap<String, Integer> LabGroupAssign = new HashMap<String, Integer>(0);
@@ -28,11 +26,53 @@ public class CourseRegistrationMgr {
         String selectedTutorialGroupName = null;
         String selectedLabGroupName = null;
 
+        String studentID;
+        Student currentStudent = null;
+        boolean validStudentID = false;
+        System.out.println("Enter Student ID:");
+        studentID = scanner.nextLine();
+        for (Student student : SCRAME.students) {
+            if (student.getStudentID().equals(studentID)) {
+                validStudentID = true;
+                currentStudent = student;
+                break;
+            }
+        }
+        if (!validStudentID) {
+            System.out.println("Invalid Student ID...");
+            System.out.println("Exiting the course registration");
+            return;
+        }
+        // Exception handling
+        String courseID;
+        Course currentCourse = null;
+        boolean validCourseID = false;
+        System.out.println("Enter Course ID:");
+        courseID = scanner.nextLine();
+        for (Course course : SCRAME.courses) {
+            if (course.getCourseID().equals(courseID)) {
+                validCourseID = true;
+                currentCourse = course;
+                break;
+            }
+        }
+        if (!validCourseID) {
+            System.out.println("Invalid Course ID...");
+            System.out.println("Exiting the course registration");
+            return;
+        }
+        // Exception handling
+        // Get the course and student. Call the function inside CourseRegistration Mgr
+
+        System.out.println("Student " + currentStudent.getStudentName() + " with ID: " + currentStudent.getStudentID() +
+                " wants to register " + currentCourse.getCourseID() + " " + currentCourse.getCourseName());
+
+
         System.out.println("Here is a list of all the lecture groups with available slots:");
         do {
             System.out.println("Please enter an integer for your choice:");
             index = 0;
-            for (LectureGroup lectureGroup : course.getLectureGroups()) {
+            for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
                 if (lectureGroup.getAvailableVacancies() == 0) {
                     continue;
                 }
@@ -58,7 +98,7 @@ public class CourseRegistrationMgr {
             }
         }
 
-        for (LectureGroup lectureGroup : course.getLectureGroups()) {
+        for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
             if (lectureGroup.getGroupName().equals(selectedLectureGroupName)) {
                 lectureGroup.enrolledIn();
                 break;
@@ -66,17 +106,17 @@ public class CourseRegistrationMgr {
         }
 
 
-        if (course.getTutorialGroups().size() != 0) {
+        if (currentCourse.getTutorialGroups().size() != 0) {
             System.out.println("Here is a list of all the tutorial groups with available slots:");
             do {
                 System.out.println("Please enter an integer for your choice:");
                 index = 0;
-                for (TutorialGroup tutorialGroup : course.getTutorialGroups()) {
+                for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
                     if (tutorialGroup.getAvailableVacancies() == 0) {
                         continue;
                     }
                     index++;
-                    System.out.println(index + ": " + tutorialGroup.getGroupName());
+                    System.out.println(index + ": " + tutorialGroup.getGroupName()+ " (" + tutorialGroup.getAvailableVacancies() + " vacancies)" );
                     TutGroupAssign.put(tutorialGroup.getGroupName(), index);
                 }
                 selectedTutorialGroupNum = scanner.nextInt();
@@ -97,7 +137,7 @@ public class CourseRegistrationMgr {
                 }
             }
 
-            for (TutorialGroup tutorialGroup : course.getTutorialGroups()) {
+            for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
                 if (tutorialGroup.getGroupName().equals(selectedTutorialGroupName)) {
                     tutorialGroup.enrolledIn();
                     break;
@@ -106,55 +146,81 @@ public class CourseRegistrationMgr {
         }
 
 
-            if (course.getLabGroups().size() != 0) {
-                System.out.println("Here is a list of all the lab groups with available slots:");
-                do {
-                    System.out.println("Please enter an integer for your choice:");
-                    index = 0;
-                    for (LabGroup labGroup : course.getLabGroups()) {
-                        if (labGroup.getAvailableVacancies() == 0) {
-                            continue;
-                        }
-                        index++;
-                        System.out.println(index + ": " + labGroup.getGroupName());
-                        LabGroupAssign.put(labGroup.getGroupName(), index);
+        if (currentCourse.getLabGroups().size() != 0) {
+            System.out.println("Here is a list of all the lab groups with available slots:");
+            do {
+                System.out.println("Please enter an integer for your choice:");
+                index = 0;
+                for (LabGroup labGroup : currentCourse.getLabGroups()) {
+                    if (labGroup.getAvailableVacancies() == 0) {
+                        continue;
                     }
-                    selectedLabGroupNum = scanner.nextInt();
-                    scanner.nextLine();
-                    if (selectedLabGroupNum < 1 || selectedLabGroupNum > index) {
-                        System.out.println("Invalid choice. Please re-enter.");
-                    } else {
-                        break;
-                    }
-                } while (true);
-
-                for (HashMap.Entry<String, Integer> entry : LabGroupAssign.entrySet()) {
-                    String labGroupName = entry.getKey();
-                    int num = entry.getValue();
-                    if (num == selectedLabGroupNum) {
-                        selectedLabGroupName = labGroupName;
-                        break;
-                    }
+                    index++;
+                    System.out.println(index + ": " + labGroup.getGroupName()+ " (" + labGroup.getAvailableVacancies() + " vacancies)");
+                    LabGroupAssign.put(labGroup.getGroupName(), index);
                 }
+                selectedLabGroupNum = scanner.nextInt();
+                scanner.nextLine();
+                if (selectedLabGroupNum < 1 || selectedLabGroupNum > index) {
+                    System.out.println("Invalid choice. Please re-enter.");
+                } else {
+                    break;
+                }
+            } while (true);
 
-                for (LabGroup labGroup : course.getLabGroups()) {
-                    if (labGroup.getGroupName().equals(selectedLabGroupName)) {
-                        labGroup.enrolledIn();
-                        break;
-                    }
+            for (HashMap.Entry<String, Integer> entry : LabGroupAssign.entrySet()) {
+                String labGroupName = entry.getKey();
+                int num = entry.getValue();
+                if (num == selectedLabGroupNum) {
+                    selectedLabGroupName = labGroupName;
+                    break;
                 }
             }
 
-            course.enrolledIn();
-            CourseRegistration courseRegistration = new CourseRegistration(student, course, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
-            FILEMgr.writeCourseRegistrationIntoFile(courseRegistration);
-
-            return courseRegistration;
+            for (LabGroup labGroup : currentCourse.getLabGroups()) {
+                if (labGroup.getGroupName().equals(selectedLabGroupName)) {
+                    labGroup.enrolledIn();
+                    break;
+                }
+            }
         }
 
-        public static void printStudents (Course course){
-//        Scanner scanner = new Scanner(System.in);
+        currentCourse.enrolledIn();
+        CourseRegistration courseRegistration = new CourseRegistration(currentStudent, currentCourse, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
+        FILEMgr.writeCourseRegistrationIntoFile(courseRegistration);
 
+        SCRAME.courseRegistrations.add(courseRegistration);
+
+        SCRAME.marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
+
+        System.out.println("Course registration for student: " + currentStudent.getStudentName() + " is successful");
+
+
+
+        }
+
+        public static void printStudents (){
+//        Scanner scanner = new Scanner(System.in);
+            System.out.println("printStudent is called");
+            String courseID;
+            Course currentCourse = null;
+            boolean validCourseID = false;
+
+            System.out.println("Enter course ID");
+            courseID = scanner.nextLine();
+
+            for (Course course : SCRAME.courses) {
+                if (course.getCourseID().equals(courseID)) {
+                    validCourseID = true;
+                    currentCourse = course;
+                    break;
+                }
+            }
+            if (!validCourseID) {
+                System.out.println("Invalid Course ID...");
+                System.out.println("Exiting the print student");
+                return;
+            }
 
 
             System.out.println("Print student by: ");
@@ -171,7 +237,7 @@ public class CourseRegistrationMgr {
 
             ArrayList<CourseRegistration> stuArray = new ArrayList<CourseRegistration>(0);
             for (CourseRegistration courseRegistration : allStuArray) {
-                if (courseRegistration.getCourse().getCourseID().equals(course.getCourseID())) {
+                if (courseRegistration.getCourse().getCourseID().equals(currentCourse.getCourseID())) {
                     stuArray.add(courseRegistration);
                 }
             }
@@ -183,6 +249,7 @@ public class CourseRegistrationMgr {
 
 
             int opt = scanner.nextInt();
+            scanner.nextLine();
 
             // assume lecture,tut,lab groups are int
 
@@ -224,6 +291,10 @@ public class CourseRegistrationMgr {
                     System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
                 }
             }
+
+            // Exception handling
+            // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
+
 
 
         }
