@@ -8,7 +8,7 @@ public class StudentMgr {
 
     public static void addStudent() {
         String studentName;
-        String studentID;
+        String studentID = null;
         int choice;
         int studentExists;
         Student currentStudent = null;
@@ -29,29 +29,28 @@ public class StudentMgr {
                 break;
             }
         }while(true);
-        System.out.println("Enter student Name: ");
-        studentName = scanner.nextLine();
         if (choice == 1) {
-            currentStudent = new Student(studentName);
-        }else{
             do{
                 studentExists = 0;
-            System.out.println("Enter student ID: ");
-            studentID = scanner.nextLine();
-            for(Student student:SCRAME.students){
-                if(studentID.equals(student.getStudentID())){
-                    System.out.println("Sorry. The student ID is used. This student already exists.");
-                    studentExists = 1;
-                    break;
+                System.out.println("Enter student ID: ");
+                studentID = scanner.nextLine();
+                for(Student student:SCRAME.students){
+                    if(studentID.equals(student.getStudentID())){
+                        System.out.println("Sorry. The student ID is used. This student already exists.");
+                        studentExists = 1;
+                        break;
                 }
             }
             if(studentExists == 0){
                 break;
             }
+
             }while(true);
-            currentStudent = new Student(studentName);
-            currentStudent.setStudentID(studentID);
         }
+            System.out.println("Enter student Name: ");
+            studentName = scanner.nextLine();
+            currentStudent = new Student(studentName);
+            if(choice == 1){ currentStudent.setStudentID(studentID);}
 
         FILEMgr.writeStudentsIntoFile(currentStudent);
 
