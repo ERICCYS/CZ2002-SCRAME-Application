@@ -214,7 +214,7 @@ public class CourseRegistrationMgr {
 
         SCRAME.marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
 
-        System.out.print("Course registration successful!");
+        System.out.println("Course registration successful!");
         System.out.print("Student: " + currentStudent.getStudentName());
         System.out.print("\tLecture Group: " + selectedLectureGroupName);
         if (currentCourse.getTutorialGroups().size() != 0) {

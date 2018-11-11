@@ -406,22 +406,23 @@ public class CourseMgr {
             }
             if (exist) {
                 System.out.println(currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " (Available/Total): " + currentCourse.getVacancies() + "/" + currentCourse.getTotalSeats());
-                System.out.println("------------------------------------------------------------------------------");
+                System.out.println("--------------------------------------------");
                 for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
                     System.out.println("Lecture group " + lectureGroup.getGroupName() + " (Available/Total): " + lectureGroup.getAvailableVacancies() + "/" + lectureGroup.getTotalSeats());
                 }
                 if (currentCourse.getTutorialGroups() != null) {
-                    System.out.println("------------------------------------------------------------------------------");
+                    System.out.println();
                     for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
                         System.out.println("Tutorial group " + tutorialGroup.getGroupName() + " (Available/Total):  " + tutorialGroup.getAvailableVacancies() + "/" + tutorialGroup.getTotalSeats());
                     }
                 }
                 if (currentCourse.getLabGroups() != null) {
-                    System.out.println("------------------------------------------------------------------------------");
+                    System.out.println();
                     for (LabGroup labGroup : currentCourse.getLabGroups()) {
                         System.out.println("Lab group " + labGroup.getGroupName() + " (Available/Total): " + labGroup.getAvailableVacancies() + "/" + labGroup.getTotalSeats());
                     }
                 }
+                System.out.println();
                 break;
             } else {
                 System.out.println("This course does not exist. Please check again.");

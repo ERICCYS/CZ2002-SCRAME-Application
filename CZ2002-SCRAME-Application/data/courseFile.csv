@@ -1,2 +1,2 @@
 courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
-CZ2001,Algorithms,3,30,30,LEC1=30=30,TUT1=15=15|TUT2=15=15,LAB1=30=30,Exam=60=|Quiz=20=|Presentation=20=EC1-25/EC2-25/EC3-25/EC4-25
+CZ2001,Algorithms,3,29,30,LEC1=29=30,TUT1=15=15|TUT2=14=15,LAB1=29=30,Exam=60=|Quiz=20=|Presentation=20=EC1-25/EC2-25/EC3-25/EC4-25
