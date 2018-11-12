@@ -236,7 +236,7 @@ public class CourseMgr {
             }
         } while (!profExists);
 
-        System.out.println("Create some course component now?");
+        System.out.println("Create Course Component and set component weightage now?");
         System.out.println("1. Yes");
         System.out.println("2. Not yet");
         int addCourseComponentChoice;
