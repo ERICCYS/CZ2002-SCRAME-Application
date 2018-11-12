@@ -82,7 +82,7 @@ public class SCRAME {
     }
 
     public static void printWelcome() {
-        System.out.printf("\n");
+        System.out.println();
         System.out.println("#######   #######   #######       #       ##       ##   #######");
         System.out.println("#         #         #    ##      # #      # #     # #   #      ");
         System.out.println("#         #         #   ##      #   #     # #     # #   #      ");
@@ -90,18 +90,18 @@ public class SCRAME {
         System.out.println("      #   #         #   #      #     #    #  #  #   #   #      ");
         System.out.println("      #   #         #    #     #     #    #   ##    #   #      ");
         System.out.println("#######   #######   #     #   #       #   #   ##    #   #######");
-        System.out.printf("\n");
+        System.out.println();
         System.out.println("****************** Hello! Welcome to SCRAME! ******************");
-        System.out.printf("\n");
+        System.out.println();
     }
 
     public static void exitApplication() {
 
-        System.out.printf("Backing up data before exiting...\n");
+        System.out.println("Backing up data before exiting...");
         FILEMgr.backUpCourse(courses);
         FILEMgr.backUpMarks(marks);
         System.out.println("********* Bye! Thank you for using SCRAME! *********");
-        System.out.printf("\n");
+        System.out.println();
         System.out.println("                 ######    #      #   #######                   ");
         System.out.println("                 #    ##    #    #    #                         ");
         System.out.println("                 #    ##     #  #     #                         ");
@@ -109,7 +109,7 @@ public class SCRAME {
         System.out.println("                 #    ##      ##      #                         ");
         System.out.println("                 #    ##      ##      #                         ");
         System.out.println("                 ######       ##      #######                   ");
-        System.out.printf("\n");
+        System.out.println();
 
     }
 
@@ -127,6 +127,6 @@ public class SCRAME {
         System.out.println(" 9. Print course statistics");
         System.out.println("10. Print student transcript");
         System.out.println("11. Quit SCRAME System");
-        System.out.println("\n");
+        System.out.println();
     }
 }
