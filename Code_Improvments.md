@@ -15,4 +15,6 @@
 | Add total slots for groups | FILEMgr LectureGroup etc. | Eric | Done | |  
 | Check all integer input | all | Mengyan | Doing | |
 | Add more student instance variables | SCRAME, FileMgr,Student,StudentMgr  | Mengyan  |Done | |
-| Add more prof instance variables|SCRAME, ProfMgr, FileMgr | Mengyan | Done ||
+| Add more prof instance variables | SCRAME, ProfMgr, FileMgr | Mengyan | Done | |
+| Add constrain on the user-added student ID | StudentMgr | Eric | Doing | |  
+| Update constrain on the tutorial group and lab group | CourseMgr | Eric | Doing | |  
