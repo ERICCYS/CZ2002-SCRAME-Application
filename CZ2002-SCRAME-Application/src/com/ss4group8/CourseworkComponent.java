@@ -10,11 +10,11 @@ public abstract class CourseworkComponent {
     }
 
     public String getComponentName() {
-        return componentName;
+        return this.componentName;
     }
 
     public int getComponentWeight() {
-        return componentWeight;
+        return this.componentWeight;
     }
 
     public abstract void printComponentType();

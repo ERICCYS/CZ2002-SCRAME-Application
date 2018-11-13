@@ -11,7 +11,7 @@ public class MainComponent extends CourseworkComponent {
     }
 
     public ArrayList<SubComponent> getSubComponents() {
-        return subComponents;
+        return this.subComponents;
     }
 
     public void printComponentType() {
