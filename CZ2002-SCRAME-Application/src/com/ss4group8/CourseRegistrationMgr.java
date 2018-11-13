@@ -91,7 +91,6 @@ public class CourseRegistrationMgr {
 
         System.out.println("Here is a list of all the lecture groups with available slots:");
         do {
-            System.out.println("Please enter an integer for your choice:");
             index = 0;
             for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
                 if (lectureGroup.getAvailableVacancies() == 0) {
@@ -101,6 +100,7 @@ public class CourseRegistrationMgr {
                 System.out.println(index + ": " + lectureGroup.getGroupName() + " (" + lectureGroup.getAvailableVacancies() + " vacancies)");
                 LecGroupAssign.put(lectureGroup.getGroupName(), index);
             }
+            System.out.println("Please enter an integer for your choice:");
             selectedLectureGroupNum = scanner.nextInt();
             scanner.nextLine();
             if (selectedLectureGroupNum < 1 || selectedLectureGroupNum > index) {
@@ -130,7 +130,6 @@ public class CourseRegistrationMgr {
         if (currentCourse.getTutorialGroups().size() != 0) {
             System.out.println("Here is a list of all the tutorial groups with available slots:");
             do {
-                System.out.println("Please enter an integer for your choice:");
                 index = 0;
                 for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
                     if (tutorialGroup.getAvailableVacancies() == 0) {
@@ -140,6 +139,7 @@ public class CourseRegistrationMgr {
                     System.out.println(index + ": " + tutorialGroup.getGroupName() + " (" + tutorialGroup.getAvailableVacancies() + " vacancies)");
                     TutGroupAssign.put(tutorialGroup.getGroupName(), index);
                 }
+                System.out.println("Please enter an integer for your choice:");
                 selectedTutorialGroupNum = scanner.nextInt();
                 scanner.nextLine();
                 if (selectedTutorialGroupNum < 1 || selectedTutorialGroupNum > index) {
@@ -170,7 +170,6 @@ public class CourseRegistrationMgr {
         if (currentCourse.getLabGroups().size() != 0) {
             System.out.println("Here is a list of all the lab groups with available slots:");
             do {
-                System.out.println("Please enter an integer for your choice:");
                 index = 0;
                 for (LabGroup labGroup : currentCourse.getLabGroups()) {
                     if (labGroup.getAvailableVacancies() == 0) {
@@ -180,6 +179,7 @@ public class CourseRegistrationMgr {
                     System.out.println(index + ": " + labGroup.getGroupName() + " (" + labGroup.getAvailableVacancies() + " vacancies)");
                     LabGroupAssign.put(labGroup.getGroupName(), index);
                 }
+                System.out.println("Please enter an integer for your choice:");
                 selectedLabGroupNum = scanner.nextInt();
                 scanner.nextLine();
                 if (selectedLabGroupNum < 1 || selectedLabGroupNum > index) {
@@ -214,8 +214,16 @@ public class CourseRegistrationMgr {
 
         SCRAME.marks.add(MarkMgr.initializeMark(currentStudent, currentCourse));
 
-        System.out.println("Course registration for student: " + currentStudent.getStudentName() + " is successful");
-
+        System.out.println("Course registration successful!");
+        System.out.print("Student: " + currentStudent.getStudentName());
+        System.out.print("\tLecture Group: " + selectedLectureGroupName);
+        if (currentCourse.getTutorialGroups().size() != 0) {
+            System.out.print("\tTutorial Group: " + selectedTutorialGroupName);
+        }
+        if (currentCourse.getLabGroups().size() != 0) {
+            System.out.print("\tLab Group: " + selectedLabGroupName);
+        }
+        System.out.println();
     }
 
     public static void printStudents() {
@@ -270,8 +278,6 @@ public class CourseRegistrationMgr {
         int opt = scanner.nextInt();
         scanner.nextLine();
 
-        // assume lecture,tut,lab groups are int
-
         if (opt == 1) { // print by LECTURE
             String newLec = "";
             Collections.sort(stuArray, LecComparator);   // Sort by Lecture group
@@ -310,7 +316,7 @@ public class CourseRegistrationMgr {
                 System.out.println(" Student ID: " + stuArray.get(i).getStudent().getStudentID());
             }
         }
-
+        System.out.println("------------------------------------------------------");
         // Exception handling
         // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
 

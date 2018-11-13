@@ -170,7 +170,7 @@ public class MarkMgr {
         currentCourse = validateCourse(courseID);
         if (currentCourse == null) {
             System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
+            System.out.println("Exiting the print course statistics");
             return;
         }
 
@@ -296,7 +296,7 @@ public class MarkMgr {
         currentStudent = validateStudent(studentID);
         if (currentStudent == null) {
             System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
+            System.out.println("Exiting the print student transcript");
             return ;
         }
 

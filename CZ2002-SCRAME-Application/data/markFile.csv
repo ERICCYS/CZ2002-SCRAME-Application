@@ -1,4 +1,5 @@
 studentID,courseID,courseWorkMarks,totalMark
-U1800001L,CZ2007,Exam=50=90.0=|Lab Assignment=30=0.0=ass1/25/0.0=ass2/25/0.0=ass3/50/0.0|Quiz=20=50.0=quiz1/50/100.0=quiz2/50/0.0|,55.0
-U1800001L,CZ2002,Lab works=10=0.0=lab1/20/0.0=lab2/20/0.0=lab3/20/0.0=lab4/20/0.0=lab5/20/0.0|Exam=60=95.0=|Assignment=30=0.0=|,57.0
-U1800002B,CZ2007,Quiz=20=0.0=quiz1/50/0.0=quiz2/50/0.0|Lab Assignment=30=0.0=ass1/25/0.0=ass2/25/0.0=ass3/50/0.0|Exam=50=95.0=|,47.5
+U1800001L,CZ2007,Lab Assignment=30=0.0=ass1/25/0.0=ass2/25/0.0=ass3/50/0.0|Quiz=20=50.0=quiz1/50/100.0=quiz2/50/0.0|Exam=50=90.0=,55.0
+U1800001L,CZ2002,Lab works=10=0.0=lab1/20/0.0=lab2/20/0.0=lab3/20/0.0=lab4/20/0.0=lab5/20/0.0|Exam=60=95.0=|Assignment=30=0.0=,57.0
+U1800002B,CZ2007,Lab Assignment=30=0.0=ass1/25/0.0=ass2/25/0.0=ass3/50/0.0|Quiz=20=0.0=quiz1/50/0.0=quiz2/50/0.0|Exam=50=95.0=|,47.5
+U1800001L,CZ2007,Quiz=20=0.0=quiz1/50/0.0=quiz2/50/0.0|Exam=50=0.0=|Lab Assignment=30=0.0=ass1/25/0.0=ass2/25/0.0=ass3/50/0.0,0.0

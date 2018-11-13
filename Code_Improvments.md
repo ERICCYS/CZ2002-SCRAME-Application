@@ -11,6 +11,10 @@
 | Prevent student add to a group that have no vacancies| CourseRegistrationMgr |Mengyan  |Done | |
 | Enter course work marks（0-100）| MarkMgr, SCRAME | Eric | Done | |
 | User can choose to add a student by manually enter the studentID or auto-generate | CourseMgr | Mengyan  | Done | |
-| Same student cannot register with the same course twice | StudentMgr | Eric |Doing | |
-| Check all integer input | all | Mengyan |Doing | |
-| |  |  | | |
+| Same student cannot register with the same course twice | StudentMgr | Eric | Done | |
+| Add total slots for groups | FILEMgr LectureGroup etc. | Eric | Done | |  
+| Check all integer input | all | Mengyan | Doing | |
+| Add more student instance variables | SCRAME, FileMgr,Student,StudentMgr  | Mengyan  |Done | |
+| Add more prof instance variables | SCRAME, ProfMgr, FileMgr | Mengyan | Done | |
+| Add constrain on the user-added student ID | StudentMgr | Eric | Done | |  
+| Update constrain on the tutorial group and lab group | CourseMgr | Eric | Done | |  
