@@ -18,3 +18,4 @@
 | Add more prof instance variables | SCRAME, ProfMgr, FileMgr | Mengyan | Done | |
 | Add constrain on the user-added student ID | StudentMgr | Eric | Done | |  
 | Update constrain on the tutorial group and lab group | CourseMgr | Eric | Done | |  
+| Create Super Class for LectureGroup, TutorialGroup and LabGroup | Group classes | Eric | Done | |
