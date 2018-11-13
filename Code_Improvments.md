@@ -19,5 +19,5 @@
 | Add constrain on the user-added student ID | StudentMgr | Eric | Done | |  
 | Update constrain on the tutorial group and lab group | CourseMgr | Eric | Done | |  
 | Create Super Class for LectureGroup, TutorialGroup and LabGroup | Group classes | Eric | Done | |
-| Standardize "Exam" Component when adding | CourseMgr | Eric | Doing | |
+| Standardize "Exam" Component when adding | CourseMgr | Eric | Done | |
 | More Features on the course statics | MarkMgr | Eric | Doing | |
