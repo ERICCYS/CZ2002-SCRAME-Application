@@ -450,7 +450,7 @@ public class CourseMgr {
         // get the course and call the function inside the CourseMgr
 
 
-        ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
+
         ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
         //Check if mainComponent is empty
         if (currentCourse.getMainComponents().size() == 0) {
@@ -474,7 +474,7 @@ public class CourseMgr {
             do {
                 int totalWeightage = 100;
                 for (int i = 0; i < numberOfMain; i++) {
-                    subComponents.clear();
+                    ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
                     System.out.println("Total weightage left to assign : " + totalWeightage);
                     System.out.println("Enter main component " + (i+1) + " name : ");
                     String name = scanner.nextLine();
@@ -577,14 +577,13 @@ public class CourseMgr {
         } else {
             System.out.println("Main component is not empty!");
         }
-//        System.out.println(currentCourse.getCourseID()+" "+ currentCourse.getCourseName() + " components: ");
-//        for (MainComponent each_comp : currentCourse.getMainComponents()){
-//            System.out.println("    "+each_comp.getComponentName() + " : " + each_comp.getComponentWeight() +"%" );
-//            each_comp.printComponentType();
-//            for (SubComponent each_sub : each_comp.getSubComponents()){
-//                System.out.println("        "+each_sub.getComponentName() + " : " + each_sub.getComponentWeight() +"%" );
-//            }
-//        }
+        System.out.println(currentCourse.getCourseID()+" "+ currentCourse.getCourseName() + " components: ");
+        for (MainComponent each_comp : currentCourse.getMainComponents()){
+            System.out.println("    "+each_comp.getComponentName() + " : " + each_comp.getComponentWeight() +"%" );
+            for (SubComponent each_sub : each_comp.getSubComponents()){
+                System.out.println("        "+each_sub.getComponentName() + " : " + each_sub.getComponentWeight() +"%" );
+            }
+        }
         // UPDATE COURSE into course.csv
 
     }
