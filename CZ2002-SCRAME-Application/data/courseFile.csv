@@ -1,5 +1,5 @@
 courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
-CZ2001,Algorithms,3,29,30,LEC1=29=30,TUT1=15=15|TUT2=14=15,LAB1=29=30,Exam=60=|Quiz=20=|Presentation=20=EC1-25/EC2-25/EC3-25/EC4-25
+CZ2001,Algorithms,3,26,30,LEC1=26=30,TUT1=13=15|TUT2=13=15,LAB1=26=30,Exam=60=|Quiz=20=|Presentation=20=EC1-25/EC2-25/EC3-25/EC4-25
 CZ2007,Database,7,200,200,Lec1=200=200,Tut1=100=100|Tut2=100=100,NULL,NULL
 CZ1005,Digital Logic,1,400,400,Lec1=400=400,Tut1=200=200|Tut2=200=200,Lab1=200=200|Lab2=200=200,NULL
 CZ2004,Human Computer Interaction,8,100,100,Lecture1=100=100,NULL,NULL,NULL
