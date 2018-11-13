@@ -1,7 +1,6 @@
 package com.ss4group8;
 
 
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -158,6 +157,8 @@ public class FILEMgr {
                     fileWriter.append(lectureGroup.getGroupName());
                     fileWriter.append(EQUAL_SIGN);
                     fileWriter.append(String.valueOf(lectureGroup.getAvailableVacancies()));
+                    fileWriter.append(EQUAL_SIGN);
+                    fileWriter.append(String.valueOf(lectureGroup.getTotalSeats()));
                     index++;
                     if (index != lectureGroups.size()) {
                         fileWriter.append(LINE_DELIMITER);
@@ -175,6 +176,8 @@ public class FILEMgr {
                     fileWriter.append(tutorialGroup.getGroupName());
                     fileWriter.append(EQUAL_SIGN);
                     fileWriter.append(String.valueOf(tutorialGroup.getAvailableVacancies()));
+                    fileWriter.append(EQUAL_SIGN);
+                    fileWriter.append(String.valueOf(tutorialGroup.getTotalSeats()));
                     index++;
                     if (index != tutorialGroups.size()) {
                         fileWriter.append(LINE_DELIMITER);
@@ -192,6 +195,8 @@ public class FILEMgr {
                     fileWriter.append(labGroup.getGroupName());
                     fileWriter.append(EQUAL_SIGN);
                     fileWriter.append(String.valueOf(labGroup.getAvailableVacancies()));
+                    fileWriter.append(EQUAL_SIGN);
+                    fileWriter.append(String.valueOf(labGroup.getTotalSeats()));
                     index++;
                     if (index != labGroups.size()) {
                         fileWriter.append(LINE_DELIMITER);
@@ -276,7 +281,7 @@ public class FILEMgr {
 
                     for (int i = 0; i < eachLectureGroupsString.length; i++) {
                         String[] thisLectureGroup = eachLectureGroupsString[i].split(EQUAL_SIGN);
-                        lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1])));
+                        lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1]), Integer.parseInt(thisLectureGroup[2])));
                     }
 
                     Course course = new Course(courseID, courseName, currentProfessor, totalSeats, totalSeats, lectureGroups);
@@ -287,10 +292,8 @@ public class FILEMgr {
                     if (!tutorialGroupsString.equals("NULL")) {
                         String[] eachTutorialGroupsString = tutorialGroupsString.split(Pattern.quote(LINE_DELIMITER));
                         for (int i = 0; i < eachTutorialGroupsString.length; i++) {
-//                            System.out.println(eachTutorialGroupsString[i]);
                             String[] thisTutorialGroup = eachTutorialGroupsString[i].split(EQUAL_SIGN);
-                            tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0], Integer.parseInt(thisTutorialGroup[1])));
-//                            System.out.println("Added tut group with: name " + thisTutorialGroup[0] + " with " + thisTutorialGroup[1] + " slots");
+                            tutorialGroups.add(new TutorialGroup(thisTutorialGroup[0], Integer.parseInt(thisTutorialGroup[1]), Integer.parseInt(thisTutorialGroup[2])));
                         }
                     }
                     course.setTutorialGroups(tutorialGroups);
@@ -301,7 +304,7 @@ public class FILEMgr {
                         String[] eachLabGroupString = labGroupsString.split(Pattern.quote(LINE_DELIMITER));
                         for (int i = 0; i < eachLabGroupString.length; i++) {
                             String[] thisLabGroup = eachLabGroupString[i].split(EQUAL_SIGN);
-                            labGroups.add(new LabGroup(thisLabGroup[0], Integer.parseInt(thisLabGroup[1])));
+                            labGroups.add(new LabGroup(thisLabGroup[0], Integer.parseInt(thisLabGroup[1]), Integer.parseInt(thisLabGroup[2])));
                         }
                     }
                     course.setLabGroups(labGroups);
@@ -320,7 +323,6 @@ public class FILEMgr {
                                     subComponents.add(new SubComponent(thisSubComponent[0], Integer.parseInt(thisSubComponent[1])));
                                 }
                             }
-
 
                             mainComponents.add(new MainComponent(thisMainComponent[0], Integer.parseInt(thisMainComponent[1]), subComponents));
                         }
@@ -377,6 +379,8 @@ public class FILEMgr {
                         fileWriter.append(lectureGroup.getGroupName());
                         fileWriter.append(EQUAL_SIGN);
                         fileWriter.append(String.valueOf(lectureGroup.getAvailableVacancies()));
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(lectureGroup.getTotalSeats()));
                         index++;
                         if (index != lectureGroups.size()) {
                             fileWriter.append(LINE_DELIMITER);
@@ -395,6 +399,8 @@ public class FILEMgr {
                         fileWriter.append(tutorialGroup.getGroupName());
                         fileWriter.append(EQUAL_SIGN);
                         fileWriter.append(String.valueOf(tutorialGroup.getAvailableVacancies()));
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(tutorialGroup.getTotalSeats()));
                         index++;
                         if (index != tutorialGroups.size()) {
                             fileWriter.append(LINE_DELIMITER);
@@ -412,6 +418,8 @@ public class FILEMgr {
                         fileWriter.append(labGroup.getGroupName());
                         fileWriter.append(EQUAL_SIGN);
                         fileWriter.append(String.valueOf(labGroup.getAvailableVacancies()));
+                        fileWriter.append(EQUAL_SIGN);
+                        fileWriter.append(String.valueOf(labGroup.getTotalSeats()));
                         index++;
                         if (index != labGroups.size()) {
                             fileWriter.append(LINE_DELIMITER);

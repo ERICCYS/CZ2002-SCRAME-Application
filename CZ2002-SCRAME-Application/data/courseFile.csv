@@ -1,8 +1,2 @@
 courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
-CZ2002,OODP,1,16,20,LEC1=8|LEC2=8,TUT1=9|TUT2=7,LAB1=16,Exam=60=|Lab works=10=lab1-20/lab2-20/lab3-20/lab4-20/lab5-20|Assignment=30=
-CZ2007,DB,1,19,30,LEC1=10|LEC2=9,TUT1=8|TUT2=7|TUT3=2|TUT4=2,LAB1=10|LAB2=9|LAB3=0,Exam=50=|Lab Assignment=30=ass1-25/ass2-25/ass3-50|Quiz=20=quiz1-50/quiz2-50
-<<<<<<< Updated upstream
-CZ2001,Algorithm,4,30,30,LEC1=30,TUT1=15|TUT2=15,LAB1=30,NULL
-=======
-CZ2001,Algo,1,200,200,SS1=20|SS2=180,SS3=200,SS4=80|SS5=119|SS6=1,Exam=100=
->>>>>>> Stashed changes
+CZ2001,Algorithms,3,30,30,LEC1=30=30,TUT1=15=15|TUT2=15=15,LAB1=30=30,Exam=60=|Quiz=20=|Presentation=20=EC1-25/EC2-25/EC3-25/EC4-25
