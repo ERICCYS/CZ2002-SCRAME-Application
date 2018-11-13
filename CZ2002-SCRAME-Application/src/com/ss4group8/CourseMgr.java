@@ -250,17 +250,48 @@ public class CourseMgr {
             return;
         }
 
+        ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>();
+
+
+//        boolean hasFinalExam = false;
+        int  hasFinalExamChoice= 0;
+        int examWeight = 0;
+        while (true) {
+            System.out.println("Does this course have Final Exam? put your choice");
+            System.out.println("1. Yes! ");
+            System.out.println("2. No, all CAs.");
+            hasFinalExamChoice = scanner.nextInt();
+            scanner.nextLine();
+            if (hasFinalExamChoice == 1) {
+                System.out.println("Please Enter weight of the exam: ");
+                examWeight = scanner.nextInt();
+                scanner.nextLine();
+                while (examWeight > 80 || examWeight <= 0) {
+                    if (examWeight > 80 && examWeight <= 100) {
+                        System.out.println("According to the course assessment policy, final exam cannot take up more than 80%...");
+                    }
+                    System.out.println("Weight entered is invalid, please enter again: ");
+                    examWeight = scanner.nextInt();
+                    scanner.nextLine();
+                }
+                MainComponent exam = new MainComponent("Exam", examWeight, new ArrayList<SubComponent>(0));
+                mainComponents.add(exam);
+                break;
+            } else if (hasFinalExamChoice == 2) {
+                System.out.println("Okay, please enter some continuous assessments");
+                break;
+            }
+        }
+
         int noOfCourseworkComponents;
-        System.out.println("Enter the number of main assessment component of this course (e.g. Exam, Coursework etc.): ");
+        System.out.println("Enter the number of main assessment component of this course (e.g. Project, Assignment, Quiz etc.): ");
         noOfCourseworkComponents = scanner.nextInt();
         scanner.nextLine();
-        ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>();
+
 
         String mainComponentName;
         int mainComponentWeight;
-        int weightRemaining = 100;
-
-
+        int weightRemaining = 100 - examWeight;
 
         for (int i = 0; i < noOfCourseworkComponents; i++) {
             System.out.println("Give this component a name");
@@ -270,6 +301,11 @@ public class CourseMgr {
                 mainComponentName = scanner.nextLine();
                 if (mainComponents.size() == 0) {
                     break;
+                }
+                if (mainComponentName.equals("Exam")) {
+                    System.out.println("Exam is a reserved assessment.");
+                    componentExist = true;
+                    continue;
                 }
                 for (MainComponent mainComponent : mainComponents) {
                     if (mainComponent.getComponentName().equals(mainComponentName)) {
@@ -325,6 +361,11 @@ public class CourseMgr {
                         subComponentName = scanner.nextLine();
                         if (subComponents.size() == 0) {
                             break;
+                        }
+                        if (mainComponentName.equals("Exam")) {
+                            System.out.println("Exam is a reserved assessment.");
+                            componentExist = true;
+                            continue;
                         }
                         for (SubComponent subComponent : subComponents) {
                             if (subComponent.getComponentName().equals(subComponentName)) {
@@ -455,7 +496,37 @@ public class CourseMgr {
         //Check if mainComponent is empty
         if (currentCourse.getMainComponents().size() == 0) {
             // empty course
-            System.out.println("Currently course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " has " + currentCourse.getMainComponents().size() + " component(s).");
+            System.out.println("Currently course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " does not have any assessment component.");
+//        boolean hasFinalExam = false;
+            int  hasFinalExamChoice= 0;
+            int examWeight = 0;
+            while (true) {
+                System.out.println("Does this course have Final Exam? put your choice");
+                System.out.println("1. Yes! ");
+                System.out.println("2. No, all CAs.");
+                hasFinalExamChoice = scanner.nextInt();
+                scanner.nextLine();
+                if (hasFinalExamChoice == 1) {
+                    System.out.println("Please Enter weight of the exam: ");
+                    examWeight = scanner.nextInt();
+                    scanner.nextLine();
+                    while (examWeight > 80 || examWeight <= 0) {
+                        if (examWeight > 80 && examWeight <= 100) {
+                            System.out.println("According to the course assessment policy, final exam cannot take up more than 80%...");
+                        }
+                        System.out.println("Weight entered is invalid, please enter again: ");
+                        examWeight = scanner.nextInt();
+                        scanner.nextLine();
+                    }
+                    MainComponent exam = new MainComponent("Exam", examWeight, new ArrayList<SubComponent>(0));
+                    mainComponents.add(exam);
+                    break;
+                } else if (hasFinalExamChoice == 2) {
+                    System.out.println("Okay, please enter some continuous assessments");
+                    break;
+                }
+            }
+
             do {
                 System.out.println("Enter number of MAIN component(s) to add :");
                 while (!scanner.hasNextInt()) {
@@ -471,13 +542,37 @@ public class CourseMgr {
                 break;
             } while (true);
             scanner.nextLine();
+
+            boolean componentExist;
+            String mainComponentName;
+            String subComponentName;
             do {
-                int totalWeightage = 100;
+                int totalWeightage = 100 - examWeight;
                 for (int i = 0; i < numberOfMain; i++) {
                     ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
-                    System.out.println("Total weightage left to assign : " + totalWeightage);
-                    System.out.println("Enter main component " + (i+1) + " name : ");
-                    String name = scanner.nextLine();
+                    do {
+                        componentExist = false;
+                        System.out.println("Total weightage left to assign : " + totalWeightage);
+                        System.out.println("Enter main component " + (i+1) + " name : ");
+                        mainComponentName = scanner.nextLine();
+
+                        if (mainComponents.size() == 0) {
+                            break;
+                        }
+                        if (mainComponentName.equals("Exam")) {
+                            System.out.println("Exam is a reserved assessment.");
+                            componentExist = true;
+                            continue;
+                        }
+                        for (MainComponent mainComponent : mainComponents) {
+                            if (mainComponent.getComponentName().equals(mainComponentName)) {
+                                componentExist = true;
+                                System.out.println("This sub component already exist. Please enter.");
+                                break;
+                            }
+                        }
+                    } while (componentExist);
+
                     do {
                         System.out.println("Enter main component " + (i+1) + " weightage : ");
                         while (!scanner.hasNextInt()) {
@@ -502,8 +597,8 @@ public class CourseMgr {
                             System.out.println("Enter your choice :");
                         }
                         noOfSub = scanner.nextInt();
-                        if (noOfSub < 0 ) {
-                            System.out.println("Please enter a valid positive integer:");
+                        if (noOfSub < 0) {
+                            System.out.println("Please enter a valid integer:");
                             continue;
                         }
                         break;
@@ -514,9 +609,32 @@ public class CourseMgr {
 
                         int sub_totWeight = 100;
                         for (int j = 0; j < noOfSub; j++) {
-                            System.out.println("Total weightage left to assign to sub component : " + sub_totWeight);
-                            System.out.println("Enter sub component " + (j + 1) + " name : ");
-                            String sub_name = scanner.nextLine();
+
+
+                            do {
+                                componentExist = false;
+                                System.out.println("Total weightage left to assign to sub component : " + sub_totWeight);
+                                System.out.println("Enter sub component " + (j + 1) + " name : ");
+                                subComponentName = scanner.nextLine();
+
+                                if (subComponents.size() == 0) {
+                                    break;
+                                }
+                                if (subComponentName.equals("Exam")) {
+                                    System.out.println("Exam is a reserved assessment.");
+                                    componentExist = true;
+                                    continue;
+                                }
+                                for (SubComponent subComponent: subComponents) {
+                                    if (subComponent.getComponentName().equals(subComponentName)) {
+                                        componentExist = true;
+                                        System.out.println("This sub component already exist. Please enter.");
+                                        break;
+                                    }
+                                }
+                            } while (componentExist);
+
+
                             do {
                                 System.out.println("Enter sub component " + (j + 1) + " weightage : ");
                                 while (!scanner.hasNextInt()) {
@@ -535,7 +653,7 @@ public class CourseMgr {
 
                             //Create Subcomponent
 
-                            SubComponent sub = new SubComponent(sub_name, sub_weight);
+                            SubComponent sub = new SubComponent(subComponentName, sub_weight);
                             subComponents.add(sub);
                             sub_totWeight -= sub_weight;
                         }
@@ -549,16 +667,8 @@ public class CourseMgr {
                         }  //exit if weight is fully allocated
                     }
                     //Create main component
-                    MainComponent main = new MainComponent(name, weight, subComponents);
+                    MainComponent main = new MainComponent(mainComponentName, weight, subComponents);
                     mainComponents.add(main);
-//                    for (int each_m = 0; each_m < mainComponents.size() ; each_m++){
-//                        System.out.println("    "+mainComponents.get(each_m).getComponentName() + " : " + mainComponents.get(each_m).getComponentWeight() +"%" );
-//                        mainComponents.get(each_m).printComponentType();
-//                        ArrayList<SubComponent> dummy_sub = mainComponents.get(each_m).getSubComponents();
-//                        for (int each_s = 0; each_s <dummy_sub.size(); each_s++){
-//                            System.out.println("        "+dummy_sub.get(each_s).getComponentName() + " : " + dummy_sub.get(each_s).getComponentWeight() +"%" );
-//                        }
-//                    }
                 }
 
                 if (totalWeightage != 0) { // weightage assign is not tallied
@@ -575,7 +685,7 @@ public class CourseMgr {
             currentCourse.setMainComponents(mainComponents);
 
         } else {
-            System.out.println("Main component is not empty!");
+            System.out.println("Course Assessment has been settled already!");
         }
         System.out.println(currentCourse.getCourseID()+" "+ currentCourse.getCourseName() + " components: ");
         for (MainComponent each_comp : currentCourse.getMainComponents()){
