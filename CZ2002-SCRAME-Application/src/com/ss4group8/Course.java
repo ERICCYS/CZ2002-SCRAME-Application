@@ -1,11 +1,26 @@
 package com.ss4group8;
 
-
 import java.util.ArrayList;
+
+/**
+ * {@code Course} class represents a course held by school.
+ * A course has a {@code courseID} and {@code courseName}.
+ * A course contains at least one {@code LectureGroup}, may contains multiple {@code TutorialGroup} and {@code LabGroup}.
+ * A course can have many {@code MainComponent}, and a {@code MainComponent} can have many {@code SubComponent}.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ *
+ */
+
 
 public class Course {
     private String courseID;
     private String courseName;
+    private int AU;
     private Professor profInCharge;
     private int AU;
     private String courseDepartment;
@@ -13,6 +28,7 @@ public class Course {
 //    private Course prerequisite;
     private int vacancies;
     private int totalSeats;
+
     private ArrayList<LectureGroup> lectureGroups;
     private int lecWeeklyHour;
     private int tutWeeklyHour = 0;
@@ -24,6 +40,7 @@ public class Course {
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, ArrayList<MainComponent> mainComponents, int AU, String courseDepartment, String courseType, int lecWeeklyHour, int tutWeeklyHour, int labWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
+        this.AU = AU;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
@@ -42,6 +59,7 @@ public class Course {
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, int AU, String courseDepartment, String courseType, int lecWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
+        this.AU = AU;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
@@ -55,6 +73,7 @@ public class Course {
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, int AU, String courseDepartment, String courseType, int lecWeeklyHour, int tutWeeklyHour, int labWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
+        this.AU = AU;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
@@ -76,6 +95,8 @@ public class Course {
     public String getCourseName() {
         return courseName;
     }
+
+    public int getAU() { return AU; }
 
     public Professor getProfInCharge() {
         return profInCharge;

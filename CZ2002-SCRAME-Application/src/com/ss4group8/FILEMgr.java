@@ -164,6 +164,9 @@ public class FILEMgr {
             fileWriter.append(course.getCourseName());
             fileWriter.append(COMMA_DELIMITER);
 
+            fileWriter.append(String.valueOf(course.getAU()));
+            fileWriter.append(COMMA_DELIMITER);
+
             fileWriter.append(course.getProfInCharge().getProfID());
             fileWriter.append(COMMA_DELIMITER);
 
@@ -300,6 +303,7 @@ public class FILEMgr {
                 if (tokens.length > 0) {
                     String courseID = tokens[courseIdIndex];
                     String courseName = tokens[courseNameIndex];
+                    String AUString = tokens[auIndex];
                     String profInCharge = tokens[profInChargeIndex];
                     for (Professor professor : professors) {
                         if (professor.getProfID().equals(profInCharge)) {
@@ -403,6 +407,9 @@ public class FILEMgr {
                 fileWriter.append(COMMA_DELIMITER);
 
                 fileWriter.append(course.getCourseName());
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(String.valueOf(course.getAU()));
                 fileWriter.append(COMMA_DELIMITER);
 
                 fileWriter.append(course.getProfInCharge().getProfID());

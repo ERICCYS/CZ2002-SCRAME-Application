@@ -12,6 +12,7 @@ public class CourseMgr {
         String courseID;
         String courseName;
         String profID;
+        int AU;
         boolean groupNameExists, profExists, componentExist;
         int seatsLeft;
         // Can make the sameCourseID as boolean, set to false.
