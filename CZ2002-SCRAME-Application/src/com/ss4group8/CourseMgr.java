@@ -12,7 +12,6 @@ public class CourseMgr {
         String courseID;
         String courseName;
         String profID;
-        int AU;
         boolean groupNameExists, profExists, componentExist;
         int seatsLeft;
         // Can make the sameCourseID as boolean, set to false.
@@ -109,20 +108,19 @@ public class CourseMgr {
         } while (true);
 
         int lecWeeklyHour = 0;
-        if(noOfLectureGroups != 0){
-            while(true){
-                System.out.println("Enter the weekly lecture hour for this course: ");
-                if(scanner.hasNextInt()){
-                    lecWeeklyHour = scanner.nextInt();
-                    scanner.nextLine();
-                    if(lecWeeklyHour < 0 || lecWeeklyHour > AU){
-                        System.out.println("Weekly lecture hour out of bound. Please re-enter.");
-                    }else{
-                        break;
-                    }
+        while(true){
+            System.out.println("Enter the weekly lecture hour for this course: ");
+            if(scanner.hasNextInt()){
+                lecWeeklyHour = scanner.nextInt();
+                scanner.nextLine();
+                if(lecWeeklyHour < 0 || lecWeeklyHour > AU){
+                    System.out.println("Weekly lecture hour out of bound. Please re-enter.");
+                }else{
+                    break;
                 }
             }
         }
+
 
 
         ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>();
@@ -172,7 +170,6 @@ public class CourseMgr {
                     System.out.println("Sorry, the total capacity you allocated for all the lecture groups exceeds or does not add up to the total seats for this course.");
                     System.out.println("Please re-enter the capacity for the last lecture group " + lectureGroupName + " you have entered.");
                     seatsLeft += lectureGroupCapacity;
-                    continue;
                 }
             } while (true);
         }

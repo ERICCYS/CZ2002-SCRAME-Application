@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="CZ2002-SCRAME-Application:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/CZ2002_SCRAME_Application_jar</output-path>
-    <root id="archive" name="CZ2002-SCRAME-Application.jar">
-      <element id="module-output" name="CZ2002-SCRAME-Application" />
-    </root>
-  </artifact>
-</component>

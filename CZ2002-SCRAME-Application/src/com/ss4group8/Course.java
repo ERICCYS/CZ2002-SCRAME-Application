@@ -22,13 +22,11 @@ public class Course {
     private String courseName;
     private int AU;
     private Professor profInCharge;
-    private int AU;
     private String courseDepartment;
     private String courseType;
 //    private Course prerequisite;
     private int vacancies;
     private int totalSeats;
-
     private ArrayList<LectureGroup> lectureGroups;
     private int lecWeeklyHour;
     private int tutWeeklyHour = 0;
@@ -106,10 +104,6 @@ public class Course {
 
     public int getTotalSeats() {
         return totalSeats;
-    }
-
-    public int getAU(){
-        return AU;
     }
 
     public String getCourseDepartment(){
