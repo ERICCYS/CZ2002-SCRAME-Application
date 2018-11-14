@@ -67,39 +67,6 @@ public class Course {
         this.lectureGroups = lectureGroups;
     }
 
-//    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, ArrayList<MainComponent> mainComponents) {
-//        this.courseID = courseID;
-//        this.courseName = courseName;
-//        this.profInCharge = profInCharge;
-//        this.vacancies = vacancies;
-//        this.totalSeats = totalSeats;
-//        this.lectureGroups = lectureGroups;
-//        this.tutorialGroups = tutorialGroups;
-//        this.labGroups = labGroups;
-//        this.mainComponents = mainComponents;
-//    }
-//
-//    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups) {
-//        this.courseID = courseID;
-//        this.courseName = courseName;
-//        this.profInCharge = profInCharge;
-//        this.vacancies = vacancies;
-//        this.totalSeats = totalSeats;
-//        this.lectureGroups = lectureGroups;
-//    }
-//
-//    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups) {
-//        this.courseID = courseID;
-//        this.courseName = courseName;
-//        this.profInCharge = profInCharge;
-//        this.vacancies = vacancies;
-//        this.totalSeats = totalSeats;
-//        this.lectureGroups = lectureGroups;
-//        this.tutorialGroups = tutorialGroups;
-//        this.labGroups = labGroups;
-//    }
-
-
     public String getCourseID() {
         return courseID;
     }
@@ -154,10 +121,4 @@ public class Course {
         this.mainComponents = mainComponents;
     }
 
-//    public void printLectureGroup() {
-//        for (int i = 0; i < lectureGroups.size(); i++) {
-//            System.out.println(lectureGroups.get(i).getGroupName() + " still has " + lectureGroups.get(i).getAvailableVacancies()
-//                    + " vacancies");
-//        }
-//    }
 }

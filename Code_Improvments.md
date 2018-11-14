@@ -21,4 +21,4 @@
 | Create Super Class for LectureGroup, TutorialGroup and LabGroup | Group classes | Eric | Done | |
 | Standardize "Exam" Component when adding | CourseMgr | Eric | Done | |
 | Standardize adding course components | CourseMgr | Eric | Done | |
-| More info about courses (AU) and more features on the course statics(GPA) | CourseMarkMgr | Eric | Doing | |
+| More info about courses (AU) and more features on the course statics(GPA) | CourseMarkMgr | Eric | Done | |
