@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/courseFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/courseRegistrationFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseRegistrationFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/markFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/markFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/SCRAME.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/SCRAME.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Code_Improvments.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Code_Improvments.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,11 +86,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SCRAME.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SCRAME.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="485">
+              <caret line="88" column="50" lean-forward="true" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CourseMgr.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CourseMgr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-329">
-              <caret line="490" column="108" lean-forward="true" selection-start-line="490" selection-start-column="108" selection-end-line="490" selection-end-column="108" />
+            <state relative-caret-position="-1349">
+              <caret line="415" column="29" lean-forward="true" selection-start-line="415" selection-start-column="29" selection-end-line="415" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,8 +122,8 @@
       <file leaf-file-name="courseFile.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="120">
+              <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -356,7 +350,7 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="2" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.12026144" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2771242" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32959184" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32959184" />
       <window_info id="Capture Tool" order="5" />
@@ -754,30 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/markFile.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Group.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -787,8 +757,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-329">
-          <caret line="490" column="108" lean-forward="true" selection-start-line="490" selection-start-column="108" selection-end-line="490" selection-end-column="108" />
+        <state relative-caret-position="-1349">
+          <caret line="415" column="29" lean-forward="true" selection-start-line="415" selection-start-column="29" selection-end-line="415" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/markFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="88" column="50" lean-forward="true" selection-start-line="88" selection-start-column="50" selection-end-line="88" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
