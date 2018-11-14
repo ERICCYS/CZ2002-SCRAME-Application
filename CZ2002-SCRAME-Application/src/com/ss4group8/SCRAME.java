@@ -58,7 +58,7 @@ public class SCRAME {
                     CourseRegistrationMgr.printStudents();
                     break;
                 case 6:
-                    CourseMgr.enterCourseWorkComponentWeightage();
+                    CourseMgr.enterCourseWorkComponentWeightage(null);
                     break;
                 case 7:
                     MarkMgr.setCourseWorkMark(false);

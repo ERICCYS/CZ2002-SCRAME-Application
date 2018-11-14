@@ -227,6 +227,9 @@ public class CourseMgr {
             }
         } while (!profExists);
 
+        Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups);
+
+
         System.out.println("Create Course Component and set component weightage now?");
         System.out.println("1. Yes");
         System.out.println("2. Not yet");
@@ -242,7 +245,6 @@ public class CourseMgr {
             scanner.nextLine();
         }
         if (addCourseComponentChoice == 2) {
-            Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups);
             //add course into file
             FILEMgr.writeCourseIntoFile(course);
             SCRAME.courses.add(course);
@@ -250,169 +252,8 @@ public class CourseMgr {
             return;
         }
 
-        ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>();
+        enterCourseWorkComponentWeightage(course);
 
-
-//        boolean hasFinalExam = false;
-        int  hasFinalExamChoice= 0;
-        int examWeight = 0;
-        while (true) {
-            System.out.println("Does this course have Final Exam? put your choice");
-            System.out.println("1. Yes! ");
-            System.out.println("2. No, all CAs.");
-            hasFinalExamChoice = scanner.nextInt();
-            scanner.nextLine();
-            if (hasFinalExamChoice == 1) {
-                System.out.println("Please Enter weight of the exam: ");
-                examWeight = scanner.nextInt();
-                scanner.nextLine();
-                while (examWeight > 80 || examWeight <= 0) {
-                    if (examWeight > 80 && examWeight <= 100) {
-                        System.out.println("According to the course assessment policy, final exam cannot take up more than 80%...");
-                    }
-                    System.out.println("Weight entered is invalid, please enter again: ");
-                    examWeight = scanner.nextInt();
-                    scanner.nextLine();
-                }
-                MainComponent exam = new MainComponent("Exam", examWeight, new ArrayList<SubComponent>(0));
-                mainComponents.add(exam);
-                break;
-            } else if (hasFinalExamChoice == 2) {
-                System.out.println("Okay, please enter some continuous assessments");
-                break;
-            }
-        }
-
-        int noOfCourseworkComponents;
-        System.out.println("Enter the number of main assessment component of this course (e.g. Project, Assignment, Quiz etc.): ");
-        noOfCourseworkComponents = scanner.nextInt();
-        scanner.nextLine();
-
-
-        String mainComponentName;
-        int mainComponentWeight;
-        int weightRemaining = 100 - examWeight;
-
-        for (int i = 0; i < noOfCourseworkComponents; i++) {
-            System.out.println("Give this component a name");
-            do {
-                componentExist = false;
-                System.out.println("Enter a component Name: ");
-                mainComponentName = scanner.nextLine();
-                if (mainComponents.size() == 0) {
-                    break;
-                }
-                if (mainComponentName.equals("Exam")) {
-                    System.out.println("Exam is a reserved assessment.");
-                    componentExist = true;
-                    continue;
-                }
-                for (MainComponent mainComponent : mainComponents) {
-                    if (mainComponent.getComponentName().equals(mainComponentName)) {
-                        componentExist = true;
-                        System.out.println("This main component already exist.");
-                        break;
-                    }
-                }
-            } while (componentExist);
-
-
-            if (i != noOfCourseworkComponents - 1) {
-                System.out.print(weightRemaining + "% unallocated. ");
-                System.out.println("Enter the weight allocation to this component:");
-                mainComponentWeight = scanner.nextInt();
-                scanner.nextLine();
-
-                while (mainComponentWeight >= weightRemaining) {
-                    if (mainComponentWeight > weightRemaining)
-                        System.out.println("Weight entered is invalid, please enter again: ");
-                    else
-                        System.out.println("You need to consider the weight allocation of another " + (noOfCourseworkComponents - 1 - i) + "main assessments");
-
-                    mainComponentWeight = scanner.nextInt();
-                    scanner.nextLine();
-                }
-                weightRemaining -= mainComponentWeight;
-                System.out.println("Allocation succeed. " + weightRemaining + "% unallocated");
-            } else {
-                System.out.print(weightRemaining + "% unallocated. ");
-                System.out.println(weightRemaining + "% of the course will be allocated to this assessment.");
-                mainComponentWeight = weightRemaining;
-                weightRemaining = 0;
-            }
-
-            int noOfSubComponent;
-
-            System.out.println("Enter the number of sub assessment components (if no sub component, enter 0): ");
-            noOfSubComponent = scanner.nextInt();
-            scanner.nextLine();
-            ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>();
-
-            if (noOfSubComponent > 0) {
-                String subComponentName;
-                int subComponentWeight;
-                int subWeightRemaining = 100;
-
-                for (int j = 0; j < noOfSubComponent; j++) {
-                    System.out.println("Give this sub-component a name");
-                    do {
-                        componentExist = false;
-                        System.out.println("Enter a sub-component Name: ");
-                        subComponentName = scanner.nextLine();
-                        if (subComponents.size() == 0) {
-                            break;
-                        }
-                        if (mainComponentName.equals("Exam")) {
-                            System.out.println("Exam is a reserved assessment.");
-                            componentExist = true;
-                            continue;
-                        }
-                        for (SubComponent subComponent : subComponents) {
-                            if (subComponent.getComponentName().equals(subComponentName)) {
-                                componentExist = true;
-                                System.out.println("This sub component already exist.");
-                                break;
-                            }
-                        }
-                    } while (componentExist);
-
-
-                    if (j != noOfSubComponent - 1) {
-                        System.out.print(subWeightRemaining + "% unallocated. ");
-                        System.out.println("Enter the weight allocation to this component:");
-                        subComponentWeight = scanner.nextInt();
-                        scanner.nextLine();
-
-                        while (subComponentWeight >= subWeightRemaining) {
-                            if (subComponentWeight > subWeightRemaining)
-                                System.out.println("Weight entered for this sub component is invalid, please enter again: ");
-                            else
-                                System.out.println("You need to consider the weight allocation of another " + (noOfSubComponent - 1 - j) + "sub assessments");
-
-                            subComponentWeight = scanner.nextInt();
-                            scanner.nextLine();
-                        }
-
-
-                        subComponents.add(new SubComponent(subComponentName, subComponentWeight));
-                        subWeightRemaining -= subComponentWeight;
-                        System.out.println("Allocation succeed. " + subWeightRemaining + "% unallocated for sub-components in " + mainComponentName);
-                    } else {
-                        System.out.print(subWeightRemaining + "% unallocated. ");
-                        System.out.println(subWeightRemaining + "% weight of main assessment " + mainComponentName + " will be allocated to this sub-assessment");
-                        subComponentWeight = subWeightRemaining;
-                        subComponents.add(new SubComponent(subComponentName, subComponentWeight));
-                        subWeightRemaining = 0;
-                    }
-                }
-
-            }
-
-            mainComponents.add(new MainComponent(mainComponentName, mainComponentWeight, subComponents));
-        }
-
-        Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, mainComponents);
-        //add course into file
         FILEMgr.writeCourseIntoFile(course);
         SCRAME.courses.add(course);
         System.out.println("Course " + courseID + " is added");
@@ -463,30 +304,33 @@ public class CourseMgr {
 
     }
 
-    public static void enterCourseWorkComponentWeightage() {
+    public static void enterCourseWorkComponentWeightage(Course currentCourse) {
         // ASSUME when course is created, no components are added yet
         // ASSUME once components are created and set, cannot be changed.
         int numberOfMain;
         int weight;
         int noOfSub;
         int sub_weight;
-        Course currentCourse = null;
-        System.out.println("enterCourseWorkComponentWeightage is called");
-        String courseID;
-        System.out.println("Enter course ID");
-        courseID = scanner.nextLine();
-        for (Course course : SCRAME.courses) {
-            if (course.getCourseID().equals(courseID)) {
-                currentCourse = course;
-                break;
+
+
+        if (currentCourse == null) {
+            String courseID;
+            System.out.println("Enter course ID");
+            courseID = scanner.nextLine();
+            for (Course course : SCRAME.courses) {
+                if (course.getCourseID().equals(courseID)) {
+                    currentCourse = course;
+                    break;
+                }
+            }
+
+            if (currentCourse == null) {
+                System.out.println("Invalid Course ID...");
+                System.out.println("Exiting the set components and weightage");
+                return;
             }
         }
 
-        if (currentCourse == null) {
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the set components and weightage");
-            return;
-        }
         // Exception handling
         // get the course and call the function inside the CourseMgr
 
@@ -528,7 +372,7 @@ public class CourseMgr {
             }
 
             do {
-                System.out.println("Enter number of MAIN component(s) to add :");
+                System.out.println("Enter number of MAIN component(s) to add:");
                 while (!scanner.hasNextInt()) {
                     String input = scanner.next();
                     System.out.println("Sorry. " + input + " is not an integer.");
@@ -552,8 +396,8 @@ public class CourseMgr {
                     ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
                     do {
                         componentExist = false;
-                        System.out.println("Total weightage left to assign : " + totalWeightage);
-                        System.out.println("Enter main component " + (i+1) + " name : ");
+                        System.out.println("Total weightage left to assign: " + totalWeightage);
+                        System.out.println("Enter main component " + (i+1) + " name: ");
                         mainComponentName = scanner.nextLine();
 
                         if (mainComponents.size() == 0) {
@@ -574,15 +418,15 @@ public class CourseMgr {
                     } while (componentExist);
 
                     do {
-                        System.out.println("Enter main component " + (i+1) + " weightage : ");
+                        System.out.println("Enter main component " + (i+1) + " weightage: ");
                         while (!scanner.hasNextInt()) {
                             String input = scanner.next();
                             System.out.println("Sorry. " + input + " is not an integer.");
-                            System.out.println("Enter your choice :");
+                            System.out.println("Enter your choice:");
                         }
                         weight = scanner.nextInt();
                         if (weight < 0 || weight > totalWeightage) {
-                            System.out.println("Please enter a weight between 0 ~ "+totalWeightage+ " :");
+                            System.out.println("Please enter a weight between 0 ~ "+totalWeightage+ ":");
                             continue;
                         }
                         break;
@@ -590,7 +434,7 @@ public class CourseMgr {
                     scanner.nextLine();
                     totalWeightage -=weight;
                     do {
-                        System.out.println("Enter number of sub component under main component " + (i + 1) + " :");
+                        System.out.println("Enter number of sub component under main component " + (i + 1) + ":");
                         while (!scanner.hasNextInt()) {
                             String input = scanner.next();
                             System.out.println("Sorry. " + input + " is not an integer.");
@@ -613,8 +457,8 @@ public class CourseMgr {
 
                             do {
                                 componentExist = false;
-                                System.out.println("Total weightage left to assign to sub component : " + sub_totWeight);
-                                System.out.println("Enter sub component " + (j + 1) + " name : ");
+                                System.out.println("Total weightage left to assign to sub component: " + sub_totWeight);
+                                System.out.println("Enter sub component " + (j + 1) + " name: ");
                                 subComponentName = scanner.nextLine();
 
                                 if (subComponents.size() == 0) {
@@ -636,15 +480,15 @@ public class CourseMgr {
 
 
                             do {
-                                System.out.println("Enter sub component " + (j + 1) + " weightage : ");
+                                System.out.println("Enter sub component " + (j + 1) + " weightage: ");
                                 while (!scanner.hasNextInt()) {
                                     String input = scanner.next();
                                     System.out.println("Sorry. " + input + " is not an integer.");
-                                    System.out.println("Enter your choice :");
+                                    System.out.println("Enter your choice:");
                                 }
                                 sub_weight = scanner.nextInt();
                                 if (sub_weight < 0 || sub_weight > sub_totWeight) {
-                                    System.out.println("Please enter a weight between 0 ~ "+sub_totWeight+ " :");
+                                    System.out.println("Please enter a weight between 0 ~ "+sub_totWeight+ ":");
                                     continue;
                                 }
                                 break;
