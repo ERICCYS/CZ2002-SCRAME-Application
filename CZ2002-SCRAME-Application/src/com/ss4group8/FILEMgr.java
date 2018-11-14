@@ -21,7 +21,7 @@ public class FILEMgr {
     private static final String markFileName = "data/markFile.csv";
 
     private static final String student_HEADER = "studentID,studentName";
-    private static final String course_HEADER = "courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
+    private static final String course_HEADER = "courseID,courseName,AU,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
     private static final String professor_HEADER = "professorID,professorName";
     private static final String courseRegistration_HEADER = "studentID,courseID,lectureGroup,tutorialGroup,labGroup";
     private static final String mark_HEADER = "studentID,courseID,courseWorkMarks,totalMark";
@@ -31,13 +31,14 @@ public class FILEMgr {
 
     private static final int courseIdIndex = 0;
     private static final int courseNameIndex = 1;
-    private static final int profInChargeIndex = 2;
-    private static final int vacanciesIndex = 3;
-    private static final int totalSeatsIndex = 4;
-    private static final int lectureGroupsIndex = 5;
-    private static final int tutorialGroupIndex = 6;
-    private static final int labGroupIndex = 7;
-    private static final int mainComponentsIndex = 8;
+    private static final int auIndex= 2;
+    private static final int profInChargeIndex = 3;
+    private static final int vacanciesIndex = 4;
+    private static final int totalSeatsIndex = 5;
+    private static final int lectureGroupsIndex = 6;
+    private static final int tutorialGroupIndex = 7;
+    private static final int labGroupIndex = 8;
+    private static final int mainComponentsIndex = 9;
 
     private static final int professorIdIndex = 0;
     private static final int professorNameIndex = 1;
@@ -139,6 +140,9 @@ public class FILEMgr {
             fileWriter.append(COMMA_DELIMITER);
 
             fileWriter.append(course.getCourseName());
+            fileWriter.append(COMMA_DELIMITER);
+
+            fileWriter.append(String.valueOf(course.getAU()));
             fileWriter.append(COMMA_DELIMITER);
 
             fileWriter.append(course.getProfInCharge().getProfID());
@@ -265,6 +269,7 @@ public class FILEMgr {
                 if (tokens.length > 0) {
                     String courseID = tokens[courseIdIndex];
                     String courseName = tokens[courseNameIndex];
+                    String AUString = tokens[auIndex];
                     String profInCharge = tokens[profInChargeIndex];
                     for (Professor professor : professors) {
                         if (professor.getProfID().equals(profInCharge)) {
@@ -284,7 +289,7 @@ public class FILEMgr {
                         lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1]), Integer.parseInt(thisLectureGroup[2])));
                     }
 
-                    Course course = new Course(courseID, courseName, currentProfessor, totalSeats, totalSeats, lectureGroups);
+                    Course course = new Course(courseID, courseName, Integer.parseInt(AUString), currentProfessor, totalSeats, totalSeats, lectureGroups);
 
                     String tutorialGroupsString = tokens[tutorialGroupIndex];
                     ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
@@ -360,6 +365,9 @@ public class FILEMgr {
                 fileWriter.append(COMMA_DELIMITER);
 
                 fileWriter.append(course.getCourseName());
+                fileWriter.append(COMMA_DELIMITER);
+
+                fileWriter.append(String.valueOf(course.getAU()));
                 fileWriter.append(COMMA_DELIMITER);
 
                 fileWriter.append(course.getProfInCharge().getProfID());

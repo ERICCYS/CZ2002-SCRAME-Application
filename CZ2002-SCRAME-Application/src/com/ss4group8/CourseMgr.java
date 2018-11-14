@@ -12,6 +12,7 @@ public class CourseMgr {
         String courseID;
         String courseName;
         String profID;
+        int AU;
         boolean groupNameExists, profExists, componentExist;
         int seatsLeft;
         // Can make the sameCourseID as boolean, set to false.
@@ -36,6 +37,25 @@ public class CourseMgr {
         courseName = scanner.nextLine();
 
 
+        System.out.println("How may AUs is this course?");
+        System.out.println("Plese enter your choice:");
+
+        do {
+            System.out.println("How may AUs is this course? (1 ~ 4)");
+            while (!scanner.hasNextInt()) {
+                String input = scanner.next();
+                System.out.println("Sorry. " + input + " is not an integer.");
+                System.out.println("How may AUs is this course? (1 ~ 4)");
+            }
+            AU = scanner.nextInt();
+            if (AU < 1 || AU > 4) {
+                System.out.println("Please enter 1 ~ 4 for the course AUs:");
+                continue;
+            }
+            break;
+        } while (true);
+        scanner.nextLine();
+
         int totalSeats;
         System.out.println("Enter the total vacancy of this course: ");
         totalSeats = scanner.nextInt();
@@ -43,7 +63,6 @@ public class CourseMgr {
             System.out.println("Please enter a valid vacancy (greater than 0)");
             totalSeats = scanner.nextInt();
         }
-
 
         int noOfLectureGroups;
         do {
@@ -58,7 +77,6 @@ public class CourseMgr {
             System.out.println("Number of lecture group must be postive but less than total seats in this course.");
             System.out.println("Please re-enter");
         } while (true);
-
 
         ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>();
         String lectureGroupName;
@@ -227,8 +245,7 @@ public class CourseMgr {
             }
         } while (!profExists);
 
-        Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups);
-
+        Course course = new Course(courseID, courseName, AU, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups);
 
         System.out.println("Create Course Component and set component weightage now?");
         System.out.println("1. Yes");
