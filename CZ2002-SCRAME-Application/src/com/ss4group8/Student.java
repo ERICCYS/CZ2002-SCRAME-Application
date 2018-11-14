@@ -5,13 +5,17 @@ public class Student {
 
     private String studentID;
     private String studentName;
+    private String studentSchool;
+    private String gender;
+    private double GPA = 0;
+    private int studentYear;
 
     public Student(String studentName) {
         this.studentName = studentName;
         this.studentID = generateStudentID();
     }
 
-    //
+
     public Student(String studentID, String studentName) {
         this.studentID = studentID;
         this.studentName = studentName;
@@ -27,11 +31,47 @@ public class Student {
         return studentName;
     }
 
+    public String getStudentSchool(){
+        return studentSchool;
+    }
+
+    public String getGender(){
+        return gender;
+    }
+
+
+    public double getGPA(){
+        return GPA;
+    }
+
+    public int getStudentYear(){
+        return studentYear;
+    }
+
     public static void setIdNumber(int idNumber) {
         Student.idNumber = idNumber;
     }
 
-    public void setStudentID(String studentID) { this.studentID = studentID; }
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public void setStudentSchool(String studentSchool){
+        this.studentSchool = studentSchool;
+    }
+
+    public void setGender(String gender){
+        this.gender = gender;
+    }
+
+
+    public void setGPA(double GPA){
+        this.GPA = GPA;
+    }
+
+    public void  setStudentYear(int studentYear){
+        this.studentYear = studentYear;
+    }
 
 
     private String generateStudentID() {

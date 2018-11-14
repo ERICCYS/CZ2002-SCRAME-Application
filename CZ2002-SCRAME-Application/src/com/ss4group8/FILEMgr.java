@@ -20,14 +20,18 @@ public class FILEMgr {
     private static final String courseRegistrationFileName = "data/courseRegistrationFile.csv";
     private static final String markFileName = "data/markFile.csv";
 
-    private static final String student_HEADER = "studentID,studentName";
-    private static final String course_HEADER = "courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents";
-    private static final String professor_HEADER = "professorID,professorName";
+    private static final String student_HEADER = "studentID,studentName,studentSchool,studentGender,studentGPA,studentYear";
+    private static final String course_HEADER = "courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents,AU,courseDepartment,courseType,lecHr,tutHr,labHr";
+    private static final String professor_HEADER = "professorID,professorName,profDepartment";
     private static final String courseRegistration_HEADER = "studentID,courseID,lectureGroup,tutorialGroup,labGroup";
     private static final String mark_HEADER = "studentID,courseID,courseWorkMarks,totalMark";
 
     private static final int studentIdIndex = 0;
     private static final int studentNameIndex = 1;
+    private static final int studentSchoolIndex = 2;
+    private static final int studentGenderIndex = 3;
+    private static final int studentGPAIndex = 4;
+    private static final int studentYearIndex = 5;
 
     private static final int courseIdIndex = 0;
     private static final int courseNameIndex = 1;
@@ -38,9 +42,16 @@ public class FILEMgr {
     private static final int tutorialGroupIndex = 6;
     private static final int labGroupIndex = 7;
     private static final int mainComponentsIndex = 8;
+    private static final int AUIndex = 9;
+    private static final int courseDepartmentIndex = 10;
+    private static final int courseTypeIndex = 11;
+    private static final int lecHrIndex = 12;
+    private static final int tutHrIndex = 13;
+    private static final int labHrIndex = 14;
 
     private static final int professorIdIndex = 0;
     private static final int professorNameIndex = 1;
+    private static final int professorDepartmentIndex = 2;
 
     private static final int studentIdInRegistrationIndex = 0;
     private static final int courseIdInRegistrationIndex = 1;
@@ -71,6 +82,14 @@ public class FILEMgr {
             fileWriter.append(student.getStudentID());
             fileWriter.append(COMMA_DELIMITER);
             fileWriter.append(student.getStudentName());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(student.getStudentSchool());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(student.getGender());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(student.getGPA()));
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(student.getStudentYear()));
             fileWriter.append(NEW_LINE_SEPARATOR);
         } catch (Exception e) {
             System.out.println("Error in adding a student to the file.");
@@ -101,6 +120,10 @@ public class FILEMgr {
                 if (tokens.length > 0) {
                     recentStudentID = Math.max(recentStudentID, Integer.parseInt(tokens[studentIdIndex].substring(1,8)));
                     Student student = new Student(tokens[studentIdIndex], tokens[studentNameIndex]);
+                    student.setStudentSchool(tokens[studentSchoolIndex]);
+                    student.setGender(tokens[studentGenderIndex]);
+                    student.setGPA(Double.parseDouble(tokens[studentGPAIndex]));
+                    student.setStudentYear(Integer.parseInt(tokens[studentYearIndex]));
                     students.add(student);
                 }
             }
@@ -234,6 +257,18 @@ public class FILEMgr {
             } else {
                 fileWriter.append("NULL");
             }
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(course.getAU()));
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(course.getCourseDepartment());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(course.getCourseType());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(course.getLecWeeklyHour()));
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(course.getTutWeeklyHour()));
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(String.valueOf(course.getLabWeeklyHour()));
             fileWriter.append(NEW_LINE_SEPARATOR);
         } catch (Exception e) {
             System.out.println("Error in adding a course to the file.");
@@ -274,6 +309,12 @@ public class FILEMgr {
                     }
                     int vacancies = Integer.parseInt(tokens[vacanciesIndex]);
                     int totalSeats = Integer.parseInt(tokens[totalSeatsIndex]);
+                    int AU = Integer.parseInt(tokens[AUIndex]);
+                    String courseDepartment = tokens[courseDepartmentIndex];
+                    String courseType = tokens[courseTypeIndex];
+                    int lecWeeklyHr = Integer.parseInt(tokens[lecHrIndex]);
+                    int tutWeeklyHr = Integer.parseInt(tokens[tutHrIndex]);
+                    int labWeeklyHr = Integer.parseInt(tokens[labHrIndex]);
 
                     String lectureGroupsString = tokens[lectureGroupsIndex];
                     ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>(0);
@@ -284,7 +325,7 @@ public class FILEMgr {
                         lectureGroups.add(new LectureGroup(thisLectureGroup[0], Integer.parseInt(thisLectureGroup[1]), Integer.parseInt(thisLectureGroup[2])));
                     }
 
-                    Course course = new Course(courseID, courseName, currentProfessor, totalSeats, totalSeats, lectureGroups);
+                    Course course = new Course(courseID, courseName, currentProfessor, vacancies, totalSeats, lectureGroups, AU, courseDepartment, courseType, lecWeeklyHr);
 
                     String tutorialGroupsString = tokens[tutorialGroupIndex];
                     ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
@@ -297,6 +338,7 @@ public class FILEMgr {
                         }
                     }
                     course.setTutorialGroups(tutorialGroups);
+                    course.setTutWeeklyHour(tutWeeklyHr);
 
                     String labGroupsString = tokens[labGroupIndex];
                     ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
@@ -308,6 +350,7 @@ public class FILEMgr {
                         }
                     }
                     course.setLabGroups(labGroups);
+                    course.setLabWeeklyHour(labWeeklyHr);
 
                     String mainComponentsString = tokens[mainComponentsIndex];
                     ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
@@ -492,6 +535,8 @@ public class FILEMgr {
             fileWriter.append(professor.getProfID());
             fileWriter.append(COMMA_DELIMITER);
             fileWriter.append(professor.getProfName());
+            fileWriter.append(COMMA_DELIMITER);
+            fileWriter.append(professor.getProfDepartment());
             fileWriter.append(NEW_LINE_SEPARATOR);
         } catch (Exception e) {
             System.out.println("Error in adding a professor to the file.");
@@ -520,6 +565,7 @@ public class FILEMgr {
 //                System.out.println(tokens[professorNameIndex]);
                 if (tokens.length > 0) {
                     Professor professor = new Professor(tokens[professorIdIndex], tokens[professorNameIndex]);
+                    professor.setProfDepartment(tokens[professorDepartmentIndex]);
                     professors.add(professor);
                 }
             }

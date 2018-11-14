@@ -8,10 +8,11 @@ public class StudentMgr {
 
 
     public static void addStudent() {
-        String studentName;
+        String studentName, studentSchool;
         String studentID = null;
-        int choice;
+        int choice, studentYear;
         boolean studentExists;
+        String GPA = "not available";
         Student currentStudent = null;
 //        String studentID;
 //        // Can make the sameStudentID as boolean, set to false.
@@ -31,60 +32,92 @@ public class StudentMgr {
             }
         } while (true);
         if (choice == 1) {
-            do {
-                studentExists = false;
-                boolean validIDFormat;
-
-                do {
-                    validIDFormat = true;
-                    System.out.println("Enter student ID: ");
-                    studentID = scanner.nextLine();
-
-                    if (studentID.length() != 9) {
-//                        System.out.println("Length less than 9");
-                        validIDFormat = false;
-                    } else if (studentID.charAt(0) != 'U' && studentID.charAt(0) != 'G') {
-//                        System.out.println("Prefix issue");
-                        validIDFormat = false;
-                    } else if (studentID.charAt(8) < 'A' || studentID.charAt(8) > 'L') {
-//                        System.out.println("Ending issue");
-                        validIDFormat = false;
-                    } else {
-                        try {
-//                            System.out.println(studentID.substring(1, 8));
-                            Integer.parseInt(studentID.substring(1, 8));
-                        } catch (NumberFormatException e) {
-//                            System.out.println("Number issue");
-                            validIDFormat = false;
-                        }
-                    }
-                    if (!validIDFormat) {
-                        System.out.println("The student ID should follow:");
-                        System.out.println("Length is exactly 9");
-                        System.out.println("Start with U (Undergraduate) or G (Graduate)");
-                        System.out.println("End with a uppercase letter between A and L");
-                        System.out.println("Seven digits in the middle");
-                        System.out.println();
-                    }
-                } while (!validIDFormat);
-
-
-                for (Student student : SCRAME.students) {
-                    if (studentID.equals(student.getStudentID())) {
-                        System.out.println("Sorry. The student ID is used. This student already exists.");
-                        studentExists = true;
+            while(true){
+                System.out.println("The student ID should follow:");
+                System.out.println("Length is exactly 9");
+                System.out.println("Start with U (Undergraduate)");
+                System.out.println("End with a uppercase letter between A and L");
+                System.out.println("Seven digits in the middle");
+                System.out.println();
+                System.out.println("Give this student an ID: ");
+                studentID = scanner.nextLine();
+                if(ValidationMgr.checkValidStudentIDInput(studentID)){
+                    if(!ValidationMgr.checkStudentExists(studentID)){
                         break;
                     }
                 }
-
-            } while (studentExists);
+            }
         }
+
+        while(true){
         System.out.println("Enter student Name: ");
         studentName = scanner.nextLine();
+        if(ValidationMgr.checkValidPersonNameInput(studentName)){
+            break;
+        }
+        }
+
         currentStudent = new Student(studentName);
         if (choice == 1) {
             currentStudent.setStudentID(studentID);
         }
+
+
+        //student department
+        while(true){
+            System.out.println("Enter student's school: ");
+            System.out.println("Enter -h to print all the schools.");
+            studentSchool = scanner.nextLine();
+            while(studentSchool.equals("-h")){
+                HelpInfoMgr.getAllDepartment();
+                studentSchool = scanner.nextLine();
+            }
+
+            if(ValidationMgr.checkDepartmentValidation(studentSchool)){
+                currentStudent.setStudentSchool(studentSchool);
+                break;
+            }
+        }
+
+
+
+        //gender
+        String studentGender;
+        while(true){
+            System.out.println("Enter student Gender: ");
+            System.out.println("Enter -h to print all the genders.");
+            studentGender = scanner.nextLine();
+            while(studentGender.equals("-h")){
+                HelpInfoMgr.getAllGender();
+                studentGender = scanner.nextLine();
+            }
+
+            if(ValidationMgr.checkGenderValidation(studentGender)){
+                currentStudent.setGender(studentGender);
+                break;
+            }
+        }
+
+
+
+        //student year
+        do{
+            System.out.println("Enter student's school year (1-4) : ");
+            if(scanner.hasNextInt()){
+                studentYear = scanner.nextInt();
+                scanner.nextLine();
+                if(studentYear < 1 || studentYear > 4){
+                    System.out.println("Your input is out of bound.");
+                    System.out.println("Please re-enter an integer between 1 and 4");
+                }else{
+                    break;
+                }
+            }else{
+                System.out.println("Your input " + scanner.nextLine() + " is not an integer");
+                System.out.println("Please re-enter.");
+            }
+        }while(true);
+
 
         FILEMgr.writeStudentsIntoFile(currentStudent);
 
@@ -92,9 +125,12 @@ public class StudentMgr {
         System.out.println("Student named: " + studentName + " is added, with ID: " + currentStudent.getStudentID());
 
         System.out.println("Student list: ");
-        System.out.println("Student ID | Student Name");
+        System.out.println("Student ID | Student Name | Student School | Gender | Year | GPA");
         for (Student student : SCRAME.students) {
-            System.out.println(" " + student.getStudentID() + " | " + student.getStudentName());
+            if(Double.compare(student.getGPA(),0.0) != 0){
+                GPA = String.valueOf(student.getGPA());
+            }
+            System.out.println(" " + student.getStudentID() + " | " + student.getStudentName() + " | " + student.getStudentSchool() + " | " + student.getGender() + " | " + student.getStudentYear() + " | " + GPA);
         }
 
     }

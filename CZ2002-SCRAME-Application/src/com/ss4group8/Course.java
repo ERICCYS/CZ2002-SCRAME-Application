@@ -7,14 +7,21 @@ public class Course {
     private String courseID;
     private String courseName;
     private Professor profInCharge;
+    private int AU;
+    private String courseDepartment;
+    private String courseType;
+//    private Course prerequisite;
     private int vacancies;
     private int totalSeats;
     private ArrayList<LectureGroup> lectureGroups;
+    private int lecWeeklyHour;
+    private int tutWeeklyHour = 0;
+    private int labWeeklyHour = 0;
     private ArrayList<TutorialGroup> tutorialGroups = new ArrayList<TutorialGroup>(0);
     private ArrayList<LabGroup> labGroups = new ArrayList<LabGroup>(0);
     private ArrayList<MainComponent> mainComponents = new ArrayList<MainComponent>(0);
 
-    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, ArrayList<MainComponent> mainComponents) {
+    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, ArrayList<MainComponent> mainComponents, int AU, String courseDepartment, String courseType, int lecWeeklyHour, int tutWeeklyHour, int labWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.profInCharge = profInCharge;
@@ -24,18 +31,28 @@ public class Course {
         this.tutorialGroups = tutorialGroups;
         this.labGroups = labGroups;
         this.mainComponents = mainComponents;
+        this.AU = AU;
+        this.courseDepartment = courseDepartment;
+        this.courseType = courseType;
+        this.lecWeeklyHour = lecWeeklyHour;
+        this.tutWeeklyHour = tutWeeklyHour;
+        this.labWeeklyHour = labWeeklyHour;
     }
 
-    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups) {
+    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, int AU, String courseDepartment, String courseType, int lecWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
         this.lectureGroups = lectureGroups;
+        this.AU = AU;
+        this.courseDepartment = courseDepartment;
+        this.courseType = courseType;
+        this.lecWeeklyHour = lecWeeklyHour;
     }
 
-    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups) {
+    public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, int AU, String courseDepartment, String courseType, int lecWeeklyHour, int tutWeeklyHour, int labWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.profInCharge = profInCharge;
@@ -44,6 +61,12 @@ public class Course {
         this.lectureGroups = lectureGroups;
         this.tutorialGroups = tutorialGroups;
         this.labGroups = labGroups;
+        this.AU = AU;
+        this.courseDepartment = courseDepartment;
+        this.courseType = courseType;
+        this.lecWeeklyHour = lecWeeklyHour;
+        this.tutWeeklyHour = tutWeeklyHour;
+        this.labWeeklyHour = labWeeklyHour;
     }
 
     public String getCourseID() {
@@ -55,13 +78,41 @@ public class Course {
     }
 
     public Professor getProfInCharge() {
-        return this.profInCharge;
+        return profInCharge;
     }
 
-    public int getVacancies() { return this.vacancies; }
+    public int getVacancies() { return vacancies; }
 
     public int getTotalSeats() {
-        return this.totalSeats;
+        return totalSeats;
+    }
+
+    public int getAU(){
+        return AU;
+    }
+
+    public String getCourseDepartment(){
+        return courseDepartment;
+    }
+
+    public String getCourseType(){
+        return courseType;
+    }
+
+//    public Course getPrerequisite(){
+//        return prerequisite;
+//    }
+
+    public int getLecWeeklyHour(){
+        return lecWeeklyHour;
+    }
+
+    public int getTutWeeklyHour(){
+        return tutWeeklyHour;
+    }
+
+    public int getLabWeeklyHour(){
+        return labWeeklyHour;
     }
 
     public ArrayList<LectureGroup> getLectureGroups() {
@@ -96,6 +147,14 @@ public class Course {
 
     public void setMainComponents(ArrayList<MainComponent> mainComponents) {
         this.mainComponents = mainComponents;
+    }
+
+    public void setTutWeeklyHour(int tutWeeklyHour){
+        this.tutWeeklyHour = tutWeeklyHour;
+    }
+
+    public void setLabWeeklyHour(int labWeeklyHour){
+        this.labWeeklyHour = labWeeklyHour;
     }
 
     public void printLectureGroup() {

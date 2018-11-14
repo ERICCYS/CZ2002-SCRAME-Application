@@ -6,24 +6,6 @@ import java.util.*;
 public class MarkMgr {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static Student validateStudent(String studentID){
-        for (Student student : SCRAME.students) {
-            if (student.getStudentID().equals(studentID)) {
-                return student;
-            }
-        }
-        return null;
-    }
-
-    public static Course validateCourse(String courseID) {
-        for (Course course : SCRAME.courses) {
-            if (course.getCourseID().equals(courseID)) {
-                return course;
-            }
-        }
-        return null;
-    }
-
     public static Mark initializeMark(Student student, Course course) {
         HashMap<CourseworkComponent, Double> courseWorkMarks = new HashMap<CourseworkComponent, Double>();
         double totalMark = 0d;
@@ -49,7 +31,7 @@ public class MarkMgr {
         Student currentStudent;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
-        currentStudent = validateStudent(studentID);
+        currentStudent = ValidationMgr.checkStudentExists(studentID);
         if (currentStudent == null) {
             System.out.println("Invalid Student ID...");
             System.out.println("Exiting the set course work mark");
@@ -60,7 +42,7 @@ public class MarkMgr {
         Course currentCourse;
         System.out.println("Enter course ID");
         courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
+        currentCourse = ValidationMgr.checkCourseExists(courseID);
         if (currentCourse == null) {
             System.out.println("Invalid Course ID...");
             System.out.println("Exiting the set course work mark");
@@ -167,7 +149,7 @@ public class MarkMgr {
         Course currentCourse = null;
         System.out.println("Enter Course ID:");
         courseID = scanner.nextLine();
-        currentCourse = validateCourse(courseID);
+        currentCourse = ValidationMgr.checkCourseExists(courseID);
         if (currentCourse == null) {
             System.out.println("Invalid Course ID...");
             System.out.println("Exiting the print course statistics");
@@ -293,7 +275,7 @@ public class MarkMgr {
         Student currentStudent = null;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
-        currentStudent = validateStudent(studentID);
+        currentStudent = ValidationMgr.checkStudentExists(studentID);
         if (currentStudent == null) {
             System.out.println("Invalid Student ID...");
             System.out.println("Exiting the print student transcript");
