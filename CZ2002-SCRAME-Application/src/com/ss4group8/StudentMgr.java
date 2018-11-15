@@ -23,12 +23,16 @@ public class StudentMgr {
         System.out.println("2. Let the system self-generate the student ID.");
         do {
             System.out.println("Please input your choice:");
-            choice = scanner.nextInt();
-            scanner.nextLine();
-            if (choice < 1 || choice > 2) {
-                System.out.println("Invalid input. Please re-enter.");
-            } else {
-                break;
+            if(scanner.hasNextInt()){
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice < 1 || choice > 2) {
+                    System.out.println("Invalid input. Please re-enter.");
+                } else {
+                    break;
+                }
+            }else{
+                System.out.println("Your input " + scanner.nextLine() + " is not an integer.");
             }
         } while (true);
         if (choice == 1) {
@@ -110,6 +114,7 @@ public class StudentMgr {
                     System.out.println("Your input is out of bound.");
                     System.out.println("Please re-enter an integer between 1 and 4");
                 }else{
+                    currentStudent.setStudentYear(studentYear);
                     break;
                 }
             }else{

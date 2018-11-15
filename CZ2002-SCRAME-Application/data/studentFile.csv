@@ -1,2 +1,5 @@
-
-U1734756J,Eric,SCSE,FEMALE,0.0,0
+studentID,studentName,studentSchool,studentGender,studentGPA,studentYear
+U1734756J,Eric,SCSE,FEMALE,0.0,1
+U1722733K,Eric,SCSE,MALE,0.0,1
+U1822834K,Eric,SCSE,MALE,0.0,2
+U1822832L,Chloe,SPMS,FEMALE,0.0,3
