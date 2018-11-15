@@ -38,7 +38,6 @@ public class Course {
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, ArrayList<MainComponent> mainComponents, int AU, String courseDepartment, String courseType, int lecWeeklyHour, int tutWeeklyHour, int labWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
-        this.AU = AU;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
@@ -57,7 +56,6 @@ public class Course {
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, int AU, String courseDepartment, String courseType, int lecWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
-        this.AU = AU;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
@@ -71,7 +69,6 @@ public class Course {
     public Course(String courseID, String courseName, Professor profInCharge, int vacancies, int totalSeats, ArrayList<LectureGroup> lectureGroups, ArrayList<TutorialGroup> tutorialGroups, ArrayList<LabGroup> labGroups, int AU, String courseDepartment, String courseType, int lecWeeklyHour, int tutWeeklyHour, int labWeeklyHour) {
         this.courseID = courseID;
         this.courseName = courseName;
-        this.AU = AU;
         this.profInCharge = profInCharge;
         this.vacancies = vacancies;
         this.totalSeats = totalSeats;
