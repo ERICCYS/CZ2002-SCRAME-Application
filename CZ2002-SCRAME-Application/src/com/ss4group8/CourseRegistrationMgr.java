@@ -266,25 +266,25 @@ public class CourseRegistrationMgr {
         Course currentCourse = null;
         boolean validCourseID = false;
 
-        System.out.println("Enter course ID");
-        courseID = scanner.nextLine();
-        System.out.println("Enter -h to print all the course ID.");
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printAllStudents();
+
+        while(true){
+            System.out.println("Enter Course ID (-h to print all the courseID ID:");
             courseID = scanner.nextLine();
+            while("-h".equals(courseID)){
+                HelpInfoMgr.printAllCourses();
+                courseID = scanner.nextLine();
+            }
+
+            System.setOut(dummyStream);
+            if (ValidationMgr.checkCourseExists(courseID) == null) {
+                System.setOut(originalStream);
+                System.out.println("Invalid Course ID. Please re-enter.");
+            }else{
+                System.setOut(originalStream);
+                break;
+            }
         }
-
-        System.setOut(dummyStream);
-        if (ValidationMgr.checkCourseExists(courseID) == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the print student");
-            return;
-        }
-        System.setOut(originalStream);
-
-
+        
         System.out.println("Print student by: ");
         System.out.println("(1) Lecture group");
         System.out.println("(2) Tutorial group");
