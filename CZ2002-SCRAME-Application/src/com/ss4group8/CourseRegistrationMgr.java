@@ -44,65 +44,66 @@ public class CourseRegistrationMgr {
         String studentID;
         Student currentStudent = null;
         boolean validStudentID = false;
-        System.out.println("Enter Student ID:");
-        System.out.println("Enter -h to print all the student ID.");
-        studentID = scanner.nextLine();
-        while("-h".equals(studentID)){
-            HelpInfoMgr.printAllStudents();
-            studentID = scanner.nextLine();
-        }
 
-        System.setOut(dummyStream);
-        if (ValidationMgr.checkStudentExists(studentID) == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
-            return;
+        while(true){
+            System.out.println("Enter Student ID (-h to print all the student ID:");
+            studentID = scanner.nextLine();
+            while("-h".equals(studentID)){
+                HelpInfoMgr.printAllStudents();
+                studentID = scanner.nextLine();
+            }
+
+            System.setOut(dummyStream);
+            if (ValidationMgr.checkStudentExists(studentID) == null) {
+                System.setOut(originalStream);
+                System.out.println("Invalid Student ID. Please re-enter.");
+            }else{
+                System.setOut(originalStream);
+                break;
+            }
         }
-        System.setOut(originalStream);
 
         // Exception handling
         String courseDepartment;
         while(true){
-            System.out.println("Which department's courses are you interested?");
-            System.out.println("Enter -h to print all the departments.");
+            System.out.println("Which department's courses are you interested? (-h to print all the departments)");
             courseDepartment = scanner.nextLine();
             while("-h".equals(courseDepartment)){
                 HelpInfoMgr.printAllDepartment();
                 courseDepartment = scanner.nextLine();
             }
             if(ValidationMgr.checkDepartmentValidation(courseDepartment)){
-                break;
+                List<String> validCourseString;
+                System.setOut(dummyStream);
+                validCourseString = HelpInfoMgr.printCourseInDepartment(courseDepartment);
+                System.setOut(originalStream);
+                if(validCourseString.size() == 0){
+                    System.out.println("Invalid choice of department.");
+                }else{
+                    break;
+                }
             }
         }
 
-        List<String> validCourseString;
-        System.setOut(dummyStream);
-        validCourseString = HelpInfoMgr.printCourseInDepartment(courseDepartment);
-        System.setOut(originalStream);
-        if(validCourseString.size() == 0){
-            System.out.println("Invalid choice of department.");
-            return;
-        }
 
         String courseID;
-        Course currentCourse = null;
-        boolean validCourseID = false;
-        System.out.println("Enter Course ID:");
-        System.out.println("Enter -h to print all the courses in " + courseDepartment);
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printCourseInDepartment(courseDepartment);
+        Course currentCourse;
+        while(true){
+            System.out.println("Enter Course ID (-h to print all the courses in " + courseDepartment);
             courseID = scanner.nextLine();
-        }
+            while("-h".equals(courseID)){
+                HelpInfoMgr.printCourseInDepartment(courseDepartment);
+                courseID = scanner.nextLine();
+            }
 
-        System.setOut(dummyStream);
-        currentCourse = ValidationMgr.checkCourseExists(courseID);
-        System.setOut(originalStream);
-        if(currentCourse == null){
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
+            System.setOut(dummyStream);
+            currentCourse = ValidationMgr.checkCourseExists(courseID);
+            System.setOut(originalStream);
+            if(currentCourse == null){
+                System.out.println("Invalid Course ID. Please re-enter.");
+            }else{
+                break;
+            }
         }
 
         // Exception handling
