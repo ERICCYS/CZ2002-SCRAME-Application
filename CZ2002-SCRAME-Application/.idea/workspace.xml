@@ -52,26 +52,26 @@
     <session id="-1847145261">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="csv" value="6" />
+          <entry key="csv" value="11" />
           <entry key="java" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSV" value="6" />
+          <entry key="CSV" value="11" />
           <entry key="JAVA" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="csv" value="4" />
-          <entry key="java" value="70" />
+          <entry key="csv" value="21" />
+          <entry key="java" value="79" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSV" value="4" />
-          <entry key="JAVA" value="70" />
+          <entry key="CSV" value="21" />
+          <entry key="JAVA" value="79" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -140,6 +140,11 @@
               <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1869#1877#0" expanded="true" />
+                <element signature="e#1943#1951#0" expanded="true" />
+                <element signature="e#2020#2029#0" expanded="true" />
+                <element signature="e#7145#7151#0" expanded="true" />
+                <element signature="e#11978#11984#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -232,7 +237,6 @@
         <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Student.java" />
-        <option value="$PROJECT_DIR$/data/studentFile.csv" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/SCRAME.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java" />
         <option value="$PROJECT_DIR$/data/courseFile.csv" />
@@ -311,7 +315,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542286440538" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542292327248" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -609,7 +613,32 @@
           <caret line="113" column="42" lean-forward="true" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1869#1877#0" expanded="true" />
+            <element signature="e#1943#1951#0" expanded="true" />
+            <element signature="e#2020#2029#0" expanded="true" />
+            <element signature="e#7145#7151#0" expanded="true" />
+            <element signature="e#11978#11984#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="9" selection-start-line="13" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/markFile.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -655,7 +684,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -672,6 +701,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
