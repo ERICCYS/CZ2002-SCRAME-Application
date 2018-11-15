@@ -505,7 +505,7 @@ public class CourseMgr {
                 while (!scanner.hasNextInt()) {
                     String input = scanner.next();
                     System.out.println("Sorry. " + input + " is not an integer.");
-                    System.out.println("Enter your choice :");
+                    System.out.println("Enter number of MAIN component(s) to add:");
                 }
                 numberOfMain = scanner.nextInt();
                 if (numberOfMain < 0) {
@@ -551,7 +551,7 @@ public class CourseMgr {
                         while (!scanner.hasNextInt()) {
                             String input = scanner.next();
                             System.out.println("Sorry. " + input + " is not an integer.");
-                            System.out.println("Enter your choice:");
+                            System.out.println("Enter main component " + (i+1) + " weightage:");
                         }
                         weight = scanner.nextInt();
                         if (weight < 0 || weight > totalWeightage) {
@@ -567,7 +567,7 @@ public class CourseMgr {
                         while (!scanner.hasNextInt()) {
                             String input = scanner.next();
                             System.out.println("Sorry. " + input + " is not an integer.");
-                            System.out.println("Enter your choice :");
+                            System.out.println("Enter number of sub component under main component " + (i + 1) + ":");
                         }
                         noOfSub = scanner.nextInt();
                         if (noOfSub < 0) {
@@ -613,7 +613,7 @@ public class CourseMgr {
                                 while (!scanner.hasNextInt()) {
                                     String input = scanner.next();
                                     System.out.println("Sorry. " + input + " is not an integer.");
-                                    System.out.println("Enter your choice:");
+                                    System.out.println("Enter sub component " + (j + 1) + " weightage (out of the main component): ");
                                 }
                                 sub_weight = scanner.nextInt();
                                 if (sub_weight < 0 || sub_weight > sub_totWeight) {

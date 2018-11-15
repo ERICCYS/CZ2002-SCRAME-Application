@@ -17,6 +17,7 @@ public class SCRAME {
         courses = FILEMgr.loadCourses();
         courseRegistrations = FILEMgr.loadCourseRegistration();
         marks = FILEMgr.loadStudentMarks();
+        professors = FILEMgr.loadProfessors();
 
         printWelcome();
 
