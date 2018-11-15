@@ -136,7 +136,7 @@ public class MarkMgr {
 
 
     public static void printCourseStatistics() {
-        System.out.println("printCourseStatistics is called");
+//        System.out.println("printCourseStatistics is called");
         String courseID = ValidationMgr.checkCourseExists();
         Course currentCourse = ValidationMgr.checkCourseExists(courseID);
 

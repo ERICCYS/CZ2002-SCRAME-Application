@@ -1,6 +1,22 @@
 package com.ss4group8;
 
+/**
+ * Represents a student enrolled in a school.
+ * A student has studentID, studentName, studentSchool, gender, GPA and year.
+ * A student can enroll many courses.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ */
+
 public class Student {
+
+    /**
+     * uses static variable {@code idNumber}
+     */
     private static int idNumber = 1800000;
 
     private String studentID;
