@@ -22,7 +22,7 @@
         <counts>
           <entry key="JAVA/" value="1" />
           <entry key="csv" value="15" />
-          <entry key="java" value="34" />
+          <entry key="java" value="36" />
           <entry key="ss4group8" value="1" />
           <entry key="xml" value="1" />
         </counts>
@@ -30,7 +30,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="15" />
-          <entry key="JAVA" value="34" />
+          <entry key="JAVA" value="36" />
           <entry key="UML" value="2" />
           <entry key="XML" value="1" />
         </counts>
@@ -38,13 +38,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="csv" value="27" />
-          <entry key="java" value="6993" />
+          <entry key="java" value="6994" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSV" value="27" />
-          <entry key="JAVA" value="6993" />
+          <entry key="JAVA" value="6994" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -334,7 +334,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542297158754" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542297587625" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -381,12 +381,12 @@
       <workItem from="1541841518036" duration="107000" />
       <workItem from="1541841659587" duration="1764000" />
       <workItem from="1541847318162" duration="4392000" />
-      <workItem from="1542255606435" duration="22863000" />
+      <workItem from="1542255606435" duration="23168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24481000" />
+    <option name="totallyTimeSpent" value="24786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
