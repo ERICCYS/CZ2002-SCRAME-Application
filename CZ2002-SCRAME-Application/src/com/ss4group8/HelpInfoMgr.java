@@ -5,10 +5,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class HelpInfoMgr {
+    private static Scanner scanner = new Scanner(System.in);
+
     public static List<String> printProfInDepartment (String department){
         if(ValidationMgr.checkDepartmentValidation(department)){
-            List<Professor> professors = FILEMgr.loadProfessors();
-            List<String> validProfString = professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
+            List<String> validProfString = SCRAME.professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
             validProfString.forEach(System.out::println);
             return validProfString;
         }
@@ -18,14 +19,12 @@ public class HelpInfoMgr {
     }
 
     public static void printAllStudents(){
-        List<Student> students = FILEMgr.loadStudents();
-        students.stream().map(s->s.getStudentID()).forEach(System.out::println);
+        SCRAME.students.stream().map(s->s.getStudentID()).forEach(System.out::println);
 
     }
 
     public static void printAllCourses(){
-        List<Course> courses = FILEMgr.loadCourses();
-        courses.stream().map(c->c.getCourseID()).forEach(System.out::println);
+        SCRAME.courses.stream().map(c->c.getCourseID()).forEach(System.out::println);
 
     }
 
@@ -88,7 +87,7 @@ public class HelpInfoMgr {
 
 
     public static List<String> printCourseInDepartment(String department){
-        List<Course> validCourses = FILEMgr.loadCourses().stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
+        List<Course> validCourses = SCRAME.courses.stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
         List<String> validCourseString = validCourses.stream().map(c->c.getCourseID()).collect(Collectors.toList());
         validCourseString.forEach(System.out::println);
         if(validCourseString.size() == 0){
@@ -97,5 +96,51 @@ public class HelpInfoMgr {
         return validCourseString;
      }
 
+     public static String printGroupWithVacancyInfo(String groupType, ArrayList<Group> groups) {
+         int index;
+         HashMap<String, Integer> groupAssign = new HashMap<String, Integer>(0);
+         int selectedGroupNum;
+         String selectedGroupName = null;
+
+         if (groups.size() != 0) {
+             System.out.println("Here is a list of all the "+ groupType +" groups with available slots:");
+             do {
+                 index = 0;
+                 for (Group group : groups) {
+                     if (group.getAvailableVacancies() == 0) {
+                         continue;
+                     }
+                     index++;
+                     System.out.println(index + ": " + group.getGroupName() + " (" + group.getAvailableVacancies() + " vacancies)");
+                     groupAssign.put(group.getGroupName(), index);
+                 }
+                 System.out.println("Please enter an integer for your choice:");
+                 selectedGroupNum = scanner.nextInt();
+                 scanner.nextLine();
+                 if (selectedGroupNum < 1 || selectedGroupNum > index) {
+                     System.out.println("Invalid choice. Please re-enter.");
+                 } else {
+                     break;
+                 }
+             } while (true);
+
+             for (HashMap.Entry<String, Integer> entry : groupAssign.entrySet()) {
+                 String groupName = entry.getKey();
+                 int num = entry.getValue();
+                 if (num == selectedGroupNum) {
+                     selectedGroupName = groupName;
+                     break;
+                 }
+             }
+
+             for (Group group : groups) {
+                 if (group.getGroupName().equals(selectedGroupName)) {
+                     group.enrolledIn();
+                     break;
+                 }
+             }
+         }
+         return selectedGroupName;
+     }
 
 }

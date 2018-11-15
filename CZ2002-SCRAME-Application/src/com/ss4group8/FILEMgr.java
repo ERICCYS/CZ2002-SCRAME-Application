@@ -514,7 +514,6 @@ public class FILEMgr {
                 fileWriter.append(COMMA_DELIMITER);
                 fileWriter.append(String.valueOf(course.getLabWeeklyHour()));
                 fileWriter.append(NEW_LINE_SEPARATOR);
-                fileWriter.append(NEW_LINE_SEPARATOR);
 
             }
 

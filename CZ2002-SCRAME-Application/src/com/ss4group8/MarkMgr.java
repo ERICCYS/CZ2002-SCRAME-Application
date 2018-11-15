@@ -2,19 +2,9 @@ package com.ss4group8;
 
 
 import java.util.*;
-import java.io.PrintStream;
-import java.io.OutputStream;
 
 public class MarkMgr {
     private static Scanner scanner = new Scanner(System.in);
-
-    private static PrintStream originalStream = System.out;
-
-    private static PrintStream dummyStream = new PrintStream(new OutputStream(){
-        public void write(int b) {
-            // NO-OP
-        }
-    });
 
     public static Mark initializeMark(Student student, Course course) {
         HashMap<CourseworkComponent, Double> courseWorkMarks = new HashMap<CourseworkComponent, Double>();
@@ -37,46 +27,9 @@ public class MarkMgr {
     
     public static void setCourseWorkMark(boolean isExam) {
         System.out.println("enterCourseWorkMark is called");
-        String studentID;
-        Student currentStudent;
-        System.out.println("Enter Student ID:");
-        studentID = scanner.nextLine();
-        System.out.println("Enter -h to print all the student ID.");
-        studentID = scanner.nextLine();
-        while("-h".equals(studentID)){
-            HelpInfoMgr.printAllStudents();
-            studentID = scanner.nextLine();
-        }
 
-        System.setOut(dummyStream);
-        currentStudent = ValidationMgr.checkStudentExists(studentID);
-        if (currentStudent == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the set course work mark");
-            return ;
-        }
-        System.setOut(originalStream);
-
-        String courseID;
-        Course currentCourse;
-        System.out.println("Enter course ID");
-        System.out.println("Enter -h to print all the course ID.");
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printAllCourses();
-            courseID = scanner.nextLine();
-        }
-
-        System.setOut(dummyStream);
-        currentCourse = ValidationMgr.checkCourseExists(courseID);
-        if (currentCourse == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the set course work mark");
-            return;
-        }
-        System.setOut(originalStream);
+        String studentID = ValidationMgr.checkStudentExists().getStudentID();
+        String courseID = ValidationMgr.checkCourseExists().getCourseID();
 
         for(Mark mark:SCRAME.marks) {
             if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
@@ -163,36 +116,31 @@ public class MarkMgr {
         }
 
         System.out.println("This student haven't registered " + courseID);
-        // Exception handling
-        // Get the course and student. Call the function inside MarkMgr
 
-        // Print the choice.
-        // As the user to enter the name
-        // take in the the courseWorkName and mark, and whether it is a main component.
+    }
+
+    public static double computeMark(ArrayList<Mark> thisCourseMark, String thisComponentName){
+        double averageMark = 0;
+        for (Mark mark : thisCourseMark) {
+            HashMap<CourseworkComponent, Double> thisComponentMarks = mark.getCourseWorkMarks();
+            for (HashMap.Entry<CourseworkComponent, Double> entry : thisComponentMarks.entrySet()) {
+                CourseworkComponent key = entry.getKey();
+                double value = entry.getValue();
+                if (key.getComponentName().equals(thisComponentName)) {
+                    averageMark += value;
+                    break;
+                }
+            }
+        }
+        return averageMark;
     }
 
 
     public static void printCourseStatistics() {
         System.out.println("printCourseStatistics is called");
-        String courseID;
-        Course currentCourse;
-        System.out.println("Enter Course ID:");
-        System.out.println("Enter -h to print all the course ID.");
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printAllCourses();
-            courseID = scanner.nextLine();
-        }
 
-        System.setOut(dummyStream);
-        currentCourse = ValidationMgr.checkCourseExists(courseID);
-        if (currentCourse == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the print course statistics");
-            return;
-        }
-        System.setOut(originalStream);
+        Course currentCourse = ValidationMgr.checkCourseExists();
+        String courseID = currentCourse.getCourseID();
 
         ArrayList<Mark> thisCourseMark = new ArrayList<Mark>(0);
         for(Mark mark : SCRAME.marks) {
@@ -229,17 +177,9 @@ public class MarkMgr {
                 averageMark = 0;
                 System.out.print("Main Component: " + courseworkComponent.getComponentName());
                 System.out.print("\tWeight: " + courseworkComponent.getComponentWeight() + "%");
-                for (Mark mark : thisCourseMark) {
-                    HashMap<CourseworkComponent, Double> thisComponentMarks = mark.getCourseWorkMarks();
-                    for (HashMap.Entry<CourseworkComponent, Double> entry : thisComponentMarks.entrySet()) {
-                        CourseworkComponent key = entry.getKey();
-                        double value = entry.getValue();
-                        if (key.getComponentName().equals(thisComponentName)) {
-                            averageMark += value;
-                            break;
-                        }
-                    }
-                }
+
+                averageMark += computeMark(thisCourseMark, thisComponentName);
+
                 averageMark = averageMark / thisCourseMark.size();
                 System.out.println("\t Average: " + averageMark);
 
@@ -250,17 +190,9 @@ public class MarkMgr {
                     System.out.print("Sub Component: " + subComponent.getComponentName());
                     System.out.print("\tWeight: " + subComponent.getComponentWeight() + "% (in main component)");
                     String thisSubComponentName = subComponent.getComponentName();
-                    for (Mark mark : thisCourseMark) {
-                        HashMap<CourseworkComponent, Double> thisComponentMarks = mark.getCourseWorkMarks();
-                        for (HashMap.Entry<CourseworkComponent, Double> entry : thisComponentMarks.entrySet()) {
-                            CourseworkComponent key = entry.getKey();
-                            double value = entry.getValue();
-                            if (key.getComponentName().equals(thisSubComponentName)) {
-                                averageMark += value;
-                                break;
-                            }
-                        }
-                    }
+
+                    averageMark += computeMark(thisCourseMark, thisComponentName);
+
                     averageMark = averageMark / thisCourseMark.size();
                     System.out.println("\t Average: " + averageMark);
                 }
@@ -310,26 +242,7 @@ public class MarkMgr {
 
 
     public static void  printStudentTranscript() {
-        String studentID;
-        Student currentStudent = null;
-        System.out.println("Enter Student ID:");
-        studentID = scanner.nextLine();
-        System.out.println("Enter -h to print all the student ID.");
-        studentID = scanner.nextLine();
-        while("-h".equals(studentID)){
-            HelpInfoMgr.printAllStudents();
-            studentID = scanner.nextLine();
-        }
-
-        System.setOut(dummyStream);
-        currentStudent = ValidationMgr.checkStudentExists(studentID);
-        if (currentStudent == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the print student transcript");
-            return ;
-        }
-        System.setOut(originalStream);
+        String studentID = ValidationMgr.checkStudentExists().getStudentID();
 
         double studentGPA = 0d;
         int thisStudentAU = 0;
@@ -343,6 +256,7 @@ public class MarkMgr {
 
         if (thisStudentMark.size() == 0) {
             System.out.println("------ No transcript ready for this student yet ------");
+            return;
         }
         System.out.println("----------------- Official Transcript ------------------");
         System.out.print("Student Name: " + thisStudentMark.get(0).getStudent().getStudentName());

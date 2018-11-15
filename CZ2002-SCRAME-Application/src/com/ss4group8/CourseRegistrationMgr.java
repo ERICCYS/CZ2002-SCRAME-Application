@@ -1,112 +1,28 @@
 package com.ss4group8;
 
-import java.util.*;
-import java.io.PrintStream;
-import java.io.OutputStream;
 
+import java.util.*;
 import static com.ss4group8.CourseRegistration.LabComparator;
 import static com.ss4group8.CourseRegistration.LecComparator;
 import static com.ss4group8.CourseRegistration.TutComparator;
 
 public class CourseRegistrationMgr {
     private static Scanner scanner = new Scanner(System.in);
-    private static PrintStream originalStream = System.out;
-
-    private static PrintStream dummyStream = new PrintStream(new OutputStream(){
-        public void write(int b) {
-            // NO-OP
-        }
-    });
-
-    public static Course validateCourse(String courseID) {
-        for (Course course : SCRAME.courses) {
-            if (course.getCourseID().equals(courseID)) {
-                return course;
-            }
-        }
-        return null;
-    }
 
     public static void registerCourse() {
         System.out.println("registerCourse is called");
-        HashMap<String, Integer> LecGroupAssign = new HashMap<String, Integer>(0);
-        HashMap<String, Integer> TutGroupAssign = new HashMap<String, Integer>(0);
-        HashMap<String, Integer> LabGroupAssign = new HashMap<String, Integer>(0);
-        int index;
-
-        int selectedLectureGroupNum;
-        int selectedTutorialGroupNum;
-        int selectedLabGroupNum;
         String selectedLectureGroupName = null;
         String selectedTutorialGroupName = null;
         String selectedLabGroupName = null;
 
-        String studentID;
-        Student currentStudent = null;
-        boolean validStudentID = false;
-        System.out.println("Enter Student ID:");
-        System.out.println("Enter -h to print all the student ID.");
-        studentID = scanner.nextLine();
-        while("-h".equals(studentID)){
-            HelpInfoMgr.printAllStudents();
-            studentID = scanner.nextLine();
-        }
+        Student currentStudent = ValidationMgr.checkStudentExists();
+        String studentID = currentStudent.getStudentID();
 
-        System.setOut(dummyStream);
-        if (ValidationMgr.checkStudentExists(studentID) == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Student ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-        System.setOut(originalStream);
+        ValidationMgr.checkCourseDepartmentExists();
 
-        // Exception handling
-        String courseDepartment;
-        while(true){
-            System.out.println("Which department's courses are you interested?");
-            System.out.println("Enter -h to print all the departments.");
-            courseDepartment = scanner.nextLine();
-            while("-h".equals(courseDepartment)){
-                HelpInfoMgr.printAllDepartment();
-                courseDepartment = scanner.nextLine();
-            }
-            if(ValidationMgr.checkDepartmentValidation(courseDepartment)){
-                break;
-            }
-        }
+        Course currentCourse = ValidationMgr.checkCourseExists();
+        String courseID = currentCourse.getCourseID();
 
-        List<String> validCourseString;
-        System.setOut(dummyStream);
-        validCourseString = HelpInfoMgr.printCourseInDepartment(courseDepartment);
-        System.setOut(originalStream);
-        if(validCourseString.size() == 0){
-            System.out.println("Invalid choice of department.");
-            return;
-        }
-
-        String courseID;
-        Course currentCourse = null;
-        boolean validCourseID = false;
-        System.out.println("Enter Course ID:");
-        System.out.println("Enter -h to print all the courses in " + courseDepartment);
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printCourseInDepartment(courseDepartment);
-            courseID = scanner.nextLine();
-        }
-
-        System.setOut(dummyStream);
-        currentCourse = ValidationMgr.checkCourseExists(courseID);
-        System.setOut(originalStream);
-        if(currentCourse == null){
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the course registration");
-            return;
-        }
-
-        // Exception handling
-        // Get the course and student. Call the function inside CourseRegistration Mgr
 
         if(ValidationMgr.checkCourseRegistrationExists(studentID, courseID) != null){
             return;
@@ -120,123 +36,20 @@ public class CourseRegistrationMgr {
         System.out.println("Student " + currentStudent.getStudentName() + " with ID: " + currentStudent.getStudentID() +
                 " wants to register " + currentCourse.getCourseID() + " " + currentCourse.getCourseName());
 
+        ArrayList<Group> lecGroups = new ArrayList<>(0);
+        lecGroups.addAll(currentCourse.getLectureGroups());
 
-        System.out.println("Here is a list of all the lecture groups with available slots:");
-        do {
-            index = 0;
-            for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
-                if (lectureGroup.getAvailableVacancies() == 0) {
-                    continue;
-                }
-                index++;
-                System.out.println(index + ": " + lectureGroup.getGroupName() + " (" + lectureGroup.getAvailableVacancies() + " vacancies)");
-                LecGroupAssign.put(lectureGroup.getGroupName(), index);
-            }
-            System.out.println("Please enter an integer for your choice:");
-            selectedLectureGroupNum = scanner.nextInt();
-            scanner.nextLine();
-            if (selectedLectureGroupNum < 1 || selectedLectureGroupNum > index) {
-                System.out.println("Invalid choice. Please re-enter.");
-            } else {
-                break;
-            }
-        } while (true);
+        selectedLectureGroupName = HelpInfoMgr.printGroupWithVacancyInfo("lecture", lecGroups);
 
-        for (HashMap.Entry<String, Integer> entry : LecGroupAssign.entrySet()) {
-            String lecGroupName = entry.getKey();
-            int num = entry.getValue();
-            if (num == selectedLectureGroupNum) {
-                selectedLectureGroupName = lecGroupName;
-                break;
-            }
-        }
+        ArrayList<Group> tutGroups = new ArrayList<>(0);
+        tutGroups.addAll(currentCourse.getTutorialGroups());
 
-        for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
-            if (lectureGroup.getGroupName().equals(selectedLectureGroupName)) {
-                lectureGroup.enrolledIn();
-                break;
-            }
-        }
+        selectedTutorialGroupName = HelpInfoMgr.printGroupWithVacancyInfo("tutorial", tutGroups);
 
+        ArrayList<Group> labGroups = new ArrayList<>(0);
+        labGroups.addAll(currentCourse.getLabGroups());
 
-        if (currentCourse.getTutorialGroups().size() != 0) {
-            System.out.println("Here is a list of all the tutorial groups with available slots:");
-            do {
-                index = 0;
-                for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
-                    if (tutorialGroup.getAvailableVacancies() == 0) {
-                        continue;
-                    }
-                    index++;
-                    System.out.println(index + ": " + tutorialGroup.getGroupName() + " (" + tutorialGroup.getAvailableVacancies() + " vacancies)");
-                    TutGroupAssign.put(tutorialGroup.getGroupName(), index);
-                }
-                System.out.println("Please enter an integer for your choice:");
-                selectedTutorialGroupNum = scanner.nextInt();
-                scanner.nextLine();
-                if (selectedTutorialGroupNum < 1 || selectedTutorialGroupNum > index) {
-                    System.out.println("Invalid choice. Please re-enter.");
-                } else {
-                    break;
-                }
-            } while (true);
-
-            for (HashMap.Entry<String, Integer> entry : TutGroupAssign.entrySet()) {
-                String tutGroupName = entry.getKey();
-                int num = entry.getValue();
-                if (num == selectedTutorialGroupNum) {
-                    selectedTutorialGroupName = tutGroupName;
-                    break;
-                }
-            }
-
-            for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
-                if (tutorialGroup.getGroupName().equals(selectedTutorialGroupName)) {
-                    tutorialGroup.enrolledIn();
-                    break;
-                }
-            }
-        }
-
-
-        if (currentCourse.getLabGroups().size() != 0) {
-            System.out.println("Here is a list of all the lab groups with available slots:");
-            do {
-                index = 0;
-                for (LabGroup labGroup : currentCourse.getLabGroups()) {
-                    if (labGroup.getAvailableVacancies() == 0) {
-                        continue;
-                    }
-                    index++;
-                    System.out.println(index + ": " + labGroup.getGroupName() + " (" + labGroup.getAvailableVacancies() + " vacancies)");
-                    LabGroupAssign.put(labGroup.getGroupName(), index);
-                }
-                System.out.println("Please enter an integer for your choice:");
-                selectedLabGroupNum = scanner.nextInt();
-                scanner.nextLine();
-                if (selectedLabGroupNum < 1 || selectedLabGroupNum > index) {
-                    System.out.println("Invalid choice. Please re-enter.");
-                } else {
-                    break;
-                }
-            } while (true);
-
-            for (HashMap.Entry<String, Integer> entry : LabGroupAssign.entrySet()) {
-                String labGroupName = entry.getKey();
-                int num = entry.getValue();
-                if (num == selectedLabGroupNum) {
-                    selectedLabGroupName = labGroupName;
-                    break;
-                }
-            }
-
-            for (LabGroup labGroup : currentCourse.getLabGroups()) {
-                if (labGroup.getGroupName().equals(selectedLabGroupName)) {
-                    labGroup.enrolledIn();
-                    break;
-                }
-            }
-        }
+        selectedLabGroupName = HelpInfoMgr.printGroupWithVacancyInfo("lab", labGroups);
 
         currentCourse.enrolledIn();
         CourseRegistration courseRegistration = new CourseRegistration(currentStudent, currentCourse, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
@@ -259,31 +72,9 @@ public class CourseRegistrationMgr {
     }
 
     public static void printStudents() {
-//        Scanner scanner = new Scanner(System.in);
         System.out.println("printStudent is called");
-        String courseID;
-        Course currentCourse = null;
-        boolean validCourseID = false;
-
-        System.out.println("Enter course ID");
-        courseID = scanner.nextLine();
-        System.out.println("Enter -h to print all the course ID.");
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printAllStudents();
-            courseID = scanner.nextLine();
-        }
-
-        System.setOut(dummyStream);
-        if (ValidationMgr.checkCourseExists(courseID) == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the print student");
-            return;
-        }
-        System.setOut(originalStream);
-
-
+        Course currentCourse =ValidationMgr.checkCourseExists();
+        
         System.out.println("Print student by: ");
         System.out.println("(1) Lecture group");
         System.out.println("(2) Tutorial group");
@@ -292,9 +83,7 @@ public class CourseRegistrationMgr {
         // return ArrayList of Object(student,course,lecture,tut,lab)
         ArrayList<CourseRegistration> allStuArray = FILEMgr.loadCourseRegistration();
 
-//            for(CourseRegistration courseRegistration : allStuArray) {
-//                System.out.println(courseRegistration.getCourse().getCourseID() + " " + courseRegistration.getStudent().getStudentID());
-//            }
+
 
         ArrayList<CourseRegistration> stuArray = new ArrayList<CourseRegistration>(0);
         for (CourseRegistration courseRegistration : allStuArray) {
@@ -303,10 +92,6 @@ public class CourseRegistrationMgr {
             }
         }
 
-//            System.out.println("About course " + course.getCourseID());
-//            for(CourseRegistration courseRegistration : stuArray) {
-//                System.out.println(courseRegistration.getCourse().getCourseID() + " " + courseRegistration.getStudent().getStudentID());
-//            }
 
 
         int opt = scanner.nextInt();
@@ -315,7 +100,7 @@ public class CourseRegistrationMgr {
         if (opt == 1) { // print by LECTURE
             String newLec = "";
             Collections.sort(stuArray, LecComparator);   // Sort by Lecture group
-//                System.out.println(stuArray.size());
+
             for (int i = 0; i < stuArray.size(); i++) {  // loop through all of CourseRegistration Obj
                 if (!newLec.equals(stuArray.get(i).getLectureGroup())) {  // if new lecture group print out group name
                     newLec = stuArray.get(i).getLectureGroup();
@@ -351,8 +136,7 @@ public class CourseRegistrationMgr {
             }
         }
         System.out.println("------------------------------------------------------");
-        // Exception handling
-        // Get the course and all the registration record regarding this course. Call the function inside the CourseRegistration Mgr
+
 
     }
 

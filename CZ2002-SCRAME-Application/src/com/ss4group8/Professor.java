@@ -22,7 +22,6 @@ public class Professor {
         return profDepartment;
     }
 
-
     public void setProfDepartment(String profDepartment) {
         this.profDepartment = profDepartment;
     }

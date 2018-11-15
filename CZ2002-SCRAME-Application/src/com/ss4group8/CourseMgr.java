@@ -21,7 +21,7 @@ public class CourseMgr {
         String courseID;
         String courseName;
         String profID;
-        boolean groupNameExists, profExists, componentExist;
+        boolean groupNameExists;
         int seatsLeft;
         // Can make the sameCourseID as boolean, set to false.
         while(true){
@@ -149,6 +149,7 @@ public class CourseMgr {
                 System.out.println("Enter a group Name: ");
                 lectureGroupName = scanner.nextLine();
                 if(!ValidationMgr.checkValidGroupNameInput(lectureGroupName)){
+                    groupNameExists = true;
                     continue;
                 }
                 if (lectureGroups.size() == 0) {
@@ -239,6 +240,7 @@ public class CourseMgr {
                 System.out.println("Enter a group Name: ");
                 tutorialGroupName = scanner.nextLine();
                 if(!ValidationMgr.checkValidGroupNameInput(tutorialGroupName)){
+                    groupNameExists = true;
                     continue;
                 }
                 if (tutorialGroups.size() == 0) {
@@ -321,6 +323,7 @@ public class CourseMgr {
                 System.out.println("Enter a group Name: ");
                 labGroupName = scanner.nextLine();
                 if(!ValidationMgr.checkValidGroupNameInput(labGroupName)){
+                    groupNameExists = true;
                     continue;
                 }
                 if (labGroups.size() == 0) {
@@ -378,8 +381,6 @@ public class CourseMgr {
                  System.out.println("Invalid input. Please re-enter.");
              }
          }
-
-
 
 
         Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, AU, courseDepartment, courseType,lecWeeklyHour, tutWeeklyHour, labWeeklyHour);
@@ -459,22 +460,11 @@ public class CourseMgr {
         int noOfSub;
         int sub_weight;
 
-
+        System.out.println("enterCourseWorkComponentWeightage is called");
         if (currentCourse == null) {
-            String courseID;
-            System.out.println("Enter course ID: ");
-            courseID = scanner.nextLine();
-            currentCourse = ValidationMgr.checkCourseExists(courseID);
-
-            if (currentCourse == null) {
-                System.out.println("Invalid Course ID...");
-                System.out.println("Exiting the set components and weightage");
-                return;
-            }
+            currentCourse = ValidationMgr.checkCourseExists();
         }
 
-        // Exception handling
-        // get the course and call the function inside the CourseMgr
 
 
 
@@ -483,8 +473,8 @@ public class CourseMgr {
         if (currentCourse.getMainComponents().size() == 0) {
             // empty course
             System.out.println("Currently course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " does not have any assessment component.");
-//        boolean hasFinalExam = false;
-            int  hasFinalExamChoice= 0;
+
+            int  hasFinalExamChoice;
             int examWeight = 0;
             while (true) {
                 System.out.println("Does this course have Final Exam? put your choice");
