@@ -107,9 +107,7 @@ public class ValidationMgr {
         String studentID;
         Student currentStudent = null;
         while (true) {
-            System.out.println("Enter Student ID:");
-            studentID = scanner.nextLine();
-            System.out.println("Enter -h to print all the student ID.");
+            System.out.println("Enter Student ID (-h to print all the student ID):");
             studentID = scanner.nextLine();
             while("-h".equals(studentID)){
                 HelpInfoMgr.printAllStudents();

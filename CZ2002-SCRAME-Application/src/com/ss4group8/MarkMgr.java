@@ -256,6 +256,7 @@ public class MarkMgr {
 
         if (thisStudentMark.size() == 0) {
             System.out.println("------ No transcript ready for this student yet ------");
+            return;
         }
         System.out.println("----------------- Official Transcript ------------------");
         System.out.print("Student Name: " + thisStudentMark.get(0).getStudent().getStudentName());
