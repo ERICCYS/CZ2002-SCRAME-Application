@@ -95,7 +95,7 @@ public class ValidationMgr {
     }
 
     public static Student checkStudentExists(String studentID){
-        List<Student> anyStudent = FILEMgr.loadStudents().stream().filter(s->studentID.equals(s.getStudentID())).collect(Collectors.toList());
+        List<Student> anyStudent = SCRAME.students.stream().filter(s->studentID.equals(s.getStudentID())).collect(Collectors.toList());
         if(anyStudent.size() == 0){
             return null;
         }
@@ -104,7 +104,7 @@ public class ValidationMgr {
 
     }
 
-    public static String checkStudentExists(){
+    public static Student checkStudentExists(){
         String studentID;
         Student currentStudent = null;
         while (true) {
@@ -128,10 +128,10 @@ public class ValidationMgr {
 
         }
         System.setOut(originalStream);
-        return studentID;
+        return currentStudent;
     }
 
-    public static String checkCourseExists(){
+    public static Course checkCourseExists(){
         String courseID;
         Course currentCourse;
         while(true){
@@ -153,7 +153,7 @@ public class ValidationMgr {
             }
         }
         System.setOut(originalStream);
-        return courseID;
+        return currentCourse;
     }
 
     public static String checkCourseDepartmentExists(){
@@ -181,7 +181,7 @@ public class ValidationMgr {
     }
 
     public static Course checkCourseExists(String courseID){
-        List<Course> anyCourse = FILEMgr.loadCourses().stream().filter(c->courseID.equals(c.getCourseID())).collect(Collectors.toList());
+        List<Course> anyCourse = SCRAME.courses.stream().filter(c->courseID.equals(c.getCourseID())).collect(Collectors.toList());
         if(anyCourse.size() == 0){
             return null;
         }
@@ -191,7 +191,7 @@ public class ValidationMgr {
     }
 
     public static Professor checkProfExists(String profID){
-        List<Professor> anyProf = FILEMgr.loadProfessors().stream().filter(p->profID.equals(p.getProfID())).collect(Collectors.toList());
+        List<Professor> anyProf = SCRAME.professors.stream().filter(p->profID.equals(p.getProfID())).collect(Collectors.toList());
         if(anyProf.size() == 0){
             return null;
         }
@@ -201,7 +201,7 @@ public class ValidationMgr {
     }
 
     public static CourseRegistration checkCourseRegistrationExists(String studentID, String courseID){
-        List<CourseRegistration> courseRegistrations = FILEMgr.loadCourseRegistration().stream().filter(cr->studentID.equals(cr.getStudent().getStudentID())).filter(cr->courseID.equals(cr.getCourse().getCourseID())).collect(Collectors.toList());
+        List<CourseRegistration> courseRegistrations = SCRAME.courseRegistrations.stream().filter(cr->studentID.equals(cr.getStudent().getStudentID())).filter(cr->courseID.equals(cr.getCourse().getCourseID())).collect(Collectors.toList());
         if(courseRegistrations.size() == 0){
             return null;
         }

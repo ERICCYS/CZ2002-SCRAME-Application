@@ -1,5 +1,6 @@
 package com.ss4group8;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.io.PrintStream;
 import java.io.OutputStream;
@@ -41,15 +42,15 @@ public class CourseRegistrationMgr {
         String selectedTutorialGroupName = null;
         String selectedLabGroupName = null;
 
-        String studentID = ValidationMgr.checkStudentExists();
-        Student currentStudent = null;
+        Student currentStudent = ValidationMgr.checkStudentExists();
+        String studentID = currentStudent.getStudentID();
         boolean validStudentID = false;
 
 
         String courseDepartment = ValidationMgr.checkCourseDepartmentExists();
 
-        String courseID = ValidationMgr.checkCourseExists();
-        Course currentCourse = ValidationMgr.checkCourseExists(courseID);
+        Course currentCourse = ValidationMgr.checkCourseExists();
+        String courseID = currentCourse.getCourseID();
 
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
@@ -66,123 +67,26 @@ public class CourseRegistrationMgr {
         System.out.println("Student " + currentStudent.getStudentName() + " with ID: " + currentStudent.getStudentID() +
                 " wants to register " + currentCourse.getCourseID() + " " + currentCourse.getCourseName());
 
-
-        System.out.println("Here is a list of all the lecture groups with available slots:");
-        do {
-            index = 0;
-            for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
-                if (lectureGroup.getAvailableVacancies() == 0) {
-                    continue;
-                }
-                index++;
-                System.out.println(index + ": " + lectureGroup.getGroupName() + " (" + lectureGroup.getAvailableVacancies() + " vacancies)");
-                LecGroupAssign.put(lectureGroup.getGroupName(), index);
-            }
-            System.out.println("Please enter an integer for your choice:");
-            selectedLectureGroupNum = scanner.nextInt();
-            scanner.nextLine();
-            if (selectedLectureGroupNum < 1 || selectedLectureGroupNum > index) {
-                System.out.println("Invalid choice. Please re-enter.");
-            } else {
-                break;
-            }
-        } while (true);
-
-        for (HashMap.Entry<String, Integer> entry : LecGroupAssign.entrySet()) {
-            String lecGroupName = entry.getKey();
-            int num = entry.getValue();
-            if (num == selectedLectureGroupNum) {
-                selectedLectureGroupName = lecGroupName;
-                break;
-            }
+        ArrayList<Group> lecGroups = new ArrayList<Group>(0);
+        for(LectureGroup lectureGroup : currentCourse.getLectureGroups()){
+            lecGroups.add((Group)lectureGroup);
         }
 
-        for (LectureGroup lectureGroup : currentCourse.getLectureGroups()) {
-            if (lectureGroup.getGroupName().equals(selectedLectureGroupName)) {
-                lectureGroup.enrolledIn();
-                break;
-            }
+        HelpInfoMgr.printGroupWithVacancyInfo(currentCourse,"lecture", lecGroups);
+
+        ArrayList<Group> tutGroups = new ArrayList<Group>(0);
+        for(TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()){
+            tutGroups.add((Group)tutorialGroup);
         }
 
+        HelpInfoMgr.printGroupWithVacancyInfo(currentCourse, "tutorial", tutGroups);
 
-        if (currentCourse.getTutorialGroups().size() != 0) {
-            System.out.println("Here is a list of all the tutorial groups with available slots:");
-            do {
-                index = 0;
-                for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
-                    if (tutorialGroup.getAvailableVacancies() == 0) {
-                        continue;
-                    }
-                    index++;
-                    System.out.println(index + ": " + tutorialGroup.getGroupName() + " (" + tutorialGroup.getAvailableVacancies() + " vacancies)");
-                    TutGroupAssign.put(tutorialGroup.getGroupName(), index);
-                }
-                System.out.println("Please enter an integer for your choice:");
-                selectedTutorialGroupNum = scanner.nextInt();
-                scanner.nextLine();
-                if (selectedTutorialGroupNum < 1 || selectedTutorialGroupNum > index) {
-                    System.out.println("Invalid choice. Please re-enter.");
-                } else {
-                    break;
-                }
-            } while (true);
-
-            for (HashMap.Entry<String, Integer> entry : TutGroupAssign.entrySet()) {
-                String tutGroupName = entry.getKey();
-                int num = entry.getValue();
-                if (num == selectedTutorialGroupNum) {
-                    selectedTutorialGroupName = tutGroupName;
-                    break;
-                }
-            }
-
-            for (TutorialGroup tutorialGroup : currentCourse.getTutorialGroups()) {
-                if (tutorialGroup.getGroupName().equals(selectedTutorialGroupName)) {
-                    tutorialGroup.enrolledIn();
-                    break;
-                }
-            }
+        ArrayList<Group> labGroups = new ArrayList<Group>(0);
+        for(LabGroup labGroup : currentCourse.getLabGroups()){
+            labGroups.add((Group)labGroup);
         }
 
-
-        if (currentCourse.getLabGroups().size() != 0) {
-            System.out.println("Here is a list of all the lab groups with available slots:");
-            do {
-                index = 0;
-                for (LabGroup labGroup : currentCourse.getLabGroups()) {
-                    if (labGroup.getAvailableVacancies() == 0) {
-                        continue;
-                    }
-                    index++;
-                    System.out.println(index + ": " + labGroup.getGroupName() + " (" + labGroup.getAvailableVacancies() + " vacancies)");
-                    LabGroupAssign.put(labGroup.getGroupName(), index);
-                }
-                System.out.println("Please enter an integer for your choice:");
-                selectedLabGroupNum = scanner.nextInt();
-                scanner.nextLine();
-                if (selectedLabGroupNum < 1 || selectedLabGroupNum > index) {
-                    System.out.println("Invalid choice. Please re-enter.");
-                } else {
-                    break;
-                }
-            } while (true);
-
-            for (HashMap.Entry<String, Integer> entry : LabGroupAssign.entrySet()) {
-                String labGroupName = entry.getKey();
-                int num = entry.getValue();
-                if (num == selectedLabGroupNum) {
-                    selectedLabGroupName = labGroupName;
-                    break;
-                }
-            }
-
-            for (LabGroup labGroup : currentCourse.getLabGroups()) {
-                if (labGroup.getGroupName().equals(selectedLabGroupName)) {
-                    labGroup.enrolledIn();
-                    break;
-                }
-            }
-        }
+        HelpInfoMgr.printGroupWithVacancyInfo(currentCourse, "lab", labGroups);
 
         currentCourse.enrolledIn();
         CourseRegistration courseRegistration = new CourseRegistration(currentStudent, currentCourse, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
@@ -207,8 +111,7 @@ public class CourseRegistrationMgr {
     public static void printStudents() {
 //        Scanner scanner = new Scanner(System.in);
         System.out.println("printStudent is called");
-        String courseID = ValidationMgr.checkCourseExists();
-        Course currentCourse = ValidationMgr.checkCourseExists(courseID);
+        Course currentCourse =ValidationMgr.checkCourseExists();
         
         System.out.println("Print student by: ");
         System.out.println("(1) Lecture group");

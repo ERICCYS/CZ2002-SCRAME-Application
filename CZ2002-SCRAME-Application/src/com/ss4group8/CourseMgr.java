@@ -459,18 +459,9 @@ public class CourseMgr {
         int noOfSub;
         int sub_weight;
 
-
+        System.out.println("enterCourseWorkComponentWeightage is called");
         if (currentCourse == null) {
-            String courseID;
-            System.out.println("Enter course ID: ");
-            courseID = scanner.nextLine();
-            currentCourse = ValidationMgr.checkCourseExists(courseID);
-
-            if (currentCourse == null) {
-                System.out.println("Invalid Course ID...");
-                System.out.println("Exiting the set components and weightage");
-                return;
-            }
+            currentCourse = ValidationMgr.checkCourseExists();
         }
 
         // Exception handling
