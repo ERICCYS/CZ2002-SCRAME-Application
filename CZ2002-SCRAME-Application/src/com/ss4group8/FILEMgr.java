@@ -501,7 +501,19 @@ public class FILEMgr {
                 } else {
                     fileWriter.append("NULL");
                 }
-
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getAU()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(course.getCourseDepartment());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(course.getCourseType());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getLecWeeklyHour()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getTutWeeklyHour()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getLabWeeklyHour()));
+                fileWriter.append(NEW_LINE_SEPARATOR);
                 fileWriter.append(NEW_LINE_SEPARATOR);
 
             }

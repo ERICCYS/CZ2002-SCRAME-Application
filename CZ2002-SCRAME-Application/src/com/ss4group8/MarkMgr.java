@@ -165,6 +165,7 @@ public class MarkMgr {
 
         System.out.println("*************** Course Statistic ***************");
         System.out.println("Course ID: " + currentCourse.getCourseID() + "\tCourse Name: " + currentCourse.getCourseName());
+        System.out.println("Course AU: " + currentCourse.getAU());
         System.out.println();
         System.out.print("Total Slots: " + currentCourse.getTotalSeats());
         int enrolledNumber = (currentCourse.getTotalSeats() - currentCourse.getVacancies());
@@ -281,23 +282,23 @@ public class MarkMgr {
             System.out.println("Exiting the print student transcript");
             return ;
         }
-
+        double studentGPA = 0d;
+        int thisStudentAU = 0;
         ArrayList<Mark> thisStudentMark = new ArrayList<Mark>(0);
         for(Mark mark : SCRAME.marks) {
             if (mark.getStudent().getStudentID().equals(studentID)) {
                 thisStudentMark.add(mark);
+                thisStudentAU += mark.getCourse().getAU();
             }
         }
 
         if (thisStudentMark.size() == 0) {
             System.out.println("------ No transcript ready for this student yet ------");
         }
-        System.out.println("--------------- Official Transcript ----------------");
+        System.out.println("----------------- Official Transcript ------------------");
         System.out.print("Student Name: " + thisStudentMark.get(0).getStudent().getStudentName());
         System.out.println("\tStudent ID: " + thisStudentMark.get(0).getStudent().getStudentID());
-
-        System.out.println();
-        System.out.println();
+        System.out.println("AU for this semester: " + thisStudentAU);
         System.out.println();
 
 
@@ -330,8 +331,57 @@ public class MarkMgr {
             }
 
             System.out.println("Course Total: " + mark.getTotalMark());
-            System.out.println();
+            studentGPA += gpaCalcualtor(mark.getTotalMark()) * mark.getCourse().getAU();
             System.out.println();
         }
+        studentGPA /= thisStudentAU;
+        System.out.println("GPA for this semester: " + studentGPA);
+        if (studentGPA >= 4.50) {
+            System.out.println("On track of First Class Honor!");
+        } else if (studentGPA >= 4.0) {
+            System.out.println("On track of Second Upper Class Honor!");
+        } else if (studentGPA >= 3.5) {
+            System.out.println("On track of Second Lower Class Honor!");
+        } else if (studentGPA >= 3) {
+            System.out.println("On track of Third Class Honor!");
+        } else {
+            System.out.println("Advice: Study hard");
+        }
+        System.out.println("------------------ End of Transcript -------------------");
+    }
+
+    public static double gpaCalcualtor(double result) {
+        if (result > 85) {
+            // A+, A
+            return 5d;
+        } else if (result > 80) {
+            // A-
+            return 4.5;
+        } else if (result > 75) {
+            // B+
+            return  4d;
+        } else if (result > 70) {
+            // B
+            return 3.5;
+        } else if (result > 65) {
+            // B-
+            return  3d;
+        } else if (result > 60) {
+            // C+
+            return 2.5d;
+        } else if (result > 55) {
+            // C
+            return 2d;
+        } else if (result > 50) {
+            // D+
+            return 1.5d;
+        } else if (result > 45) {
+            // D
+            return 1d;
+        } else {
+            // F
+            return 0d;
+        }
+
     }
 }

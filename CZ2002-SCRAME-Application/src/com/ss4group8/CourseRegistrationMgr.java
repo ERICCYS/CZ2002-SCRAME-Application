@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Collections;
+import java.io.PrintStream;
+import java.io.OutputStream;
 
 import static com.ss4group8.CourseRegistration.LabComparator;
 import static com.ss4group8.CourseRegistration.LecComparator;
@@ -11,6 +13,13 @@ import static com.ss4group8.CourseRegistration.TutComparator;
 
 public class CourseRegistrationMgr {
     private static Scanner scanner = new Scanner(System.in);
+    private static PrintStream originalStream = System.out;
+
+    private static PrintStream dummyStream = new PrintStream(new OutputStream(){
+        public void write(int b) {
+            // NO-OP
+        }
+    });
 
     public static Course validateCourse(String courseID) {
         for (Course course : SCRAME.courses) {
@@ -53,23 +62,39 @@ public class CourseRegistrationMgr {
             return;
         }
         // Exception handling
+        String courseDepartment;
+        while(true){
+            System.out.println("Which department's courses are you interested?");
+            System.out.println("Enter -h to print all the departments.");
+            courseDepartment = scanner.nextLine();
+            while(courseDepartment.equals("-h")){
+                HelpInfoMgr.getAllDepartment();
+                courseDepartment = scanner.nextLine();
+            }
+            if(ValidationMgr.checkDepartmentValidation(courseDepartment)){
+                break;
+            }
+        }
+
         String courseID;
         Course currentCourse = null;
         boolean validCourseID = false;
         System.out.println("Enter Course ID:");
+        System.out.println("Enter -h to print all the courses in " + courseDepartment);
         courseID = scanner.nextLine();
-        for (Course course : SCRAME.courses) {
-            if (course.getCourseID().equals(courseID)) {
-                validCourseID = true;
-                currentCourse = course;
-                break;
-            }
+        while(courseID.equals("-h")){
+            HelpInfoMgr.printCourseInDepartment(courseDepartment);
+            courseID = scanner.nextLine();
         }
-        if (!validCourseID) {
+        System.setOut(dummyStream);
+        if(ValidationMgr.checkCourseExists(courseID) == null){
+            System.setOut(originalStream);
             System.out.println("Invalid Course ID...");
             System.out.println("Exiting the course registration");
             return;
         }
+        System.setOut(originalStream);
+
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
 

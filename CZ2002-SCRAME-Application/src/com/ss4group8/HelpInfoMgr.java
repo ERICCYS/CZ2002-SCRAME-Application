@@ -66,7 +66,7 @@ public class HelpInfoMgr {
     }
 
 
-    public static List<Course> printCourseInDepartment(Department department){
+    public static List<Course> printCourseInDepartment(String department){
         List<Course> validCourses = FILEMgr.loadCourses().stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
         validCourses.forEach(System.out::println);
         return validCourses;
