@@ -1,10 +1,10 @@
-professorID,professorName
-1,Tan Kheng Leong
-2,Zhang Jie
-3,Ke Yiping Kelly
-4,Tan Ah Hwee
-5,Arvind Easwaran
-6,Cai Wentong
-7,Arijit Khan
-8,Ng Wee Keong
-9,Lua Rui Ping
+professorID,professorName,profDepartment
+1,Tan Kheng Leong,SCSE
+2,Zhang Jie,CEE
+3,Ke Yiping Kelly,MAE
+4,Tan Ah Hwee,MSE
+5,Arvind Easwaran,SCSE
+6,Cai Wentong,SCSE
+7,Arijit Khan,HSS
+8,Ng Wee Keong,SSS
+9,Lua Rui Ping,SCSE

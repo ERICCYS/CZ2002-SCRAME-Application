@@ -303,7 +303,7 @@ public class FILEMgr {
                 if (tokens.length > 0) {
                     String courseID = tokens[courseIdIndex];
                     String courseName = tokens[courseNameIndex];
-                    String AUString = tokens[auIndex];
+                    String AUString = tokens[AUIndex];
                     String profInCharge = tokens[profInChargeIndex];
                     for (Professor professor : professors) {
                         if (professor.getProfID().equals(profInCharge)) {

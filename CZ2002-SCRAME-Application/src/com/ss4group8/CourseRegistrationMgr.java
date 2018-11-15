@@ -67,7 +67,7 @@ public class CourseRegistrationMgr {
             System.out.println("Which department's courses are you interested?");
             System.out.println("Enter -h to print all the departments.");
             courseDepartment = scanner.nextLine();
-            while(courseDepartment.equals("-h")){
+            while(courseDepartment.equals("-h\n")){
                 HelpInfoMgr.getAllDepartment();
                 courseDepartment = scanner.nextLine();
             }

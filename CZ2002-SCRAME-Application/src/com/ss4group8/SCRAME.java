@@ -26,7 +26,7 @@ public class SCRAME {
             do {
                 System.out.println("Enter your choice, let me help you:");
                 while (!scanner.hasNextInt()) {
-                    String input = scanner.next();
+                    String input = scanner.nextLine();
                     System.out.println("Sorry. " + input + " is not an integer.");
                     System.out.println("Enter your choice, let me help you:");
                 }
