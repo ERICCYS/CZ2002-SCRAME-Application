@@ -459,7 +459,7 @@ public class CourseMgr {
         int noOfSub;
         int sub_weight;
 
-
+        System.out.println("enterCourseWorkComponentWeightage is called");
         if (currentCourse == null) {
             currentCourse = ValidationMgr.checkCourseExists();
         }
