@@ -96,7 +96,7 @@ public class HelpInfoMgr {
         return validCourseString;
      }
 
-     public static void printGroupWithVacancyInfo(String groupType, ArrayList<Group> groups) {
+     public static String printGroupWithVacancyInfo(String groupType, ArrayList<Group> groups) {
          int index;
          HashMap<String, Integer> groupAssign = new HashMap<String, Integer>(0);
          int selectedGroupNum;
@@ -140,6 +140,7 @@ public class HelpInfoMgr {
                  }
              }
          }
+         return selectedGroupName;
      }
 
 }

@@ -5,7 +5,11 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="" />
+    <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,27 +22,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="11" />
-          <entry key="java" value="29" />
+          <entry key="java" value="30" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="11" />
-          <entry key="JAVA" value="29" />
+          <entry key="JAVA" value="30" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="csv" value="25" />
-          <entry key="java" value="4742" />
+          <entry key="java" value="4790" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSV" value="25" />
-          <entry key="JAVA" value="4742" />
+          <entry key="JAVA" value="4790" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -112,8 +116,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+            <state relative-caret-position="799">
+              <caret line="142" column="34" selection-start-line="142" selection-start-column="34" selection-end-line="142" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+            <state relative-caret-position="-177">
+              <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -146,19 +150,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Course.java">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="813">
-              <caret line="176" column="5" lean-forward="true" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
+            <state relative-caret-position="45">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Course.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7020">
-              <caret line="470" column="24" lean-forward="true" selection-start-line="470" selection-start-column="24" selection-end-line="470" selection-end-column="24" />
+            <state relative-caret-position="-537">
+              <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -178,17 +182,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="254" column="9" lean-forward="true" selection-start-line="254" selection-start-column="9" selection-end-line="254" selection-end-column="9" />
+            <state relative-caret-position="2121">
+              <caret line="258" column="19" selection-start-line="258" selection-start-column="19" selection-end-line="258" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="113" column="42" lean-forward="true" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
+            <state relative-caret-position="104">
+              <caret line="109" column="85" selection-start-line="109" selection-start-column="85" selection-end-line="109" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -229,7 +233,6 @@
         <option value="$PROJECT_DIR$/src/com/ss4group8/Exception/NameNotValidException.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Exception/CourseNameNotValidException.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/ProfessorMgr.java" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Student.java" />
         <option value="$PROJECT_DIR$/data/studentFile.csv" />
@@ -243,17 +246,18 @@
         <option value="$PROJECT_DIR$/src/com/ss4group8/Professor.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Enum/Department.java" />
         <option value="$PROJECT_DIR$/data/professorFile.csv" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" />
         <option value="$PROJECT_DIR$/data/courseFile.csv" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
       </list>
     </option>
   </component>
@@ -361,18 +365,17 @@
       <workItem from="1541841518036" duration="107000" />
       <workItem from="1541841659587" duration="1764000" />
       <workItem from="1541847318162" duration="4392000" />
-      <workItem from="1542255606435" duration="17848000" />
+      <workItem from="1542255606435" duration="18444000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19466000" />
+    <option name="totallyTimeSpent" value="20062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -382,7 +385,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7132653" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32959184" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -461,18 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistration.java">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Enum/Department.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -529,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="176" column="5" lean-forward="true" selection-start-line="176" selection-start-column="5" selection-end-line="176" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-162">
@@ -547,16 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -576,10 +550,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+        <state relative-caret-position="104">
+          <caret line="109" column="85" selection-start-line="109" selection-start-column="85" selection-end-line="109" selection-end-column="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -598,15 +572,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="254" column="9" lean-forward="true" selection-start-line="254" selection-start-column="9" selection-end-line="254" selection-end-column="9" />
+        <state relative-caret-position="2121">
+          <caret line="258" column="19" selection-start-line="258" selection-start-column="19" selection-end-line="258" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="113" column="42" lean-forward="true" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
+        <state relative-caret-position="799">
+          <caret line="142" column="34" selection-start-line="142" selection-start-column="34" selection-end-line="142" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-537">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-177">
+          <caret line="53" column="35" lean-forward="true" selection-start-line="53" selection-start-column="35" selection-end-line="53" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
