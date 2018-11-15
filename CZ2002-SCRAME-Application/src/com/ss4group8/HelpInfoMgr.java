@@ -9,8 +9,7 @@ public class HelpInfoMgr {
 
     public static List<String> printProfInDepartment (String department){
         if(ValidationMgr.checkDepartmentValidation(department)){
-            List<Professor> professors = FILEMgr.loadProfessors();
-            List<String> validProfString = professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
+            List<String> validProfString = SCRAME.professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
             validProfString.forEach(System.out::println);
             return validProfString;
         }
@@ -20,14 +19,12 @@ public class HelpInfoMgr {
     }
 
     public static void printAllStudents(){
-        List<Student> students = FILEMgr.loadStudents();
-        students.stream().map(s->s.getStudentID()).forEach(System.out::println);
+        SCRAME.students.stream().map(s->s.getStudentID()).forEach(System.out::println);
 
     }
 
     public static void printAllCourses(){
-        List<Course> courses = FILEMgr.loadCourses();
-        courses.stream().map(c->c.getCourseID()).forEach(System.out::println);
+        SCRAME.courses.stream().map(c->c.getCourseID()).forEach(System.out::println);
 
     }
 
@@ -90,7 +87,7 @@ public class HelpInfoMgr {
 
 
     public static List<String> printCourseInDepartment(String department){
-        List<Course> validCourses = FILEMgr.loadCourses().stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
+        List<Course> validCourses = SCRAME.courses.stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
         List<String> validCourseString = validCourses.stream().map(c->c.getCourseID()).collect(Collectors.toList());
         validCourseString.forEach(System.out::println);
         if(validCourseString.size() == 0){
