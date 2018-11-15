@@ -42,7 +42,7 @@ public class StudentMgr {
                 System.out.println("Give this student an ID: ");
                 studentID = scanner.nextLine();
                 if(ValidationMgr.checkValidStudentIDInput(studentID)){
-                    if(!ValidationMgr.checkStudentExists(studentID)){
+                    if(ValidationMgr.checkStudentExists(studentID) == null){
                         break;
                     }
                 }
@@ -68,8 +68,8 @@ public class StudentMgr {
             System.out.println("Enter student's school: ");
             System.out.println("Enter -h to print all the schools.");
             studentSchool = scanner.nextLine();
-            while(studentSchool.equals("-h")){
-                HelpInfoMgr.getAllDepartment();
+            while("-h".equals(studentSchool)){
+                HelpInfoMgr.printAllDepartment();
                 studentSchool = scanner.nextLine();
             }
 
@@ -87,8 +87,8 @@ public class StudentMgr {
             System.out.println("Enter student Gender: ");
             System.out.println("Enter -h to print all the genders.");
             studentGender = scanner.nextLine();
-            while(studentGender.equals("-h")){
-                HelpInfoMgr.getAllGender();
+            while("-h".equals(studentGender)){
+                HelpInfoMgr.printAllGender();
                 studentGender = scanner.nextLine();
             }
 
