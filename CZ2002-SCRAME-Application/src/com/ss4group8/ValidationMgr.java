@@ -197,8 +197,7 @@ public class ValidationMgr {
         String courseID;
         Course currentCourse;
         while(true){
-            System.out.println("Enter course ID");
-            System.out.println("Enter -h to print all the course ID.");
+            System.out.println("Enter course ID (-h to print all the course ID):");
             courseID = scanner.nextLine();
             while("-h".equals(courseID)){
                 HelpInfoMgr.printAllCourses();

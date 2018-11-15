@@ -1,4 +1,4 @@
 courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents,AU,courseDepartment,courseType,lecHr,tutHr,labHr
-CZ2002,OODP,P1234561A,100,100,SSP1=100=100,NULL,NULL,NULL,3,SCSE,CORE,2,0,0
+CZ2002,OODP,P1234561A,100,100,SSP1=100=100,NULL,NULL,Assignment1=20=sub1-100|Assignment2=20=,3,SCSE,CORE,2,0,0
 CZ2001,Algorithm,P1234561A,19,20,Lec1=19=20,Tut1=19=20|Tut2=20=20,NULL,Exam=60=|Coursework=40=Assignment-70/ClassPart-30,3,SCSE,CORE,3,2,0
 CZ2007,Database,P1234567J,50,50,Lec1=50=50,SS1=20=20|SS2=20=20|SS3=20=20|SS4=20=20|SS5=20=20,NULL,Exam=60=|Coursework=40=Labwork-70/Presentation-30,3,SCSE,CORE,3,2,1
