@@ -21,7 +21,7 @@ public class CourseMgr {
         String courseID;
         String courseName;
         String profID;
-        boolean groupNameExists, profExists, componentExist;
+        boolean groupNameExists;
         int seatsLeft;
         // Can make the sameCourseID as boolean, set to false.
         while(true){
@@ -380,8 +380,6 @@ public class CourseMgr {
          }
 
 
-
-
         Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, AU, courseDepartment, courseType,lecWeeklyHour, tutWeeklyHour, labWeeklyHour);
 
 
@@ -464,8 +462,6 @@ public class CourseMgr {
             currentCourse = ValidationMgr.checkCourseExists();
         }
 
-        // Exception handling
-        // get the course and call the function inside the CourseMgr
 
 
 
@@ -474,8 +470,8 @@ public class CourseMgr {
         if (currentCourse.getMainComponents().size() == 0) {
             // empty course
             System.out.println("Currently course " + currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " does not have any assessment component.");
-//        boolean hasFinalExam = false;
-            int  hasFinalExamChoice= 0;
+
+            int  hasFinalExamChoice;
             int examWeight = 0;
             while (true) {
                 System.out.println("Does this course have Final Exam? put your choice");

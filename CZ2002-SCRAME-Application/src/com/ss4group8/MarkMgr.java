@@ -2,19 +2,9 @@ package com.ss4group8;
 
 
 import java.util.*;
-import java.io.PrintStream;
-import java.io.OutputStream;
 
 public class MarkMgr {
     private static Scanner scanner = new Scanner(System.in);
-
-    private static PrintStream originalStream = System.out;
-
-    private static PrintStream dummyStream = new PrintStream(new OutputStream(){
-        public void write(int b) {
-            // NO-OP
-        }
-    });
 
     public static Mark initializeMark(Student student, Course course) {
         HashMap<CourseworkComponent, Double> courseWorkMarks = new HashMap<CourseworkComponent, Double>();
@@ -126,12 +116,7 @@ public class MarkMgr {
         }
 
         System.out.println("This student haven't registered " + courseID);
-        // Exception handling
-        // Get the course and student. Call the function inside MarkMgr
 
-        // Print the choice.
-        // As the user to enter the name
-        // take in the the courseWorkName and mark, and whether it is a main component.
     }
 
     public static double computeMark(ArrayList<Mark> thisCourseMark, String thisComponentName){
@@ -271,6 +256,7 @@ public class MarkMgr {
 
         if (thisStudentMark.size() == 0) {
             System.out.println("------ No transcript ready for this student yet ------");
+            return;
         }
         System.out.println("----------------- Official Transcript ------------------");
         System.out.print("Student Name: " + thisStudentMark.get(0).getStudent().getStudentName());

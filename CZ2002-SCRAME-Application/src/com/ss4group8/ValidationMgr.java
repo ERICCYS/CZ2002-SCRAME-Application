@@ -1,9 +1,8 @@
 package com.ss4group8;
 
-import com.ss4group8.Enum.*;
-
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -108,9 +107,7 @@ public class ValidationMgr {
         String studentID;
         Student currentStudent = null;
         while (true) {
-            System.out.println("Enter Student ID:");
-            studentID = scanner.nextLine();
-            System.out.println("Enter -h to print all the student ID.");
+            System.out.println("Enter Student ID (-h to print all the student ID):");
             studentID = scanner.nextLine();
             while("-h".equals(studentID)){
                 HelpInfoMgr.printAllStudents();
@@ -199,6 +196,7 @@ public class ValidationMgr {
         return anyProf.get(0);
 
     }
+
 
     public static CourseRegistration checkCourseRegistrationExists(String studentID, String courseID){
         List<CourseRegistration> courseRegistrations = SCRAME.courseRegistrations.stream().filter(cr->studentID.equals(cr.getStudent().getStudentID())).filter(cr->courseID.equals(cr.getCourse().getCourseID())).collect(Collectors.toList());
