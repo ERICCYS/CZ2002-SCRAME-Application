@@ -69,7 +69,7 @@ public class StudentMgr {
 
         //student department
         while(true){
-            System.out.println("Enter student's school: ");
+            System.out.println("Enter student's school (uppercase): ");
             System.out.println("Enter -h to print all the schools.");
             studentSchool = scanner.nextLine();
             while("-h".equals(studentSchool)){
@@ -88,7 +88,7 @@ public class StudentMgr {
         //gender
         String studentGender;
         while(true){
-            System.out.println("Enter student Gender: ");
+            System.out.println("Enter student gender (uppercase): ");
             System.out.println("Enter -h to print all the genders.");
             studentGender = scanner.nextLine();
             while("-h".equals(studentGender)){

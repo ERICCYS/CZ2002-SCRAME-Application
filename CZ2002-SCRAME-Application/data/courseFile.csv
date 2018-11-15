@@ -1,1 +1,2 @@
-
+courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents,AU,courseDepartment,courseType,lecHr,tutHr,labHr
+CZ2002,OODP,P1234561A,100,100,SSP1=100=100,NULL,NULL,NULL,3,SCSE,CORE,2,0,0

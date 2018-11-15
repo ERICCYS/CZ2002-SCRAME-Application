@@ -26,11 +26,11 @@ public class SCRAME {
             do {
                 System.out.println("Enter your choice, let me help you:");
                 while (!scanner.hasNextInt()) {
-                    String input = scanner.nextLine();
-                    System.out.println("Sorry. " + input + " is not an integer.");
+                    System.out.println("Sorry. " + scanner.nextLine() + " is not an integer.");
                     System.out.println("Enter your choice, let me help you:");
                 }
                 choice = scanner.nextInt();
+                scanner.nextLine();
                 if (choice < 0 || choice > 11) {
                     System.out.println("Please enter 0 ~ 11 for your choice:");
                     continue;
