@@ -39,17 +39,17 @@ public class CourseRegistrationMgr {
         ArrayList<Group> lecGroups = new ArrayList<>(0);
         lecGroups.addAll(currentCourse.getLectureGroups());
 
-        HelpInfoMgr.printGroupWithVacancyInfo(currentCourse,"lecture", lecGroups);
+        HelpInfoMgr.printGroupWithVacancyInfo("lecture", lecGroups);
 
         ArrayList<Group> tutGroups = new ArrayList<>(0);
         tutGroups.addAll(currentCourse.getTutorialGroups());
 
-        HelpInfoMgr.printGroupWithVacancyInfo(currentCourse, "tutorial", tutGroups);
+        HelpInfoMgr.printGroupWithVacancyInfo("tutorial", tutGroups);
 
         ArrayList<Group> labGroups = new ArrayList<>(0);
         labGroups.addAll(currentCourse.getLabGroups());
 
-        HelpInfoMgr.printGroupWithVacancyInfo(currentCourse, "lab", labGroups);
+        HelpInfoMgr.printGroupWithVacancyInfo("lab", labGroups);
 
         currentCourse.enrolledIn();
         CourseRegistration courseRegistration = new CourseRegistration(currentStudent, currentCourse, selectedLectureGroupName, selectedTutorialGroupName, selectedLabGroupName);
