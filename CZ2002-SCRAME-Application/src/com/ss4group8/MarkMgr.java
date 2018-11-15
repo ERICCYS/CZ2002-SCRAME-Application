@@ -37,50 +37,9 @@ public class MarkMgr {
     
     public static void setCourseWorkMark(boolean isExam) {
         System.out.println("enterCourseWorkMark is called");
-        String studentID;
-        Student currentStudent;
-        while(true){
-            System.out.println("Enter Student ID:");
-            studentID = scanner.nextLine();
-            System.out.println("Enter -h to print all the student ID.");
-            studentID = scanner.nextLine();
-            while("-h".equals(studentID)){
-                HelpInfoMgr.printAllStudents();
-                studentID = scanner.nextLine();
-            }
 
-            System.setOut(dummyStream);
-            currentStudent = ValidationMgr.checkStudentExists(studentID);
-            if (currentStudent == null) {
-                System.setOut(originalStream);
-                System.out.println("Invalid Student ID. Please re-enter.");
-            }else{
-                break;
-            }
-        }
-        System.setOut(originalStream);
-
-        String courseID;
-        Course currentCourse;
-        while(true){
-            System.out.println("Enter course ID");
-            System.out.println("Enter -h to print all the course ID.");
-            courseID = scanner.nextLine();
-            while("-h".equals(courseID)){
-                HelpInfoMgr.printAllCourses();
-                courseID = scanner.nextLine();
-            }
-
-            System.setOut(dummyStream);
-            currentCourse = ValidationMgr.checkCourseExists(courseID);
-            if (currentCourse == null) {
-                System.setOut(originalStream);
-                System.out.println("Invalid Course ID. Please re-enter.");
-            }else{
-                break;
-            }
-        }
-        System.setOut(originalStream);
+        String studentID = ValidationMgr.checkStudentExists();
+        String courseID = ValidationMgr.checkCourseExists();
 
         for(Mark mark:SCRAME.marks) {
             if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
@@ -178,27 +137,8 @@ public class MarkMgr {
 
     public static void printCourseStatistics() {
         System.out.println("printCourseStatistics is called");
-        String courseID;
-        Course currentCourse;
-        while(true){
-            System.out.println("Enter Course ID:");
-            System.out.println("Enter -h to print all the course ID.");
-            courseID = scanner.nextLine();
-            while("-h".equals(courseID)){
-                HelpInfoMgr.printAllCourses();
-                courseID = scanner.nextLine();
-            }
-
-            System.setOut(dummyStream);
-            currentCourse = ValidationMgr.checkCourseExists(courseID);
-            if (currentCourse == null) {
-                System.setOut(originalStream);
-                System.out.println("Invalid Course ID. Please re-enter.");
-            }else{
-                break;
-            }
-        }
-        System.setOut(originalStream);
+        String courseID = ValidationMgr.checkCourseExists();
+        Course currentCourse = ValidationMgr.checkCourseExists(courseID);
 
         ArrayList<Mark> thisCourseMark = new ArrayList<Mark>(0);
         for(Mark mark : SCRAME.marks) {
@@ -316,29 +256,7 @@ public class MarkMgr {
 
 
     public static void  printStudentTranscript() {
-        String studentID;
-        Student currentStudent = null;
-        while (true) {
-            System.out.println("Enter Student ID:");
-            studentID = scanner.nextLine();
-            System.out.println("Enter -h to print all the student ID.");
-            studentID = scanner.nextLine();
-            while("-h".equals(studentID)){
-                HelpInfoMgr.printAllStudents();
-                studentID = scanner.nextLine();
-            }
-
-            System.setOut(dummyStream);
-            currentStudent = ValidationMgr.checkStudentExists(studentID);
-            if (currentStudent == null) {
-                System.setOut(originalStream);
-                System.out.println("Invalid Student ID. Please re-enter.");
-            }else {
-                break;
-            }
-
-        }
-        System.setOut(originalStream);
+        String studentID = ValidationMgr.checkStudentExists();
 
         double studentGPA = 0d;
         int thisStudentAU = 0;

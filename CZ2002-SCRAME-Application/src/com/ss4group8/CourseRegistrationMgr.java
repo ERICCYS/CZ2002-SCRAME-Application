@@ -41,70 +41,15 @@ public class CourseRegistrationMgr {
         String selectedTutorialGroupName = null;
         String selectedLabGroupName = null;
 
-        String studentID;
+        String studentID = ValidationMgr.checkStudentExists();
         Student currentStudent = null;
         boolean validStudentID = false;
 
-        while(true){
-            System.out.println("Enter Student ID (-h to print all the student ID:");
-            studentID = scanner.nextLine();
-            while("-h".equals(studentID)){
-                HelpInfoMgr.printAllStudents();
-                studentID = scanner.nextLine();
-            }
 
-            System.setOut(dummyStream);
-            if (ValidationMgr.checkStudentExists(studentID) == null) {
-                System.setOut(originalStream);
-                System.out.println("Invalid Student ID. Please re-enter.");
-            }else{
-                System.setOut(originalStream);
-                break;
-            }
-        }
+        String courseDepartment = ValidationMgr.checkCourseDepartmentExists();
 
-        // Exception handling
-        String courseDepartment;
-        while(true){
-            System.out.println("Which department's courses are you interested? (-h to print all the departments)");
-            courseDepartment = scanner.nextLine();
-            while("-h".equals(courseDepartment)){
-                HelpInfoMgr.printAllDepartment();
-                courseDepartment = scanner.nextLine();
-            }
-            if(ValidationMgr.checkDepartmentValidation(courseDepartment)){
-                List<String> validCourseString;
-                System.setOut(dummyStream);
-                validCourseString = HelpInfoMgr.printCourseInDepartment(courseDepartment);
-                System.setOut(originalStream);
-                if(validCourseString.size() == 0){
-                    System.out.println("Invalid choice of department.");
-                }else{
-                    break;
-                }
-            }
-        }
-
-
-        String courseID;
-        Course currentCourse;
-        while(true){
-            System.out.println("Enter Course ID (-h to print all the courses in " + courseDepartment);
-            courseID = scanner.nextLine();
-            while("-h".equals(courseID)){
-                HelpInfoMgr.printCourseInDepartment(courseDepartment);
-                courseID = scanner.nextLine();
-            }
-
-            System.setOut(dummyStream);
-            currentCourse = ValidationMgr.checkCourseExists(courseID);
-            System.setOut(originalStream);
-            if(currentCourse == null){
-                System.out.println("Invalid Course ID. Please re-enter.");
-            }else{
-                break;
-            }
-        }
+        String courseID = ValidationMgr.checkCourseExists();
+        Course currentCourse = ValidationMgr.checkCourseExists(courseID);
 
         // Exception handling
         // Get the course and student. Call the function inside CourseRegistration Mgr
@@ -262,27 +207,9 @@ public class CourseRegistrationMgr {
     public static void printStudents() {
 //        Scanner scanner = new Scanner(System.in);
         System.out.println("printStudent is called");
-        String courseID;
+        String courseID = ValidationMgr.checkCourseExists();
         Course currentCourse = null;
         boolean validCourseID = false;
-
-        System.out.println("Enter course ID");
-        courseID = scanner.nextLine();
-        System.out.println("Enter -h to print all the course ID.");
-        courseID = scanner.nextLine();
-        while("-h".equals(courseID)){
-            HelpInfoMgr.printAllStudents();
-            courseID = scanner.nextLine();
-        }
-
-        System.setOut(dummyStream);
-        if (ValidationMgr.checkCourseExists(courseID) == null) {
-            System.setOut(originalStream);
-            System.out.println("Invalid Course ID...");
-            System.out.println("Exiting the print student");
-            return;
-        }
-        System.setOut(originalStream);
 
 
         System.out.println("Print student by: ");
