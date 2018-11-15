@@ -3,7 +3,7 @@ package com.ss4group8;
 import java.util.ArrayList;
 
 /**
- * {@code Course} class represents a course held by school.
+ * {@code Course} represents a course held by school.
  * A course has a {@code courseID} and {@code courseName}.
  * A course contains at least one {@code LectureGroup}, may contains multiple {@code TutorialGroup} and {@code LabGroup}.
  * A course can have many {@code MainComponent}, and a {@code MainComponent} can have many {@code SubComponent}.
