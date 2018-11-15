@@ -1,2 +1,4 @@
 studentID,courseID,courseWorkMarks,totalMark
-U1734756J,CZ2002,Quiz=20=95.0=|Exam=60=90.0=|Presentation=20=90.0=EC1/25/100.0=EC2/25/100.0=EC3/25/80.0=EC4/25/80.0|,91.0
+U1734756J,CZ2002,Quiz=20=95.0=|Presentation=20=90.0=EC1/25/100.0=EC2/25/100.0=EC3/25/80.0=EC4/25/80.0|Exam=60=90.0=,91.0
+U1822841A,CZ2001,Coursework=40=0.0=Assignment/70/0.0=ClassPart/30/0.0|Exam=60=0.0=,0.0
+U1722744J,CZ2001,Coursework=40=70.0=Assignment/70/100.0=ClassPart/30/0.0|Exam=60=100.0=|,88.0

@@ -149,6 +149,7 @@ public class CourseMgr {
                 System.out.println("Enter a group Name: ");
                 lectureGroupName = scanner.nextLine();
                 if(!ValidationMgr.checkValidGroupNameInput(lectureGroupName)){
+                    groupNameExists = true;
                     continue;
                 }
                 if (lectureGroups.size() == 0) {
@@ -239,6 +240,7 @@ public class CourseMgr {
                 System.out.println("Enter a group Name: ");
                 tutorialGroupName = scanner.nextLine();
                 if(!ValidationMgr.checkValidGroupNameInput(tutorialGroupName)){
+                    groupNameExists = true;
                     continue;
                 }
                 if (tutorialGroups.size() == 0) {
@@ -321,6 +323,7 @@ public class CourseMgr {
                 System.out.println("Enter a group Name: ");
                 labGroupName = scanner.nextLine();
                 if(!ValidationMgr.checkValidGroupNameInput(labGroupName)){
+                    groupNameExists = true;
                     continue;
                 }
                 if (labGroups.size() == 0) {
