@@ -2,9 +2,19 @@ package com.ss4group8;
 
 
 import java.util.*;
+import java.io.PrintStream;
+import java.io.OutputStream;
 
 public class MarkMgr {
     private static Scanner scanner = new Scanner(System.in);
+
+    private static PrintStream originalStream = System.out;
+
+    private static PrintStream dummyStream = new PrintStream(new OutputStream(){
+        public void write(int b) {
+            // NO-OP
+        }
+    });
 
     public static Mark initializeMark(Student student, Course course) {
         HashMap<CourseworkComponent, Double> courseWorkMarks = new HashMap<CourseworkComponent, Double>();
@@ -31,23 +41,42 @@ public class MarkMgr {
         Student currentStudent;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
+        System.out.println("Enter -h to print all the student ID.");
+        studentID = scanner.nextLine();
+        while("-h".equals(studentID)){
+            HelpInfoMgr.printAllStudents();
+            studentID = scanner.nextLine();
+        }
+
+        System.setOut(dummyStream);
         currentStudent = ValidationMgr.checkStudentExists(studentID);
         if (currentStudent == null) {
+            System.setOut(originalStream);
             System.out.println("Invalid Student ID...");
             System.out.println("Exiting the set course work mark");
             return ;
         }
+        System.setOut(originalStream);
 
         String courseID;
         Course currentCourse;
         System.out.println("Enter course ID");
+        System.out.println("Enter -h to print all the course ID.");
         courseID = scanner.nextLine();
+        while("-h".equals(courseID)){
+            HelpInfoMgr.printAllCourses();
+            courseID = scanner.nextLine();
+        }
+
+        System.setOut(dummyStream);
         currentCourse = ValidationMgr.checkCourseExists(courseID);
         if (currentCourse == null) {
+            System.setOut(originalStream);
             System.out.println("Invalid Course ID...");
             System.out.println("Exiting the set course work mark");
             return;
         }
+        System.setOut(originalStream);
 
         for(Mark mark:SCRAME.marks) {
             if (mark.getCourse().getCourseID().equals(courseID) && mark.getStudent().getStudentID().equals(studentID)) {
@@ -146,15 +175,24 @@ public class MarkMgr {
     public static void printCourseStatistics() {
         System.out.println("printCourseStatistics is called");
         String courseID;
-        Course currentCourse = null;
+        Course currentCourse;
         System.out.println("Enter Course ID:");
+        System.out.println("Enter -h to print all the course ID.");
         courseID = scanner.nextLine();
+        while("-h".equals(courseID)){
+            HelpInfoMgr.printAllCourses();
+            courseID = scanner.nextLine();
+        }
+
+        System.setOut(dummyStream);
         currentCourse = ValidationMgr.checkCourseExists(courseID);
         if (currentCourse == null) {
+            System.setOut(originalStream);
             System.out.println("Invalid Course ID...");
             System.out.println("Exiting the print course statistics");
             return;
         }
+        System.setOut(originalStream);
 
         ArrayList<Mark> thisCourseMark = new ArrayList<Mark>(0);
         for(Mark mark : SCRAME.marks) {
@@ -276,12 +314,23 @@ public class MarkMgr {
         Student currentStudent = null;
         System.out.println("Enter Student ID:");
         studentID = scanner.nextLine();
+        System.out.println("Enter -h to print all the student ID.");
+        studentID = scanner.nextLine();
+        while("-h".equals(studentID)){
+            HelpInfoMgr.printAllStudents();
+            studentID = scanner.nextLine();
+        }
+
+        System.setOut(dummyStream);
         currentStudent = ValidationMgr.checkStudentExists(studentID);
         if (currentStudent == null) {
+            System.setOut(originalStream);
             System.out.println("Invalid Student ID...");
             System.out.println("Exiting the print student transcript");
             return ;
         }
+        System.setOut(originalStream);
+
         double studentGPA = 0d;
         int thisStudentAU = 0;
         ArrayList<Mark> thisStudentMark = new ArrayList<Mark>(0);

@@ -93,7 +93,6 @@ public class Student {
                 break;
             }
         }while(true);
-        System.out.println("In student class, current student id is " + generateStudentID);
         return generateStudentID;
     }
 }

@@ -23,12 +23,16 @@ public class StudentMgr {
         System.out.println("2. Let the system self-generate the student ID.");
         do {
             System.out.println("Please input your choice:");
-            choice = scanner.nextInt();
-            scanner.nextLine();
-            if (choice < 1 || choice > 2) {
-                System.out.println("Invalid input. Please re-enter.");
-            } else {
-                break;
+            if(scanner.hasNextInt()){
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice < 1 || choice > 2) {
+                    System.out.println("Invalid input. Please re-enter.");
+                } else {
+                    break;
+                }
+            }else{
+                System.out.println("Your input " + scanner.nextLine() + " is not an integer.");
             }
         } while (true);
         if (choice == 1) {
@@ -42,7 +46,7 @@ public class StudentMgr {
                 System.out.println("Give this student an ID: ");
                 studentID = scanner.nextLine();
                 if(ValidationMgr.checkValidStudentIDInput(studentID)){
-                    if(!ValidationMgr.checkStudentExists(studentID)){
+                    if(ValidationMgr.checkStudentExists(studentID) == null){
                         break;
                     }
                 }
@@ -65,11 +69,11 @@ public class StudentMgr {
 
         //student department
         while(true){
-            System.out.println("Enter student's school: ");
+            System.out.println("Enter student's school (uppercase): ");
             System.out.println("Enter -h to print all the schools.");
             studentSchool = scanner.nextLine();
-            while(studentSchool.equals("-h")){
-                HelpInfoMgr.getAllDepartment();
+            while("-h".equals(studentSchool)){
+                HelpInfoMgr.printAllDepartment();
                 studentSchool = scanner.nextLine();
             }
 
@@ -84,11 +88,11 @@ public class StudentMgr {
         //gender
         String studentGender;
         while(true){
-            System.out.println("Enter student Gender: ");
+            System.out.println("Enter student gender (uppercase): ");
             System.out.println("Enter -h to print all the genders.");
             studentGender = scanner.nextLine();
-            while(studentGender.equals("-h")){
-                HelpInfoMgr.getAllGender();
+            while("-h".equals(studentGender)){
+                HelpInfoMgr.printAllGender();
                 studentGender = scanner.nextLine();
             }
 
@@ -110,6 +114,7 @@ public class StudentMgr {
                     System.out.println("Your input is out of bound.");
                     System.out.println("Please re-enter an integer between 1 and 4");
                 }else{
+                    currentStudent.setStudentYear(studentYear);
                     break;
                 }
             }else{

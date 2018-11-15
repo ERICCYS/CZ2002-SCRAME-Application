@@ -164,9 +164,6 @@ public class FILEMgr {
             fileWriter.append(course.getCourseName());
             fileWriter.append(COMMA_DELIMITER);
 
-            fileWriter.append(String.valueOf(course.getAU()));
-            fileWriter.append(COMMA_DELIMITER);
-
             fileWriter.append(course.getProfInCharge().getProfID());
             fileWriter.append(COMMA_DELIMITER);
 
@@ -303,7 +300,6 @@ public class FILEMgr {
                 if (tokens.length > 0) {
                     String courseID = tokens[courseIdIndex];
                     String courseName = tokens[courseNameIndex];
-                    String AUString = tokens[auIndex];
                     String profInCharge = tokens[profInChargeIndex];
                     for (Professor professor : professors) {
                         if (professor.getProfID().equals(profInCharge)) {
@@ -409,9 +405,6 @@ public class FILEMgr {
                 fileWriter.append(course.getCourseName());
                 fileWriter.append(COMMA_DELIMITER);
 
-                fileWriter.append(String.valueOf(course.getAU()));
-                fileWriter.append(COMMA_DELIMITER);
-
                 fileWriter.append(course.getProfInCharge().getProfID());
                 fileWriter.append(COMMA_DELIMITER);
 
@@ -508,7 +501,19 @@ public class FILEMgr {
                 } else {
                     fileWriter.append("NULL");
                 }
-
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getAU()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(course.getCourseDepartment());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(course.getCourseType());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getLecWeeklyHour()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getTutWeeklyHour()));
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(String.valueOf(course.getLabWeeklyHour()));
+                fileWriter.append(NEW_LINE_SEPARATOR);
                 fileWriter.append(NEW_LINE_SEPARATOR);
 
             }

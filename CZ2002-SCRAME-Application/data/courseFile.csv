@@ -1,13 +1,2 @@
-courseID,courseName,AU,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents
-CZ2001,Algorithms,3,3,26,30,LEC1=26=30,TUT1=13=15|TUT2=13=15,LAB1=26=30,Exam=60=|Quiz=20=|Presentation=20=EC1-25/EC2-25/EC3-25/EC4-25
-CZ2007,Database,3,7,200,200,Lec1=200=200,Tut1=100=100|Tut2=100=100,NULL,Exam=50=|Labs=30=lab1-30/lab2-30/lab3-40|Quiz=20=quiz1-50/quiz2-50
-CZ1005,Digital Logic,3,1,400,400,Lec1=400=400,Tut1=200=200|Tut2=200=200,Lab1=200=200|Lab2=200=200,NULL
-CZ2004,Human Computer Interaction,3,8,100,100,Lecture1=100=100,NULL,NULL,Low-Fi=45=|Peer Review=15=|Hi-Fi=40=
-CZ2005,Operating Systems,3,2,100,100,Lecture1=100=100,Tut1=50=50|Tut2=50=50,Lab1=30=30|Lab2=40=40|lab3=30=30,Exam=60=|Oral Assessment=10=|Report=30=
-CZ2000,Testing Course,1,3,2,2,Lec1=2=2,Tut1=1=1|Tut2=1=1,Lab1=2=2,NULL
-CZ0001,Engineers and Society,3,4,10,10,Lec1=10=10,Tut1=5=5|Tut2=10=10,Lab1=20=20|Lab2=10=10,NULL
-CZ1003,Introduction to Computational Thinking,3,9,30,30,LEC1=30=30,TUT1=15=15|TUT2=15=15,LAB1=30=30,Exam=60=|Project=30=|Quiz=10=quiz11-50/quiz2-50
-CZ1006,Computer Architecture,3,6,30,30,LEC1=30=30,TUT1=15=15|TUT2=15=15,LAB1=15=15|LAB2=15=15,Exam=60=|Labs=40=Lab1-25/Lab2-25/Lab3-25/Lab4-25
-CZ1007,Data Structures,3,4,20,20,LEC1=20=20,TUT1=20=20,LAB1=20=20,Coding=100=Coding1-50/Coding2-50
-CZ2002,OODP,3,1,30,30,LEC1=30=30,TUT1=15=15|TUT2=15=15,LAB1=30=30,Exam=60=|Assignment=30=|Lab=10=lab1-20/lab2-20/lab3-20/lab4-20/lab5-20
-MH1812,Discrete Math,3,2,20,20,LEC1=20=20,TUT1=20=20,NULL,Exam=50=|Quiz=50=quiz1-50/quiz2-50
+courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents,AU,courseDepartment,courseType,lecHr,tutHr,labHr
+CZ2002,OODP,P1234561A,100,100,SSP1=100=100,NULL,NULL,NULL,3,SCSE,CORE,2,0,0

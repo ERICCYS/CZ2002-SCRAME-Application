@@ -1,20 +1,31 @@
 package com.ss4group8;
 
 import com.ss4group8.Enum.*;
-import com.sun.tools.javah.Gen;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class HelpInfoMgr {
-    public List<Professor> printProfInDepartment (String department){
+    public static List<String> printProfInDepartment (String department){
         if(ValidationMgr.checkDepartmentValidation(department)){
             List<Professor> professors = FILEMgr.loadProfessors();
-            List<Professor> validProfs = professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).collect(Collectors.toList());
-            validProfs.forEach(System.out::println);
-            return validProfs;
+            List<String> validProfString = professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
+            validProfString.forEach(System.out::println);
+            return validProfString;
         }
+        System.out.println("None.");
         return null;
+
+    }
+
+    public static void printAllStudents(){
+        List<Student> students = FILEMgr.loadStudents();
+        students.stream().map(s->s.getStudentID()).forEach(System.out::println);
+
+    }
+
+    public static void printAllCourses(){
+        List<Course> courses = FILEMgr.loadCourses();
+        courses.stream().map(c->c.getCourseID()).forEach(System.out::println);
 
     }
 
@@ -28,10 +39,20 @@ public class HelpInfoMgr {
     }
 
     public static void printAllGender(){
+        int index = 1;
         for(Gender gender : Gender.values()){
-            System.out.println(gender);
+            System.out.println(index + ": " + gender);
+            index ++;
         }
 
+    }
+
+    public static void printAllCourseType(){
+        int index = 1;
+        for(CourseType courseType : CourseType.values()){
+            System.out.println(index + ": " + courseType);
+            index ++;
+        }
     }
 
     public static ArrayList<String> getAllDepartment(){
@@ -66,10 +87,14 @@ public class HelpInfoMgr {
     }
 
 
-    public static List<Course> printCourseInDepartment(String department){
+    public static List<String> printCourseInDepartment(String department){
         List<Course> validCourses = FILEMgr.loadCourses().stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
-        validCourses.forEach(System.out::println);
-        return validCourses;
+        List<String> validCourseString = validCourses.stream().map(c->c.getCourseID()).collect(Collectors.toList());
+        validCourseString.forEach(System.out::println);
+        if(validCourseString.size() == 0){
+            System.out.println("None.");
+        }
+        return validCourseString;
      }
 
 

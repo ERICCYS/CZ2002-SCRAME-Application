@@ -110,13 +110,13 @@ public class ValidationMgr {
 
     }
 
-    public static boolean checkCourseRegistrationExists(String studentID, String courseID){
-        List<CourseRegistration> courseRegistrations = FILEMgr.loadCourseRegistration().stream().filter(cr->(studentID.equals(cr.getStudent().getStudentID())&&(courseID.equals(cr.getCourse().getCourseID())))).collect(Collectors.toList());
+    public static CourseRegistration checkCourseRegistrationExists(String studentID, String courseID){
+        List<CourseRegistration> courseRegistrations = FILEMgr.loadCourseRegistration().stream().filter(cr->studentID.equals(cr.getStudent().getStudentID())).filter(cr->courseID.equals(cr.getCourse().getCourseID())).collect(Collectors.toList());
         if(courseRegistrations.size() == 0){
-            return false;
+            return null;
         }
         System.out.println("Sorry. This student already registers this course.");
-        return true;
+        return courseRegistrations.get(0);
 
     }
 
