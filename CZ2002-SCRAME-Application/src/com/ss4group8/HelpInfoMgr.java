@@ -23,7 +23,7 @@ public class HelpInfoMgr {
      * @param department The inputted department.
      * @return A list of all the names of professors in the inputted department or else null.
      */
-    public static List<String> printProfInDepartment (String department){
+    public static List<String> printProfInDepartment (String department, boolean printOut){
         if(ValidationMgr.checkDepartmentValidation(department)){
             List<String> validProfString = SCRAME.professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
             if (printOut) {
