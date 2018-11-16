@@ -13,16 +13,18 @@ package com.ss4group8;
 
 public abstract class CourseworkComponent {
     /**
-     * The ID of this course.
+     * The name of this coursework.
      */
     private String componentName;
     /**
-     * The ID of this course.
+     * The weight of this course component.
      */
     private int componentWeight;
 
     /**
-     * The ID of this course.
+     * Creates a course work components with component name and component weight
+     * @param componentName the name of this coursework component
+     * @param componentWeight the weight of this coursework component
      */
     public CourseworkComponent(String componentName, int componentWeight) {
         this.componentName = componentName;
@@ -30,21 +32,23 @@ public abstract class CourseworkComponent {
     }
 
     /**
-     * The ID of this course.
+     * Gets the component name
+     * @return the name of this component
      */
     public String getComponentName() {
         return this.componentName;
     }
 
     /**
-     * The ID of this course.
+     * Gets the weight of this component
+     * @return the weight of this component
      */
     public int getComponentWeight() {
         return this.componentWeight;
     }
 
     /**
-     * The ID of this course.
+     * Prints the component type
      */
     public abstract void printComponentType();
 }

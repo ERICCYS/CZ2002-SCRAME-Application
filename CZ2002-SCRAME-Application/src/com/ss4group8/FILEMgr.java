@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  * Manages file IO of this system.
+ *
  * @author Ma Xiao
  * @author Fu Mengyan
  * @author Kevin Steven Kihata
@@ -21,22 +22,27 @@ public class FILEMgr {
      * The string of {@code COMMA_DELIMITER}.
      */
     private static final String COMMA_DELIMITER = ",";
+
     /**
      * The string of {@code NEW_LINE_SEPARATOR}.
      */
     private static final String NEW_LINE_SEPARATOR = "\n";
+
     /**
      * The string of {@code LINE_DELIMITER}.
      */
     private static final String LINE_DELIMITER = "|";
+
     /**
      * The string of {@code EQUAL_SIGN}.
      */
     private static final String EQUAL_SIGN = "=";
+
     /**
      * The string of {@code HYPHEN}.
      */
     private static final String HYPHEN = "-";
+
     /**
      * The string of {@code SLASH}.
      */
@@ -46,18 +52,22 @@ public class FILEMgr {
      * The file name of studentFile.csv.
      */
     private static final String studentFileName = "data/studentFile.csv";
+
     /**
      * The file name of courseFile.csv.
      */
     private static final String courseFileName = "data/courseFile.csv";
+
     /**
      * The file name of professorFile.csv.
      */
     private static final String professorFileName = "data/professorFile.csv";
+
     /**
      * The file name of courseRegistrationFile.csv.
      */
     private static final String courseRegistrationFileName = "data/courseRegistrationFile.csv";
+
     /**
      * The file name of markFile.csv.
      */
@@ -67,18 +77,22 @@ public class FILEMgr {
      * The header of studentFile.csv.
      */
     private static final String student_HEADER = "studentID,studentName,studentSchool,studentGender,studentGPA,studentYear";
+
     /**
      * The header of courseFile.csv.
      */
     private static final String course_HEADER = "courseID,courseName,profInCharge,vacancies,totalSeats,lectureGroups,TutorialGroups,LabGroups,MainComponents,AU,courseDepartment,courseType,lecHr,tutHr,labHr";
+
     /**
      * The header of professorFile.csv.
      */
     private static final String professor_HEADER = "professorID,professorName,profDepartment";
+
     /**
      * The header of courseRegistrationFile.csv.
      */
     private static final String courseRegistration_HEADER = "studentID,courseID,lectureGroup,tutorialGroup,labGroup";
+
     /**
      * The header of markFile.csv.
      */
@@ -88,22 +102,27 @@ public class FILEMgr {
      * The index of the student ID in studentFile.csv.
      */
     private static final int studentIdIndex = 0;
+
     /**
      * The index of the student name in studentFile.csv.
      */
     private static final int studentNameIndex = 1;
+
     /**
      * The index of the student school in studentFile.csv.
      */
     private static final int studentSchoolIndex = 2;
+
     /**
      * The index of the student gender in studentFile.csv.
      */
     private static final int studentGenderIndex = 3;
+
     /**
      * The index of the student GPA in studentFile.csv.
      */
     private static final int studentGPAIndex = 4;
+
     /**
      * The index of the student year in studentFile.csv.
      */
@@ -113,10 +132,12 @@ public class FILEMgr {
      * The index of the course ID in courseFile.csv.
      */
     private static final int courseIdIndex = 0;
+
     /**
      * The index of the course name in courseFile.csv.
      */
     private static final int courseNameIndex = 1;
+
     /**
      * The index of the professor in charge of this course in courseFile.csv.
      */
@@ -125,46 +146,57 @@ public class FILEMgr {
      * The index of course vacancies in courseFile.csv.
      */
     private static final int vacanciesIndex = 3;
+
     /**
      * The index of course total seats in courseFile.csv.
      */
     private static final int totalSeatsIndex = 4;
+
     /**
      * The index of course lecture groups in courseFile.csv.
      */
     private static final int lectureGroupsIndex = 5;
+
     /**
      * The index of course tutorial groups in courseFile.csv.
      */
     private static final int tutorialGroupIndex = 6;
+
     /**
      * The index of course lab group in courseFile.csv.
      */
     private static final int labGroupIndex = 7;
+
     /**
      * The index of course main components in courseFile.csv.
      */
     private static final int mainComponentsIndex = 8;
+
     /**
      * The index of course AU in courseFile.csv.
      */
     private static final int AUIndex = 9;
+
     /**
      * The index of course department in courseFile.csv.
      */
     private static final int courseDepartmentIndex = 10;
+
     /**
      * The index of course type in courseFile.csv.
      */
     private static final int courseTypeIndex = 11;
+
     /**
      * The index of course weekly lecture hour in courseFile.csv.
      */
     private static final int lecHrIndex = 12;
+
     /**
      * The index of course weekly tutorial hour in courseFile.csv.
      */
     private static final int tutHrIndex = 13;
+
     /**
      * The index of course weekly lab hour in courseFile.csv.
      */
@@ -174,10 +206,12 @@ public class FILEMgr {
      * The index of professor ID in professorFile.csv.
      */
     private static final int professorIdIndex = 0;
+
     /**
      * The index of professor name in professorFile.csv.
      */
     private static final int professorNameIndex = 1;
+
     /**
      * The index of professor department in professorFile.csv.
      */
@@ -187,18 +221,22 @@ public class FILEMgr {
      * The index of studentID in courseRegistrationFile.csv.
      */
     private static final int studentIdInRegistrationIndex = 0;
+
     /**
      * The index of courseID in courseRegistrationFile.csv.
      */
     private static final int courseIdInRegistrationIndex = 1;
+
     /**
      * The index of lectureGroup in courseRegistrationFile.csv.
      */
     private static final int lectureGroupInRegistrationIndex = 2;
+
     /**
      * The index of tutorialGroup in courseRegistrationFile.csv.
      */
     private static final int tutorialGroupInRegistrationIndex = 3;
+
     /**
      * The index of labGroup in courseRegistrationFile.csv.
      */
@@ -209,22 +247,25 @@ public class FILEMgr {
      * The index of studentID in markFile.csv.
      */
     private static final int studentIdIndexInMarks = 0;
+
     /**
      * The index of courseID in markFile.csv.
      */
     private static final int courseIdIndexInMarks = 1;
+
     /**
-     *The index of courseWorkMark in markFile.csv..
+     * The index of courseWorkMark in markFile.csv..
      */
     private static final int courseWorkMarksIndex = 2;
+
     /**
      * The index of totalMark in markFile.csv.
      */
     private static final int totalMarkIndex = 3;
 
-
     /**
      * Write a new student information into the file.
+     * @param student a student to be added into the file
      */
     public static void writeStudentsIntoFile(Student student) {
         File file;
@@ -279,7 +320,7 @@ public class FILEMgr {
             while ((line = fileReader.readLine()) != null) {
                 String[] tokens = line.split(COMMA_DELIMITER);
                 if (tokens.length > 0) {
-                    recentStudentID = Math.max(recentStudentID, Integer.parseInt(tokens[studentIdIndex].substring(1,8)));
+                    recentStudentID = Math.max(recentStudentID, Integer.parseInt(tokens[studentIdIndex].substring(1, 8)));
                     Student student = new Student(tokens[studentIdIndex], tokens[studentNameIndex]);
                     student.setStudentSchool(tokens[studentSchoolIndex]);
                     student.setGender(tokens[studentGenderIndex]);
@@ -308,6 +349,7 @@ public class FILEMgr {
 
     /**
      * Write a new course information into the file.
+     * @param course a course to be added into file
      */
     public static void writeCourseIntoFile(Course course) {
         File file;
@@ -558,8 +600,9 @@ public class FILEMgr {
 
     /**
      * Backs up all the changes of courses made into the file.
+     * @param courses courses to be backed up
      */
-    public static void backUpCourse(ArrayList<Course> courses){
+    public static void backUpCourse(ArrayList<Course> courses) {
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(courseFileName);
@@ -568,7 +611,7 @@ public class FILEMgr {
             fileWriter.append(course_HEADER);
             fileWriter.append(NEW_LINE_SEPARATOR);
 
-            for (Course course:courses) {
+            for (Course course : courses) {
                 fileWriter.append(course.getCourseID());
                 fileWriter.append(COMMA_DELIMITER);
 
@@ -702,7 +745,8 @@ public class FILEMgr {
     }
 
     /**
-     * Write a new professor information into the file.
+     * Writes a new professor information into the file.
+     * @param professor professor to be added into file
      */
     public static void writeProfIntoFile(Professor professor) {
         File file;
@@ -771,7 +815,8 @@ public class FILEMgr {
     }
 
     /**
-     * Write a new course registration record into the file.
+     * Writes a new course registration record into the file.
+     * @param courseRegistration courseRegistration to be added into file
      */
     public static void writeCourseRegistrationIntoFile(CourseRegistration courseRegistration) {
         File file;
@@ -862,7 +907,8 @@ public class FILEMgr {
 
 
     /**
-     * Write a new student mark record into the file.
+     * Writes a new student mark record into the file.
+     * @param mark mark to be updated into the file
      */
     public static void updateStudentMarks(Mark mark) {
         File file;
@@ -989,7 +1035,7 @@ public class FILEMgr {
 
                         ArrayList<SubComponent> subComponents = new ArrayList<SubComponent>(0);
                         HashMap<SubComponent, Double> subComponentMarks = new HashMap<SubComponent, Double>();
-                        for (int j = 3; j < thisCourseWorkMark.length; j++)  {
+                        for (int j = 3; j < thisCourseWorkMark.length; j++) {
                             if (thisCourseWorkMark[3].equals("")) {
 //                                System.out.println("No sub component for this main component");
                                 break;
@@ -1006,7 +1052,7 @@ public class FILEMgr {
                         courseWorkMarks.put(new MainComponent(thisCourseWorkMark[0], Integer.parseInt(thisCourseWorkMark[1]), subComponents), Double.parseDouble(thisCourseWorkMark[2]));
                         // Put sub component
                         for (HashMap.Entry<SubComponent, Double> entry : subComponentMarks.entrySet()) {
-                            SubComponent subComponent =  entry.getKey();
+                            SubComponent subComponent = entry.getKey();
                             Double subComponentResult = entry.getValue();
 //                            System.out.println("Add sub component for main component: " + thisCourseWorkMark[0]);
 //                            System.out.println("Name: " + subComponent.getComponentName() + ", Weight: " + subComponent.getComponentWeight() + " and mark: " + subComponentResult);
@@ -1043,8 +1089,9 @@ public class FILEMgr {
 
     /**
      * Backs up all the changes of student mark records made into the file.
+     * @param marks marks to be backed up into file
      */
-    public static void backUpMarks(ArrayList<Mark> marks){
+    public static void backUpMarks(ArrayList<Mark> marks) {
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(markFileName);
@@ -1110,8 +1157,7 @@ public class FILEMgr {
                             fileWriter.append(LINE_DELIMITER);
                         }
                     }
-                }
-                else {
+                } else {
                     fileWriter.append("NULL");
                 }
                 fileWriter.append(COMMA_DELIMITER);

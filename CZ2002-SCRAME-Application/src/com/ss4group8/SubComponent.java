@@ -12,7 +12,6 @@ package com.ss4group8;
  * @version 1.0
  *
  */
-
 public class SubComponent extends CourseworkComponent {
     /**
      * Creates a sub-component with this sub-component's name and this sub-component's weightage.
