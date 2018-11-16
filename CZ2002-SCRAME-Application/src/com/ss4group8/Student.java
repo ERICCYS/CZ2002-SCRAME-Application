@@ -119,7 +119,7 @@ public class Student {
     }
 
     /**
-     * Changes the idNumber variable of this student class.
+     * Sets the idNumber variable of this student class.
      * @param idNumber static variable idNumber of this class.
      */
     public static void setIdNumber(int idNumber) {
@@ -127,7 +127,7 @@ public class Student {
     }
 
     /**
-     * Changes the ID of this student.
+     * Sets the ID of this student.
      * @param studentID this student's ID.
      */
     public void setStudentID(String studentID) {
@@ -135,7 +135,7 @@ public class Student {
     }
 
     /**
-     * Changes the school of this student.
+     * Sets the school of this student.
      * @param studentSchool this student's school.
      */
     public void setStudentSchool(String studentSchool){
@@ -143,7 +143,7 @@ public class Student {
     }
 
     /**
-     * Changes the gender of this student.
+     * Sets the gender of this student.
      * @param gender this student's gender.
      */
     public void setGender(String gender){
@@ -151,7 +151,7 @@ public class Student {
     }
 
     /**
-     * Changes the GPA of this student.
+     * Sets the GPA of this student.
      * @param GPA this student's GPA.
      */
     public void setGPA(double GPA){
@@ -159,7 +159,7 @@ public class Student {
     }
 
     /**
-     * Changes the year of this student.
+     * Sets the year of this student.
      * @param studentYear this student's year.
      */
     public void  setStudentYear(int studentYear){

@@ -5,11 +5,19 @@ import java.util.*;
 import java.io.PrintStream;
 import java.io.OutputStream;
 
+/**
+ * Manages all the courses.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ */
+
 public class CourseMgr {
     private static Scanner scanner = new Scanner(System.in);
-
     private static PrintStream originalStream = System.out;
-
     private static PrintStream dummyStream = new PrintStream(new OutputStream(){
         public void write(int b) {
             // NO-OP
@@ -17,6 +25,9 @@ public class CourseMgr {
     });
 
 
+    /**
+     * Creates a new course and stores it in the file.
+     */
     public static void addCourse() {
         String courseID;
         String courseName;
@@ -411,15 +422,15 @@ public class CourseMgr {
         System.out.println("Course " + courseID + " is added");
     }
 
+    /**
+     * Checks whether a course (with all of its groups) have available slots and displays the result.
+     */
     public static void checkAvailableSlots() {
         //printout the result directly
         System.out.println("checkAvailableSlots is called");
-//        String courseID;
         Course currentCourse;
 
         do {
-//            System.out.println("Enter course ID: ");
-//            courseID = scanner.nextLine();
             currentCourse = ValidationMgr.checkCourseExists();
             if (currentCourse != null) {
                 System.out.println(currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " (Available/Total): " + currentCourse.getVacancies() + "/" + currentCourse.getTotalSeats());
@@ -448,6 +459,10 @@ public class CourseMgr {
 
     }
 
+    /**
+     * Sets the course work component weightage of a course.
+     * @param currentCourse The course which course work component is to be set.
+     */
     public static void enterCourseWorkComponentWeightage(Course currentCourse) {
         // ASSUME when course is created, no components are added yet
         // ASSUME once components are created and set, cannot be changed.
