@@ -22,9 +22,9 @@ public class MainComponent extends CourseworkComponent {
 
     /**
      * Creates a main component with component name, component weightage and sub components.
-     * @param componentName
-     * @param componentWeight
-     * @param subComponents
+     * @param componentName the name of the assessment component
+     * @param componentWeight the componentWeight of the assessment component
+     * @param subComponents the sub components of the assessment component
      */
     public MainComponent(String componentName, int componentWeight, ArrayList<SubComponent> subComponents) {
         super(componentName, componentWeight);

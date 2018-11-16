@@ -21,6 +21,7 @@ public class HelpInfoMgr {
     /**
      * Displays all the professors in the inputted department.
      * @param department The inputted department.
+     * @param printOut represents whether print out the professor information or not
      * @return A list of all the names of professors in the inputted department or else null.
      */
     public static List<String> printProfInDepartment (String department, boolean printOut){

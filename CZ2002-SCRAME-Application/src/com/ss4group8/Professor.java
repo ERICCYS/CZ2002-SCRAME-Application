@@ -23,8 +23,8 @@ public class Professor {
 
     /**
      * Creates professor with professor ID and professor name.
-     * @param profID
-     * @param profName
+     * @param profID the ID of the professor
+     * @param profName the name of the professor
      */
     public Professor(String profID, String profName) {
         this.profID = profID;

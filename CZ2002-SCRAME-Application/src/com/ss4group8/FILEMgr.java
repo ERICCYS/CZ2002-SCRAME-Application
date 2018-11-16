@@ -265,6 +265,7 @@ public class FILEMgr {
 
     /**
      * Write a new student information into the file.
+     * @param student a student to be added into the file
      */
     public static void writeStudentsIntoFile(Student student) {
         File file;
@@ -306,7 +307,6 @@ public class FILEMgr {
 
     /**
      * Load all the students' information from file into the system.
-     *
      * @return an array list of all the students.
      */
     public static ArrayList<Student> loadStudents() {
@@ -349,6 +349,7 @@ public class FILEMgr {
 
     /**
      * Write a new course information into the file.
+     * @param course a course to be added into file
      */
     public static void writeCourseIntoFile(Course course) {
         File file;
@@ -491,7 +492,6 @@ public class FILEMgr {
 
     /**
      * Load all the courses' information from file into the system.
-     *
      * @return an array list of all the courses.
      */
     public static ArrayList<Course> loadCourses() {
@@ -600,6 +600,7 @@ public class FILEMgr {
 
     /**
      * Backs up all the changes of courses made into the file.
+     * @param courses courses to be backed up
      */
     public static void backUpCourse(ArrayList<Course> courses) {
         FileWriter fileWriter = null;
@@ -744,7 +745,8 @@ public class FILEMgr {
     }
 
     /**
-     * Write a new professor information into the file.
+     * Writes a new professor information into the file.
+     * @param professor professor to be added into file
      */
     public static void writeProfIntoFile(Professor professor) {
         File file;
@@ -779,7 +781,6 @@ public class FILEMgr {
 
     /**
      * Load all the professors' information from file into the system.
-     *
      * @return an array list of all the professors.
      */
     public static ArrayList<Professor> loadProfessors() {
@@ -814,7 +815,8 @@ public class FILEMgr {
     }
 
     /**
-     * Write a new course registration record into the file.
+     * Writes a new course registration record into the file.
+     * @param courseRegistration courseRegistration to be added into file
      */
     public static void writeCourseRegistrationIntoFile(CourseRegistration courseRegistration) {
         File file;
@@ -853,7 +855,6 @@ public class FILEMgr {
 
     /**
      * Load all the course registration records from file into the system.
-     *
      * @return an array list of all the course registration records.
      */
     public static ArrayList<CourseRegistration> loadCourseRegistration() {
@@ -906,7 +907,8 @@ public class FILEMgr {
 
 
     /**
-     * Write a new student mark record into the file.
+     * Writes a new student mark record into the file.
+     * @param mark mark to be updated into the file
      */
     public static void updateStudentMarks(Mark mark) {
         File file;
@@ -977,7 +979,6 @@ public class FILEMgr {
 
     /**
      * Load all the student mark records from file into the system.
-     *
      * @return an array list of all the student mark records.
      */
     public static ArrayList<Mark> loadStudentMarks() {
@@ -1088,6 +1089,7 @@ public class FILEMgr {
 
     /**
      * Backs up all the changes of student mark records made into the file.
+     * @param marks marks to be backed up into file
      */
     public static void backUpMarks(ArrayList<Mark> marks) {
         FileWriter fileWriter = null;
