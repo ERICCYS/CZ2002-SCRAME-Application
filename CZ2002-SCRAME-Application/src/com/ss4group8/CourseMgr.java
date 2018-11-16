@@ -412,6 +412,7 @@ public class CourseMgr {
             FILEMgr.writeCourseIntoFile(course);
             SCRAME.courses.add(course);
             System.out.println("Course " + courseID + " is added, but assessment components are not initialized.");
+            printCourses();
             return;
         }
 
@@ -420,6 +421,7 @@ public class CourseMgr {
         FILEMgr.writeCourseIntoFile(course);
         SCRAME.courses.add(course);
         System.out.println("Course " + courseID + " is added");
+        printCourses();
     }
 
     /**
@@ -682,6 +684,15 @@ public class CourseMgr {
             }
         }
         // UPDATE COURSE into course.csv
+    }
 
+
+    public static void printCourses () {
+        System.out.println("Course List: ");
+        System.out.println("| Course ID | Course Name | Professor in Charge |");
+        for (Course course : SCRAME.courses) {
+            System.out.println("| " + course.getCourseID() + " | " + course.getCourseName() + " | " + course.getProfInCharge().getProfName() + " |");
+        }
+        System.out.println();
     }
 }

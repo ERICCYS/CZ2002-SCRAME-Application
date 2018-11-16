@@ -23,7 +23,7 @@ public class StudentMgr {
         System.out.println("2. Let the system self-generate the student ID.");
         do {
             System.out.println("Please input your choice:");
-            if(scanner.hasNextInt()){
+            if (scanner.hasNextInt()) {
                 choice = scanner.nextInt();
                 scanner.nextLine();
                 if (choice < 1 || choice > 2) {
@@ -31,12 +31,12 @@ public class StudentMgr {
                 } else {
                     break;
                 }
-            }else{
+            } else {
                 System.out.println("Your input " + scanner.nextLine() + " is not an integer.");
             }
         } while (true);
         if (choice == 1) {
-            while(true){
+            while (true) {
                 System.out.println("The student ID should follow:");
                 System.out.println("Length is exactly 9");
                 System.out.println("Start with U (Undergraduate)");
@@ -45,20 +45,20 @@ public class StudentMgr {
                 System.out.println();
                 System.out.println("Give this student an ID: ");
                 studentID = scanner.nextLine();
-                if(ValidationMgr.checkValidStudentIDInput(studentID)){
-                    if(ValidationMgr.checkStudentExists(studentID) == null){
+                if (ValidationMgr.checkValidStudentIDInput(studentID)) {
+                    if (ValidationMgr.checkStudentExists(studentID) == null) {
                         break;
                     }
                 }
             }
         }
 
-        while(true){
-        System.out.println("Enter student Name: ");
-        studentName = scanner.nextLine();
-        if(ValidationMgr.checkValidPersonNameInput(studentName)){
-            break;
-        }
+        while (true) {
+            System.out.println("Enter student Name: ");
+            studentName = scanner.nextLine();
+            if (ValidationMgr.checkValidPersonNameInput(studentName)) {
+                break;
+            }
         }
 
         currentStudent = new Student(studentName);
@@ -68,60 +68,58 @@ public class StudentMgr {
 
 
         //student department
-        while(true){
+        while (true) {
             System.out.println("Enter student's school (uppercase): ");
             System.out.println("Enter -h to print all the schools.");
             studentSchool = scanner.nextLine();
-            while("-h".equals(studentSchool)){
+            while ("-h".equals(studentSchool)) {
                 HelpInfoMgr.printAllDepartment();
                 studentSchool = scanner.nextLine();
             }
 
-            if(ValidationMgr.checkDepartmentValidation(studentSchool)){
+            if (ValidationMgr.checkDepartmentValidation(studentSchool)) {
                 currentStudent.setStudentSchool(studentSchool);
                 break;
             }
         }
 
 
-
         //gender
         String studentGender;
-        while(true){
+        while (true) {
             System.out.println("Enter student gender (uppercase): ");
             System.out.println("Enter -h to print all the genders.");
             studentGender = scanner.nextLine();
-            while("-h".equals(studentGender)){
+            while ("-h".equals(studentGender)) {
                 HelpInfoMgr.printAllGender();
                 studentGender = scanner.nextLine();
             }
 
-            if(ValidationMgr.checkGenderValidation(studentGender)){
+            if (ValidationMgr.checkGenderValidation(studentGender)) {
                 currentStudent.setGender(studentGender);
                 break;
             }
         }
 
 
-
         //student year
-        do{
+        do {
             System.out.println("Enter student's school year (1-4) : ");
-            if(scanner.hasNextInt()){
+            if (scanner.hasNextInt()) {
                 studentYear = scanner.nextInt();
                 scanner.nextLine();
-                if(studentYear < 1 || studentYear > 4){
+                if (studentYear < 1 || studentYear > 4) {
                     System.out.println("Your input is out of bound.");
                     System.out.println("Please re-enter an integer between 1 and 4");
-                }else{
+                } else {
                     currentStudent.setStudentYear(studentYear);
                     break;
                 }
-            }else{
+            } else {
                 System.out.println("Your input " + scanner.nextLine() + " is not an integer");
                 System.out.println("Please re-enter.");
             }
-        }while(true);
+        } while (true);
 
 
         FILEMgr.writeStudentsIntoFile(currentStudent);
@@ -129,10 +127,10 @@ public class StudentMgr {
         SCRAME.students.add(currentStudent);
         System.out.println("Student named: " + studentName + " is added, with ID: " + currentStudent.getStudentID());
 
-        System.out.println("Student list: ");
-        System.out.println("Student ID | Student Name | Student School | Gender | Year | GPA");
+        System.out.println("Student List: ");
+        System.out.println("| Student ID | Student Name | Student School | Gender | Year | GPA |");
         for (Student student : SCRAME.students) {
-            if(Double.compare(student.getGPA(),0.0) != 0){
+            if (Double.compare(student.getGPA(), 0.0) != 0) {
                 GPA = String.valueOf(student.getGPA());
             }
             System.out.println(" " + student.getStudentID() + " | " + student.getStudentName() + " | " + student.getStudentSchool() + " | " + student.getGender() + " | " + student.getStudentYear() + " | " + GPA);
