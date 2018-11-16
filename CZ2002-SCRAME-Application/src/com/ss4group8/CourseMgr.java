@@ -136,13 +136,9 @@ public class CourseMgr {
 
         ArrayList<LectureGroup> lectureGroups = new ArrayList<LectureGroup>();
         String lectureGroupName;
-        // GroupName cannot have duplicate inside one course.
         int lectureGroupCapacity;
         seatsLeft = totalSeats;
-        // groupCapacity must be greater than 0;
-        // The above two exceptions, we will create separate Exception classes to deal with them
         for (int i = 0; i < noOfLectureGroups; i++) {
-//            System.out.println("Give a name to a group, the group will be named as: " + courseID + "GROUP_NAME.");
             System.out.println("Give a name to the lecture group");
             do {
                 groupNameExists = false;
@@ -166,7 +162,7 @@ public class CourseMgr {
 
 
             do {
-                System.out.println("Enter this lecture group's  capacity: ");
+                System.out.println("Enter this lecture group's capacity: ");
                 do {
                     if(scanner.hasNextInt()) {
                         lectureGroupCapacity = scanner.nextInt();
@@ -357,13 +353,13 @@ public class CourseMgr {
 
         Professor profInCharge;
         List<String> professorsInDepartment = new ArrayList<String>(0);
-
+        professorsInDepartment = HelpInfoMgr.printProfInDepartment(courseDepartment, false);
          while(true){
             System.out.println("Enter the ID for the professor in charge please:");
             System.out.println("Enter -h to print all the professors in " + courseDepartment + ".");
             profID = scanner.nextLine();
              while("-h".equals(profID)){
-                 professorsInDepartment = HelpInfoMgr.printProfInDepartment(courseDepartment);
+                 professorsInDepartment = HelpInfoMgr.printProfInDepartment(courseDepartment, true);
                  profID = scanner.nextLine();
              }
 
@@ -386,7 +382,7 @@ public class CourseMgr {
         Course course = new Course(courseID, courseName, profInCharge, totalSeats, totalSeats, lectureGroups, tutorialGroups, labGroups, AU, courseDepartment, courseType,lecWeeklyHour, tutWeeklyHour, labWeeklyHour);
 
 
-        System.out.println("Create Course Component and set component weightage now?");
+        System.out.println("Create course components and set component weightage now?");
         System.out.println("1. Yes");
         System.out.println("2. Not yet");
         int addCourseComponentChoice;
@@ -418,13 +414,13 @@ public class CourseMgr {
     public static void checkAvailableSlots() {
         //printout the result directly
         System.out.println("checkAvailableSlots is called");
-        String courseID;
+//        String courseID;
         Course currentCourse;
 
         do {
-            System.out.println("Enter course ID: ");
-            courseID = scanner.nextLine();
-            currentCourse = ValidationMgr.checkCourseExists(courseID);
+//            System.out.println("Enter course ID: ");
+//            courseID = scanner.nextLine();
+            currentCourse = ValidationMgr.checkCourseExists();
             if (currentCourse != null) {
                 System.out.println(currentCourse.getCourseID() + " " + currentCourse.getCourseName() + " (Available/Total): " + currentCourse.getVacancies() + "/" + currentCourse.getTotalSeats());
                 System.out.println("--------------------------------------------");
@@ -477,13 +473,13 @@ public class CourseMgr {
             int  hasFinalExamChoice;
             int examWeight = 0;
             while (true) {
-                System.out.println("Does this course have Final Exam? put your choice");
+                System.out.println("Does this course have a final exam? Enter your choice:");
                 System.out.println("1. Yes! ");
                 System.out.println("2. No, all CAs.");
                 hasFinalExamChoice = scanner.nextInt();
                 scanner.nextLine();
                 if (hasFinalExamChoice == 1) {
-                    System.out.println("Please Enter weight of the exam: ");
+                    System.out.println("Please enter weight of the exam: ");
                     examWeight = scanner.nextInt();
                     scanner.nextLine();
                     while (examWeight > 80 || examWeight <= 0) {
@@ -504,11 +500,11 @@ public class CourseMgr {
             }
 
             do {
-                System.out.println("Enter number of MAIN component(s) to add:");
+                System.out.println("Enter number of main component(s) to add:");
                 while (!scanner.hasNextInt()) {
                     String input = scanner.next();
                     System.out.println("Sorry. " + input + " is not an integer.");
-                    System.out.println("Enter number of MAIN component(s) to add:");
+                    System.out.println("Enter number of main component(s) to add:");
                 }
                 numberOfMain = scanner.nextInt();
                 if (numberOfMain < 0) {

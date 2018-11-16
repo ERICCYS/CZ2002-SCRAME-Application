@@ -7,10 +7,12 @@ import java.util.stream.Collectors;
 public class HelpInfoMgr {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static List<String> printProfInDepartment (String department){
+    public static List<String> printProfInDepartment (String department, boolean printOut){
         if(ValidationMgr.checkDepartmentValidation(department)){
             List<String> validProfString = SCRAME.professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
-            validProfString.forEach(System.out::println);
+            if (printOut) {
+                validProfString.forEach(System.out::println);
+            }
             return validProfString;
         }
         System.out.println("None.");
@@ -20,7 +22,6 @@ public class HelpInfoMgr {
 
     public static void printAllStudents(){
         SCRAME.students.stream().map(s->s.getStudentID()).forEach(System.out::println);
-
     }
 
     public static void printAllCourses(){

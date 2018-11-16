@@ -41,7 +41,7 @@ public class SCRAME {
 
             switch (choice) {
                 case 0:
-                    printOptions();
+//                    printOptions();
                     break;
                 case 1:
                     StudentMgr.addStudent();

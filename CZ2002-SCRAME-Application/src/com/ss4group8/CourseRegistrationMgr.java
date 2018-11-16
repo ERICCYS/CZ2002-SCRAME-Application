@@ -33,6 +33,11 @@ public class CourseRegistrationMgr {
             return;
         }
 
+        if (currentCourse.getVacancies() == 0) {
+            System.out.println("Sorry, the course has no vacancies any more.");
+            return;
+        }
+
         System.out.println("Student " + currentStudent.getStudentName() + " with ID: " + currentStudent.getStudentID() +
                 " wants to register " + currentCourse.getCourseID() + " " + currentCourse.getCourseName());
 
