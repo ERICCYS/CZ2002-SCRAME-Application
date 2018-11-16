@@ -6,14 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3025cd9-c688-4b58-8ea9-c2f6caa09d5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/SCRAME.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/SCRAME.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/courseFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/courseRegistrationFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/courseRegistrationFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/markFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/markFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/professorFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/professorFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UML Class Diagram/SCRAME(Version3).vpp" beforeDir="false" afterPath="$PROJECT_DIR$/../UML Class Diagram/SCRAME(Version3).vpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,20 +105,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
+      <file leaf-file-name="HelpInfoMgr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="365" column="71" lean-forward="true" selection-start-line="365" selection-start-column="71" selection-end-line="365" selection-end-column="71" />
+            <state relative-caret-position="224">
+              <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="LabGroup.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/LabGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MarkMgr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="125" column="31" lean-forward="true" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainComponent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MainComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfessorMgr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ProfessorMgr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="586">
+              <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="courseRegistrationFile.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/courseRegistrationFile.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseRegistrationMgr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="43" />
+            <state relative-caret-position="2709">
+              <caret line="147" column="21" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,752 +174,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/professorFile.csv">
-          <provider selected="true" editor-type-id="csv-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="uml://JAVA/com.ss4group8">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>com.ss4group8</OriginalElement>
-              <nodes>
-                <node x="1024.7853949396556" y="1622.0">com.ss4group8.Enum</node>
-                <node x="838.9004743047349" y="1721.0">com.ss4group8.HelpInfoMgr</node>
-                <node x="132.42839269316494" y="208.0">com.ss4group8.Professor</node>
-                <node x="1162.6907520825127" y="1354.0">com.ss4group8.CourseMgr</node>
-                <node x="482.8820219237826" y="357.0">com.ss4group8.Student</node>
-                <node x="570.1409504952112" y="656.0">com.ss4group8.Mark</node>
-                <node x="1532.505216532205" y="208.0">com.ss4group8.LectureGroup</node>
-                <node x="783.4925669027931" y="1115.0">com.ss4group8.FILEMgr</node>
-                <node x="986.9129743047349" y="208.0">com.ss4group8.MainComponent</node>
-                <node x="1126.7272022169745" y="357.0">com.ss4group8.Course</node>
-                <node x="1249.505216532205" y="208.0">com.ss4group8.LabGroup</node>
-                <node x="119.3690476190477" y="1354.0">com.ss4group8.StudentMgr</node>
-                <node x="1737.880216532205" y="0.0">com.ss4group8..idea</node>
-                <node x="415.4165457333064" y="1622.0">com.ss4group8.SCRAME</node>
-                <node x="87.36803382854464" y="1800.0">com.ss4group8.ProfessorMgr</node>
-                <node x="671.3940476190478" y="0.0">com.ss4group8.CourseworkComponent</node>
-                <node x="755.6440476190478" y="99.0">com.ss4group8.SubComponent</node>
-                <node x="1378.505216532205" y="208.0">com.ss4group8.TutorialGroup</node>
-                <node x="427.1071428571429" y="1354.0">com.ss4group8.MarkMgr</node>
-                <node x="722.0099981142587" y="656.0">com.ss4group8.CourseRegistration</node>
-                <node x="1526.1333333333334" y="99.0">com.ss4group8.Group</node>
-                <node x="690.1175669027931" y="1453.0">com.ss4group8.CourseRegistrationMgr</node>
-                <node x="268.29761904761915" y="1115.0">com.ss4group8.ValidationMgr</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.Course">
-                  <point x="45.333333333333314" y="-14.5" />
-                  <point x="523.4404761904761" y="1334.0" />
-                  <point x="1139.0478949396556" y="1334.0" />
-                  <point x="1139.0478949396556" y="616.0" />
-                  <point x="1176.0129165026888" y="616.0" />
-                  <point x="3.2857142857143344" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Mark">
-                  <point x="-27.714285714285666" y="-14.5" />
-                  <point x="804.2782811885074" y="745.0" />
-                  <point x="628.6409504952112" y="745.0" />
-                  <point x="19.5" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Student" target="com.ss4group8.SCRAME">
-                  <point x="-38.10714285714283" y="14.5" />
-                  <point x="493.27487906663976" y="456.0" />
-                  <point x="332.56356954283024" y="456.0" />
-                  <point x="332.56356954283024" y="805.0" />
-                  <point x="95.60636888364115" y="805.0" />
-                  <point x="95.60636888364115" y="1572.0" />
-                  <point x="432.24987906663966" y="1572.0" />
-                  <point x="-33.66666666666674" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Professor">
-                  <point x="-43.285714285714334" y="-14.5" />
-                  <point x="422.6308314475921" y="1592.0" />
-                  <point x="60.950000000000045" y="1592.0" />
-                  <point x="60.950000000000045" y="436.0" />
-                  <point x="121.08601928374526" y="436.0" />
-                  <point x="121.08601928374526" y="337.0" />
-                  <point x="170.228392693165" y="337.0" />
-                  <point x="-16.199999999999932" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Mark">
-                  <point x="-9.619047619047592" y="-14.5" />
-                  <point x="456.2974981142588" y="1522.0" />
-                  <point x="411.79761904761915" y="1522.0" />
-                  <point x="411.79761904761915" y="885.0" />
-                  <point x="576.6409504952112" y="885.0" />
-                  <point x="-32.5" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Mark" target="com.ss4group8.Course">
-                  <point x="24.375" y="-14.5" />
-                  <point x="633.5159504952112" y="556.0" />
-                  <point x="1136.5843450741174" y="556.0" />
-                  <point x="-36.14285714285711" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.Group">
-                  <point x="83.125" y="-14.5" />
-                  <point x="868.2425669027931" y="1433.0" />
-                  <point x="1676.005216532205" y="1433.0" />
-                  <point x="1676.005216532205" y="178.0" />
-                  <point x="1596.8208333333337" y="178.0" />
-                  <point x="27.187500000000114" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Course" target="com.ss4group8.MainComponent">
-                  <point x="-28.307692307692264" y="-14.5" />
-                  <point x="1144.4195099092822" y="277.0" />
-                  <point x="1094.524085415846" y="277.0" />
-                  <point x="33.111111111111086" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.FILEMgr">
-                  <point x="35.625" y="-14.5" />
-                  <point x="820.7425669027931" y="1433.0" />
-                  <point x="831.9925669027931" y="1433.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Course" target="com.ss4group8.LabGroup">
-                  <point x="0.0" y="-14.5" />
-                  <point x="1172.7272022169745" y="277.0" />
-                  <point x="1272.862359389348" y="277.0" />
-                  <point x="-31.14285714285711" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.LabGroup" target="com.ss4group8.Group">
-                  <point x="27.25" y="-14.5" />
-                  <point x="1331.255216532205" y="158.0" />
-                  <point x="1542.4458333333334" y="158.0" />
-                  <point x="-27.1875" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.LectureGroup">
-                  <point x="46.19047619047615" y="-14.5" />
-                  <point x="878.1830430932692" y="1095.0" />
-                  <point x="1622.8885498655384" y="1095.0" />
-                  <point x="1622.8885498655384" y="327.0" />
-                  <point x="1610.0885498655384" y="327.0" />
-                  <point x="11.083333333333258" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.MainComponent">
-                  <point x="-7.7333333333333485" y="-14.5" />
-                  <point x="1212.9574187491794" y="1164.0" />
-                  <point x="1066.3891647809255" y="1164.0" />
-                  <point x="1066.3891647809255" y="337.0" />
-                  <point x="1077.9685298602906" y="337.0" />
-                  <point x="16.555555555555543" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.LabGroup">
-                  <point x="23.200000000000045" y="-14.5" />
-                  <point x="1243.8907520825128" y="1294.0" />
-                  <point x="1382.508154597927" y="1294.0" />
-                  <point x="1382.508154597927" y="257.0" />
-                  <point x="1350.7195022464907" y="257.0" />
-                  <point x="46.71428571428578" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.Course">
-                  <point x="7.7333333333333485" y="-14.5" />
-                  <point x="1228.424085415846" y="1274.0" />
-                  <point x="1255.521704463465" y="1274.0" />
-                  <point x="1255.521704463465" y="626.0" />
-                  <point x="1202.298630788403" y="626.0" />
-                  <point x="29.571428571428555" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.TutorialGroup" target="com.ss4group8.Group">
-                  <point x="-33.5" y="-14.5" />
-                  <point x="1412.005216532205" y="168.0" />
-                  <point x="1553.3208333333334" y="168.0" />
-                  <point x="-16.3125" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Mark" target="com.ss4group8.CourseworkComponent">
-                  <point x="-4.875" y="-14.5" />
-                  <point x="604.2659504952112" y="69.0" />
-                  <point x="732.0190476190478" y="69.0" />
-                  <point x="-36.375" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Mark" target="com.ss4group8.SubComponent">
-                  <point x="4.875" y="-14.5" />
-                  <point x="614.0159504952112" y="516.0" />
-                  <point x="684.8909504952112" y="516.0" />
-                  <point x="684.8909504952112" y="158.0" />
-                  <point x="764.6440476190478" y="158.0" />
-                  <point x="-63.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.CourseRegistration">
-                  <point x="49.875" y="-14.5" />
-                  <point x="384.67261904761915" y="935.0" />
-                  <point x="733.8671409714016" y="935.0" />
-                  <point x="-71.14285714285711" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.CourseRegistrationMgr">
-                  <point x="19.238095238095184" y="-14.5" />
-                  <point x="485.1546409714016" y="1542.0" />
-                  <point x="721.7842335694598" y="1542.0" />
-                  <point x="-63.33333333333326" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ProfessorMgr" target="com.ss4group8.Professor">
-                  <point x="-49.5" y="-14.5" />
-                  <point x="103.86803382854464" y="1780.0" />
-                  <point x="26.0" y="1780.0" />
-                  <point x="26.0" y="307.0" />
-                  <point x="137.82839269316491" y="307.0" />
-                  <point x="-48.60000000000002" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.HelpInfoMgr">
-                  <point x="-40.33333333333337" y="14.5" />
-                  <point x="139.53571428571433" y="1433.0" />
-                  <point x="166.29452192378267" y="1433.0" />
-                  <point x="166.29452192378267" y="1701.0" />
-                  <point x="845.7893631936238" y="1701.0" />
-                  <point x="-55.111111111111086" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.SCRAME">
-                  <point x="0.0" y="14.5" />
-                  <point x="179.8690476190477" y="1423.0" />
-                  <point x="177.29452192378267" y="1423.0" />
-                  <point x="177.29452192378267" y="1552.0" />
-                  <point x="441.86892668568737" y="1552.0" />
-                  <point x="-24.047619047619037" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.SubComponent">
-                  <point x="-13.85714285714289" y="-14.5" />
-                  <point x="818.1354240456502" y="715.0" />
-                  <point x="706.8909504952112" y="715.0" />
-                  <point x="706.8909504952112" y="178.0" />
-                  <point x="800.6440476190478" y="178.0" />
-                  <point x="-27.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.Enum">
-                  <point x="13.777777777777828" y="-14.5" />
-                  <point x="914.6782520825127" y="1671.0" />
-                  <point x="1085.7853949396556" y="1671.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.MarkMgr">
-                  <point x="4.809523809523853" y="-14.5" />
-                  <point x="470.72606954283026" y="1512.0" />
-                  <point x="478.1071428571429" y="1512.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.ValidationMgr">
-                  <point x="-54.13333333333344" y="-14.5" />
-                  <point x="1166.5574187491793" y="1224.0" />
-                  <point x="392.98511904761915" y="1224.0" />
-                  <point x="58.1875" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.LabGroup">
-                  <point x="27.714285714285666" y="-14.5" />
-                  <point x="859.7068526170788" y="1055.0" />
-                  <point x="1363.7748212645934" y="1055.0" />
-                  <point x="1363.7748212645934" y="277.0" />
-                  <point x="1319.5766451036336" y="277.0" />
-                  <point x="15.571428571428555" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistration" target="com.ss4group8.Student">
-                  <point x="-62.25" y="-14.5" />
-                  <point x="742.7599981142587" y="506.0" />
-                  <point x="569.4891647809254" y="506.0" />
-                  <point x="38.10714285714286" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.FILEMgr">
-                  <point x="22.666666666666686" y="-14.5" />
-                  <point x="500.7738095238096" y="1314.0" />
-                  <point x="812.5925669027931" y="1314.0" />
-                  <point x="-19.399999999999977" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.TutorialGroup">
-                  <point x="32.33333333333337" y="-14.5" />
-                  <point x="864.3259002361265" y="1065.0" />
-                  <point x="1462.5433117703003" y="1065.0" />
-                  <point x="1462.5433117703003" y="317.0" />
-                  <point x="1445.505216532205" y="317.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.CourseRegistration">
-                  <point x="0.0" y="-14.5" />
-                  <point x="831.9925669027931" y="995.0" />
-                  <point x="876.1528552571158" y="995.0" />
-                  <point x="71.14285714285711" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.Professor">
-                  <point x="-46.40000000000009" y="-14.5" />
-                  <point x="1174.2907520825127" y="1214.0" />
-                  <point x="550.607142857143" y="1214.0" />
-                  <point x="550.607142857143" y="795.0" />
-                  <point x="310.7635695428303" y="795.0" />
-                  <point x="310.7635695428303" y="337.0" />
-                  <point x="191.82839269316491" y="337.0" />
-                  <point x="5.399999999999977" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.Student">
-                  <point x="-34.0" y="-14.5" />
-                  <point x="444.1071428571429" y="1264.0" />
-                  <point x="257.79761904761904" y="1264.0" />
-                  <point x="257.79761904761904" y="855.0" />
-                  <point x="427.7302362094969" y="855.0" />
-                  <point x="427.7302362094969" y="506.0" />
-                  <point x="527.9177362094969" y="506.0" />
-                  <point x="-3.4642857142857224" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.MainComponent">
-                  <point x="9.238095238095184" y="-14.5" />
-                  <point x="841.2306621408883" y="1015.0" />
-                  <point x="1020.0565672963396" y="1015.0" />
-                  <point x="1020.0565672963396" y="307.0" />
-                  <point x="1028.3018631936238" y="307.0" />
-                  <point x="-33.111111111111086" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.FILEMgr">
-                  <point x="-38.66666666666674" y="-14.5" />
-                  <point x="1182.024085415846" y="1204.0" />
-                  <point x="870.7925669027932" y="1204.0" />
-                  <point x="38.80000000000007" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.CourseworkComponent">
-                  <point x="-18.47619047619048" y="-14.5" />
-                  <point x="813.5163764266026" y="725.0" />
-                  <point x="669.6409504952112" y="725.0" />
-                  <point x="669.6409504952112" y="79.0" />
-                  <point x="756.2690476190478" y="79.0" />
-                  <point x="-12.125" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Course" target="com.ss4group8.Professor">
-                  <point x="-42.46153846153845" y="-14.5" />
-                  <point x="1130.265663755436" y="297.0" />
-                  <point x="224.2283926931649" y="297.0" />
-                  <point x="37.799999999999955" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.CourseRegistration">
-                  <point x="11.875" y="-14.5" />
-                  <point x="796.9925669027931" y="1423.0" />
-                  <point x="772.9925669027931" y="1423.0" />
-                  <point x="772.9925669027931" y="975.0" />
-                  <point x="828.7242838285445" y="975.0" />
-                  <point x="23.71428571428578" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.Group">
-                  <point x="55.111111111111086" y="-14.5" />
-                  <point x="956.011585415846" y="1701.0" />
-                  <point x="1686.880216532205" y="1701.0" />
-                  <point x="1686.880216532205" y="168.0" />
-                  <point x="1607.6958333333337" y="168.0" />
-                  <point x="38.062500000000114" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.ValidationMgr">
-                  <point x="-22.666666666666686" y="-14.5" />
-                  <point x="455.4404761904762" y="1254.0" />
-                  <point x="376.36011904761915" y="1254.0" />
-                  <point x="41.5625" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.Student">
-                  <point x="-45.375" y="-14.5" />
-                  <point x="134.4940476190477" y="1334.0" />
-                  <point x="132.99267840745074" y="1334.0" />
-                  <point x="132.99267840745074" y="825.0" />
-                  <point x="355.42803399252244" y="825.0" />
-                  <point x="355.42803399252244" y="476.0" />
-                  <point x="507.1320219237826" y="476.0" />
-                  <point x="-24.25" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.LectureGroup">
-                  <point x="46.40000000000009" y="-14.5" />
-                  <point x="1267.0907520825128" y="1324.0" />
-                  <point x="1643.4850899416244" y="1324.0" />
-                  <point x="1643.4850899416244" y="337.0" />
-                  <point x="1632.255216532205" y="337.0" />
-                  <point x="33.25" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Course" target="com.ss4group8.LectureGroup">
-                  <point x="35.38461538461536" y="-14.5" />
-                  <point x="1208.1118176015898" y="327.0" />
-                  <point x="1543.5885498655384" y="327.0" />
-                  <point x="-55.41666666666663" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Course">
-                  <point x="18.47619047619048" y="-14.5" />
-                  <point x="850.4687573789836" y="1035.0" />
-                  <point x="1132.4764663682272" y="1035.0" />
-                  <point x="1132.4764663682272" y="606.0" />
-                  <point x="1169.4414879312603" y="606.0" />
-                  <point x="-3.2857142857142208" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.SubComponent">
-                  <point x="-23.200000000000045" y="-14.5" />
-                  <point x="1197.4907520825127" y="1184.0" />
-                  <point x="976.4129743047349" y="1184.0" />
-                  <point x="976.4129743047349" y="178.0" />
-                  <point x="854.6440476190478" y="178.0" />
-                  <point x="27.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.SCRAME">
-                  <point x="8.3125" y="14.5" />
-                  <point x="343.11011904761915" y="1294.0" />
-                  <point x="357.4926784074506" y="1294.0" />
-                  <point x="357.4926784074506" y="1532.0" />
-                  <point x="451.48797430473496" y="1532.0" />
-                  <point x="-14.428571428571445" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.ProfessorMgr" target="com.ss4group8.HelpInfoMgr">
-                  <point x="49.5" y="-14.5" />
-                  <point x="202.86803382854464" y="1780.0" />
-                  <point x="900.9004743047349" y="1780.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.Mark">
-                  <point x="0.0" y="-14.5" />
-                  <point x="478.1071428571429" y="1234.0" />
-                  <point x="462.1071428571429" y="1234.0" />
-                  <point x="462.1071428571429" y="915.0" />
-                  <point x="615.6409504952112" y="915.0" />
-                  <point x="6.5" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Mark" target="com.ss4group8.MainComponent">
-                  <point x="14.625" y="-14.5" />
-                  <point x="623.7659504952112" y="536.0" />
-                  <point x="1004.437519677292" y="536.0" />
-                  <point x="1004.437519677292" y="337.0" />
-                  <point x="995.1907520825127" y="337.0" />
-                  <point x="-66.22222222222217" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Course">
-                  <point x="33.66666666666663" y="-14.5" />
-                  <point x="499.58321239997304" y="1572.0" />
-                  <point x="1152.1907520825127" y="1572.0" />
-                  <point x="1152.1907520825127" y="636.0" />
-                  <point x="1189.155773645546" y="636.0" />
-                  <point x="16.428571428571445" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.StudentMgr">
-                  <point x="-19.238095238095298" y="-14.5" />
-                  <point x="446.6784504952111" y="1542.0" />
-                  <point x="182.1040457333064" y="1542.0" />
-                  <point x="182.1040457333064" y="1433.0" />
-                  <point x="220.20238095238108" y="1433.0" />
-                  <point x="40.33333333333337" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SubComponent" target="com.ss4group8.CourseworkComponent">
-                  <point x="-36.0" y="-14.5" />
-                  <point x="791.6440476190478" y="79.0" />
-                  <point x="780.5190476190478" y="79.0" />
-                  <point x="12.125" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ProfessorMgr" target="com.ss4group8.ValidationMgr">
-                  <point x="16.5" y="-14.5" />
-                  <point x="169.86803382854464" y="1770.0" />
-                  <point x="298.8153552571161" y="1770.0" />
-                  <point x="298.8153552571161" y="1294.0" />
-                  <point x="293.23511904761915" y="1294.0" />
-                  <point x="-41.5625" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.HelpInfoMgr">
-                  <point x="-8.3125" y="14.5" />
-                  <point x="326.48511904761915" y="1294.0" />
-                  <point x="328.7069641217364" y="1294.0" />
-                  <point x="328.7069641217364" y="1681.0" />
-                  <point x="873.3449187491792" y="1681.0" />
-                  <point x="-27.555555555555657" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.CourseworkComponent">
-                  <point x="-45.33333333333337" y="-14.5" />
-                  <point x="432.7738095238095" y="1274.0" />
-                  <point x="76.7595238095239" y="1274.0" />
-                  <point x="76.7595238095239" y="406.0" />
-                  <point x="52.709523809523944" y="406.0" />
-                  <point x="52.709523809523944" y="49.0" />
-                  <point x="683.5190476190478" y="49.0" />
-                  <point x="-84.875" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.SubComponent">
-                  <point x="11.333333333333314" y="-14.5" />
-                  <point x="489.4404761904762" y="1294.0" />
-                  <point x="495.5072006591892" y="1294.0" />
-                  <point x="495.5072006591892" y="925.0" />
-                  <point x="658.6409504952112" y="925.0" />
-                  <point x="658.6409504952112" y="526.0" />
-                  <point x="695.8909504952112" y="526.0" />
-                  <point x="695.8909504952112" y="168.0" />
-                  <point x="782.6440476190478" y="168.0" />
-                  <point x="-45.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistration" target="com.ss4group8.Course">
-                  <point x="20.75" y="-14.5" />
-                  <point x="825.7599981142587" y="576.0" />
-                  <point x="1149.7272022169745" y="576.0" />
-                  <point x="-23.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.Professor">
-                  <point x="-49.875" y="-14.5" />
-                  <point x="284.92261904761915" y="795.0" />
-                  <point x="186.03791650268863" y="795.0" />
-                  <point x="186.03791650268863" y="337.0" />
-                  <point x="181.02839269316496" y="337.0" />
-                  <point x="-5.399999999999977" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.Student">
-                  <point x="-83.125" y="-14.5" />
-                  <point x="701.9925669027931" y="1423.0" />
-                  <point x="250.8690476190477" y="1423.0" />
-                  <point x="250.8690476190477" y="845.0" />
-                  <point x="420.8016647809254" y="845.0" />
-                  <point x="420.8016647809254" y="496.0" />
-                  <point x="520.9891647809254" y="496.0" />
-                  <point x="-10.392857142857167" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MainComponent" target="com.ss4group8.SubComponent">
-                  <point x="-18.625" y="-14.5" />
-                  <point x="1042.787974304735" y="158.0" />
-                  <point x="890.6440476190478" y="158.0" />
-                  <point x="63.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.MainComponent">
-                  <point x="34.0" y="-14.5" />
-                  <point x="512.1071428571429" y="1324.0" />
-                  <point x="1031.0565672963396" y="1324.0" />
-                  <point x="1031.0565672963396" y="317.0" />
-                  <point x="1044.8574187491795" y="317.0" />
-                  <point x="-16.555555555555543" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.HelpInfoMgr">
-                  <point x="63.33333333333326" y="14.5" />
-                  <point x="848.4509002361264" y="1552.0" />
-                  <point x="900.9004743047349" y="1552.0" />
-                  <point x="0.0" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.SCRAME">
-                  <point x="0.0" y="14.5" />
-                  <point x="785.1175669027931" y="1552.0" />
-                  <point x="489.96416478092544" y="1552.0" />
-                  <point x="24.047619047619037" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.Student">
-                  <point x="-16.625" y="-14.5" />
-                  <point x="318.17261904761915" y="865.0" />
-                  <point x="461.3820219237826" y="865.0" />
-                  <point x="461.3820219237826" y="516.0" />
-                  <point x="534.8463076380683" y="516.0" />
-                  <point x="3.4642857142857224" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.SCRAME">
-                  <point x="-38.66666666666674" y="14.5" />
-                  <point x="1182.024085415846" y="1423.0" />
-                  <point x="1196.9136613701958" y="1423.0" />
-                  <point x="1196.9136613701958" y="1582.0" />
-                  <point x="504.3927362094969" y="1582.0" />
-                  <point x="38.47619047619048" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.Course">
-                  <point x="41.33333333333326" y="-14.5" />
-                  <point x="942.2338076380681" y="1691.0" />
-                  <point x="1329.7854240456502" y="1691.0" />
-                  <point x="1329.7854240456502" y="606.0" />
-                  <point x="1215.4414879312603" y="606.0" />
-                  <point x="42.714285714285666" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Student">
-                  <point x="-36.95238095238096" y="-14.5" />
-                  <point x="795.0401859504121" y="765.0" />
-                  <point x="522.9045831693554" y="765.0" />
-                  <point x="522.9045831693554" y="526.0" />
-                  <point x="541.7748790666398" y="526.0" />
-                  <point x="10.392857142857139" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.CourseRegistration">
-                  <point x="14.428571428571445" y="-14.5" />
-                  <point x="480.34511716187785" y="1532.0" />
-                  <point x="679.6175669027931" y="1532.0" />
-                  <point x="679.6175669027931" y="955.0" />
-                  <point x="781.2957123999729" y="955.0" />
-                  <point x="-23.71428571428578" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.FILEMgr">
-                  <point x="28.85714285714289" y="-14.5" />
-                  <point x="494.7736885904493" y="1562.0" />
-                  <point x="943.0671409714016" y="1562.0" />
-                  <point x="943.0671409714016" y="1314.0" />
-                  <point x="851.3925669027931" y="1314.0" />
-                  <point x="19.399999999999977" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Student">
-                  <point x="-38.47619047619048" y="-14.5" />
-                  <point x="427.4403552571159" y="1582.0" />
-                  <point x="65.7595238095239" y="1582.0" />
-                  <point x="65.7595238095239" y="446.0" />
-                  <point x="486.3463076380683" y="446.0" />
-                  <point x="-45.03571428571428" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.SCRAME">
-                  <point x="-13.777777777777828" y="-14.5" />
-                  <point x="887.122696526957" y="1671.0" />
-                  <point x="465.9165457333064" y="1671.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.LectureGroup" target="com.ss4group8.Group">
-                  <point x="33.25" y="-14.5" />
-                  <point x="1632.255216532205" y="188.0" />
-                  <point x="1585.9458333333334" y="188.0" />
-                  <point x="16.3125" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.TutorialGroup">
-                  <point x="30.933333333333394" y="-14.5" />
-                  <point x="1251.6240854158461" y="1304.0" />
-                  <point x="1496.5327089892435" y="1304.0" />
-                  <point x="1496.5327089892435" y="297.0" />
-                  <point x="1483.7909308179192" y="297.0" />
-                  <point x="38.28571428571422" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Professor">
-                  <point x="-46.19047619047626" y="-14.5" />
-                  <point x="785.8020907123168" y="785.0" />
-                  <point x="321.56356954283024" y="785.0" />
-                  <point x="321.56356954283024" y="327.0" />
-                  <point x="202.62839269316487" y="327.0" />
-                  <point x="16.199999999999932" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.ValidationMgr">
-                  <point x="-41.33333333333326" y="-14.5" />
-                  <point x="859.5671409714016" y="1691.0" />
-                  <point x="309.8153552571161" y="1691.0" />
-                  <point x="-24.9375" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.ValidationMgr">
-                  <point x="15.125" y="-14.5" />
-                  <point x="194.9940476190477" y="1294.0" />
-                  <point x="276.61011904761915" y="1294.0" />
-                  <point x="-58.1875" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Mark" target="com.ss4group8.Student">
-                  <point x="-34.125" y="-14.5" />
-                  <point x="575.0159504952112" y="536.0" />
-                  <point x="555.6320219237825" y="536.0" />
-                  <point x="24.25" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.Course" target="com.ss4group8.TutorialGroup">
-                  <point x="28.307692307692264" y="-14.5" />
-                  <point x="1201.034894524667" y="317.0" />
-                  <point x="1426.362359389348" y="317.0" />
-                  <point x="-19.14285714285711" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.MarkMgr">
-                  <point x="-35.625" y="-14.5" />
-                  <point x="749.4925669027931" y="1403.0" />
-                  <point x="512.1071428571429" y="1403.0" />
-                  <point x="34.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.HelpInfoMgr">
-                  <point x="38.66666666666674" y="14.5" />
-                  <point x="1259.3574187491795" y="1423.0" />
-                  <point x="1318.7854240456502" y="1423.0" />
-                  <point x="1318.7854240456502" y="1681.0" />
-                  <point x="928.4560298602905" y="1681.0" />
-                  <point x="27.555555555555657" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.Course">
-                  <point x="59.375" y="-14.5" />
-                  <point x="844.4925669027931" y="1423.0" />
-                  <point x="1145.619323511084" y="1423.0" />
-                  <point x="1145.619323511084" y="626.0" />
-                  <point x="1182.5843450741174" y="626.0" />
-                  <point x="9.85714285714289" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.SCRAME">
-                  <point x="-34.0" y="14.5" />
-                  <point x="444.1071428571429" y="1433.0" />
-                  <point x="459.7810101829987" y="1433.0" />
-                  <point x="459.7810101829987" y="1502.0" />
-                  <point x="465.9165457333064" y="1502.0" />
-                  <point x="0.0" y="-14.5" />
-                </edge>
-                <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.ValidationMgr">
-                  <point x="-59.375" y="-14.5" />
-                  <point x="725.7425669027931" y="1413.0" />
-                  <point x="368.4926784074506" y="1413.0" />
-                  <point x="368.4926784074506" y="1284.0" />
-                  <point x="359.73511904761915" y="1284.0" />
-                  <point x="24.9375" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.MainComponent" target="com.ss4group8.CourseworkComponent">
-                  <point x="18.625" y="-14.5" />
-                  <point x="1080.037974304735" y="69.0" />
-                  <point x="829.0190476190478" y="69.0" />
-                  <point x="60.625" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.Course">
-                  <point x="16.625" y="-14.5" />
-                  <point x="351.42261904761915" y="875.0" />
-                  <point x="533.9045831693554" y="875.0" />
-                  <point x="533.9045831693554" y="546.0" />
-                  <point x="1130.0129165026888" y="546.0" />
-                  <point x="-42.714285714285666" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.SCRAME" target="com.ss4group8.CourseMgr">
-                  <point x="43.285714285714334" y="-14.5" />
-                  <point x="509.20226001902074" y="1592.0" />
-                  <point x="1203.7621806539412" y="1592.0" />
-                  <point x="1203.7621806539412" y="1423.0" />
-                  <point x="1220.6907520825127" y="1423.0" />
-                  <point x="0.0" y="14.5" />
-                </edge>
-                <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.FILEMgr">
-                  <point x="45.375" y="-14.5" />
-                  <point x="225.2440476190477" y="1304.0" />
-                  <point x="793.1925669027931" y="1304.0" />
-                  <point x="-38.799999999999955" y="14.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.41092528079169255" x="57.9353048089954" y="480.0477848858891" />
-              <SelectedNodes>
-                <node>com.ss4group8.SCRAME</node>
-              </SelectedNodes>
-              <Categories />
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="ValidationMgr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="143" column="21" lean-forward="true" selection-start-line="143" selection-start-column="21" selection-end-line="143" selection-end-column="21" />
+            <state relative-caret-position="-1651">
+              <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2763#2771#0" expanded="true" />
-                <element signature="e#3266#3274#0" expanded="true" />
-                <element signature="e#3785#3793#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
+      <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Professor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state relative-caret-position="240">
+              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SCRAME.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
               <folding>
-                <element signature="e#22878#22892#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="14" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -907,24 +241,26 @@
         <option value="$PROJECT_DIR$/src/com/ss4group8/ProfessorMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Student.java" />
-        <option value="$PROJECT_DIR$/data/professorFile.csv" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Professor.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Enum/Department.java" />
-        <option value="$PROJECT_DIR$/data/professorFile.csv" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java" />
-        <option value="$PROJECT_DIR$/data/courseFile.csv" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/SCRAME.java" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" />
-        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" />
         <option value="$PROJECT_DIR$/data/studentFile.csv" />
         <option value="$PROJECT_DIR$/data/studentFile.csv" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/Course.java" />
         <option value="$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java" />
+        <option value="$PROJECT_DIR$/data/professorFile.csv" />
+        <option value="$PROJECT_DIR$/data/professorFile.csv" />
+        <option value="$PROJECT_DIR$/data/markFile.csv" />
+        <option value="$PROJECT_DIR$/data/courseFile.csv" />
+        <option value="$PROJECT_DIR$/data/courseRegistrationFile.csv" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" />
+        <option value="$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java" />
       </list>
     </option>
   </component>
@@ -943,6 +279,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -967,20 +304,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ss4group8" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CZ2002-SCRAME-Application" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CZ2002-SCRAME-Application" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ss4group8" type="462c0819:PsiDirectoryNode" />
-              <item name="Enum" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1013,9 +341,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -1044,65 +369,56 @@
     <option name="totallyTimeSpent" value="27126000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.722449" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32959184" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.32959184" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="8" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32941177" />
-      <window_info anchor="right" id="Ant Build" order="0" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-    </layout>
-    <layout-to-restore>
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2132653" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Learn" order="7" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32959184" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" weight="0.32959184" />
-      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32941177" />
-      <window_info anchor="right" id="Ant Build" order="0" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32941177" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="1.0" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.32959184" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25260416" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="0" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="6" side_tool="true" />
-    </layout-to-restore>
+      <window_info anchor="right" id="Palette" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="11" />
+      <window_info id="Designer" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="10" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="17" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.722449" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info id="Learn" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
+      <window_info anchor="right" id="Palette&#9;" order="12" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="16" weight="0.32941177" />
+      <window_info anchor="right" id="Maven Projects" order="13" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1111,14 +427,141 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Exception/StudentNameNotValidException.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Professor.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Course.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="1089">
+          <caret line="210" column="73" selection-start-line="210" selection-start-column="73" selection-end-line="210" selection-end-column="73" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseworkComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Mark.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="343" column="16" lean-forward="true" selection-start-line="343" selection-start-column="16" selection-end-line="343" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SubComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1157">
+          <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4620">
+          <caret line="35" column="69" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/TutorialGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="92" column="33" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
+          <folding>
+            <element signature="e#2674#2675#0" expanded="true" />
+            <element signature="e#2717#2718#0" expanded="true" />
+            <element signature="e#2862#2863#0" expanded="true" />
+            <element signature="e#2904#2905#0" expanded="true" />
+            <element signature="e#3068#3069#0" expanded="true" />
+            <element signature="e#3118#3119#0" expanded="true" />
+            <element signature="e#3261#3262#0" expanded="true" />
+            <element signature="e#3297#3298#0" expanded="true" />
+            <element signature="e#3425#3426#0" expanded="true" />
+            <element signature="e#3455#3456#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4620">
+          <caret line="35" column="69" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2017">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/markFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/professorFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="15" lean-forward="true" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5243">
+          <caret line="654" column="42" selection-start-line="654" selection-start-column="42" selection-end-line="654" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Exception/StudentNameNotValidException.java" />
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/FILEMgr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1130,13 +573,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="77" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1175,48 +611,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ProfessorMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="125" column="31" lean-forward="true" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
       <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="9" selection-start-line="13" selection-end-line="13" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/markFile.csv">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Course.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1234,752 +635,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="uml://JAVA/">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement />
-          <nodes>
-            <node x="" y="">com</node>
-            <node x="" y="">netscape</node>
-            <node x="" y="">oracle</node>
-            <node x="" y="">org</node>
-            <node x="" y="">resources</node>
-            <node x="" y="">toolbarButtonGraphics</node>
-            <node x="" y="">sun</node>
-            <node x="" y="">META-INF</node>
-            <node x="" y="">jdk</node>
-            <node x="" y="">apple</node>
-            <node x="" y="">groovyjarjarasm</node>
-            <node x="" y="">java</node>
-            <node x="" y="">groovy</node>
-            <node x="" y="">javax</node>
-            <node x="" y="">groovyjarjarcommonscli</node>
-            <node x="" y="">javafx</node>
-            <node x="" y="">groovyjarjarantlr</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.5775126704523078" x="617.3382769894652" y="202.22783790470885" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/com.ss4group8">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>com.ss4group8</OriginalElement>
-          <nodes>
-            <node x="1024.7853949396556" y="1622.0">com.ss4group8.Enum</node>
-            <node x="838.9004743047349" y="1721.0">com.ss4group8.HelpInfoMgr</node>
-            <node x="132.42839269316494" y="208.0">com.ss4group8.Professor</node>
-            <node x="1162.6907520825127" y="1354.0">com.ss4group8.CourseMgr</node>
-            <node x="482.8820219237826" y="357.0">com.ss4group8.Student</node>
-            <node x="570.1409504952112" y="656.0">com.ss4group8.Mark</node>
-            <node x="1532.505216532205" y="208.0">com.ss4group8.LectureGroup</node>
-            <node x="783.4925669027931" y="1115.0">com.ss4group8.FILEMgr</node>
-            <node x="986.9129743047349" y="208.0">com.ss4group8.MainComponent</node>
-            <node x="1126.7272022169745" y="357.0">com.ss4group8.Course</node>
-            <node x="1249.505216532205" y="208.0">com.ss4group8.LabGroup</node>
-            <node x="119.3690476190477" y="1354.0">com.ss4group8.StudentMgr</node>
-            <node x="1737.880216532205" y="0.0">com.ss4group8..idea</node>
-            <node x="415.4165457333064" y="1622.0">com.ss4group8.SCRAME</node>
-            <node x="87.36803382854464" y="1800.0">com.ss4group8.ProfessorMgr</node>
-            <node x="671.3940476190478" y="0.0">com.ss4group8.CourseworkComponent</node>
-            <node x="755.6440476190478" y="99.0">com.ss4group8.SubComponent</node>
-            <node x="1378.505216532205" y="208.0">com.ss4group8.TutorialGroup</node>
-            <node x="427.1071428571429" y="1354.0">com.ss4group8.MarkMgr</node>
-            <node x="722.0099981142587" y="656.0">com.ss4group8.CourseRegistration</node>
-            <node x="1526.1333333333334" y="99.0">com.ss4group8.Group</node>
-            <node x="690.1175669027931" y="1453.0">com.ss4group8.CourseRegistrationMgr</node>
-            <node x="268.29761904761915" y="1115.0">com.ss4group8.ValidationMgr</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.Course">
-              <point x="45.333333333333314" y="-14.5" />
-              <point x="523.4404761904761" y="1334.0" />
-              <point x="1139.0478949396556" y="1334.0" />
-              <point x="1139.0478949396556" y="616.0" />
-              <point x="1176.0129165026888" y="616.0" />
-              <point x="3.2857142857143344" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Mark">
-              <point x="-27.714285714285666" y="-14.5" />
-              <point x="804.2782811885074" y="745.0" />
-              <point x="628.6409504952112" y="745.0" />
-              <point x="19.5" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Student" target="com.ss4group8.SCRAME">
-              <point x="-38.10714285714283" y="14.5" />
-              <point x="493.27487906663976" y="456.0" />
-              <point x="332.56356954283024" y="456.0" />
-              <point x="332.56356954283024" y="805.0" />
-              <point x="95.60636888364115" y="805.0" />
-              <point x="95.60636888364115" y="1572.0" />
-              <point x="432.24987906663966" y="1572.0" />
-              <point x="-33.66666666666674" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Professor">
-              <point x="-43.285714285714334" y="-14.5" />
-              <point x="422.6308314475921" y="1592.0" />
-              <point x="60.950000000000045" y="1592.0" />
-              <point x="60.950000000000045" y="436.0" />
-              <point x="121.08601928374526" y="436.0" />
-              <point x="121.08601928374526" y="337.0" />
-              <point x="170.228392693165" y="337.0" />
-              <point x="-16.199999999999932" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Mark">
-              <point x="-9.619047619047592" y="-14.5" />
-              <point x="456.2974981142588" y="1522.0" />
-              <point x="411.79761904761915" y="1522.0" />
-              <point x="411.79761904761915" y="885.0" />
-              <point x="576.6409504952112" y="885.0" />
-              <point x="-32.5" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Mark" target="com.ss4group8.Course">
-              <point x="24.375" y="-14.5" />
-              <point x="633.5159504952112" y="556.0" />
-              <point x="1136.5843450741174" y="556.0" />
-              <point x="-36.14285714285711" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.Group">
-              <point x="83.125" y="-14.5" />
-              <point x="868.2425669027931" y="1433.0" />
-              <point x="1676.005216532205" y="1433.0" />
-              <point x="1676.005216532205" y="178.0" />
-              <point x="1596.8208333333337" y="178.0" />
-              <point x="27.187500000000114" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Course" target="com.ss4group8.MainComponent">
-              <point x="-28.307692307692264" y="-14.5" />
-              <point x="1144.4195099092822" y="277.0" />
-              <point x="1094.524085415846" y="277.0" />
-              <point x="33.111111111111086" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.FILEMgr">
-              <point x="35.625" y="-14.5" />
-              <point x="820.7425669027931" y="1433.0" />
-              <point x="831.9925669027931" y="1433.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Course" target="com.ss4group8.LabGroup">
-              <point x="0.0" y="-14.5" />
-              <point x="1172.7272022169745" y="277.0" />
-              <point x="1272.862359389348" y="277.0" />
-              <point x="-31.14285714285711" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.LabGroup" target="com.ss4group8.Group">
-              <point x="27.25" y="-14.5" />
-              <point x="1331.255216532205" y="158.0" />
-              <point x="1542.4458333333334" y="158.0" />
-              <point x="-27.1875" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.LectureGroup">
-              <point x="46.19047619047615" y="-14.5" />
-              <point x="878.1830430932692" y="1095.0" />
-              <point x="1622.8885498655384" y="1095.0" />
-              <point x="1622.8885498655384" y="327.0" />
-              <point x="1610.0885498655384" y="327.0" />
-              <point x="11.083333333333258" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.MainComponent">
-              <point x="-7.7333333333333485" y="-14.5" />
-              <point x="1212.9574187491794" y="1164.0" />
-              <point x="1066.3891647809255" y="1164.0" />
-              <point x="1066.3891647809255" y="337.0" />
-              <point x="1077.9685298602906" y="337.0" />
-              <point x="16.555555555555543" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.LabGroup">
-              <point x="23.200000000000045" y="-14.5" />
-              <point x="1243.8907520825128" y="1294.0" />
-              <point x="1382.508154597927" y="1294.0" />
-              <point x="1382.508154597927" y="257.0" />
-              <point x="1350.7195022464907" y="257.0" />
-              <point x="46.71428571428578" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.Course">
-              <point x="7.7333333333333485" y="-14.5" />
-              <point x="1228.424085415846" y="1274.0" />
-              <point x="1255.521704463465" y="1274.0" />
-              <point x="1255.521704463465" y="626.0" />
-              <point x="1202.298630788403" y="626.0" />
-              <point x="29.571428571428555" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.TutorialGroup" target="com.ss4group8.Group">
-              <point x="-33.5" y="-14.5" />
-              <point x="1412.005216532205" y="168.0" />
-              <point x="1553.3208333333334" y="168.0" />
-              <point x="-16.3125" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Mark" target="com.ss4group8.CourseworkComponent">
-              <point x="-4.875" y="-14.5" />
-              <point x="604.2659504952112" y="69.0" />
-              <point x="732.0190476190478" y="69.0" />
-              <point x="-36.375" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Mark" target="com.ss4group8.SubComponent">
-              <point x="4.875" y="-14.5" />
-              <point x="614.0159504952112" y="516.0" />
-              <point x="684.8909504952112" y="516.0" />
-              <point x="684.8909504952112" y="158.0" />
-              <point x="764.6440476190478" y="158.0" />
-              <point x="-63.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.CourseRegistration">
-              <point x="49.875" y="-14.5" />
-              <point x="384.67261904761915" y="935.0" />
-              <point x="733.8671409714016" y="935.0" />
-              <point x="-71.14285714285711" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.CourseRegistrationMgr">
-              <point x="19.238095238095184" y="-14.5" />
-              <point x="485.1546409714016" y="1542.0" />
-              <point x="721.7842335694598" y="1542.0" />
-              <point x="-63.33333333333326" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ProfessorMgr" target="com.ss4group8.Professor">
-              <point x="-49.5" y="-14.5" />
-              <point x="103.86803382854464" y="1780.0" />
-              <point x="26.0" y="1780.0" />
-              <point x="26.0" y="307.0" />
-              <point x="137.82839269316491" y="307.0" />
-              <point x="-48.60000000000002" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.HelpInfoMgr">
-              <point x="-40.33333333333337" y="14.5" />
-              <point x="139.53571428571433" y="1433.0" />
-              <point x="166.29452192378267" y="1433.0" />
-              <point x="166.29452192378267" y="1701.0" />
-              <point x="845.7893631936238" y="1701.0" />
-              <point x="-55.111111111111086" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.SCRAME">
-              <point x="0.0" y="14.5" />
-              <point x="179.8690476190477" y="1423.0" />
-              <point x="177.29452192378267" y="1423.0" />
-              <point x="177.29452192378267" y="1552.0" />
-              <point x="441.86892668568737" y="1552.0" />
-              <point x="-24.047619047619037" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.SubComponent">
-              <point x="-13.85714285714289" y="-14.5" />
-              <point x="818.1354240456502" y="715.0" />
-              <point x="706.8909504952112" y="715.0" />
-              <point x="706.8909504952112" y="178.0" />
-              <point x="800.6440476190478" y="178.0" />
-              <point x="-27.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.Enum">
-              <point x="13.777777777777828" y="-14.5" />
-              <point x="914.6782520825127" y="1671.0" />
-              <point x="1085.7853949396556" y="1671.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.MarkMgr">
-              <point x="4.809523809523853" y="-14.5" />
-              <point x="470.72606954283026" y="1512.0" />
-              <point x="478.1071428571429" y="1512.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.ValidationMgr">
-              <point x="-54.13333333333344" y="-14.5" />
-              <point x="1166.5574187491793" y="1224.0" />
-              <point x="392.98511904761915" y="1224.0" />
-              <point x="58.1875" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.LabGroup">
-              <point x="27.714285714285666" y="-14.5" />
-              <point x="859.7068526170788" y="1055.0" />
-              <point x="1363.7748212645934" y="1055.0" />
-              <point x="1363.7748212645934" y="277.0" />
-              <point x="1319.5766451036336" y="277.0" />
-              <point x="15.571428571428555" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistration" target="com.ss4group8.Student">
-              <point x="-62.25" y="-14.5" />
-              <point x="742.7599981142587" y="506.0" />
-              <point x="569.4891647809254" y="506.0" />
-              <point x="38.10714285714286" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.FILEMgr">
-              <point x="22.666666666666686" y="-14.5" />
-              <point x="500.7738095238096" y="1314.0" />
-              <point x="812.5925669027931" y="1314.0" />
-              <point x="-19.399999999999977" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.TutorialGroup">
-              <point x="32.33333333333337" y="-14.5" />
-              <point x="864.3259002361265" y="1065.0" />
-              <point x="1462.5433117703003" y="1065.0" />
-              <point x="1462.5433117703003" y="317.0" />
-              <point x="1445.505216532205" y="317.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.CourseRegistration">
-              <point x="0.0" y="-14.5" />
-              <point x="831.9925669027931" y="995.0" />
-              <point x="876.1528552571158" y="995.0" />
-              <point x="71.14285714285711" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.Professor">
-              <point x="-46.40000000000009" y="-14.5" />
-              <point x="1174.2907520825127" y="1214.0" />
-              <point x="550.607142857143" y="1214.0" />
-              <point x="550.607142857143" y="795.0" />
-              <point x="310.7635695428303" y="795.0" />
-              <point x="310.7635695428303" y="337.0" />
-              <point x="191.82839269316491" y="337.0" />
-              <point x="5.399999999999977" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.Student">
-              <point x="-34.0" y="-14.5" />
-              <point x="444.1071428571429" y="1264.0" />
-              <point x="257.79761904761904" y="1264.0" />
-              <point x="257.79761904761904" y="855.0" />
-              <point x="427.7302362094969" y="855.0" />
-              <point x="427.7302362094969" y="506.0" />
-              <point x="527.9177362094969" y="506.0" />
-              <point x="-3.4642857142857224" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.MainComponent">
-              <point x="9.238095238095184" y="-14.5" />
-              <point x="841.2306621408883" y="1015.0" />
-              <point x="1020.0565672963396" y="1015.0" />
-              <point x="1020.0565672963396" y="307.0" />
-              <point x="1028.3018631936238" y="307.0" />
-              <point x="-33.111111111111086" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.FILEMgr">
-              <point x="-38.66666666666674" y="-14.5" />
-              <point x="1182.024085415846" y="1204.0" />
-              <point x="870.7925669027932" y="1204.0" />
-              <point x="38.80000000000007" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.CourseworkComponent">
-              <point x="-18.47619047619048" y="-14.5" />
-              <point x="813.5163764266026" y="725.0" />
-              <point x="669.6409504952112" y="725.0" />
-              <point x="669.6409504952112" y="79.0" />
-              <point x="756.2690476190478" y="79.0" />
-              <point x="-12.125" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Course" target="com.ss4group8.Professor">
-              <point x="-42.46153846153845" y="-14.5" />
-              <point x="1130.265663755436" y="297.0" />
-              <point x="224.2283926931649" y="297.0" />
-              <point x="37.799999999999955" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.CourseRegistration">
-              <point x="11.875" y="-14.5" />
-              <point x="796.9925669027931" y="1423.0" />
-              <point x="772.9925669027931" y="1423.0" />
-              <point x="772.9925669027931" y="975.0" />
-              <point x="828.7242838285445" y="975.0" />
-              <point x="23.71428571428578" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.Group">
-              <point x="55.111111111111086" y="-14.5" />
-              <point x="956.011585415846" y="1701.0" />
-              <point x="1686.880216532205" y="1701.0" />
-              <point x="1686.880216532205" y="168.0" />
-              <point x="1607.6958333333337" y="168.0" />
-              <point x="38.062500000000114" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.ValidationMgr">
-              <point x="-22.666666666666686" y="-14.5" />
-              <point x="455.4404761904762" y="1254.0" />
-              <point x="376.36011904761915" y="1254.0" />
-              <point x="41.5625" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.Student">
-              <point x="-45.375" y="-14.5" />
-              <point x="134.4940476190477" y="1334.0" />
-              <point x="132.99267840745074" y="1334.0" />
-              <point x="132.99267840745074" y="825.0" />
-              <point x="355.42803399252244" y="825.0" />
-              <point x="355.42803399252244" y="476.0" />
-              <point x="507.1320219237826" y="476.0" />
-              <point x="-24.25" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.LectureGroup">
-              <point x="46.40000000000009" y="-14.5" />
-              <point x="1267.0907520825128" y="1324.0" />
-              <point x="1643.4850899416244" y="1324.0" />
-              <point x="1643.4850899416244" y="337.0" />
-              <point x="1632.255216532205" y="337.0" />
-              <point x="33.25" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Course" target="com.ss4group8.LectureGroup">
-              <point x="35.38461538461536" y="-14.5" />
-              <point x="1208.1118176015898" y="327.0" />
-              <point x="1543.5885498655384" y="327.0" />
-              <point x="-55.41666666666663" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Course">
-              <point x="18.47619047619048" y="-14.5" />
-              <point x="850.4687573789836" y="1035.0" />
-              <point x="1132.4764663682272" y="1035.0" />
-              <point x="1132.4764663682272" y="606.0" />
-              <point x="1169.4414879312603" y="606.0" />
-              <point x="-3.2857142857142208" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.SubComponent">
-              <point x="-23.200000000000045" y="-14.5" />
-              <point x="1197.4907520825127" y="1184.0" />
-              <point x="976.4129743047349" y="1184.0" />
-              <point x="976.4129743047349" y="178.0" />
-              <point x="854.6440476190478" y="178.0" />
-              <point x="27.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.SCRAME">
-              <point x="8.3125" y="14.5" />
-              <point x="343.11011904761915" y="1294.0" />
-              <point x="357.4926784074506" y="1294.0" />
-              <point x="357.4926784074506" y="1532.0" />
-              <point x="451.48797430473496" y="1532.0" />
-              <point x="-14.428571428571445" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.ProfessorMgr" target="com.ss4group8.HelpInfoMgr">
-              <point x="49.5" y="-14.5" />
-              <point x="202.86803382854464" y="1780.0" />
-              <point x="900.9004743047349" y="1780.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.Mark">
-              <point x="0.0" y="-14.5" />
-              <point x="478.1071428571429" y="1234.0" />
-              <point x="462.1071428571429" y="1234.0" />
-              <point x="462.1071428571429" y="915.0" />
-              <point x="615.6409504952112" y="915.0" />
-              <point x="6.5" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Mark" target="com.ss4group8.MainComponent">
-              <point x="14.625" y="-14.5" />
-              <point x="623.7659504952112" y="536.0" />
-              <point x="1004.437519677292" y="536.0" />
-              <point x="1004.437519677292" y="337.0" />
-              <point x="995.1907520825127" y="337.0" />
-              <point x="-66.22222222222217" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Course">
-              <point x="33.66666666666663" y="-14.5" />
-              <point x="499.58321239997304" y="1572.0" />
-              <point x="1152.1907520825127" y="1572.0" />
-              <point x="1152.1907520825127" y="636.0" />
-              <point x="1189.155773645546" y="636.0" />
-              <point x="16.428571428571445" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.StudentMgr">
-              <point x="-19.238095238095298" y="-14.5" />
-              <point x="446.6784504952111" y="1542.0" />
-              <point x="182.1040457333064" y="1542.0" />
-              <point x="182.1040457333064" y="1433.0" />
-              <point x="220.20238095238108" y="1433.0" />
-              <point x="40.33333333333337" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SubComponent" target="com.ss4group8.CourseworkComponent">
-              <point x="-36.0" y="-14.5" />
-              <point x="791.6440476190478" y="79.0" />
-              <point x="780.5190476190478" y="79.0" />
-              <point x="12.125" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ProfessorMgr" target="com.ss4group8.ValidationMgr">
-              <point x="16.5" y="-14.5" />
-              <point x="169.86803382854464" y="1770.0" />
-              <point x="298.8153552571161" y="1770.0" />
-              <point x="298.8153552571161" y="1294.0" />
-              <point x="293.23511904761915" y="1294.0" />
-              <point x="-41.5625" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.HelpInfoMgr">
-              <point x="-8.3125" y="14.5" />
-              <point x="326.48511904761915" y="1294.0" />
-              <point x="328.7069641217364" y="1294.0" />
-              <point x="328.7069641217364" y="1681.0" />
-              <point x="873.3449187491792" y="1681.0" />
-              <point x="-27.555555555555657" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.CourseworkComponent">
-              <point x="-45.33333333333337" y="-14.5" />
-              <point x="432.7738095238095" y="1274.0" />
-              <point x="76.7595238095239" y="1274.0" />
-              <point x="76.7595238095239" y="406.0" />
-              <point x="52.709523809523944" y="406.0" />
-              <point x="52.709523809523944" y="49.0" />
-              <point x="683.5190476190478" y="49.0" />
-              <point x="-84.875" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.SubComponent">
-              <point x="11.333333333333314" y="-14.5" />
-              <point x="489.4404761904762" y="1294.0" />
-              <point x="495.5072006591892" y="1294.0" />
-              <point x="495.5072006591892" y="925.0" />
-              <point x="658.6409504952112" y="925.0" />
-              <point x="658.6409504952112" y="526.0" />
-              <point x="695.8909504952112" y="526.0" />
-              <point x="695.8909504952112" y="168.0" />
-              <point x="782.6440476190478" y="168.0" />
-              <point x="-45.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistration" target="com.ss4group8.Course">
-              <point x="20.75" y="-14.5" />
-              <point x="825.7599981142587" y="576.0" />
-              <point x="1149.7272022169745" y="576.0" />
-              <point x="-23.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.Professor">
-              <point x="-49.875" y="-14.5" />
-              <point x="284.92261904761915" y="795.0" />
-              <point x="186.03791650268863" y="795.0" />
-              <point x="186.03791650268863" y="337.0" />
-              <point x="181.02839269316496" y="337.0" />
-              <point x="-5.399999999999977" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.Student">
-              <point x="-83.125" y="-14.5" />
-              <point x="701.9925669027931" y="1423.0" />
-              <point x="250.8690476190477" y="1423.0" />
-              <point x="250.8690476190477" y="845.0" />
-              <point x="420.8016647809254" y="845.0" />
-              <point x="420.8016647809254" y="496.0" />
-              <point x="520.9891647809254" y="496.0" />
-              <point x="-10.392857142857167" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MainComponent" target="com.ss4group8.SubComponent">
-              <point x="-18.625" y="-14.5" />
-              <point x="1042.787974304735" y="158.0" />
-              <point x="890.6440476190478" y="158.0" />
-              <point x="63.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.MainComponent">
-              <point x="34.0" y="-14.5" />
-              <point x="512.1071428571429" y="1324.0" />
-              <point x="1031.0565672963396" y="1324.0" />
-              <point x="1031.0565672963396" y="317.0" />
-              <point x="1044.8574187491795" y="317.0" />
-              <point x="-16.555555555555543" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.HelpInfoMgr">
-              <point x="63.33333333333326" y="14.5" />
-              <point x="848.4509002361264" y="1552.0" />
-              <point x="900.9004743047349" y="1552.0" />
-              <point x="0.0" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.SCRAME">
-              <point x="0.0" y="14.5" />
-              <point x="785.1175669027931" y="1552.0" />
-              <point x="489.96416478092544" y="1552.0" />
-              <point x="24.047619047619037" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.Student">
-              <point x="-16.625" y="-14.5" />
-              <point x="318.17261904761915" y="865.0" />
-              <point x="461.3820219237826" y="865.0" />
-              <point x="461.3820219237826" y="516.0" />
-              <point x="534.8463076380683" y="516.0" />
-              <point x="3.4642857142857224" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.SCRAME">
-              <point x="-38.66666666666674" y="14.5" />
-              <point x="1182.024085415846" y="1423.0" />
-              <point x="1196.9136613701958" y="1423.0" />
-              <point x="1196.9136613701958" y="1582.0" />
-              <point x="504.3927362094969" y="1582.0" />
-              <point x="38.47619047619048" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.Course">
-              <point x="41.33333333333326" y="-14.5" />
-              <point x="942.2338076380681" y="1691.0" />
-              <point x="1329.7854240456502" y="1691.0" />
-              <point x="1329.7854240456502" y="606.0" />
-              <point x="1215.4414879312603" y="606.0" />
-              <point x="42.714285714285666" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Student">
-              <point x="-36.95238095238096" y="-14.5" />
-              <point x="795.0401859504121" y="765.0" />
-              <point x="522.9045831693554" y="765.0" />
-              <point x="522.9045831693554" y="526.0" />
-              <point x="541.7748790666398" y="526.0" />
-              <point x="10.392857142857139" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.CourseRegistration">
-              <point x="14.428571428571445" y="-14.5" />
-              <point x="480.34511716187785" y="1532.0" />
-              <point x="679.6175669027931" y="1532.0" />
-              <point x="679.6175669027931" y="955.0" />
-              <point x="781.2957123999729" y="955.0" />
-              <point x="-23.71428571428578" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.FILEMgr">
-              <point x="28.85714285714289" y="-14.5" />
-              <point x="494.7736885904493" y="1562.0" />
-              <point x="943.0671409714016" y="1562.0" />
-              <point x="943.0671409714016" y="1314.0" />
-              <point x="851.3925669027931" y="1314.0" />
-              <point x="19.399999999999977" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.Student">
-              <point x="-38.47619047619048" y="-14.5" />
-              <point x="427.4403552571159" y="1582.0" />
-              <point x="65.7595238095239" y="1582.0" />
-              <point x="65.7595238095239" y="446.0" />
-              <point x="486.3463076380683" y="446.0" />
-              <point x="-45.03571428571428" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.SCRAME">
-              <point x="-13.777777777777828" y="-14.5" />
-              <point x="887.122696526957" y="1671.0" />
-              <point x="465.9165457333064" y="1671.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.LectureGroup" target="com.ss4group8.Group">
-              <point x="33.25" y="-14.5" />
-              <point x="1632.255216532205" y="188.0" />
-              <point x="1585.9458333333334" y="188.0" />
-              <point x="16.3125" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.TutorialGroup">
-              <point x="30.933333333333394" y="-14.5" />
-              <point x="1251.6240854158461" y="1304.0" />
-              <point x="1496.5327089892435" y="1304.0" />
-              <point x="1496.5327089892435" y="297.0" />
-              <point x="1483.7909308179192" y="297.0" />
-              <point x="38.28571428571422" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.FILEMgr" target="com.ss4group8.Professor">
-              <point x="-46.19047619047626" y="-14.5" />
-              <point x="785.8020907123168" y="785.0" />
-              <point x="321.56356954283024" y="785.0" />
-              <point x="321.56356954283024" y="327.0" />
-              <point x="202.62839269316487" y="327.0" />
-              <point x="16.199999999999932" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.HelpInfoMgr" target="com.ss4group8.ValidationMgr">
-              <point x="-41.33333333333326" y="-14.5" />
-              <point x="859.5671409714016" y="1691.0" />
-              <point x="309.8153552571161" y="1691.0" />
-              <point x="-24.9375" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.ValidationMgr">
-              <point x="15.125" y="-14.5" />
-              <point x="194.9940476190477" y="1294.0" />
-              <point x="276.61011904761915" y="1294.0" />
-              <point x="-58.1875" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Mark" target="com.ss4group8.Student">
-              <point x="-34.125" y="-14.5" />
-              <point x="575.0159504952112" y="536.0" />
-              <point x="555.6320219237825" y="536.0" />
-              <point x="24.25" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.Course" target="com.ss4group8.TutorialGroup">
-              <point x="28.307692307692264" y="-14.5" />
-              <point x="1201.034894524667" y="317.0" />
-              <point x="1426.362359389348" y="317.0" />
-              <point x="-19.14285714285711" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.MarkMgr">
-              <point x="-35.625" y="-14.5" />
-              <point x="749.4925669027931" y="1403.0" />
-              <point x="512.1071428571429" y="1403.0" />
-              <point x="34.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseMgr" target="com.ss4group8.HelpInfoMgr">
-              <point x="38.66666666666674" y="14.5" />
-              <point x="1259.3574187491795" y="1423.0" />
-              <point x="1318.7854240456502" y="1423.0" />
-              <point x="1318.7854240456502" y="1681.0" />
-              <point x="928.4560298602905" y="1681.0" />
-              <point x="27.555555555555657" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.Course">
-              <point x="59.375" y="-14.5" />
-              <point x="844.4925669027931" y="1423.0" />
-              <point x="1145.619323511084" y="1423.0" />
-              <point x="1145.619323511084" y="626.0" />
-              <point x="1182.5843450741174" y="626.0" />
-              <point x="9.85714285714289" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MarkMgr" target="com.ss4group8.SCRAME">
-              <point x="-34.0" y="14.5" />
-              <point x="444.1071428571429" y="1433.0" />
-              <point x="459.7810101829987" y="1433.0" />
-              <point x="459.7810101829987" y="1502.0" />
-              <point x="465.9165457333064" y="1502.0" />
-              <point x="0.0" y="-14.5" />
-            </edge>
-            <edge source="com.ss4group8.CourseRegistrationMgr" target="com.ss4group8.ValidationMgr">
-              <point x="-59.375" y="-14.5" />
-              <point x="725.7425669027931" y="1413.0" />
-              <point x="368.4926784074506" y="1413.0" />
-              <point x="368.4926784074506" y="1284.0" />
-              <point x="359.73511904761915" y="1284.0" />
-              <point x="24.9375" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.MainComponent" target="com.ss4group8.CourseworkComponent">
-              <point x="18.625" y="-14.5" />
-              <point x="1080.037974304735" y="69.0" />
-              <point x="829.0190476190478" y="69.0" />
-              <point x="60.625" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.ValidationMgr" target="com.ss4group8.Course">
-              <point x="16.625" y="-14.5" />
-              <point x="351.42261904761915" y="875.0" />
-              <point x="533.9045831693554" y="875.0" />
-              <point x="533.9045831693554" y="546.0" />
-              <point x="1130.0129165026888" y="546.0" />
-              <point x="-42.714285714285666" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.SCRAME" target="com.ss4group8.CourseMgr">
-              <point x="43.285714285714334" y="-14.5" />
-              <point x="509.20226001902074" y="1592.0" />
-              <point x="1203.7621806539412" y="1592.0" />
-              <point x="1203.7621806539412" y="1423.0" />
-              <point x="1220.6907520825127" y="1423.0" />
-              <point x="0.0" y="14.5" />
-            </edge>
-            <edge source="com.ss4group8.StudentMgr" target="com.ss4group8.FILEMgr">
-              <point x="45.375" y="-14.5" />
-              <point x="225.2440476190477" y="1304.0" />
-              <point x="793.1925669027931" y="1304.0" />
-              <point x="-38.799999999999955" y="14.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.41092528079169255" x="57.9353048089954" y="480.0477848858891" />
-          <SelectedNodes>
-            <node>com.ss4group8.SCRAME</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/professorFile.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
+    <entry file="uml://JAVA/" />
+    <entry file="uml://JAVA/com.ss4group8" />
+    <entry file="file://$PROJECT_DIR$/data/professorFile.csv" />
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2000,68 +662,137 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14874#14882#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="71" selection-start-line="3" selection-start-column="71" selection-end-line="3" selection-end-column="71" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="68" lean-forward="true" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="192" column="24" lean-forward="true" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/professorFile.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="376" column="17" selection-start-line="376" selection-start-column="14" selection-end-line="376" selection-end-column="17" />
+        <state relative-caret-position="6128">
+          <caret line="697" column="1" lean-forward="true" selection-start-line="697" selection-start-column="1" selection-end-line="697" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/studentFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="10" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="10" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="10" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="10" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="10" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="10" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="10" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="10" />
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/markFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/StudentMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/courseFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/professorFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/LabGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MainComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/MarkMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="125" column="31" lean-forward="true" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ProfessorMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="43" selection-end-column="9" />
           <folding>
-            <element signature="e#4791#4805#0" expanded="true" />
-            <element signature="e#9203#9218#0" expanded="true" />
-            <element signature="e#12941#12951#0" expanded="true" />
-            <element signature="e#14874#14882#0" expanded="true" />
-            <element signature="method#checkAvailableSlots#0;class#CourseMgr#0" />
-            <element signature="e#19930#19945#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/ValidationMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1651">
+          <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/courseRegistrationFile.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/CourseRegistrationMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2709">
+          <caret line="147" column="21" selection-start-line="147" selection-start-column="21" selection-end-line="147" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/HelpInfoMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ss4group8/SCRAME.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
