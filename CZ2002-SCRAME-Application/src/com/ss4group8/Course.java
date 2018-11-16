@@ -146,10 +146,4 @@ public class Course {
         this.labWeeklyHour = labWeeklyHour;
     }
 
-    public void printLectureGroup() {
-        for (int i = 0; i < lectureGroups.size(); i++) {
-            System.out.println(lectureGroups.get(i).getGroupName() + " still has " + lectureGroups.get(i).getAvailableVacancies()
-                    + " vacancies");
-        }
-    }
 }

@@ -8,22 +8,20 @@ import java.util.stream.Collectors;
 import java.util.regex.*;
 
 /**
- Represents all the validation checked in this system.
- @author Ma Xiao
- @author Fu Mengyan
- @author Kevin Steven Kihata
- @author Ng Chen Ee Kenneth
- @author Ian Tan Yi
- @version 1.0
- @since   2018-11-13
+ * Manages all the validation check in this system.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ * @since   2018-11-13
  */
 
 public class ValidationMgr {
 
     private static Scanner scanner = new Scanner(System.in);
-
     private static PrintStream originalStream = System.out;
-
     private static PrintStream dummyStream = new PrintStream(new OutputStream(){
         public void write(int b) {
             // NO-OP
@@ -160,9 +158,8 @@ public class ValidationMgr {
     }
 
     /**
-     * Checks whether
-     * @
-     * @return this Student's name.
+     * Prompts the user to input an existing student.
+     * @return the inputted student.
      */
     public static Student checkStudentExists(){
         String studentID;
@@ -177,28 +174,26 @@ public class ValidationMgr {
 
             System.setOut(dummyStream);
             currentStudent = checkStudentExists(studentID);
+            System.setOut(originalStream);
             if (currentStudent == null) {
-                System.setOut(originalStream);
                 System.out.println("Invalid Student ID. Please re-enter.");
             }else {
                 break;
             }
 
         }
-        System.setOut(originalStream);
         return currentStudent;
     }
 
     /**
-     * Gets the first and last name of this Student.
-     * @return this Course
+     * Prompts the user to input an existing course.
+     * @return the inputted course.
      */
     public static Course checkCourseExists(){
         String courseID;
         Course currentCourse;
         while(true){
-            System.out.println("Enter course ID");
-            System.out.println("Enter -h to print all the course ID.");
+            System.out.println("Enter course ID (-h to print all the course ID):");
             courseID = scanner.nextLine();
             while("-h".equals(courseID)){
                 HelpInfoMgr.printAllCourses();
@@ -219,8 +214,8 @@ public class ValidationMgr {
     }
 
     /**
-     * Gets the first and last name of this Student.
-     * @return this Student's name.
+     * Prompts the user to input an existing department.
+     * @return the inputted department.
      */
     public static String checkCourseDepartmentExists(){
         String courseDepartment;
@@ -247,8 +242,9 @@ public class ValidationMgr {
     }
 
     /**
-     * Gets the first and last name of this Student.
-     * @return this Student's name.
+     * Checks whether this course ID is used by other courses.
+     * @param courseID The inputted course ID.
+     * @return the existing course or else null.
      */
     public static Course checkCourseExists(String courseID){
         List<Course> anyCourse = SCRAME.courses.stream().filter(c->courseID.equals(c.getCourseID())).collect(Collectors.toList());
@@ -261,8 +257,9 @@ public class ValidationMgr {
     }
 
     /**
-     * Gets the first and last name of this Student.
-     * @return this Student's name.
+     * Checks whether this professor ID is used by other professors.
+     * @param profID The inputted professor ID.
+     * @return the existing professor or else null.
      */
     public static Professor checkProfExists(String profID){
         List<Professor> anyProf = SCRAME.professors.stream().filter(p->profID.equals(p.getProfID())).collect(Collectors.toList());
@@ -275,8 +272,10 @@ public class ValidationMgr {
     }
 
     /**
-     * Gets the first and last name of this Student.
-     * @return this Student's name.
+     * Checks whether this course registration record exists.
+     * @param studentID The inputted student ID.
+     * @param courseID The inputted course ID.
+     * @return the existing course registration record or else null.
      */
     public static CourseRegistration checkCourseRegistrationExists(String studentID, String courseID){
         List<CourseRegistration> courseRegistrations = SCRAME.courseRegistrations.stream().filter(cr->studentID.equals(cr.getStudent().getStudentID())).filter(cr->courseID.equals(cr.getCourse().getCourseID())).collect(Collectors.toList());

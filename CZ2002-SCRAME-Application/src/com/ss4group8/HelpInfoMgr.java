@@ -4,13 +4,31 @@ import com.ss4group8.Enum.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ Manages all the help information display in the system.
+ @author Ma Xiao
+ @author Fu Mengyan
+ @author Kevin Steven Kihata
+ @author Ng Chen Ee Kenneth
+ @author Ian Tan Yi
+ @version 1.0
+ @since   2018-11-13
+ */
+
 public class HelpInfoMgr {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static List<String> printProfInDepartment (String department){
+    /**
+     * Displays all the professors in the inputted department.
+     * @param department The inputted department.
+     * @return A list of all the names of professors in the inputted department or else null.
+     */
+    public static List<String> printProfInDepartment (String department, boolean printOut){
         if(ValidationMgr.checkDepartmentValidation(department)){
             List<String> validProfString = SCRAME.professors.stream().filter(p->String.valueOf(department).equals(p.getProfDepartment())).map(p->p.getProfID()).collect(Collectors.toList());
-            validProfString.forEach(System.out::println);
+            if (printOut) {
+                validProfString.forEach(System.out::println);
+            }
             return validProfString;
         }
         System.out.println("None.");
@@ -18,16 +36,24 @@ public class HelpInfoMgr {
 
     }
 
+    /**
+     * Displays a list of IDs of all the students.
+     */
     public static void printAllStudents(){
         SCRAME.students.stream().map(s->s.getStudentID()).forEach(System.out::println);
-
     }
 
+    /**
+     * Displays a list of IDs of all the courses.
+     */
     public static void printAllCourses(){
         SCRAME.courses.stream().map(c->c.getCourseID()).forEach(System.out::println);
 
     }
 
+    /**
+     * Displays a list of all the departments.
+     */
     public static void printAllDepartment(){
         int index = 1;
         for (Department department : Department.values()) {
@@ -37,6 +63,9 @@ public class HelpInfoMgr {
 
     }
 
+    /**
+     * Displays a list of all the genders.
+     */
     public static void printAllGender(){
         int index = 1;
         for(Gender gender : Gender.values()){
@@ -46,6 +75,9 @@ public class HelpInfoMgr {
 
     }
 
+    /**
+     * Displays a list of all the course types.
+     */
     public static void printAllCourseType(){
         int index = 1;
         for(CourseType courseType : CourseType.values()){
@@ -54,6 +86,10 @@ public class HelpInfoMgr {
         }
     }
 
+    /**
+     * Gets all the departments as an array list.
+     * @return an array list of all the departments.
+     */
     public static ArrayList<String> getAllDepartment(){
         Set<Department> departmentEnumSet = EnumSet.allOf(Department.class);
         ArrayList<String> departmentStringList = new ArrayList<String>(0);
@@ -65,6 +101,10 @@ public class HelpInfoMgr {
 
     }
 
+    /**
+     * Gets all the genders as an array list.
+     * @return an array list of all the genders.
+     */
     public static ArrayList<String> getAllGender(){
         Set<Gender> genderEnumSet = EnumSet.allOf(Gender.class);
         ArrayList<String> genderStringList = new ArrayList<String>(0);
@@ -75,6 +115,10 @@ public class HelpInfoMgr {
         return genderStringList;
     }
 
+    /**
+     * Gets all the course types as an array list.
+     * @return an array list of all the course types.
+     */
     public static ArrayList<String> getAllCourseType(){
         Set<CourseType> courseTypeEnumSet = EnumSet.allOf(CourseType.class);
         ArrayList<String> courseTypeStringSet = new ArrayList<String>(0);
@@ -86,6 +130,11 @@ public class HelpInfoMgr {
     }
 
 
+    /**
+     * Displays a list of all the courses in the inputted department.
+     * @param department The inputted department.
+     * @return a list of all the department values.
+     */
     public static List<String> printCourseInDepartment(String department){
         List<Course> validCourses = SCRAME.courses.stream().filter(c->department.equals(c.getCourseDepartment())).collect(Collectors.toList());
         List<String> validCourseString = validCourses.stream().map(c->c.getCourseID()).collect(Collectors.toList());
@@ -96,6 +145,12 @@ public class HelpInfoMgr {
         return validCourseString;
      }
 
+    /**
+     * Checks whether the inputted department is valid.
+     * @param groupType The type of this group.
+     * @param groups An array list of a certain type of groups in a course.
+     * @return the name of the group chosen by the user.
+     */
      public static String printGroupWithVacancyInfo(String groupType, ArrayList<Group> groups) {
          int index;
          HashMap<String, Integer> groupAssign = new HashMap<String, Integer>(0);
