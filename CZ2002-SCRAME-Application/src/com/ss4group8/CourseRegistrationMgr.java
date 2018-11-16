@@ -6,9 +6,21 @@ import static com.ss4group8.CourseRegistration.LabComparator;
 import static com.ss4group8.CourseRegistration.LecComparator;
 import static com.ss4group8.CourseRegistration.TutComparator;
 
+/**
+ * Manages all the courses registration related operations.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ */
 public class CourseRegistrationMgr {
     private static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Registers a course for a student
+     */
     public static void registerCourse() {
         System.out.println("registerCourse is called");
         String selectedLectureGroupName = null;
@@ -76,6 +88,9 @@ public class CourseRegistrationMgr {
         System.out.println();
     }
 
+    /**
+     * Prints the students in a course according to their lecture group, tutorial group or lab group.
+     */
     public static void printStudents() {
         System.out.println("printStudent is called");
         Course currentCourse = ValidationMgr.checkCourseExists();

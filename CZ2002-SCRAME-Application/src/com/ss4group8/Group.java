@@ -1,7 +1,7 @@
 package com.ss4group8;
 
 /**
- * {@code Group} represents study groups (LectureGroup, TutorialGroup and LabGroup) for a course.
+ * Represents study groups (LectureGroup, TutorialGroup and LabGroup) for a course.
  * A course must have at least one lecture group.
  * A course can have many or no tutorial groups and lab groups.
  * Student enrolled in this course must also be enrolled in one of the groups of each type.
@@ -50,13 +50,13 @@ public class Group {
     public String getGroupName() { return this.groupName; }
 
     /**
-     * Gets the current available vacancies for this course.
+     * Gets the current available vacancies for this group.
      * @return this group's current available vacancy.
      */
     public int getAvailableVacancies() { return this.availableVacancies; }
 
     /**
-     * Gets the total seats for this course.
+     * Gets the total seats for this group.
      * @return this group's total seats.
      */
     public int getTotalSeats() {
@@ -64,7 +64,7 @@ public class Group {
     }
 
     /**
-     * Updates the available of this course after someone has registered this course.
+     * Updates the available vacancies of this group after someone has registered this group.
      */
     public void enrolledIn () {
         this.availableVacancies -= 1;

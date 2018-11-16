@@ -3,10 +3,24 @@ package com.ss4group8;
 
 import java.util.Scanner;
 
+/**
+ * Manages the student related operations.
+ * Contains addStudent.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ */
+
 public class StudentMgr {
     private static Scanner scanner = new Scanner(System.in);
 
 
+    /**
+     * Adds a student and put the student into file
+     */
     public static void addStudent() {
         String studentName, studentSchool;
         String studentID = null;

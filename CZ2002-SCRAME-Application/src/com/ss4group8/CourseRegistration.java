@@ -1,6 +1,15 @@
 package com.ss4group8;
 import java.util.Comparator;
 
+/**
+ * Represents the course registration record.
+ * @author Ma Xiao
+ * @author Fu Mengyan
+ * @author Kevin Steven Kihata
+ * @author Ng Chen Ee Kenneth
+ * @author Ian Tan Yi
+ * @version 1.0
+ */
 public class CourseRegistration {
     private Student student;
     private Course course;

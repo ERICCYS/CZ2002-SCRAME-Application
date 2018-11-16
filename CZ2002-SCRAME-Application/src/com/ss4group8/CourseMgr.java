@@ -6,7 +6,7 @@ import java.io.PrintStream;
 import java.io.OutputStream;
 
 /**
- * Manages all the courses.
+ * Manages all the courses related operations.
  * @author Ma Xiao
  * @author Fu Mengyan
  * @author Kevin Steven Kihata
@@ -686,7 +686,9 @@ public class CourseMgr {
         // UPDATE COURSE into course.csv
     }
 
-
+    /**
+     * Prints the list of courses
+     */
     public static void printCourses () {
         System.out.println("Course List: ");
         System.out.println("| Course ID | Course Name | Professor in Charge |");
