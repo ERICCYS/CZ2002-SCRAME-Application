@@ -191,7 +191,7 @@ public class MarkMgr {
                     System.out.print("\tWeight: " + subComponent.getComponentWeight() + "% (in main component)");
                     String thisSubComponentName = subComponent.getComponentName();
 
-                    averageMark += computeMark(thisCourseMark, thisComponentName);
+                    averageMark += computeMark(thisCourseMark, thisSubComponentName);
 
                     averageMark = averageMark / thisCourseMark.size();
                     System.out.println("\t Average: " + averageMark);
