@@ -8,6 +8,7 @@ import static com.ss4group8.CourseRegistration.TutComparator;
 
 /**
  * Manages all the courses registration related operations.
+ *
  * @author Ma Xiao
  * @author Fu Mengyan
  * @author Kevin Steven Kihata
@@ -144,8 +145,7 @@ public class CourseRegistrationMgr {
                 Collections.sort(stuArray, TutComparator);
                 if (stuArray.size() > 0 && stuArray.get(0).getCourse().getTutorialGroups().size() == 0) {
                     System.out.println("This course does not contain any tutorial group.");
-                }
-                else if (stuArray.size() > 0) {
+                } else if (stuArray.size() > 0) {
                     for (int i = 0; i < stuArray.size(); i++) {
                         if (!newTut.equals(stuArray.get(i).getTutorialGroup())) {
                             newTut = stuArray.get(i).getTutorialGroup();
@@ -162,8 +162,7 @@ public class CourseRegistrationMgr {
                 Collections.sort(stuArray, LabComparator);
                 if (stuArray.size() > 0 && stuArray.get(0).getCourse().getLabGroups().size() == 0) {
                     System.out.println("This course does not contain any lab group.");
-                }
-                else if (stuArray.size() > 0){
+                } else if (stuArray.size() > 0) {
                     for (int i = 0; i < stuArray.size(); i++) {
                         if (!newLab.equals(stuArray.get(i).getLabGroup())) {
                             newLab = stuArray.get(i).getLabGroup();

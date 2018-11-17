@@ -1,8 +1,10 @@
 package com.ss4group8;
+
 import java.util.Comparator;
 
 /**
  * Represents the course registration record.
+ *
  * @author Ma Xiao
  * @author Fu Mengyan
  * @author Kevin Steven Kihata

@@ -28,9 +28,6 @@ public class StudentMgr {
         boolean studentExists;
         String GPA = "not available";
         Student currentStudent = null;
-//        String studentID;
-//        // Can make the sameStudentID as boolean, set to false.
-//        int sameStudentID = 0;
         System.out.println("addStudent is called");
         System.out.println("Choose the way you want to add a student:");
         System.out.println("1. Manually input the student ID.");

@@ -2,13 +2,13 @@ package com.ss4group8;
 
 /**
  * This is an abstract class which can be extended by {@code MainComponent} and {@code SubComponent}.
+ *
  * @author Ma Xiao
  * @author Fu Mengyan
  * @author Kevin Steven Kihata
  * @author Ng Chen Ee Kenneth
  * @author Ian Tan Yi
  * @version 1.0
- *
  */
 
 public abstract class CourseworkComponent {
@@ -23,7 +23,8 @@ public abstract class CourseworkComponent {
 
     /**
      * Creates a course work components with component name and component weight
-     * @param componentName the name of this coursework component
+     *
+     * @param componentName   the name of this coursework component
      * @param componentWeight the weight of this coursework component
      */
     public CourseworkComponent(String componentName, int componentWeight) {
@@ -33,6 +34,7 @@ public abstract class CourseworkComponent {
 
     /**
      * Gets the component name
+     *
      * @return the name of this component
      */
     public String getComponentName() {
@@ -41,6 +43,7 @@ public abstract class CourseworkComponent {
 
     /**
      * Gets the weight of this component
+     *
      * @return the weight of this component
      */
     public int getComponentWeight() {
